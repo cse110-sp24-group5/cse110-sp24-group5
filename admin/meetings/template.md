@@ -16,11 +16,17 @@ People who attended:
 
 ## Agenda Items
 
-### Unresolved from previous meeting
+#### Unresolved from previous meeting
 
-### Things to be discussed
+TODO
 
-### Unresolved from this meeting
+#### Things to be discussed
+
+TODO
+
+#### Unresolved from this meeting
+
+TODO
 
 ## Decisions made and Reasoning
 
