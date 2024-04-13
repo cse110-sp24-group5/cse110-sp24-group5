@@ -1,20 +1,17 @@
 # Panda Coding Express
-Welcome to the Panda Coding Express page, where your code is delivered quick and efficiently!
+Welcome to the Panda Coding Express page, where your code is delivered quick and efficiently! We are a group of undergrads enrolled in CSE 110 at UCSD and this is our team page.
 
 <p align="center">
-<img src="branding/team-logo.png" width="300" />
+<img src="branding/team-logo.png" width="500" />
 </p>
-<br/>
 
-comment- put team in alphabetical order other than team leads in the front, don't know if you want to do something special with them <br/>
-comment- also don't know if we need more than a sentence for our "brief introduction" <br/>
 ## Meet Our Team
 Feel free to visit our team's individual pages to learn more about us! <br/>
 <br/>
 
-**Arnav** (team lead): <br/> Arnav is a 2-nd year CS major at Revelle! He likes working out and playing soccer.
+**Arnav** (team lead): <br/> Arnav is a 2nd year CS major at Revelle! He likes working out and playing soccer.
 
-<img src="team-headshots/amodi.JPG" width="150" />
+<img src="team-headshots/amodi.JPG" width="250" />
 
 [Arnav's Page](https://arnav710.github.io/user_page/)<br/>
 
@@ -50,11 +47,20 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 **Vishaal**: Vishaal is from Santa Clarita and enjoys playing tennis and watching movies! <br/>
 
-<img src="team-headshots/vishaal.png" width="150" />
+<img src="team-headshots/vishaal.png" width="250" />
 
 [Vishaal's Page](https://vishaal-gaddipati.github.io/CSE110Lab1/) <br/>
 
 **Xavier**: <br/>
 
 ## Values We Hold Dear
-In everything we make, we strive for the best experience for the user.
+**Product Values**
+1. In everything we make, we strive for the best experience for the user!
+2. Iterative improvements based on user feedback.
+3. Simplistic yet elegant design.
+
+**Team Culture**
+1. If someone makes an error, just try to resolve it by working together. Do not blame each other. Everyone is here to learn!
+2. Treat everyone with respect.
+3. Ask for help when you need it!
+4. Don't be afraid to share your ideas and be open to opinions shared by others.
