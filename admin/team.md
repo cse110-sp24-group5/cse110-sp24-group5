@@ -37,21 +37,25 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 **Maasilan**: <br/>
 
+[Maasilan's Page](https://kmaasilan.github.io/GitHubPagesProject/)
+
 **Nicholas**: <br/>
 
 [Nicholas' Page](https://cheahfulnic.github.io/Lab-Week-1---VSCode-Markdown-and-Git-Part-1/) <br/>
 
-**Stephen**: Stephen is from San Clemente and loves going to the gym and hanging out with his friends! <br/>
+**Stephen**: <br/> Stephen is from San Clemente and loves going to the gym and hanging out with his friends! <br/>
 
 [Stephen's Page](https://stephentong5.github.io/GithubPagesProject/) <br/>
 
-**Vishaal**: Vishaal is from Santa Clarita and enjoys playing tennis and watching movies! <br/>
+**Vishaal**: <br/> Vishaal is from Santa Clarita and enjoys playing tennis and watching movies! <br/>
 
 <img src="team-headshots/vishaal.png" width="250" />
 
 [Vishaal's Page](https://vishaal-gaddipati.github.io/CSE110Lab1/) <br/>
 
 **Xavier**: <br/>
+
+[Xavier's Page](https://ksirx.github.io/personal_page/)
 
 ## Values We Hold Dear
 **Product Values**
