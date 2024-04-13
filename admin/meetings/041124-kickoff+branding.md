@@ -8,10 +8,8 @@
 
 
 ## Attendees
-People who attended:
-- Person A
-- Person B
-- Person C
+
+Everyone was present
 
 ## Agenda Items
 
