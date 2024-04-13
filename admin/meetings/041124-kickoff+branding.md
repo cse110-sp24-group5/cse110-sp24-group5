@@ -1,9 +1,13 @@
 # Meeting Minutes
 
 ## Meeting Information
+
 **Team Number and Name:** Panda Coding Express (5)
+
 **Type of Meeting:** Remote
+
 **Meeting Date and Location:** Apr 12, remote
+
 **Meeting Purpose:** Team branding and kickoff
 
 
