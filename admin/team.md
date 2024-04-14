@@ -29,7 +29,7 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 **Haley**: <br/>
 
-[Haley's Page](https://github.com/nguyenhaley/GitHubPagesProject)
+[Haley's Page](https://nguyenhaley.github.io/GitHubPagesProject/)
 
 **Hugo**: <br/>
 
