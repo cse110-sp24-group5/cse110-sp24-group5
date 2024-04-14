@@ -9,29 +9,29 @@ Welcome to the Panda Coding Express page, where your code is delivered quick and
 Feel free to visit our team's individual pages to learn more about us! <br/>
 <br/>
 
-**Arnav** (team lead): <br/> Arnav is a 2nd year CS major at Revelle! He likes working out and playing soccer.
+**Arnav** (team lead): <br/> Arnav is a 2nd year CS major at Revelle! He likes working out and playing soccer!
 
 <img src="team-headshots/amodi.JPG" width="250" />
 
 [Arnav's Page](https://arnav710.github.io/user_page/)<br/>
 
-**Mishka** (team lead): <br/>
+**Mishka** (team lead): <br/> Mishka is second-year CS major from India who loves to dance and explore resturants and cafes in her free time! <br/>
 
 [Mishka's Page](https://github.com/mishkajethwani/CSE-110-git-pages) <br/>
 
-**Angel**: <br/>
+**Angel**: <br/> Angel is a fourth year CSE minor at Sixth who likes to listen to music, play games, and draw! <br/>
 
 [Angel's Page](https://angelsofttoy.github.io/cse110_angel/) <br/>
 
-**Drishti**: <br/>
+**Drishti**: <br/> Drishti is a second-year CS major at Marshall who likes to journal and go to art museums in her free time! <br/>
 
 [Drishti's Page](https://dregmi08.github.io/cse110_lab1/) <br/>
 
-**Haley**: <br/>
+**Haley**: <br/> Haley is a second-year CS major from Sixth who loves working out, reading, and going out with friends to eat! <br/>
 
 [Haley's Page](https://nguyenhaley.github.io/GitHubPagesProject/)
 
-**Hugo**: <br/>
+**Hugo**: <br/> Hugo is a third-year CE major at ERC who loves to go to the gym and play video games! <br/>
 
 [Hugo's Page](https://hdsouza13.github.io/lab1-cse110/)
 
@@ -39,11 +39,11 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 [Maasilan's Page](https://kmaasilan.github.io/GitHubPagesProject/)
 
-**Nicholas**: <br/>
+**Nicholas**: <br/> Nicholas is a second-year CE major at Sixth who likes to go to the gym and review books, shows, and movies! <br/>
 
 [Nicholas' Page](https://cheahfulnic.github.io/Lab-Week-1---VSCode-Markdown-and-Git-Part-1/) <br/>
 
-**Stephen**: <br/> Stephen is from San Clemente and loves going to the gym and hanging out with his friends! <br/>
+**Stephen**: <br/> Stephen is a CS major from San Clemente and loves going to the gym and hanging out with his friends! <br/>
 
 [Stephen's Page](https://stephentong5.github.io/GithubPagesProject/) <br/>
 
@@ -53,7 +53,7 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 [Vishaal's Page](https://vishaal-gaddipati.github.io/CSE110Lab1/) <br/>
 
-**Xavier**: <br/>
+**Xavier**: <br/> Xavier like to go to the gym, play games, and make/listen to music! <br/>
 
 [Xavier's Page](https://ksirx.github.io/personal_page/)
 
