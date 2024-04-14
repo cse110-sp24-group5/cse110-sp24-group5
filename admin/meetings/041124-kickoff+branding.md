@@ -20,6 +20,7 @@ Everyone was present
 #### From previous meeting
 
 - Icebreaker was done - played skribbl
+![alt text](../team-headshots/group-bonding.jpg)
 
 #### Things to be discussed
 
