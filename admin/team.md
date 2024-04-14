@@ -15,23 +15,33 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 [Arnav's Page](https://arnav710.github.io/user_page/)<br/>
 
-**Mishka** (team lead): <br/> Mishka is second-year CS major from India who loves to dance and explore resturants and cafes in her free time! <br/>
+**Mishka** (team lead): <br/> Mishka is second-year CS major from India who loves to dance and explore resturants and cafes in her free time!
+
+<img src="team-headshots/mishka.jpeg" width="250" />
 
 [Mishka's Page](https://github.com/mishkajethwani/CSE-110-git-pages) <br/>
 
-**Angel**: <br/> Angel is a fourth year CSE minor at Sixth who likes to listen to music, play games, and draw! <br/>
+**Angel**: <br/> Angel is a fourth year CSE minor at Sixth who likes to listen to music, play games, and draw!
+
+<img src="team-headshots/angel.JPG" width="250" />
 
 [Angel's Page](https://angelsofttoy.github.io/cse110_angel/) <br/>
 
-**Drishti**: <br/> Drishti is a second-year CS major at Marshall who likes to journal and go to art museums in her free time! <br/>
+**Drishti**: <br/> Drishti is a second-year CS major at Marshall who likes to journal and go to art museums in her free time!
+
+<img src="team-headshots/drishti.jpeg" width="250" />
 
 [Drishti's Page](https://dregmi08.github.io/cse110_lab1/) <br/>
 
-**Haley**: <br/> Haley is a second-year CS major from Sixth who loves working out, reading, and going out with friends to eat! <br/>
+**Haley**: <br/> Haley is a second-year CS major from Sixth who loves working out, reading, and going out with friends to eat!
+
+<img src="team-headshots/haley.JPG" width="250" />
 
 [Haley's Page](https://nguyenhaley.github.io/GitHubPagesProject/)
 
-**Hugo**: <br/> Hugo is a third-year CE major at ERC who loves to go to the gym and play video games! <br/>
+**Hugo**: <br/> Hugo is a third-year CE major at ERC who loves to go to the gym and play video games!
+
+<img src="team-headshots/hugo.jpeg" width="250" />
 
 [Hugo's Page](https://hdsouza13.github.io/lab1-cse110/)
 
@@ -39,21 +49,27 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 [Maasilan's Page](https://kmaasilan.github.io/GitHubPagesProject/)
 
-**Nicholas**: <br/> Nicholas is a second-year CE major at Sixth who likes to go to the gym and review books, shows, and movies! <br/>
+**Nicholas**: <br/> Nicholas is a second-year CE major at Sixth who likes to go to the gym and review books, shows, and movies!
+
+<img src="team-headshots/nicholas.jpeg" width="250" />
 
 [Nicholas' Page](https://cheahfulnic.github.io/Lab-Week-1---VSCode-Markdown-and-Git-Part-1/) <br/>
 
-**Stephen**: <br/> Stephen is a CS major from San Clemente and loves going to the gym and hanging out with his friends! <br/>
+**Stephen**: <br/> Stephen is a CS major from San Clemente and loves going to the gym and hanging out with his friends!
+
+<img src="team-headshots/stephen.jpeg" width="250" />
 
 [Stephen's Page](https://stephentong5.github.io/GithubPagesProject/) <br/>
 
-**Vishaal**: <br/> Vishaal is from Santa Clarita and enjoys playing tennis and watching movies! <br/>
+**Vishaal**: <br/> Vishaal is from Santa Clarita and enjoys playing tennis and watching movies!
 
 <img src="team-headshots/vishaal.png" width="250" />
 
 [Vishaal's Page](https://vishaal-gaddipati.github.io/CSE110Lab1/) <br/>
 
-**Xavier**: <br/> Xavier like to go to the gym, play games, and make/listen to music! <br/>
+**Xavier**: <br/> Xavier like to go to the gym, play games, and make/listen to music!
+
+<img src="team-headshots/xavier.JPG" width="250" />
 
 [Xavier's Page](https://ksirx.github.io/personal_page/)
 
