@@ -45,7 +45,9 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 [Hugo's Page](https://hdsouza13.github.io/lab1-cse110/)
 
-**Maasilan**: <br/>
+**Maasilan**: <br/> Maasilan is a third-year CS major at Warren. He likes playing video games and hanging out with friends and family!
+
+<img src="team-headshots/maasilan.JPG" width="250" />
 
 [Maasilan's Page](https://kmaasilan.github.io/GitHubPagesProject/)
 
