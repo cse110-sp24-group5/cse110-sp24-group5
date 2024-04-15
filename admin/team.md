@@ -2,7 +2,7 @@
 Welcome to the Panda Coding Express page, where your code is delivered quick and efficiently! We are a group of undergrads enrolled in CSE 110 at UCSD and this is our team page.
 
 <p align="center">
-<img src="branding/updated-team-logo.png" width="500" />
+<img src="branding/team-logo.png" width="500" />
 </p>
 
 ## Meet Our Team
