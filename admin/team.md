@@ -55,7 +55,7 @@ Feel free to visit our team's individual pages to learn more about us! <br/>
 
 <img src="team-headshots/nicholas.jpeg" width="250" />
 
-[Nicholas' Page](https://cheahfulnic.github.io/Lab-Week-1---VSCode-Markdown-and-Git-Part-1/) <br/>
+[Nicholas' Page](https://cheahfulnic.github.io/sp24-cse110-lab1/) <br/>
 
 **Stephen**: <br/> Stephen is a CS major from San Clemente and loves going to the gym and hanging out with his friends!
 
