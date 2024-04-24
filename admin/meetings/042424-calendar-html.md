@@ -36,7 +36,7 @@ How to develop the basic structure in HTML for the warmup assignment
 |-------|-----------------------------------|------------------|---------------|
 | yes   | adding the calendar component    | Mishka, Vishaal  | Wednesday 10 am |
 | yes   | adding the task component        | Mishka, Vishaal  | Wednesday 10 am |
-| no    | adding comments and documentation| Drishti          | Wednesday 10 am |
+| yes    | adding comments and documentation| Drishti          | Wednesday 10 am |
         
 
 
