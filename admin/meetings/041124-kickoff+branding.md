@@ -87,11 +87,11 @@ This is flexible and might change as the quarter progresses.
 ## Action Items
 | Done? | Task | People | Due Date |
 | ---- | ---- | ---- | ---- |
-| | Logo + Color Scheme | Angel | Apr 12 |
-| | Script | Nicholas, Hugo, Haley, and Xavier | Draft (Apr 12), Final (Apr 13) |
-| | Filming | Everyone | Apr 14, 2:00pm |
-| | Editing | Drishti, Mishka, and Maasilan | (Rough Draft Apr 14) Finalize by Apr 15, 5:00pm |
-| | Team Page | Arnav, Stephen and Vishaal | Apr 13, 11:59pm |
+| yes| Logo + Color Scheme | Angel | Apr 12 |
+| yes| Script | Nicholas, Hugo, Haley, and Xavier | Draft (Apr 12), Final (Apr 13) |
+| yes| Filming | Everyone | Apr 14, 2:00pm |
+| yes| Editing | Drishti, Mishka, and Maasilan | (Rough Draft Apr 14) Finalize by Apr 15, 5:00pm |
+| yes| Team Page | Arnav, Stephen and Vishaal | Apr 13, 11:59pm |
 
 ## Other Notes & Information
 
