@@ -34,6 +34,8 @@ N/A
 
 ## Retrium
 
+![Group on zoom call]()
+
 ### Mad, Sad, Glad
 
 ![Mad, Sad, Glad Results]()
