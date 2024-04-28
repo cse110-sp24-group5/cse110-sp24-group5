@@ -36,21 +36,21 @@ N/A
 
 ### Group using Retrium
 
-![Group on zoom call](042724-retrospective-group.png)
+![Group on zoom call](042724-img/042724-retrospective-group.png)
 
 ### Mad, Sad, Glad
 
-![Mad, Sad, Glad Results](042724-mad-sad-glad.png)
+![Mad, Sad, Glad Results](042724-img/042724-mad-sad-glad.png)
 
 ### Outstanding Action Items
 
-![Outstanding Action Items pt.1](042724-action-one.png)
+![Outstanding Action Items pt.1](042724-img/042724-action-one.png)
 
-![Outstanding Action Items pt.2](042724-action-two.png)
+![Outstanding Action Items pt.2](042724-img/042724-action-two.png)
 
 ### Return on Time Invested Ratings
 
-![Return on Time Invested Ratings](042724-return-on-time.png)
+![Return on Time Invested Ratings](042724-img/042724-return-on-time.png)
 
 ### Action Items
 
