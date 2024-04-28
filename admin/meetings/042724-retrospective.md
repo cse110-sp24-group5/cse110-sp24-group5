@@ -42,6 +42,11 @@ N/A
 
 ![Mad, Sad, Glad Results](042724-img/042724-mad-sad-glad.png)
 
+#### **Most Voted Three Suggestions**
++ More meetings between each language development's group,increase collaborations through more weekly meetings.
++ Implement more features for the project product than the warm-up. 
++ Previewing future labs early to provide better assistance in future projects.
+
 ### Outstanding Action Items
 
 ![Outstanding Action Items pt.1](042724-img/042724-action-one.png)
@@ -56,7 +61,7 @@ N/A
 
 | Done? | Task                                    | People                                  | Due Date         |
 |-------|-----------------------------------------|-----------------------------------------|------------------|
-| yes   | Retrospective Meeting 1      | Mishka, Vishaal, Drishti, Arnav, Nicholas, Haley, Angel, Xavier, Maasilan, Hugo| Monday 11:59 pm |
+| Yes   | Retrospective Meeting 1      | Mishka, Vishaal, Drishti, Arnav, Nicholas, Haley, Angel, Xavier, Maasilan, Hugo| Monday 11:59 pm |
 
 ## Other Notes & Information
 N/A
