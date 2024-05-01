@@ -22,6 +22,8 @@
       - potential features that may be useful to a user
       - user personas
       - journey maps
-      - potential competitors (and the design they follow for their applications)
+      - products in the same domain (and the design they follow for their applications and features they offer)
+      - components we should have on the website
+      - what do we want the end result to be - website, web app, something else?
 ---
 ### Feedback from TA
