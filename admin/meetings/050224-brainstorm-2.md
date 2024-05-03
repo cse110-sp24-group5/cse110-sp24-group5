@@ -34,8 +34,9 @@ N/A
 - Timer similar to Pomodoro timer
 - Habit Tracker displays pre-set tracks and option to customize your own track -> Navigate to sentiment/habit analysis (graphs)
 - All pages contain left-side navbar to navigate to main pages -> Secondary pages have back button (notes + graphs page) to their respective parent page
+- Total frames: 8 (including the calendar pop-up)
 - Members to complete workflows and wireframes by end of day
 - Discuss plans for pitch on slack (possibly during tmr's meeting? - Friday 3rd May)
   
 ## Other Notes & Information
-
+Important Note: Did not start the pitch meeting
