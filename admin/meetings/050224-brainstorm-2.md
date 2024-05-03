@@ -3,8 +3,11 @@
 
 ## Meeting Information
 **Team Number and Name:** Panda Coding Express, Team 5
+
 **Type of Meeting:** Brainstorming Pt2
+
 **Meeting Date and Location:**  Outside Plant Power from 3pm - 5pm
+
 **Meeting Purpose:** Continue brainstorming assignment and pitch assignment
 
 
