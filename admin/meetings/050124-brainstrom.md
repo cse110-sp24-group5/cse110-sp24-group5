@@ -26,6 +26,10 @@ People who attended:
 #### Unresolved from previous meeting
 N/A
 
+#### Link to Miro board
+
+https://miro.com/app/board/uXjVKMiOIZM=/
+
 #### Things to be discussed
 - Teams leads need to give the feedback from the TA
 - Brainstorm regarding the final project 
