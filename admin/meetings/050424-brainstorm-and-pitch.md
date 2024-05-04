@@ -36,11 +36,25 @@ TODO
 
 - Link to Miro: https://miro.com/app/board/uXjVKMiOIZM=/?share_link_id=821330060672
 
-  - Separated into three groups which respectively work on the pitch (user stories and integration of wireframe/statement of purpose) or finalize the brainstorm.
+  - (what was added)
 
 - Link to pitch: https://docs.google.com/presentation/d/18cWZEswVo9cHoe_zcd4_8eQ-9GlIM_DcHFwK4tMs8Nc/edit?usp=sharing
 
-  - Decided to use slides format for the pitch structured into 
+  - Decided to use slides format formatted in this order
+    - Statement of purpose
+      - Shows the problem statement
+    -  User personas
+      - Decided to pick three in order to narrow down our target audience and focus which functionalities are most important
+      - Also decide what stuff out target audience isn't likely to want
+    -  Wireframe
+      -  Display a sketch of what we envision the application to look like
+      -  Explain what benefits different sections would provide
+    -  Nice to have
+      -  
+    -  No Go's
+      -  
+    -  Risks and Rabbit Holes
+      -  
 
 ## Action Items
 | Done? | Task | People | Due Date |
