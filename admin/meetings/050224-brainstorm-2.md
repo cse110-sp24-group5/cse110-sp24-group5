@@ -19,6 +19,7 @@ People who attended:
 - Stephen
 - Hugo
 - Drishti
+- Maasilan
 
 ## Agenda Items
 
