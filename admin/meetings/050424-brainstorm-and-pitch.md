@@ -5,15 +5,12 @@
 
 **Type of Meeting:** Team meeting
 
-**Meeting Date and Location:** 05/04/2024 over zoom
+**Meeting Date and Location:** 05/04/2024 over zoom (10:00 AM - 12:30 PM)
 
 **Meeting Purpose:** Finalize brainstorm/wireframe and start working on pitch
 
 ## Attendees
-People who attended:
-- Person A
-- Person B
-- Person C
+Everyone in the team
 
 ## Agenda Items
 
@@ -30,13 +27,14 @@ People who attended:
 
 #### Unresolved from this meeting
 
-TODO
+NA
 
 ## Decisions made and Reasoning
 
 - Link to Miro: https://miro.com/app/board/uXjVKMiOIZM=/?share_link_id=821330060672
 
-  - (what was added)
+  - Went over the Miro board to finalize for submission and made minor edits
+  - Went over the wireframes to discuss specifics on how the layouts would look like and the reasoning behind the same
 
 - Link to pitch: https://docs.google.com/presentation/d/18cWZEswVo9cHoe_zcd4_8eQ-9GlIM_DcHFwK4tMs8Nc/edit?usp=sharing
 
@@ -50,15 +48,17 @@ TODO
       -  Display a sketch of what we envision the application to look like
       -  Explain what benefits different sections would provide
     -  Nice to have
-      -  
     -  No Go's
-      -  
     -  Risks and Rabbit Holes
-      -  
 
 ## Action Items
+
+People staying back to work on the design for the powerpoint presentation - improve layout design
+
 | Done? | Task | People | Due Date |
 | ---- | ---- | ---- | ---- |
 | | item | who | due_date |
 
 ## Other Notes & Information
+
+NA
