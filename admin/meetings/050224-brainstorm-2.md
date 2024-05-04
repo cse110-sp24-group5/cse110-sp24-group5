@@ -29,6 +29,10 @@ N/A
 - Decide on specifics to construct Workflows and Wireframes for the final project
 - Creating a Pitch for the final project
 
+#### Link to Miro board
+
+https://miro.com/app/board/uXjVKMiOIZM=/
+
 ## Decisions made and Reasoning
 - Assigned workflow team (Hugo, Drishti, Maasilan, Nicholas) and wireframe team (Vishaal, Haley, Stephen)
 - Home Page/Dashboard: 4 main navigation buttons (Calendar, Journal, Timer, Habit Tracker) + descriptions + sentiment selector + useful resource links
