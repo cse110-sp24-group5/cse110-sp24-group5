@@ -38,18 +38,32 @@ NA
 
 - Link to pitch: https://docs.google.com/presentation/d/18cWZEswVo9cHoe_zcd4_8eQ-9GlIM_DcHFwK4tMs8Nc/edit?usp=sharing
 
-  - Decided to use slides format formatted in this order
-    - Statement of purpose
-      - Shows the problem statement
-    -  User personas
-      - Decided to pick three in order to narrow down our target audience and focus which functionalities are most important
+### Pitch
+- Link to pitch: https://docs.google.com/presentation/d/18cWZEswVo9cHoe_zcd4_8eQ-9GlIM_DcHFwK4tMs8Nc/edit?usp=sharing
+
+Decided to use slides format formatted in this order
+1) Statement of purpose
+      - Shows the problem statement, goals, and generally what is are some values we want to uphold through the journals development.
+2) User personas
+      - Decided to pick three user personas to focus on in order to narrow down and prevent overcomplication.
       - Also decide what stuff out target audience isn't likely to want
-    -  Wireframe
+3) Wireframe
       -  Display a sketch of what we envision the application to look like
       -  Explain what benefits different sections would provide
-    -  Nice to have
-    -  No Go's
-    -  Risks and Rabbit Holes
+4) Nice to have
+      -  Show some ideas that were considered in the brainstorming phase, but ultimately didn't make the cut because of added complexity/risk to product quality.
+5) No Go's
+      -  Some ideas that didn't mesh as well with the user stories and didn't make the cut/wouldn't be necessary to make a great product.
+6) Developer Specific Features
+      - Present the most important features for the journal. Needed to make the target users (developers) happy.
+7) Appetite
+      - Create resonable goals that we as the developers can reach within the alloted time frame.
+9) Risks
+      - Some possible issues that can cause problems for the completeed development of the application.
+10) Rabbit Holes
+      -  Bring up some features that can become problematic if we over complicate it.
+   
+Finally, we finished by styling and designing the slides.
 
 ## Action Items
 
