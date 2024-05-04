@@ -42,10 +42,19 @@ https://miro.com/app/board/uXjVKMiOIZM=/
 
 ## Decisions made and Reasoning
 - Miro board was created to Brainstorm
-- Decided to limit to project to 6 features, as shown on the miro board
-- Created User stories and looked at already exsisting journals for inspiration
-- Divided into 3 teams for Workfloes, CI/CD and pitch
-- Members working on Workflows and Pitch are meeting on May 2nd from 3-5pm to complete those assignments
+- Decided to limit to project to 6 features
+    - Calendar: ability to add and remove events
+    - Notes: with embedded markdown and the option to download as a PDF
+    - Pomodoro timer: select work and rest - maybe the ability to analyze data over days
+    - Habit tracking: positive and negative habits that would influence a score
+    - Analytics page: tracks habits (give a score on a scale of 0-100), shows the change in habits over period of time
+    - Dashboard: ties everything together
+- Created User stories and looked at already existing journals for inspiration
+- Divided into 3 teams for Workflows, CI/CD, and pitch
+    - CI/CD: Mishka and Arnav (start considering potential ideas for github actions)
+    - Workflows: Vishaal, Haley, Nicholas, Stephen, Hugo, Drishti, Maasilan, Angel, Xavier
+    - Pitch: Everyone to contribute
+- Members working on Workflows and Pitch are meeting on May 2nd from 3-5 pm to complete those assignments
   
 ## Other Notes & Information
 
