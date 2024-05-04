@@ -36,9 +36,8 @@ NA
   - Went over the Miro board to finalize for submission and made minor edits
   - Went over the wireframes to discuss specifics on how the layouts would look like and the reasoning behind the same
 
-- Link to pitch: https://docs.google.com/presentation/d/18cWZEswVo9cHoe_zcd4_8eQ-9GlIM_DcHFwK4tMs8Nc/edit?usp=sharing
-
 ### Pitch
+
 - Link to pitch: https://docs.google.com/presentation/d/18cWZEswVo9cHoe_zcd4_8eQ-9GlIM_DcHFwK4tMs8Nc/edit?usp=sharing
 
 Decided to use slides format formatted in this order
@@ -63,7 +62,7 @@ Decided to use slides format formatted in this order
 10) Rabbit Holes
       -  Bring up some features that can become problematic if we over complicate it.
    
-Finally, we finished by styling and designing the slides.
+Finally, we finished by styling and designing the slides. To check more details of what slides contain, check the pitch link.
 
 ## Action Items
 
@@ -71,7 +70,7 @@ People staying back to work on the design for the powerpoint presentation - impr
 
 | Done? | Task | People | Due Date |
 | ---- | ---- | ---- | ---- |
-| | item | who | due_date |
+| | brainstorm & pitch | everyone | 05/05/2024 |
 
 ## Other Notes & Information
 
