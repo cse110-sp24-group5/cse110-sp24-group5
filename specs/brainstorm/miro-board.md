@@ -1,1 +1,0 @@
-Picture 1
