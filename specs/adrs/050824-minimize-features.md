@@ -15,15 +15,15 @@ What should the maximum number of features included in our web application be?
 
 ## Considered Options
 
-1. Homepage, Calendar (with sentiment) and Notes + keyboard shortcuts
-2. Homepage, Calendar (without sentiment) and Notes + keyboard shortcuts
-3. Homepage, Calendar (with sentiment and habits) and Notes + keyboard shortcuts
-4. Homepage, Calendar, Notes and Timer + keyboard shortcuts
-5. Homepage, Calendar, Notes, Timer, Habit Tracker and Analytics (original pitch idea) + keyboard shortcuts
+1. Homepage, Calendar (with sentiment) and Notes w/ keyboard shortcuts -- 3 features --
+2. Homepage, Calendar (without sentiment) and Notes w/ keyboard shortcuts -- 3 features --
+3. Homepage, Calendar (with sentiment and habits) and Notes w/ keyboard shortcuts -- 3 features --
+4. Homepage, Calendar, Notes and Timer w/ keyboard shortcuts -- 4 features --
+5. Homepage, Calendar, Notes, Timer, Habit Tracker and Analytics (original pitch idea) w/ keyboard shortcuts -- 6 features --
 
 ## Decision Outcome
 
-Chosen option: "1. Homepage, Calendar (with sentiment) and Notes + keyboard shortcuts", because it aligns with the project constraints and prioritizes essential features for grading.
+Chosen option: "1. Homepage, Calendar (with sentiment) and Notes + keyboard shortcuts -- 3 features --", because it aligns with the project constraints and prioritizes other aspects of the project where grading is emphasized.
 
 ### Consequences
 
