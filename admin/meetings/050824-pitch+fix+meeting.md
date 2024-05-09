@@ -37,7 +37,7 @@ N/A
 
 #### Unresolved from this meeting
 
--
+- Finalize pitch and submit by Thursday end of day.
 
 ## Decisions made and Reasoning
 
@@ -45,11 +45,14 @@ N/A
 - The timer, habit tracker, and analytics are now nice-to-haves and not necessary features.
 - We will implement our project to be a local first application.
 - Place emphasis on the app working on several devices.
+- Split into 2 teams to work on CI/CD and begin working on the project.
+- Make an ADR file after the meeting.
 
 
 ## Action Items
 | Done? | Task | People | Due Date |
 | ---- | ---- | ---- | ---- |
 | | Mobile Wireframe | Haley, Stephen, Vishaal | May 9th 5:00 pm|
+| | ADR File | Nicholas, Vishaal | May 8th 11:59pm|
 
 ## Other Notes & Information
