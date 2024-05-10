@@ -27,11 +27,11 @@ Chosen option: "1. Homepage, Calendar (with sentiment) and Notes + keyboard shor
 
 ### Consequences
 
-* Good, because it focuses on key features that address project requirements and TA recommendations.
-* Good, because it ensures timely completion of the project within the given deadline.
-* Good, because it allows for a manageable workload and efficient utilization of resources for other parts of the project.
-* Bad, because it may limit the variety of features and functionality available to users.
-* Bad, because it may not set our web application apart from other groups.
+1. Good, because it focuses on key features that address project requirements and TA recommendations.
+2. Good, because it ensures timely completion of the project within the given deadline.
+3. Good, because it allows for a manageable workload and efficient utilization of resources for other parts of the project.
+4. Bad, because it may limit the variety of features and functionality available to users.
+5. Bad, because it may not set our web application apart from other groups.
 
 ### Confirmation
 
@@ -41,11 +41,11 @@ Discussed with the team during today's zoom meeting.
 
 ### Other options
 
-Good, because it offers a comprehensive set of features catering to various user needs.
-Good, because it enhances user experience and engagement.
-Neutral, because it may test the team's ability to produce quality designs, code, and tests under a short amount of time.
-Bad, because it risks overloading the project with features, leading to a higher risk of delays or incomplete implementation if not properly managed.
-Bad, because it prioritizes quantity over quality, potentially diluting the user experience.
+1. Good, because it offers a comprehensive set of features catering to various user needs.
+2. Good, because it enhances user experience and engagement.
+3. Neutral, because it may test the team's ability to produce quality designs, code, and tests under a short amount of time.
+4. Bad, because it risks overloading the project with features, leading to a higher risk of delays or incomplete implementation if not properly managed.
+5. Bad, because it prioritizes quantity over quality, potentially diluting the user experience.
 
 ## More Information
 
