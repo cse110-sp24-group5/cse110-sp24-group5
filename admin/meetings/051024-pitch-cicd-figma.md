@@ -2,10 +2,13 @@
 # Meeting Minutes
 
 ## Meeting Information
-**Team Number and Name: Team 5, Panda Coding Express**
-**Type of Meeting: General team meeting**
-**Meeting Date and Location: 5/10/2024 Remote** 
-**Meeting Purpose: Fix pitch and work on ci/cd and figma** 
+**Team Number and Name:**  Team 5, Panda Coding Express
+
+**Type of Meeting:**  General team meeting
+
+**Meeting Date and Location:** 5/10/2024 Remote 
+
+**Meeting Purpose:**  Fix pitch and work on ci/cd and figma
 
 
 ## Attendees
@@ -45,11 +48,28 @@ People who attended:
 
 ## Decisions made and Reasoning
 
+- Split into 2 teams to work on the pitch and the ci/cd assignment
+
+- Removed markdown feature
+
+This was done in order to cutdown on a task which would turn out to be too complicated to execute in the alloted time.
+
+- Added the template as a feature
+
+This was done in order to give more structure to the journal and replace the markdown feature to be more dev focused.
+
+- Updated the pitch and wireframe
+
+This was done to reflect the updated changes
+
+check it out here to see the updated pitch: https://docs.google.com/presentation/d/18cWZEswVo9cHoe_zcd4_8eQ-9GlIM_DcHFwK4tMs8Nc/edit#slide=id.g27041f366a0_4_5
+
 
 
 ## Action Items
 | Done? | Task | People | Due Date |
 | ---- | ---- | ---- | ---- |
-| | item | who | due_date |
+| Yes | pitch | Arnav, Vishaal, Xavier, Hugo, Hailey, Angel | 5/10/2024 |
+|  | ci/cd | Mishka, Maasilan, Drishti, ... | 5/12/2024 |
 
 ## Other Notes & Information
