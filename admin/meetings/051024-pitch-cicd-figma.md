@@ -73,7 +73,8 @@ check it out here to see the updated pitch in more detail: https://docs.google.c
 | Done? | Task | People | Due Date |
 | ---- | ---- | ---- | ---- |
 | Yes | pitch | Arnav, Vishaal, Xavier, Hugo, Hailey, Angel | 5/10/2024 |
-|  | ci/cd | Mishka, Maasilan, Drishti, ... | 5/12/2024 |
+| Not yet | ci/cd | Mishka, Maasilan, Drishti, Stephen, ... | 5/12/2024 |
+| Yes| Figma board | Drishti, Vishaal | N/A |
 
 ## Other Notes & Information
 
