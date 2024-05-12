@@ -60,8 +60,6 @@ As of now, whenever a pull request is made or commit is pushed, the code in the 
 It would be helpful to have more information about the specific code quality checks or rules that Code Climate is configured to run, as well as any thresholds or criteria for determining whether the code quality check passes or fails.
 
 ## Unit tests via Automation
-
-
 We decided to go with ***Jest*** as our project is built using HTML, CSS, and JavaScript, and Jest is well-suited for testing JavaScript codebases. Its comprehensive testing capabilities, including unit testing, integration testing, and snapshot testing, ensure that we can thoroughly test our JavaScript code and catch any potential issues or regressions.
 
 Secondly, we have implemented linting and code quality checks using CodeClimate, and Jest seamlessly integrates with such tools. This integration allows us to enforce code quality standards and catch potential issues or violations during the testing process, ensuring that our codebase adheres to best practices and maintains a high level of quality.
@@ -139,14 +137,10 @@ Pruning Old Feature Branches:
 - Enforce occasional team reviews of branches so team members can discuss which branches to remove or merge
 - Ensure communication between team members when editing the repo's branches, one person's decision to remove branches should not be a surprise to anyone
 
-The branch management guidelines provided are sound and cover important aspects such as branch naming conventions, branch protection, and periodic cleanup of old or unused branches.
 
 ## Demo
 
 Here is the diagram of our workflow currently:
-
-
-
 ![diagram](phase1.png)
 
 Here is an example of what can be seen when a PR is created or a commit is pushed
