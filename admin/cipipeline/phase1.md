@@ -141,6 +141,8 @@ Pruning Old Feature Branches:
 ## Demo
 
 Here is the diagram of our workflow currently:
+
+
 ![diagram](phase1.png)
 
 
