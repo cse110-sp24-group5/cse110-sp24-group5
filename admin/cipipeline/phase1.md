@@ -148,6 +148,6 @@ Here is the diagram of our workflow currently:
 
 Here is an example of what can be seen when a PR is created or a commit is pushed
 
-![working](working.png)
+
 ![passed](passed.png)
 
