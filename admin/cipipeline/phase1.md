@@ -10,6 +10,7 @@
 - [Documentation Generation via Automation](#documentation-generation-via-automation)
 - [Code Quality Human Review](#code-quality-human-review)
 - [Branch Management](#branch-management)
+- [Demo](#demo)
 
 ## Submitting a PR
 
@@ -139,3 +140,13 @@ Pruning Old Feature Branches:
 - Ensure communication between team members when editing the repo's branches, one person's decision to remove branches should not be a surprise to anyone
 
 The branch management guidelines provided are sound and cover important aspects such as branch naming conventions, branch protection, and periodic cleanup of old or unused branches.
+
+## Demo
+
+Here is the diagram of our workflow currently:
+![diagram](phase1.png)
+
+Here is an example of what can be seen when a PR is created or a commit is pushed
+![working](working.png)
+![passed](passed.png)
+
