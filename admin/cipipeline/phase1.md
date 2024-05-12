@@ -61,7 +61,7 @@ It would be helpful to have more information about the specific code quality che
 ## Unit tests via Automation
 
 
-We decided to go with ***Jest as our project is built using HTML, CSS, and JavaScript, and Jest is well-suited for testing JavaScript codebases. Its comprehensive testing capabilities, including unit testing, integration testing, and snapshot testing, ensure that we can thoroughly test our JavaScript code and catch any potential issues or regressions.
+We decided to go with ***Jest*** as our project is built using HTML, CSS, and JavaScript, and Jest is well-suited for testing JavaScript codebases. Its comprehensive testing capabilities, including unit testing, integration testing, and snapshot testing, ensure that we can thoroughly test our JavaScript code and catch any potential issues or regressions.
 
 Secondly, we have implemented linting and code quality checks using CodeClimate, and Jest seamlessly integrates with such tools. This integration allows us to enforce code quality standards and catch potential issues or violations during the testing process, ensuring that our codebase adheres to best practices and maintains a high level of quality.
 
