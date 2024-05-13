@@ -1,17 +1,15 @@
-# PR, Branching, Testing:
+# PR, Human Reviews and Branching:
 
 ## Context and Problem Statement
 
 How can we maintain code quality and consistency across multiple PRs and iterations?
 What strategies can we implement to enforce strict branch management policies?
-What testing libraries can we use that works well with other parts of the project?
 
 ## Decision Drivers
 
 * Consistency and Clarity
 * Quality Assurance
 * Collaboration and Communication
-* Testing Library Compatibility
 
 ## Decision Outcome
 
@@ -108,17 +106,9 @@ Another factor that influenced my decision was Jest's zero-configuration setup. 
 4. Bad, because it occasional team reviews of branches may be time-consuming and may not always result in consensus.
 5. Bad, because it communication lapses may lead to confusion or disagreements when pruning branches.
 
-#### Jest
-
-1. Good, because it is well-suited for testing JavaScript codebases, which is the primary technology stack of the project.
-2. Good, because it integrates seamlessly with linting and code quality tools like CodeClimate, ensuring code quality standards are enforced during testing.
-3. Good, because it zero-configuration setup reduces the initial setup overhead, enabling the team to start writing tests quickly.
-4. Good, because it has less of a learning curve since we use it in our labs.
-5. Bad, because it's zero-configuration approach may limit customization options for advanced testing scenarios.
-
 ### Confirmation
 
 Discussed with the team during today's zoom meeting.
 
 ## More Information
-The team maintained its stance on making a website and using an API (The Service Workers) in order to have local-first properties.
+N/A
