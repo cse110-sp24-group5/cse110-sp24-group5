@@ -37,6 +37,10 @@ The following template should be used when submitting a PR
 
 ```
 
+When a pull request is made the above automatically shows up as a template, an example of this can be seen below:
+
+![template](template.png)
+
 ## Linting and Code Style Enforcement 
 
 Implemented via Super Linter
