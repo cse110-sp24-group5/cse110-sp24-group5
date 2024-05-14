@@ -29,7 +29,8 @@ N/A
 
 #### Unresolved from this meeting
 
-N/A
+- Can't access the image files needed for the html implementation
+- Implementing the slider and the images outside the first div may use javascript, so should we?
 
 ## Decisions made and Reasoning
 
