@@ -28,7 +28,7 @@ jobs:
       - name: Install Stylelint
         run: npm install stylelint --save-dev
       - name: Run Stylelint
-        run: npx stylelint "**/*.css"
+        run: npx stylelint "source/css/*.css"
       - name: Install ESLint
         run: npm install eslint --save-dev
       - name: Run ESLint
@@ -43,7 +43,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Unit Test
-        run: npm run unitTests __tests__/*.unit.js
+        run: npm run unitTests source/__tests__/*.unit.js
 
   e2e-tests: 
     name: Run End-to-End Tests
@@ -54,4 +54,4 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: e2e Tests
-        run: npm run e2eTests __tests__/*.e2e.js
+        run: npm run e2eTests source/__tests__/*.e2e.js
