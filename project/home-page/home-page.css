@@ -31,7 +31,7 @@ section section h2 {
     border: 2px solid white; /*Border color and width of the greeting box*/
     margin-left: 6vw; /*Controls the size of the greeting box*/
     margin-right: 4vw; /*Controls the size of the greeting box*/
-    margin-top: 2vw; /*Controls the size of the greeting box*/
+    margin-top: 6vh; /*Controls the size of the greeting box*/
     border-radius: 20px;
     border-radius: 3vw; /* Rounds the edges of the box*/
     background-color: rgba(255, 255, 255, 0.2); /* Adds the glaze effect for the container */
@@ -87,14 +87,14 @@ section section h2 {
 
 /* Media query for smaller screens */
 @media screen and (width <= 800px) {
-    /* Targets the arrangement of boxes*/
+    /*Targets the way boxes are displayed*/
     .box-container {
         flex-direction: column;
         justify-content: center; /* Center items vertically */
         align-items: center; /* Center items horizontally */
     }
 
-    /* Targets the sentiment analysis box*/
+    /*targets the sentiment analysis box*/
     .container {
         width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
         margin-bottom: 2vh; /* Add vertical margin between boxes */
@@ -108,7 +108,7 @@ section section h2 {
         }
     }
 
-    /* Targets the icon boxes themselves*/
+    /* targets the icon boxes*/
     .box {
         width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
         height: 17vh; /**/
@@ -119,8 +119,8 @@ section section h2 {
         margin-left: auto;
     }
 
-    /* targets text above the icon boxes*/
+    /*targets the text above the icon boxes*/
     section section h2 {
-        margin-left: 15vw; /* Centers the text above the icon boxes*/
+        margin-left: 16vw; /* Centers the text above the icon boxes*/
     }
 }
