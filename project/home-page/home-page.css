@@ -61,9 +61,9 @@ section section h2 {
 .box {
     border: 2px solid white;
     border-radius: 6vw; /* Rounds the edges of the box*/
-    padding: 150px;
+    padding: 8vw; /* Allows the width to shift properly */
     margin: 1vw 4vw; /* 5px to let the h2 texts lie closer to their respective boxes */
-    width: 25vw; /**/
+    width: 25vw; 
     height: 15vh;
     background-color: rgba(255, 255, 255, 0.2); /* Adds the glaze effect for the boxes */
     align-items: center;
@@ -71,12 +71,7 @@ section section h2 {
     display: flex;
 }
 
-/**/
-.box h2 {
-    margin-left: 150px; /* Remove default margin */
-}
-
-/* The images of the calander and the DevJournal*/
+/* The images of the calander and the DevJournal */
 .icon {
     max-width: 100%;
     max-height: 100%;
@@ -84,6 +79,7 @@ section section h2 {
     object-fit: contain;
 }
 
+/* Controls the size of the emojis */
 .emoji {
     width: 8vw;
     height: 8vw;
