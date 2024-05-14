@@ -2,10 +2,9 @@
     "scripts": {
       "unitTests": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
       "e2eTests": "jest",
-      "coverage": "istanbul cover ./test.js",
       "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
-      "lint:html": "npx htmlhint ./*.html",
-      "lint:css": "npx stylelint ./*.css",
+      "lint:html": "npx htmlhint ./source/html/*.html",
+      "lint:css": "npx stylelint ./source/css/*.css",
       "lint:js": "npx eslint ."
     },
     "devDependencies": {
