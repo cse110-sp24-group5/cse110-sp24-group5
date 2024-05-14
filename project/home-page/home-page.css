@@ -4,13 +4,15 @@ body {
     min-height: 100vh; /*Makes the background color the entirety of the viewport*/
     max-width: min-content; /* Prevents excessive width to the body */
 
-    /*overflow: hidden;*/ /*Hides everything that is outside of the viewport {UNCOMMENT WHEN DONE WITH HANDLING THE MOBILE CASE}*/
+    overflow:hidden ; /*Hides everything that is outside of the viewport {UNCOMMENT WHEN DONE WITH HANDLING THE MOBILE CASE}*/
 }
 
-/* pecifically targets the text in the user message box*/
+/* specifically targets the text in the user message box*/
 section h2 {
     color: white;
     font-size: 3vh;
+    text-align: center;
+
 }  
 
 /* Specifically targets the text above the boxes */
@@ -27,10 +29,13 @@ section section h2 {
     justify-content: center;
     align-items: center;
     height: 25vh;
-    border: 2px solid white;
-    margin: 50px 50px;
+    border: 4px solid white; /*Border color and width of the greeting box*/
+    margin-left: 4vw; /*Controls the size of the greeting box*/
+    margin-right: 4vw; /*Controls the size of the greeting box*/
+    margin-top: 2vw; /*Controls the size of the greeting box*/
     border-radius: 20px;
     border-radius: 3vw; /* Rounds the edges of the box*/
+    background-color: rgba(255, 255, 255, 0.2); /* Adds the glaze effect for the container */
 }
 
 .faces {
@@ -49,15 +54,25 @@ section section h2 {
 }
 
 .box {
-    border: 2px solid white;
+    border: 4px solid white;
     border-radius: 6vw; /* Rounds the edges of the box*/
     padding: 150px;
-    margin: 5px 50px;
+    margin: 1vw 4vw; /* 5px to let the h2 texts lie closer to their respective boxes */
     width: 25vw; /**/
     height: 15vh;
-
+    background-color: rgba(255, 255, 255, 0.2); /* Adds the glaze effect for the boxes */
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .box h2 {
     margin-left: 150px; /* Remove default margin */
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    object-fit: contain;
 }
