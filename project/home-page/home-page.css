@@ -3,7 +3,7 @@ body {
     background: linear-gradient(to bottom, #4EC5FF, #94C8F1 40%, #EEA0FF 95%); /* Background color */
     min-height: 100vh; /*Makes the background color the entirety of the viewport*/
     max-width: min-content; /* Prevents excessive width to the body */
-    overflow:visible ; /*Hides everything that is outside of the viewport*/
+    overflow: hidden; /*Hides everything that is outside of the viewport*/
 }
 
 /* specifically targets the text in the user message box*/
