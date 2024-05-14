@@ -123,4 +123,13 @@ section section h2 {
     section section h2 {
         margin-left: 16vw; /* Centers the text above the icon boxes*/
     }
+
+    /*change the size of the icons */
+    .icon {
+        max-width: 60%;
+        max-height: 60%;
+        margin: auto;
+        object-fit: contain;
+        padding-left: 20%;
+    }
 }
