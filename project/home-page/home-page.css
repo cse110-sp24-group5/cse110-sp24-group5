@@ -1,5 +1,24 @@
+/* The background of the website */
 body {
-    background-color: #f0f0f0; /* Replace #f0f0f0 with your desired color */
+    background: linear-gradient(to bottom, #4EC5FF, #94C8F1 40%, #EEA0FF 95%); /* Background color */
+    min-height: 100vh; /*Makes the background color the entirety of the viewport*/
+    max-width: min-content; /* Prevents excessive width to the body */
+
+    /*overflow: hidden;*/ /*Hides everything that is outside of the viewport {UNCOMMENT WHEN DONE WITH HANDLING THE MOBILE CASE}*/
+}
+
+/* pecifically targets the text in the user message box*/
+section h2 {
+    color: white;
+    font-size: 3vh;
+}  
+
+/* Specifically targets the text above the boxes */
+section section h2 {
+    color: white;
+    text-align: center;
+    font-size: 3vh;
+    margin-bottom: 10px;
 }
 
 .container {
@@ -7,10 +26,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
-    border: 2px solid black;
+    height: 25vh;
+    border: 2px solid white;
     margin: 50px 50px;
     border-radius: 20px;
+    border-radius: 3vw; /* Rounds the edges of the box*/
 }
 
 .faces {
@@ -29,12 +49,13 @@ body {
 }
 
 .box {
-    border: 2px solid #000;
-    border-radius: 50px;
+    border: 2px solid white;
+    border-radius: 6vw; /* Rounds the edges of the box*/
     padding: 150px;
-    margin: 50px;
-    width: 40%;
-    height: 90px;
+    margin: 5px 50px;
+    width: 25vw; /**/
+    height: 15vh;
+
 }
 
 .box h2 {
