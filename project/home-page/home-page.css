@@ -80,9 +80,33 @@ img {
 
 
 /* Media query for smaller screens */
-@media only screen and (max-width: 600px) {
+@media screen and (width <= 800px) {
+    .box-container {
+        flex-direction: column;
+        justify-content: center; /* Center items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .container
+    {
+
+        width: 70vw; /* Adjust width for smaller screens */
+        margin: 2vh; /* Add vertical margin between boxes */
+        box-sizing: border-box; 
+        max-width: 70%;
+        padding: 40px;
+        margin-left: auto;
+        h2 {
+            font-size: 4vw; /* Adjust font size for smaller screens */
+        }
+    }
+
     .box {
-        padding: 10vw; /* Adjust padding for very small screens */
-        width: 90vw; /* Make boxes almost full width on small screens */
+        width: 70vw; /* Adjust width for smaller screens */
+        margin: 2vh; /* Add vertical margin between boxes */
+        box-sizing: border-box; 
+        max-width: 70%;
+        padding: 20px;
+        margin-left: auto;
     }
 }
