@@ -1,4 +1,8 @@
-.container1 {
+body {
+    background-color: #f0f0f0; /* Replace #f0f0f0 with your desired color */
+}
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,13 +22,21 @@
     margin: 10px;
 }
 
-.container2 {
+.box-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto; 
-    border: 2px solid black;
-    margin: 50px 50px;
-    border-radius: 20px;
+    justify-content: space-between; /* Align items with space between them */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.box {
+    border: 2px solid #000;
+    border-radius: 50px;
+    padding: 150px;
+    margin: 50px;
+    width: 40%;
+    height: 90px;
+}
+
+.box h2 {
+    margin-left: 150px; /* Remove default margin */
 }
