@@ -40,6 +40,7 @@ section section h2 {
 /* How the faces are arranged*/
 .faces {
     display: flex;
+    justify-content: space-between;
 }
 
 /* The size of the emoji faces*/
@@ -76,11 +77,16 @@ section section h2 {
 }
 
 /* The images of the calander and the DevJournal*/
-img {
+.icon {
     max-width: 100%;
     max-height: 100%;
     margin: auto;
     object-fit: contain;
+}
+
+.emoji {
+    width: 8vw;
+    height: 8vw;
 }
 
 /* Media query for smaller screens */
