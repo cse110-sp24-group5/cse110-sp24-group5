@@ -13,7 +13,7 @@ section h2 {
     text-align: center;
 }  
 
-/* Specifically targets the text above the boxes */
+/* Specifically targets the text above the icon boxes */
 section section h2 {
     color: white;
     text-align: center;
@@ -50,7 +50,7 @@ section section h2 {
     margin-right: 3vw;
 }
 
-/* How the boxes are arranged*/
+/* How the icon boxes are arranged*/
 .box-container {
     display: flex;
     justify-content: space-between; /* Align items with space between them */
@@ -61,10 +61,10 @@ section section h2 {
 .box {
     border: 2px solid white;
     border-radius: 6vw; /* Rounds the edges of the box*/
-    padding: 8vw; /* Allows the width to shift properly */
-    margin: 1vw 4vw; /* 5px to let the h2 texts lie closer to their respective boxes */
-    width: 25vw; 
-    height: 15vh;
+    padding: 8vw; /* Allows the width of box to shift properly w/ screen size change*/
+    margin: 1vw 4vw; /* 1vw to let the h2 texts lie closer to their respective boxes */
+    width: 25vw; /* General size of box*/
+    height: 15vh; /* General size of box*/
     background-color: rgba(255, 255, 255, 0.2); /* Adds the glaze effect for the boxes */
     align-items: center;
     justify-content: center;
@@ -87,15 +87,18 @@ section section h2 {
 
 /* Media query for smaller screens */
 @media screen and (width <= 800px) {
+    /* Targets the arrangement of boxes*/
     .box-container {
         flex-direction: column;
         justify-content: center; /* Center items vertically */
         align-items: center; /* Center items horizontally */
     }
 
+    /* Targets the sentiment analysis box*/
     .container {
-        width: 70vw; /* Adjust width for smaller screens */
-        margin: 2vh; /* Add vertical margin between boxes */
+        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        margin-bottom: 2vh; /* Add vertical margin between boxes */
+        margin-top: 7vh; /* Add vertical margin to center better for mobile */
         box-sizing: border-box; 
         max-width: 70%;
         padding: 40px;
@@ -105,12 +108,19 @@ section section h2 {
         }
     }
 
+    /* Targets the icon boxes themselves*/
     .box {
-        width: 70vw; /* Adjust width for smaller screens */
+        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        height: 17vh; /**/
         margin: 2vh; /* Add vertical margin between boxes */
         box-sizing: border-box; 
         max-width: 70%;
         padding: 20px;
         margin-left: auto;
+    }
+
+    /* targets text above the icon boxes*/
+    section section h2 {
+        margin-left: 15vw; /* Centers the text above the icon boxes*/
     }
 }
