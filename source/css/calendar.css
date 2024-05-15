@@ -81,6 +81,8 @@ button {
     padding-bottom: 0.5rem;
 }
 
+
+
 .days {
     list-style-type: none;
     margin: 0;
@@ -124,4 +126,52 @@ button {
     border: 4px solid #F2E5FB;
     background-color: #F2E5FB;
     border-radius: 50%;
+}
+
+/* hides the abbreivated weekdays which are used for mobile devices*/
+.short-weekdays {
+    display: none;
+}
+
+@media screen and (width <= 1115px) {
+    /* hides the lengthened weekdays names which are need for desktops */
+    .weekdays {
+        display: none;
+    }
+
+    .short-weekdays {
+        list-style-type: none; /* removes bullet points */
+        
+        /* flexbox container for weekdays for easy resizing */ 
+        display: grid;
+        justify-content: center;
+        grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
+        /* space between the rows */
+    
+        color: var(--weekday-color);
+        background: white;
+    
+        /* font size and style */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        
+    
+        /* weekdays fill up the whole container and there is no gap between the month + year */
+        padding: 0;
+        margin: 0;
+        border-top: solid 0.2rem var(--border-color);
+        border-left: solid 0.2rem var(--border-color);
+        border-right: solid 0.2rem var(--border-color);
+    }
+    
+    .short-weekdays li {
+        text-align: center;
+        border: solid 0.2rem var(--border-color);
+        
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
 }
