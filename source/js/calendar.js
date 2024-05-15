@@ -34,13 +34,20 @@ function init () {
         for (let i = 0; i < firstDayOfMonth; i++) {
             const emptyDay = document.createElement('li');
             emptyDay.textContent = '';
+            emptyDay.classList.add('blank-day'); // Add class to empty days
             daysContainer.appendChild(emptyDay);
         }
         
         // Create calendar days
         for (let i = 1; i <= daysInMonth; i++) {
             const day = document.createElement('li');
-            day.textContent = i;
+            const dayNumber = document.createElement('span'); // Create a span for the day number to access when highlighting selected day
+            if (i >= 1 && i <= 9) { // Need to add a space in front of single digits so background when clicking is circular and not an oval
+                dayNumber.textContent = '0' + i;
+            } else {
+                dayNumber.textContent = i;
+            }
+            day.appendChild(dayNumber); // Append the span to the list item so it is contained within it
             daysContainer.appendChild(day);
         }
 
@@ -49,7 +56,24 @@ function init () {
         for (let i = 0; i <  daysToFill; i++) {
             const emptyDay = document.createElement('li');
             emptyDay.textContent = '';
+            emptyDay.classList.add('blank-day'); // Add class to empty days
             daysContainer.appendChild(emptyDay);
+        }
+
+        // Add event listener to each calendar day
+        const calendarDays = document.querySelectorAll('li');
+        for (let i = 0; i < calendarDays.length; i++) {
+            let day = calendarDays[i];
+            day.addEventListener('click', (event) => {
+                // Remove 'selected' class from previously selected day
+                const selectedDay = document.querySelector('.selected');
+                if (selectedDay) {
+                    selectedDay.classList.remove('selected');
+                }
+                // Toggle the selected class to show/hide the pink border on the newly selected day
+                const dayNumber = event.currentTarget.querySelector('span');
+                dayNumber.classList.add('selected');
+            });
         }
     }
 

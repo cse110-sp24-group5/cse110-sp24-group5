@@ -6,6 +6,10 @@
     <title>Calendar</title>
     <!-- Main Stylesheet & Scripts -->
     <link rel="stylesheet" href="/source/css/calendar.css">
+    <!-- Montserrat font-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <!-- Roboto font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
     <script src="/source/js/calendar.js"></script>
 </head>
 <body>
@@ -15,9 +19,15 @@
 
         <!-- div for calendar month and arrows -->
         <div class="header">
-            <button class="prev-month">&lt;</button>
-            <h1 class="month-year">[Month] [Year]</h1> <!-- Will dynamically update month and year via JavaScript -->
-            <button class="next-month">&gt;</button>
+            <button class="prev-month">
+                <img src="/source/img/previous-month.png" alt="previous month">
+            </button>
+            <div> 
+                <h1 class="month-year">[Month] [Year]</h1> <!-- Will dynamically update month and year via JavaScript -->
+            </div> 
+            <button class="next-month">
+                <img src="/source/img/next-month.png" alt="next month">
+            </button>
         </div>
 
         <!-- ul for calendar weekdays sun-sat -->
