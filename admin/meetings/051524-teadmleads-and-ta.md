@@ -28,4 +28,6 @@ The goal is to have all these pages functional by Thurday/Friday so that we can 
 ---
 ### Feedback from TA
 
-- 
+Q) At the moment we have branches for different components in our website. Given that we want to have an MVP soon, should we also write appropriate unit tests and E2E tests for each of those components before merging into main or can that come later?
+
+A) 
