@@ -24,7 +24,7 @@
   - Dev Journal: yet to be done
 The goal is to have all these pages functional by Thurday/Friday so that we can have an MVP by Friday/Saturday.
 
-
+- **Planning to do another round of Sprint Review + Retropective end of this week**
 ---
 ### Feedback from TA
 
