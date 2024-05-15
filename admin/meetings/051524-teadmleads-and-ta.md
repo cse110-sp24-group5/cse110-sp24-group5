@@ -31,3 +31,15 @@ The goal is to have all these pages functional by Thurday/Friday so that we can 
 Q) At the moment we have branches for different components in our website. Given that we want to have an MVP soon, should we also write appropriate unit tests and E2E tests for each of those components before merging into main or can that come later?
 
 A) 
+
+`main` branch is the production branch
+`dev` branch where we can deploy the MVP
+Merge all the features into here and deploy on main only when all testing is done!
+
+- Github Project - nice to have a kanban board. Good way to keep a track of all the tasks and the TA. Maybe columns for left to do, in progress, done
+
+- Put the github website like in the README.md
+
+- Verify if babel is needed think about what exactly needs it.
+
+- Remove chai, mocha, etc.
