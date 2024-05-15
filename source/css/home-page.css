@@ -94,6 +94,11 @@ section section h2 {
         align-items: center; /* Center items horizontally */
     }
 
+    /* targets the text above the icon boxes */
+    section section h2 {
+        margin-left: 16vw; /* Centers the text above the icon boxes */
+    }
+
     /* targets the sentiment analysis box */
     .container {
         width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
@@ -112,7 +117,7 @@ section section h2 {
     /* targets the icon boxes */
     .box {
         width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
-        height: 17vh; /*  */
+        height: 17vh;
         margin: 2vh; /* Add vertical margin between boxes */
         box-sizing: border-box; 
         max-width: 70%;
@@ -120,10 +125,6 @@ section section h2 {
         margin-left: auto;
     }
 
-    /* targets the text above the icon boxes */
-    section section h2 {
-        margin-left: 16vw; /* Centers the text above the icon boxes */
-    }
 
     /* targets the icons specifically to make them smaller in mobile case */
     .icon {
