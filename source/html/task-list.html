@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--This scales the width of our page to whatever device
+    the page is loaded on. The initial scale means that when the page is
+    irst loaded by the user, its initial size is its default/normal size-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Title of the page-->
+    <title>Panda Coding Express - Task List</title>
+    <!--Link to the css-->
+    <link rel="stylesheet" href="../css/task-list.css">
+    <!-- Implement the Montserrat font -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    </head>
+    <body>
+        <!--This particular section contains the html for the task-list-->
+        <section class="task-list parent"> <!-- change to hide: <section class="task-list parent hidden"> -->
+            <!--This is the beginning of our task list-->
+            <div class="task-list child">
+                <div class="task-list-top">
+                    <!--Title for this particular section-->
+                    <h2 id="date">May 15, 2024</h3>
+                    <!--Title for this particular section-->
+                    <button id="closeTaskList">X</button>
+                </div>
+                <!--Tasks listed out-->
+                <div class="task-list-middle">
+                    <ul class="task-list-ul">
+                        <li>
+                            <div class="placeholder-task">
+                                <h3 id="task">Task 1</h3>
+                                <img src="../img/edit_task.png">
+                                <img src="../img/delete_task.png">
+                            </div>
+                            <p>Description</p>
+                        </li>
+                        <li>
+                            <div class="placeholder-task">
+                                <h3 id="task">Task 2</h3>
+                                <img src="../img/edit_task.png">
+                                <img src="../img/delete_task.png">
+                            </div>
+                            <p>Description</p>
+                        </li>
+                        <li>
+                            <div class="placeholder-task">
+                                <h3 id="task">Task 3</h3>
+                                <img src="../img/edit_task.png">
+                                <img src="../img/delete_task.png">
+                            </div>
+                            <p>Description</p>
+                        </li>
+                        <li>
+                            <div class="placeholder-task">
+                                <h3 id="task">Task 4</h3>
+                                <img src="../img/edit_task.png">
+                                <img src="../img/delete_task.png">
+                            </div>
+                            <p>Description</p>
+                        </li>
+                        <li>
+                            <div class="placeholder-task">
+                                <h3 id="task">Task 5</h3>
+                                <img src="../img/edit_task.png">
+                                <img src="../img/delete_task.png">
+                            </div>
+                            <p>Description</p>
+                        </li>
+                    <!--Tasks will added here using JS!-->
+                    </ul>
+                </div>
+                <div class="task-list-bottom">
+                    <button id="add">+</button>
+                </div>
+            </div>
+        </section>
+
+        <!--This particular section contains the html for the add/edit pop-up-->
+        <section class="pop-up parent"> <!-- change to hide: <section class="pop-up parent hidden"> -->
+            <div class="pop-up child">
+                <!--Input for new task-->
+                <div class="pop-up-top">
+                    <button id="closePopUp">X</button>
+                </div>
+                <div class="pop-up-middle">
+                    <h3 id="taskTitle">Task Title:</h3>
+                    <input type="text" id="titleText">
+                    <h3 id="taskDesc">Task Description:</h3>
+                    <textarea id="descText" rows="4" cols="50"></textarea>
+                </div>
+                <div class="pop-up-bottom">
+                    <button id="confirm">Confirm</button>
+                </div>
+            </div>
+        </section>
+    <footer>
+    </footer>
+    <script src="task-list.js"></script>
+</body>
+</html>
