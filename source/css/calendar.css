@@ -1,0 +1,110 @@
+/*has colors taken from figma*/
+:root {
+    --border-color: #C1D6FF;
+    --weekday-color: #3F66D2;
+    --day-color: #708EE8;
+    --background-color: linear-gradient(180deg, rgba(95, 192, 255, 0.3) 23.5%, rgba(91, 194, 255, 0.3) 39.5%, rgba(219, 147, 255, 0.3) 100%);
+}
+
+body {
+    background: var(--background-color) no-repeat; /*sets background color of whole page and no repeat so gradient doesn't occur multiple times*/
+    height: 90vh; /*increases height so gradient doesn't repeat, but goes past screen so part of the gradient is lost*/
+}
+
+/*gives calendar element margins so it more centered*/
+.calendar {
+    margin-top: 5rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    margin-bottom: 5rem;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.8);
+    
+    display: flex; /* flexbox container surrounding month + year for easy resizing */
+    justify-content: center;
+    column-gap: 1rem; /* sets gap between month + year and arrows */
+    color: var(--day-color);
+
+    /* font size and style for the month + year */ 
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 1.5rem;
+    line-height: 3rem;
+
+}
+
+/**/
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.weekdays {
+    list-style-type: none; /* removes bullet points */
+    
+    /* flexbox container for weekdays for easy resizing */ 
+    display: flex;
+    justify-content: center;
+
+    color: var(--weekday-color);
+    background: white;
+
+    /* font size and style */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    width: 100%;
+
+    /* weekdays fill up the whole container and there is no gap between the month + year */
+    padding: 0;
+    margin: 0;
+
+}
+
+.weekdays li {
+    display: flex;
+    justify-content: center;
+
+    border: solid var(--border-color);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    width: calc(100% / 7);
+}
+
+.days {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+
+    /* font size and style */
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 2rem;
+    color: var(--day-color);
+    background: white;
+    
+    /* puts the days of the week into a grid layout */
+    display: grid;
+    /* space between the columns */
+    grid-template-columns: [first] 7.2rem [second] 7.2rem [third] 7.2rem [fourth] 7.2rem [fifth] 7.2rem [sixth] 7.2rem [seventh] 7.2rem;
+    /* space between the rows */
+    grid-template-rows: [row1] 6rem [row2] 6rem [row3] 6rem [row4] 6rem [row5] 6rem;
+    justify-content: center;
+
+    border-color: black;
+    border-style: solid;
+}
+
+.days li{
+    border: solid;
+}

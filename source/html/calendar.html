@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <!-- Main Stylesheet & Scripts -->
+    <link rel="stylesheet" href="/source/css/calendar.css">
+    <script src="/source/js/calendar.js"></script>
+</head>
+<body>
+
+    <!-- section for entire calendar -->
+    <section class="calendar">
+
+        <!-- div for calendar month and arrows -->
+        <div class="header">
+            <button class="prev-month">&lt;</button>
+            <h1 class="month-year">[Month] [Year]</h1> <!-- Will dynamically update month and year via JavaScript -->
+            <button class="next-month">&gt;</button>
+        </div>
+
+        <!-- ul for calendar weekdays sun-sat -->
+        <ul class="weekdays">
+            <li>SUNDAY</li>
+            <li>MONDAY</li>
+            <li>TUESDAY</li>
+            <li>WEDNESDAY</li>
+            <li>THURSDAY</li>
+            <li>FRIDAY</li>
+            <li>SATURDAY</li>
+        </ul>
+
+        <!-- ul for calendar day -->
+        <ul class="days"></ul> <!-- Will dynamically add days via JavaScript -->
+
+    </section>
+</body>
+</html>
