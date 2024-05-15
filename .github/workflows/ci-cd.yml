@@ -1,0 +1,57 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      # Install and enable linters for HTML, CSS, and JavaScript
+      - name: Install HTMLHint
+        run: npm install htmlhint --save-dev
+      # Run linting for HTML
+      - name: Run HTML linting
+        run: npx htmlhint ./*.html
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+      - name: Install Stylelint
+        run: npm install stylelint --save-dev
+      - name: Run Stylelint
+        run: npx stylelint "source/css/*.css"
+      - name: Install ESLint
+        run: npm install eslint --save-dev
+      - name: Run ESLint
+        run: npx eslint .
+
+  unit-tests: 
+    name: Run Unit Tests
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Install Dependencies
+        run: npm install
+      - name: Unit Test
+        run: npm run unitTests source/__tests__/*.unit.js
+
+  e2e-tests: 
+    name: Run End-to-End Tests
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Install Dependencies
+        run: npm install
+      - name: e2e Tests
+        run: npm run e2eTests source/__tests__/*.e2e.js
