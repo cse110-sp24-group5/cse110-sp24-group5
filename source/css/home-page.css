@@ -89,6 +89,7 @@ section section h2 {
 @media screen and (width <= 800px) {
     /*Targets the way boxes are displayed*/
     .box-container {
+        display: flex;
         flex-direction: column;
         justify-content: center; /* Center items vertically */
         align-items: center; /* Center items horizontally */
@@ -110,13 +111,13 @@ section section h2 {
 
     /* targets the icon boxes*/
     .box {
-        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
-        height: 17vh; /**/
-        margin: 2vh; /* Add vertical margin between boxes */
+        /*width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        /*height: 17vh; /**/
+        width: 80vw;
+        margin: 2vh auto; /* Add vertical margin between boxes */
         box-sizing: border-box; 
-        max-width: 70%;
+        max-width: 100%;
         padding: 20px;
-        margin-left: auto;
     }
 
     /*targets the text above the icon boxes*/
@@ -125,11 +126,11 @@ section section h2 {
     }
 
     /*change the size of the icons */
-    .icon {
+    /*.icon {
         max-width: 60%;
         max-height: 60%;
         margin: auto;
         object-fit: contain;
         padding-left: 20%;
-    }
+    }*/
 }
