@@ -5,8 +5,32 @@
 }
 
 /* The size of the emoji faces */
-.face {
-    font-size: 6vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
+/*.face {
+    font-size: 1vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+
+}*/
+body{
+    background: linear-gradient(180deg, rgba(222, 150, 255, 0.3) 23.5%, rgba(54, 194, 247, 0.3) 74.5%);
 }
+
+img {
+    height: 60px;
+}
+
+.face {
+    margin: 30px;
+   
+}
+
+#challenges {
+    width: 40vw; 
+    height: 12vh;
+}
+
+#goals {
+    width: 40vw; 
+    height : 20vh;
+}
+
