@@ -15,12 +15,12 @@
     </head>
     <body>
         <!--This particular section contains the html for the task-list-->
-        <section-1 class="task-list parent"> <!-- change to hide: <section class="task-list parent hidden"> -->
+        <section class="task-list parent"> <!-- change to hide: <section class="task-list parent hidden"> -->
             <!--This is the beginning of our task list-->
             <div class="task-list child">
                 <div class="task-list-top">
                     <!--Title for this particular section-->
-                    <h2 id="date">May 15, 2024</h3>
+                    <h2 id="date">May 15, 2024</h2>
                     <!--Title for this particular section-->
                     <button id="closeTaskList">X</button>
                 </div>
@@ -30,40 +30,60 @@
                         <li>
                             <div class="placeholder-task">
                                 <h3 id="task">Task 1</h3>
-                                <img src="../img/edit_task.png">
-                                <img src="../img/delete_task.png">
+                                <button id ="edit" type="submit">
+                                    <img src="../img/edit_task.png">
+                                </button>
+                                <button id="delete" type="submit">
+                                    <img src="../img/delete_task.png">
+                                </button>
                             </div>
                             <p>Description</p>
                         </li>
                         <li>
                             <div class="placeholder-task">
                                 <h3 id="task">Task 2</h3>
-                                <img src="../img/edit_task.png">
-                                <img src="../img/delete_task.png">
+                                <button id ="edit" type="submit">
+                                    <img src="../img/edit_task.png">
+                                </button>
+                                <button id="delete" type="submit">
+                                    <img src="../img/delete_task.png">
+                                </button>
                             </div>
                             <p>Description</p>
                         </li>
                         <li>
                             <div class="placeholder-task">
                                 <h3 id="task">Task 3</h3>
-                                <img src="../img/edit_task.png">
-                                <img src="../img/delete_task.png">
+                                <button id ="edit" type="submit">
+                                    <img src="../img/edit_task.png">
+                                </button>
+                                <button id="delete" type="submit">
+                                    <img src="../img/delete_task.png">
+                                </button>
                             </div>
                             <p>Description</p>
                         </li>
                         <li>
                             <div class="placeholder-task">
                                 <h3 id="task">Task 4</h3>
-                                <img src="../img/edit_task.png">
-                                <img src="../img/delete_task.png">
+                                <button id ="edit" type="submit">
+                                    <img src="../img/edit_task.png">
+                                </button>
+                                <button id="delete" type="submit">
+                                    <img src="../img/delete_task.png">
+                                </button>
                             </div>
                             <p>Description</p>
                         </li>
                         <li>
                             <div class="placeholder-task">
                                 <h3 id="task">Task 5</h3>
-                                <img src="../img/edit_task.png">
-                                <img src="../img/delete_task.png">
+                                <button id ="edit" type="submit">
+                                    <img src="../img/edit_task.png">
+                                </button>
+                                <button id="delete" type="submit">
+                                    <img src="../img/delete_task.png">
+                                </button>
                             </div>
                             <p>Description</p>
                         </li>
@@ -74,10 +94,10 @@
                     <button id="add">+</button>
                 </div>
             </div>
-        </section-1>
+        </section>
 
         <!--This particular section contains the html for the add/edit pop-up-->
-        <section-2 class="pop-up parent"> <!-- change to hide: <section class="pop-up parent hidden"> -->
+        <section class="pop-up parent"> <!-- change to hide: <section class="pop-up parent hidden"> -->
             <div class="pop-up child">
                 <!--Input for new task-->
                 <div class="pop-up-top">
@@ -93,7 +113,7 @@
                     <button id="confirm">Confirm</button>
                 </div>
             </div>
-        </section-2>
+        </section>
         <footer>
         </footer>
         <script src="task-list.js"></script>

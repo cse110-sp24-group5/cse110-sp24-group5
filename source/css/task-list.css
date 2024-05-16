@@ -8,6 +8,18 @@ body {
     background-color: white;
 }
 
+:root {
+    --color1: #9ac7ff;
+    --color2: #6E8BEB;
+    --color3: rgb(176 93 176);
+    --color4: #D5EDFC;
+    --color5: #f4ebfa;
+    --edit:#c9cdff;
+    --delete: #efd9f6;
+    --preClose: #E59F9F;
+    --onClose: #fa5353;
+}
+    
 
 .hidden {
     display: none;
@@ -24,7 +36,7 @@ body {
 .task-list {
     width: 100%; /* Adjust width as needed */
     max-width: 600px; /* Set maximum width */
-    background-color: #F8F0FF;
+    background-color: var(--color5);
     border-radius: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -39,22 +51,45 @@ body {
 #date {
     margin-left: auto; /* Push the date button to the middle */
     font-style: italic;
-    font-weight: lighter;
+    font-weight: 100;
     font-size: xx-large;
     color:#4a4444;
     font-family: "Montserrat";
+
+}
+
+#edit{
+    background-color: transparent;
+    border: transparent;
+    border-radius: 10px;
+}
+
+#edit:hover{
+    background-color: var(--edit);
+    
+}
+
+#delete{
+    background-color: transparent;
+    border: transparent;
+    border-radius: 10px;
+}
+
+#delete:hover{
+    background-color:var(--delete);
+    
 }
 
 #closeTaskList {
     margin-left: auto; /* Push the close button to the right */
     font-size: xx-large;
-    color: #E59F9F;
+    color: var(--preClose);
     background-color: transparent;
     border: transparent;
 }
 
 #closeTaskList:hover{
-    color: #fa5353;
+    color: var(--onClose);
 }
 
 
@@ -117,12 +152,12 @@ p {
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: #708EE8;
+    background-color: var(--color2);
     color: white;
 }
 
 #add:hover{
-    background-color: hsl(237, 100%, 78%); /* Green */
+    background-color: var(--color1); 
     color: white;
 }
     /*
@@ -143,14 +178,17 @@ p {
 
 /*Place Pop-up section with the Task-list section*/
 .pop-up.parent {
-    position: absolute;
+    position: fixed;
+    align-items: center;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
-     /* display: none;*/ /* Initially hide section-2,uncomment the code in js development */
-     border: 0px solid #9836a8; /*Fix redundant top border in pop-up section*/
-    
+    transform: translate(-50%, 80%);
+     /*display: none;  Initially hide section-2,uncomment the code in js development */
+     border: 0px solid var(--color3); /*Fix redundant top border in pop-up section*/
      font-weight: bolder;
+
+     
+    justify-content: center;
     
 }
 
@@ -195,9 +233,10 @@ p {
 }
 
 #taskTitle{
-    font-family: "Inter";
+    font-family: "Arial";
+    font-size: large;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 #taskTitle,
@@ -211,11 +250,12 @@ p {
     opacity: 0.5;
     font-style: italic;
     font-weight: lighter;
+    font-size: small;
 }
 
 #titleText {
     border-radius: 10px;
-    background-color: #D5EDFC;
+    background-color: var(--color4);
     border: none;
     width: 95%;
     height: 30px;
@@ -223,7 +263,7 @@ p {
 
 #descText {
     border-radius: 5px;
-    background-color: #D5EDFC;
+    background-color: var(--color4);
     border: none;
     resize: none;
     width: 95%;
@@ -270,34 +310,39 @@ p,
 
 
 /* Media query for smaller screens */
-@media screen and (width <= 800px) {
+
+
+@media screen and (width <= 820px) {
     .task-list.parent{
-        height: 80%;
-        width: 80%;
-        margin: 60px 60px 10 10;
+
+        width: 70%;
+        margin: 10px 60 10 10;
+    }
+
+    .task-list.child{
+        height: 120%;
     }
 
     .task-list-middle {
         overflow-y: auto;
         border: 1px solid white;
-        max-height: 400px;
+        max-height: 550px;
     }
-
-
 
     #add{
        size: 80%;
        
     }
     .pop-up.parent{
-        width: 65%;
+        
+        width: 55%;
+        top: 35%
 
     }
 
     #taskTitle{
-        font-family: "Arial";
-        font-size: larger;
-        font-style: italic;
+        font-size: large;
+        font-style: normal;
         font-weight: 700;
     }
 
@@ -311,27 +356,46 @@ p,
     #descText{
         width: 93%;
     }
+
 }
 
 @media (max-width: 480px) {
 
     #date {
-        margin-left: 50px; /* Push the date button to the middle */
+        margin-left: auto; /* Push the date button to the middle */
         font-style: italic;
         font-weight: lighter;
         font-size: x-large;
-        color:#4f46a0;
+        color:#2d4484;
         font-family: "Montserrat";
         align-items: center ;
     }
+
+    h3{
+        font-size: medium;
+    }
+
+    p{
+        font-size: small;
+    }
+
+    .pop-up.parent{
+        width: 55%;
+        top: 30%
+    }
+
+    #titleText, 
+    #descText{
+        width: 88%;
+    }
+
+    #taskTitle{
+        margin-top: -8%;
+        font-size:medium;
+    }
+    
+    #closePopUp{
+        margin-top: 0;
+        font-size:x-large;
+    }
 }
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) { 
-
- }
-
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {
-
-  }
