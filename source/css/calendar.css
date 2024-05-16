@@ -24,6 +24,7 @@ body {
     grid-template-columns: [first] calc(100% / 3) [second] calc(100% / 3) [third] calc(100% / 3);
     justify-items: center;
     color: var(--day-color);
+    
     /* font size and style for the month + year */ 
     font-family: "Montserrat";
     font-style: normal;
@@ -40,19 +41,23 @@ button {
 
 .weekdays {
     list-style-type: none; /* removes bullet points */
+
     /* flexbox container for weekdays for easy resizing */ 
     display: grid;
     justify-content: center;
+
     /* space between the rows */
     grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
     color: var(--weekday-color);
     background: white;
+
     /* font size and style */
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5rem;
+
     /* weekdays fill up the whole container and there is no gap between the month + year */
     padding: 0;
     margin: 0;
@@ -74,6 +79,7 @@ button {
     list-style-type: none;
     margin: 0;
     padding: 0;
+
     /* font size and style */
     font-family: "Roboto Mono";
     font-style: normal;
@@ -82,10 +88,13 @@ button {
     line-height: 2rem;
     color: var(--day-color);
     background: white;
+
     /* puts the days of the week into a grid layout */
     display: grid;
+
     /* space between the columns */
     grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
+
     /* space between the rows */
     grid-template-rows: [row1] 6rem [row2] 6rem [row3] 6rem [row4] 6rem [row5] 6rem;
     border-bottom: solid 0.2rem var(--border-color);
@@ -111,7 +120,7 @@ button {
     border-radius: 50%;
 }
 
-/* hides the abbreivated weekdays which are used for mobile devices*/
+/* hides the abbreivated weekdays which are used for mobile devices */
 .short-weekdays {
     display: none;
 }
@@ -127,16 +136,19 @@ button {
         /* flexbox container for weekdays for easy resizing */ 
         display: grid;
         justify-content: center;
+
         /* space between the rows */
         grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
         color: var(--weekday-color);
         background: white;
+
         /* font size and style */
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-style: normal;
         font-weight: 700;
         font-size: 1rem;
         line-height: 1.5rem;
+
         /* weekdays fill up the whole container and there is no gap between the month + year */
         padding: 0;
         margin: 0;
