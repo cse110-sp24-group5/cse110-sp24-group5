@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dummy HTML Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panda Coding Express</title>
+    <link rel="stylesheet" href="../css/home-page.css">
+    <!-- Implement the Montserrat font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+        h2 {
+            font-family: 'Montserrat';
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
+    <!-- Section for greeting -->
+    <section>
+        <div class="container">
+            <h2>Greetings <name>NAME!</name> How are you feeling today?</h2>
+            <div class="faces">
+                <div class="face" id="happy">
+                    <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
+                </div>
+                <div class="face neutral" id="neutral">
+                    <img class="emoji" id="neutral_image" src="../img/soso_face.png" alt="Neutral Face"> 
+                </div>
+                <div class="face sad" id="sad">
+                    <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section to access the other pages -->
+    <section class="box-container">
+        <!-- Section for Calendar -->
+        <section>
+            <h2>Calendar</h2>
+            <div class="box" id="calanderBox">
+                <a href="#">
+                <img class="icon" id="calandarImage" src="../img/Calendar_icon.png" alt="Calendar">
+                </a> 
+            </div>
+        </section>
+        <!-- Section for DevJournal -->
+        <section>
+            <h2>DevJournal</h2>
+            <div class="box" id="journalBox">
+                <a href="#">
+                <img class="icon" id="journalImage" src="../img/Notes_icon.png" alt="DevJournal"> 
+                </a>
+            </div>
+        </section>
+    </section>
 </body>
 </html>
