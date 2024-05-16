@@ -3,7 +3,7 @@
     --border-color: #C1D6FF;
     --weekday-color: #3F66D2;
     --day-color: #708EE8;
-    --background-color: linear-gradient(180deg, rgba(95, 192, 255, 30%) 23.5%, rgba(91, 194, 255, 30%) 39.5%, rgba(219, 147, 255, 30%) 100%);
+    --background-color: linear-gradient(180deg, rgba(95, 192, 255, 0.3) 23.5%, rgba(91, 194, 255, 0.3) 39.5%, rgba(219, 147, 255, 0.3) 100%);
     --blank-day-color: #F4F5FF;
     --pink-selected-day-color: #F2E5FB;
 }
@@ -15,29 +15,24 @@ body {
 
 /* gives calendar element margins so it more centered */
 .calendar {
-    margin: 5rem 8rem 5rem 8rem;
+    margin: 5rem 8rem;
 }
 
 .header {
-    background: rgba(255, 255, 255, 80%);
-    
+    background: rgba(255, 255, 255, 0.8);
     display: grid; /* grid container surrounding month + year for easy resizing */
     grid-template-columns: [first] calc(100% / 3) [second] calc(100% / 3) [third] calc(100% / 3);
     justify-items: center;
-     
     color: var(--day-color);
-
     /* font size and style for the month + year */ 
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-style: normal;
     font-weight: 100;
     font-size: 1.5rem;
     line-height: 3rem;
 }
 
-
-
-/* */
+/* remove the background button that appears on default for buttons so we can replace with images */
 button {
     border: none;
     background: transparent;
@@ -45,23 +40,19 @@ button {
 
 .weekdays {
     list-style-type: none; /* removes bullet points */
-    
     /* flexbox container for weekdays for easy resizing */ 
     display: grid;
     justify-content: center;
     /* space between the rows */
     grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
-
     color: var(--weekday-color);
     background: white;
-
     /* font size and style */
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5rem;
-
     /* weekdays fill up the whole container and there is no gap between the month + year */
     padding: 0;
     margin: 0;
@@ -73,7 +64,6 @@ button {
 .weekdays li {
     text-align: center;
     border: solid 0.2rem var(--border-color);
-    
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
@@ -84,24 +74,20 @@ button {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
     /* font size and style */
-    font-family: 'Roboto Mono';
+    font-family: "Roboto Mono";
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
     line-height: 2rem;
-    
     color: var(--day-color);
     background: white;
-    
     /* puts the days of the week into a grid layout */
     display: grid;
     /* space between the columns */
     grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
     /* space between the rows */
     grid-template-rows: [row1] 6rem [row2] 6rem [row3] 6rem [row4] 6rem [row5] 6rem;
-
     border-bottom: solid 0.2rem var(--border-color);
     border-left: solid 0.2rem var(--border-color);
     border-right: solid 0.2rem var(--border-color);
@@ -138,23 +124,19 @@ button {
 
     .short-weekdays {
         list-style-type: none; /* removes bullet points */
-        
         /* flexbox container for weekdays for easy resizing */ 
         display: grid;
         justify-content: center;
         /* space between the rows */
         grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
-    
         color: var(--weekday-color);
         background: white;
-    
         /* font size and style */
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 700;
         font-size: 1rem;
         line-height: 1.5rem;
-        
         /* weekdays fill up the whole container and there is no gap between the month + year */
         padding: 0;
         margin: 0;
@@ -166,7 +148,6 @@ button {
     .short-weekdays li {
         text-align: center;
         border: solid 0.2rem var(--border-color);
-        
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
     }
