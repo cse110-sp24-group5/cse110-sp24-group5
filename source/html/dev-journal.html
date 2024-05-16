@@ -7,8 +7,17 @@
       <link rel="stylesheet" href="../css/dev-journal.css">
    </head>
    <body>
+      <p>
+      <h1> TITLE </h1>
+      </p>
+   <!-- Datepicker element, I defined a new div so I could get all the content in the top right corner -->
+   <div class = "date-element">
+      <label for="datepicker">Select Date:</label>
+      <input type="date" id="datepicker" name="datepicker">
+   </div>
+   Sentiment Widget
       <!--Sentiment Analysis Widget-->
-      <p>Sentiment Widget</p>
+   <div class = "grid-container">
       <div class="faces">
          <div class="face" id="happy">
             <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
@@ -20,34 +29,22 @@
             <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
          </div>
       </div>
-
-      <!-- Datepicker element, I defined a new div so I could get all the content in the top right corner -->
-      <div class = "date-element">
-         <label for="datepicker">Select Date:</label>
-         <input type="date" id="datepicker" name="datepicker">
-      </div>
-      
       <!-- Input boxes -->
-      <div class = "grid-container">
          <div class = "grid-item1">
-            <h2>Challenges</h2>
-            <textarea id="challenges" name="challenges" placeholder="What challenges did you face today?"></textarea>
+            <textarea id="accomplishments" name="accomplishments" placeholder="Accomplished today"></textarea>
+         </div>
+            <div class = "grid-item-2-3">
+            <div class = "grid-item2">
+               <textarea id="challenges" name="challenges" placeholder="Challenges"></textarea>
+            </div>
+            <div class = "grid-item3">
+               <textarea id="goals" name="goals" placeholder="Goals"></textarea>
+            </div>
+      </div>
+         <div class = "grid-item4">
+            <textarea id="reflections" name="reflections" placeholder="Reflections"></textarea>
          </div>
 
-         <div class = "grid-item2">
-            <h2>Goals</h2>
-            <textarea id="goals" name="goals" placeholder="What are your goals for today?"></textarea>
-         </div>
-
-         <div class = "grid-item3">
-            <h2>Accomplished Today</h2>
-            <textarea id="accomplishments" name="accomplishments" placeholder="What did you accomplish today?"></textarea>
-         </div>
-
-         <div class="grid-item4">
-            <h2>Reflections</h2>
-            <textarea id="reflections" name="reflections" placeholder="Reflect on your day..."></textarea>
-         </div>
       </div>
    </body>
 </html>
