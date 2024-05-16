@@ -21,18 +21,33 @@
          </div>
       </div>
 
-      <!-- Datepicker element -->
-      <label for="datepicker">Select Date:</label>
-      <input type="date" id="datepicker" name="datepicker">
+      <!-- Datepicker element, I defined a new div so I could get all the content in the top right corner -->
+      <div class = "date-element">
+         <label for="datepicker">Select Date:</label>
+         <input type="date" id="datepicker" name="datepicker">
+      </div>
       
       <!-- Input boxes -->
-      <h2>Challenges</h2>
-      <textarea id="challenges" name="challenges" placeholder="What challenges did you face today?"></textarea>
-      <h2>Goals</h2>
-      <textarea id="goals" name="goals" placeholder="What are your goals for today?"></textarea>
-      <h2>Accomplished Today</h2>
-      <textarea id="accomplishments" name="accomplishments" placeholder="What did you accomplish today?"></textarea>
-      <h2>Reflections</h2>
-      <textarea id="reflections" name="reflections" placeholder="Reflect on your day..."></textarea>
+      <div class = "grid-container">
+         <div class = "grid-item1">
+            <h2>Challenges</h2>
+            <textarea id="challenges" name="challenges" placeholder="What challenges did you face today?"></textarea>
+         </div>
+
+         <div class = "grid-item2">
+            <h2>Goals</h2>
+            <textarea id="goals" name="goals" placeholder="What are your goals for today?"></textarea>
+         </div>
+
+         <div class = "grid-item3">
+            <h2>Accomplished Today</h2>
+            <textarea id="accomplishments" name="accomplishments" placeholder="What did you accomplish today?"></textarea>
+         </div>
+
+         <div class="grid-item4">
+            <h2>Reflections</h2>
+            <textarea id="reflections" name="reflections" placeholder="Reflect on your day..."></textarea>
+         </div>
+      </div>
    </body>
 </html>
