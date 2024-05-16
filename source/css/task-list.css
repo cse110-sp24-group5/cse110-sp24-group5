@@ -53,6 +53,9 @@ body {
     border: transparent;
 }
 
+#closeTaskList:hover{
+    color: #fa5353;
+}
 
 
 
@@ -117,6 +120,11 @@ p {
     background-color: #708EE8;
     color: white;
 }
+
+#add:hover{
+    background-color: hsl(237, 100%, 78%); /* Green */
+    color: white;
+}
     /*
     original code
     font-style: italic;
@@ -171,6 +179,10 @@ p {
     color: #E59F9F;
     background-color: transparent;
     border: transparent;
+}
+
+#closePopUp:hover{
+    color: #fa5353;
 }
 
 
@@ -237,7 +249,10 @@ p {
     font-weight: bolder;
 }
 
-
+#confirm:hover{
+    background-color: rgb(235, 209, 252);
+    color: white;
+}
 
 #date,
 #closeTaskList,
@@ -285,6 +300,12 @@ p,
         font-style: italic;
         font-weight: 700;
     }
+
+    #taskDesc {
+        font-size: small;
+    }
+    
+
     
     #titleText, 
     #descText{
@@ -292,10 +313,25 @@ p,
     }
 }
 
-@media (max-width: 480px) {  }
+@media (max-width: 480px) {
+
+    #date {
+        margin-left: 50px; /* Push the date button to the middle */
+        font-style: italic;
+        font-weight: lighter;
+        font-size: x-large;
+        color:#4f46a0;
+        font-family: "Montserrat";
+        align-items: center ;
+    }
+}
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {  }
+@media (max-width: 767px) { 
+
+ }
 
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {  }
+@media (min-width: 768px) and (max-width: 979px) {
+
+  }
