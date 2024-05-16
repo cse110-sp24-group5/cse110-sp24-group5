@@ -66,6 +66,7 @@ button {
     border-right: solid 0.2rem var(--border-color);
 }
 
+/* Adding extra border around weekdays (Sunday, Monday, etc.) to match design on figma */
 .weekdays li {
     text-align: center;
     border: solid 0.2rem var(--border-color);
@@ -73,10 +74,8 @@ button {
     padding-bottom: 0.5rem;
 }
 
-
-
 .days {
-    list-style-type: none;
+    list-style-type: none; /* Removing bullet points */
     margin: 0;
     padding: 0;
 
@@ -102,6 +101,7 @@ button {
     border-right: solid 0.2rem var(--border-color);
 }
 
+/* Altering the color of the border of the grid boxes within the calendar */
 .days li {
     border: solid;
     border-color: var(--border-color);
@@ -158,6 +158,7 @@ button {
         border-right: solid 0.2rem var(--border-color);
     }
     
+    /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
     .short-weekdays li {
         text-align: center;
         border: solid 0.2rem var(--border-color);

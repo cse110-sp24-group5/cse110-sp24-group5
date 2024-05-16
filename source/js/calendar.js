@@ -18,7 +18,7 @@ function init () {
         const year = date.getFullYear();
         
         // Update month and year text content within the header
-        monthYearText.textContent = `${month.toUpperCase()} ${year}`;
+        monthYearText.textContent = `${month} ${year}`;
         
         // Clear any previous calendar days
         daysContainer.innerHTML = '';
