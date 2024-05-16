@@ -1,0 +1,136 @@
+/* The background of the website */
+body {
+    background: linear-gradient(to bottom, #4EC5FF, #94C8F1 40%, #EEA0FF 95%); /* Background color */
+    min-height: 100vh; /* Makes the background color the entirety of the viewport */
+    max-width: min-content; /* Prevents excessive width to the body */
+    overflow: hidden; /* Hides everything that is outside of the viewport */
+}
+
+/* specifically targets the text in the user message box */
+section h2 {
+    color: white;
+    font-size: 3vh;
+    text-align: center;
+}  
+
+/* Specifically targets the text above the icon boxes */
+section section h2 {
+    color: white;
+    text-align: center;
+    font-size: 3vh;
+    margin-bottom: 10px;
+}
+
+/* The box containing the greeting and the faces */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    border: 2px solid white; /* Border color and width of the greeting box */
+    margin-left: 6vw; /* Controls the size of the greeting box */
+    margin-right: 4vw; /* Controls the size of the greeting box */
+    margin-top: 6vh; /* Controls the size of the greeting box */
+    border-radius: 20px;
+    border-radius: 3vw; /* Rounds the edges of the box */
+    background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the container */
+}
+
+/* How the faces are arranged */
+.faces {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* The size of the emoji faces */
+.face {
+    font-size: 6vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+/* How the icon boxes are arranged */
+.box-container {
+    display: flex;
+    justify-content: space-between; /* Align items with space between them */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+/* The boxes surrounding the DevJournal and Calander */
+.box {
+    border: 2px solid white;
+    border-radius: 6vw; /* Rounds the edges of the box */
+    padding: 8vw; /* Allows the width of box to shift properly w/ screen size change */
+    margin: 1vw 4vw; /* 1vw to let the h2 texts lie closer to their respective boxes */
+    width: 25vw; /* General size of box */
+    height: 15vh; /* General size of box */
+    background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the boxes */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* The images of the calander and the DevJournal */
+.icon {
+    height: 20vh;
+    width: 20vh;
+    margin: auto;
+    object-fit: contain;
+}
+
+/* Controls the size of the emojis */
+.emoji {
+    width: 8vw;
+    height: 8vw;
+}
+
+/* Media query for smaller screens */
+@media screen and (width <= 800px) {
+    /* Targets the way boxes are displayed */
+    .box-container {
+        flex-direction: column;
+        justify-content: center; /* Center items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    /* targets the text above the icon boxes */
+    section section h2 {
+        margin-left: 16vw; /* Centers the text above the icon boxes */
+    }
+
+    /* targets the sentiment analysis box */
+    .container {
+        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        margin-bottom: 2vh; /* Add vertical margin between boxes */
+        margin-top: 7vh; /* Add vertical margin to center better for mobile */
+        box-sizing: border-box; 
+        max-width: 70%;
+        padding: 40px;
+        margin-left: auto;
+
+        h2 {
+            font-size: 4vw; /* Adjust font size for smaller screens */
+        }
+    }
+
+    /* targets the icon boxes */
+    .box {
+        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        height: 17vh;
+        margin: 2vh; /* Add vertical margin between boxes */
+        box-sizing: border-box; 
+        max-width: 70%;
+        padding: 20px;
+        margin-left: auto;
+    }
+
+
+    /* targets the icons specifically to make them smaller in mobile case */
+    .icon {
+        height: 10vh;
+        width: 10vh;
+        margin: auto;
+        object-fit: contain;
+    }
+}
