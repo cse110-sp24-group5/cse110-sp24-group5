@@ -1,0 +1,12 @@
+/* How the faces are arranged */
+.faces {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* The size of the emoji faces */
+.face {
+    font-size: 6vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}

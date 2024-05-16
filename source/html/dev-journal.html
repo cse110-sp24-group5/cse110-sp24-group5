@@ -8,8 +8,8 @@
    </head>
    <body>
       <!--Sentiment Analysis Widget-->
-      <div class="sentiment-widget">
-         <p>Sentiment Widget</p>
+      <p>Sentiment Widget</p>
+      <div class="faces">
          <div class="face" id="happy">
             <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
          </div>
@@ -20,17 +20,19 @@
             <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
          </div>
       </div>
+
       <!-- Datepicker element -->
       <label for="datepicker">Select Date:</label>
       <input type="date" id="datepicker" name="datepicker">
+      
       <!-- Input boxes -->
       <h2>Challenges</h2>
-      <input type="text" id="challenges" name="challenges" placeholder="What challenges did you face today?">
+      <textarea id="challenges" name="challenges" placeholder="What challenges did you face today?"></textarea>
       <h2>Goals</h2>
-      <input type="text" id="goals" name="goals" placeholder="What are your goals for today?">
+      <textarea id="goals" name="goals" placeholder="What are your goals for today?"></textarea>
       <h2>Accomplished Today</h2>
-      <input type="text" id="accomplishments" name="accomplishments" placeholder="What did you accomplish today?">
+      <textarea id="accomplishments" name="accomplishments" placeholder="What did you accomplish today?"></textarea>
       <h2>Reflections</h2>
-      <input type="text" id="reflections" name="reflections" placeholder="Reflect on your day...">
+      <textarea id="reflections" name="reflections" placeholder="Reflect on your day..."></textarea>
    </body>
 </html>
