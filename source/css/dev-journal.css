@@ -1,7 +1,8 @@
 /* How the faces are arranged */
 .faces {
-    display: flex;
-    justify-content: space-between;
+    display: inline-flex;
+    justify-content: space-around;
+    
 }
 
 /* The size of the emoji faces */
@@ -11,26 +12,45 @@
     margin-right: 1vw;
 
 }*/
+
+@font-face {
+    font-family: 'Montesserat'; /* Give your font a name */
+    src: url(./Montserrat-Italic-VariableFont_wght.ttf)
+}
 body{
     background: linear-gradient(180deg, rgba(222, 150, 255, 0.3) 23.5%, rgba(54, 194, 247, 0.3) 74.5%);
+    font-family: 'Montesserat';
 }
 
-img {
+* {
+    margin-left : 10px;
+}
+
+.emoji {
     height: 60px;
 }
 
 .face {
     margin: 30px;
-   
 }
 
 #challenges {
-    width: 40vw; 
+    width: 35vw; 
     height: 12vh;
 }
 
 #goals {
-    width: 40vw; 
-    height : 20vh;
+    width: 35vw; 
+    height : 23vh;
+}
+
+#accomplishments {
+    width: 35vw;
+    height: 10vh;
+}
+
+#reflections {
+    width: 35vw;
+    height: 38vh;
 }
 
