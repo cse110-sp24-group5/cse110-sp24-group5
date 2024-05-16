@@ -22,7 +22,7 @@ jobs:
         run: npm install htmlhint --save-dev
       # Run linting for HTML
       - name: Run HTML linting
-        run: npx htmlhint ./*.html
+        run: npx htmlhint "source/html/*.html"
       - name: Run linters
         uses: wearerequired/lint-action@v2
       - name: Install Stylelint
