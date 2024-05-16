@@ -19,7 +19,7 @@ function init () {
         
         // Update month and year text content within the header
         monthYearText.textContent = `${month} ${year}`;
-        
+
         // Clear any previous calendar days
         daysContainer.innerHTML = '';
         

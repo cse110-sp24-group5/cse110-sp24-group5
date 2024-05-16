@@ -8,20 +8,30 @@
     --pink-selected-day-color: #F2E5FB;
 }
 
+/* centers html container on screen */
+html {
+    display: table;
+    margin: auto;
+    height: 100%;
+}
+
+/* centers body container on screen */
 body {
-    background: var(--background-color) no-repeat; /* sets background color of whole page and no repeat so gradient doesn't occur multiple times */
-    height: 90vh; /* increases height so gradient doesn't repeat, but goes past screen so part of the gradient is lost */
+    background: var(--background-color); /* sets background color of whole page */
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
 }
 
 /* gives calendar element margins so it more centered */
 .calendar {
-    margin: 5rem 8rem;
+    width: 75vw;
 }
 
 .header {
     background: rgb(255 255 255 / 80%);
     display: grid; /* grid container surrounding month + year for easy resizing */
-    grid-template-columns: [first] calc(100% / 3) [second] calc(100% / 3) [third] calc(100% / 3);
+    grid-template-columns: [first] 20% [second] 60% [third] 20%;
     justify-items: center;
     color: var(--day-color);
 
@@ -29,7 +39,7 @@ body {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 100;
-    font-size: 1.5rem;
+    font-size: max(1rem, 2.5vw); /* dynamically shrinks month and year font and sets minimum font size */
     line-height: 3rem;
 }
 
@@ -37,6 +47,14 @@ body {
 button {
     border: none;
     background: transparent;
+}
+
+/* dynamically shrinks arrow buttons at same rate as the header font and sets minimum size */
+img {
+    width: 2.5vw;
+    min-width: 1rem;
+    height: 2.5vw;
+    min-height: 1rem;
 }
 
 .weekdays {
@@ -55,21 +73,21 @@ button {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.25vw;
     line-height: 1.5rem;
 
     /* weekdays fill up the whole container and there is no gap between the month + year */
     padding: 0;
     margin: 0;
-    border-top: solid 0.2rem var(--border-color);
-    border-left: solid 0.2rem var(--border-color);
-    border-right: solid 0.2rem var(--border-color);
+    border-top: solid 0.1rem var(--border-color);
+    border-left: solid 0.1rem var(--border-color);
+    border-right: solid 0.1rem var(--border-color);
 }
 
 /* Adding extra border around weekdays (Sunday, Monday, etc.) to match design on figma */
 .weekdays li {
     text-align: center;
-    border: solid 0.2rem var(--border-color);
+    border: solid 0.1rem var(--border-color);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
@@ -96,9 +114,9 @@ button {
 
     /* space between the rows */
     grid-template-rows: [row1] 6rem [row2] 6rem [row3] 6rem [row4] 6rem [row5] 6rem;
-    border-bottom: solid 0.2rem var(--border-color);
-    border-left: solid 0.2rem var(--border-color);
-    border-right: solid 0.2rem var(--border-color);
+    border-bottom: solid 0.1rem var(--border-color);
+    border-left: solid 0.1rem var(--border-color);
+    border-right: solid 0.1rem var(--border-color);
 }
 
 /* Altering the color of the border of the grid boxes within the calendar */
@@ -125,7 +143,29 @@ button {
     display: none;
 }
 
+/* handle smaller screens sizing with fonts */
 @media screen and (width <= 1115px) {
+    /* centers html container */
+    html {
+        display: table;
+        margin: auto;
+        height: 100%;
+    }
+    
+    /* centers body container */
+    body {
+        background: var(--background-color); /* sets background color of whole page */
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;
+    }
+    
+    /* Resizing font sizes for smaller devices */
+    .calendar {
+       margin: 0;
+       min-width: 350px;
+    }
+
     /* hides the lengthened weekdays names which are need for desktops */
     .weekdays {
         display: none;
@@ -147,21 +187,21 @@ button {
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: max(0.8rem, 1.75vw); /* reducing font size for weekday names to fit on mobile */
         line-height: 1.5rem;
 
         /* weekdays fill up the whole container and there is no gap between the month + year */
         padding: 0;
         margin: 0;
-        border-top: solid 0.2rem var(--border-color);
-        border-left: solid 0.2rem var(--border-color);
-        border-right: solid 0.2rem var(--border-color);
+        border-top: solid 0.1rem var(--border-color);
+        border-left: solid 0.1rem var(--border-color);
+        border-right: solid 0.1rem var(--border-color);
     }
     
     /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
     .short-weekdays li {
         text-align: center;
-        border: solid 0.2rem var(--border-color);
+        border: solid 0.1rem var(--border-color);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
     }
