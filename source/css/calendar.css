@@ -118,6 +118,7 @@ img {
     border-left: solid 0.1rem var(--border-color);
     border-right: solid 0.1rem var(--border-color);
 
+    /* Type of cursor when trying to select days */
     cursor: pointer;
 }
 
