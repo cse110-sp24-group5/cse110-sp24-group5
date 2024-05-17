@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <!-- Main Stylesheet & Scripts -->
+    <link rel="stylesheet" href="/source/css/calendar.css">
+    <!-- Montserrat font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Roboto font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
+    <script src="/source/js/calendar.js"></script>
+</head>
+<body>
+
+    <!-- section for entire calendar -->
+    <section class="calendar">
+
+        <!-- div for calendar month and arrows -->
+        <div class="header">
+            <button class="prev-month">
+                <img src="/source/img/previous-month.png" alt="previous month">
+            </button>
+            <div> 
+                <h1 class="month-year">[Month] [Year]</h1> <!-- Will dynamically update month and year via JavaScript -->
+            </div> 
+            <button class="next-month">
+                <img src="/source/img/next-month.png" alt="next month">
+            </button>
+        </div>
+
+        <!-- ul for calendar weekdays sun-sat. Will be hidden on mobile and used on desktops. -->
+        <ul class="weekdays">
+            <li>SUNDAY</li>
+            <li>MONDAY</li>
+            <li>TUESDAY</li>
+            <li>WEDNESDAY</li>
+            <li>THURSDAY</li>
+            <li>FRIDAY</li>
+            <li>SATURDAY</li>
+        </ul>
+
+        <!-- ul for calendar weekdays sun-sat abbrevations. Will be hidden on desktops and used on mobile. -->
+        <ul class="short-weekdays">
+            <li>SUN</li>
+            <li>MON</li>
+            <li>TUE</li>
+            <li>WED</li>
+            <li>THU</li>
+            <li>FRI</li>
+            <li>SAT</li>
+        </ul>
+
+        <!-- ul for calendar day -->
+        <ul class="days"></ul> <!-- Will dynamically add days via JavaScript -->
+
+    </section>
+</body>
+</html>
