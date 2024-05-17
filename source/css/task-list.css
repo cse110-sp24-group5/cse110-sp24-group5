@@ -8,6 +8,8 @@ body {
     background-color: white;
 }
 
+/* Color variables */
+
 :root {
     --color1: #9ac7ff;
     --color2: #6E8BEB;
@@ -20,6 +22,7 @@ body {
     --onClose: #fa5353;
 }
     
+/* Testing purposes before implementation of JS */
 
 .hidden {
     display: none;
@@ -41,11 +44,13 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Task List top subsection */
+
 .task-list-top {
     display: flex;
     justify-content: space-between; /* Space elements evenly */
     align-items: center; /* Center elements vertically */
-    padding: 0px 20px 0px 20px;
+    padding: 0px 20px 0px 20px; /* padding format: top right bottom left */
 }
 
 #date {
@@ -54,9 +59,9 @@ body {
     font-weight: 100;
     font-size: xx-large;
     color:#4a4444;
-    font-family: "Montserrat";
-
 }
+
+/* Buttons */
 
 #edit{
     background-color: transparent;
@@ -92,9 +97,40 @@ body {
     color: var(--onClose);
 }
 
+#add {
+    margin-left: auto; /* Push the close button to the right */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 58px;
 
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color2);
+    color: white;
+}
 
+#add:hover{
+    background-color: var(--color1); 
+    color: white;
+}
+    /*
+    original code
+    font-style: italic;
+    font-size: xx-large;
+    font-weight: bold;
+    align-items: center;
+    background-color: #708EE8
+    width: 50px;
+    height: 50px;
+    color: white;
+    
+    */
 
+/* Task List middle subsection */
 
 .task-list-middle {
     overflow-y: auto;
@@ -128,10 +164,7 @@ p {
     font-size: smaller;
 }
 
-
-
-
-
+/* Task List bottom subsection */
 
 .task-list-bottom {
     display: flex;
@@ -139,40 +172,6 @@ p {
     align-items: center; /* Center elements vertically */
     padding: 20px 20px 20px 20px;
 }
-
-#add {
-    margin-left: auto; /* Push the close button to the right */
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 60px;
-    line-height: 58px;
-
-    display: flex;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--color2);
-    color: white;
-}
-
-#add:hover{
-    background-color: var(--color1); 
-    color: white;
-}
-    /*
-    original code
-    font-style: italic;
-    font-size: xx-large;
-    font-weight: bold;
-     align-items: center;
-    background-color: #708EE8
-    width: 50px;
-    height: 50px;
-    color: white;
-    
-    */
-
 
 /* Pop-up section */
 
@@ -184,12 +183,11 @@ p {
     left: 50%;
     transform: translate(-50%, 80%);
      /*display: none;  Initially hide section-2,uncomment the code in js development */
-     border: 0px solid var(--color3); /*Fix redundant top border in pop-up section*/
-     font-weight: bolder;
+    border: 0px solid var(--color3); /*Fix redundant top border in pop-up section*/
+    font-weight: bolder;
 
-     
-    justify-content: center;
     
+    justify-content: center;
 }
 
 .pop-up {
@@ -204,6 +202,8 @@ p {
     top:0;
     right:0;
 }
+
+/* Pop-up top subsection */
 
 .pop-up-top {
     display: flex;
@@ -223,10 +223,7 @@ p {
     color: #fa5353;
 }
 
-
-
-
-
+/* Pop-up middle subsection */
 
 .pop-up-middle {
     padding: 0px 0px 0px 20px;
@@ -269,10 +266,7 @@ p {
     width: 95%;
 }
 
-
-
-
-
+/* Pop-up bottom subsection */
 
 .pop-up-bottom {
     display: flex;
@@ -294,6 +288,8 @@ p {
     color: white;
 }
 
+/* Font for all text in task-list/pop-up */
+
 #date,
 #closeTaskList,
 #task,
@@ -308,9 +304,7 @@ p,
     font-family: "Montserrat";
 }
 
-
 /* Media query for smaller screens */
-
 
 @media screen and (width <= 820px) {
     .task-list.parent{
@@ -362,12 +356,11 @@ p,
 @media (max-width: 480px) {
 
     #date {
-        margin-left: auto; /* Push the date button to the middle */
+        margin-left: auto;
         font-style: italic;
         font-weight: lighter;
         font-size: x-large;
         color:#2d4484;
-        font-family: "Montserrat";
         align-items: center ;
     }
 
