@@ -1,0 +1,211 @@
+/* has colors taken from figma */
+:root {
+    --border-color: #C1D6FF;
+    --weekday-color: #3F66D2;
+    --day-color: #708EE8;
+    --background-color: linear-gradient(180deg, rgb(95 192 255 / 30%) 23.5%, rgb(91 194 255 / 30%) 39.5%, rgb(219 147 255 / 30%) 100%);
+    --blank-day-color: #F4F5FF;
+    --pink-selected-day-color: #F2E5FB;
+}
+
+/* centers html container on screen */
+html {
+    display: table;
+    margin: auto;
+    height: 100%;
+}
+
+/* centers body container on screen */
+body {
+    background: var(--background-color); /* sets background color of whole page */
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+/* gives calendar element margins so it more centered */
+.calendar {
+    width: 75vw;
+}
+
+.header {
+    background: rgb(255 255 255 / 80%);
+    display: grid; /* grid container surrounding month + year for easy resizing */
+    grid-template-columns: [first] 20% [second] 60% [third] 20%;
+    justify-items: center;
+    color: var(--day-color);
+
+    /* font size and style for the month + year */ 
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    font-size: max(1rem, 2.5vw); /* dynamically shrinks month and year font and sets minimum font size */
+    line-height: 3rem;
+}
+
+/* remove the background button that appears on default for buttons so we can replace with images */
+button {
+    border: none;
+    background: transparent;
+}
+
+/* dynamically shrinks arrow buttons at same rate as the header font and sets minimum size */
+img {
+    width: 2.5vw;
+    min-width: 1rem;
+    height: 2.5vw;
+    min-height: 1rem;
+}
+
+.weekdays {
+    list-style-type: none; /* removes bullet points */
+
+    /* flexbox container for weekdays for easy resizing */ 
+    display: grid;
+    justify-content: center;
+
+    /* space between the rows */
+    grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
+    color: var(--weekday-color);
+    background: white;
+
+    /* font size and style */
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 1.5rem;
+
+    /* weekdays fill up the whole container and there is no gap between the month + year */
+    padding: 0;
+    margin: 0;
+    border-top: solid 0.1rem var(--border-color);
+    border-left: solid 0.1rem var(--border-color);
+    border-right: solid 0.1rem var(--border-color);
+}
+
+/* Adding extra border around weekdays (Sunday, Monday, etc.) to match design on figma */
+.weekdays li {
+    text-align: center;
+    border: solid 0.1rem var(--border-color);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.days {
+    list-style-type: none; /* Removing bullet points */
+    margin: 0;
+    padding: 0;
+
+    /* font size and style */
+    font-family: "Roboto Mono", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: var(--day-color);
+    background: white;
+
+    /* puts the days of the week into a grid layout */
+    display: grid;
+
+    /* space between the columns */
+    grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
+
+    /* space between the rows */
+    grid-template-rows: [row1] 6rem [row2] 6rem [row3] 6rem [row4] 6rem [row5] 6rem;
+    border-bottom: solid 0.1rem var(--border-color);
+    border-left: solid 0.1rem var(--border-color);
+    border-right: solid 0.1rem var(--border-color);
+
+    /* Type of cursor when trying to select days */
+    cursor: pointer;
+}
+
+/* Altering the color of the border of the grid boxes within the calendar */
+.days li {
+    border: solid;
+    border-color: var(--border-color);
+    padding-left: 0.5rem; /* Added padding to the left of the day number to match Figma design */
+}
+
+/* Color the blank days in the calendar to differentiate them */
+.blank-day {
+    background: var(--blank-day-color);
+}
+
+/* add a pink background around a selected day */
+.selected {
+    border: 4px solid var(--pink-selected-day-color);
+    background-color: var(--pink-selected-day-color);
+    border-radius: 50%;
+}
+
+/* hides the abbreivated weekdays which are used for mobile devices */
+.short-weekdays {
+    display: none;
+}
+
+/* handle smaller screens sizing with fonts */
+@media screen and (width <= 1115px) {
+    /* centers html container */
+    html {
+        display: table;
+        margin: auto;
+        height: 100%;
+    }
+    
+    /* centers body container */
+    body {
+        background: var(--background-color); /* sets background color of whole page */
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;
+    }
+    
+    /* Resizing font sizes for smaller devices */
+    .calendar {
+       margin: 0;
+       min-width: 350px;
+    }
+
+    /* hides the lengthened weekdays names which are need for desktops */
+    .weekdays {
+        display: none;
+    }
+
+    .short-weekdays {
+        list-style-type: none; /* removes bullet points */
+
+        /* flexbox container for weekdays for easy resizing */ 
+        display: grid;
+        justify-content: center;
+
+        /* space between the rows */
+        grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
+        color: var(--weekday-color);
+        background: white;
+
+        /* font size and style */
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: max(0.8rem, 1.75vw); /* reducing font size for weekday names to fit on mobile */
+        line-height: 1.5rem;
+
+        /* weekdays fill up the whole container and there is no gap between the month + year */
+        padding: 0;
+        margin: 0;
+        border-top: solid 0.1rem var(--border-color);
+        border-left: solid 0.1rem var(--border-color);
+        border-right: solid 0.1rem var(--border-color);
+    }
+    
+    /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
+    .short-weekdays li {
+        text-align: center;
+        border: solid 0.1rem var(--border-color);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}
