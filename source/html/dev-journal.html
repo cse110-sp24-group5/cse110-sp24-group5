@@ -4,47 +4,45 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Panda Coding Express</title>
-      <link rel="stylesheet" href="../css/dev-journal.css">
+      <!-- <link rel="stylesheet" href="../css/dev-journal.css"> -->
    </head>
    <body>
-      <p>
-      <h1> TITLE </h1>
-      </p>
-   <!-- Datepicker element, I defined a new div so I could get all the content in the top right corner -->
+
+   <h1 id="title"> TITLE </h1>
+   <!-- Datepicker element -->
    <div class = "date-element">
       <label for="datepicker">Select Date:</label>
       <input type="date" id="datepicker" name="datepicker">
    </div>
-   Sentiment Widget
-      <!--Sentiment Analysis Widget-->
-   <div class = "grid-container">
-      <div class="faces">
-         <div class="face" id="happy">
-            <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
-         </div>
-         <div class="face neutral" id="neutral">
-            <img class="emoji" id="neutral_image" src="../img/soso_face.png" alt="Neutral Face"> 
-         </div>
-         <div class="face sad" id="sad">
-            <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
-         </div>
-      </div>
-      <!-- Input boxes -->
-         <div class = "grid-item1">
-            <textarea id="accomplishments" name="accomplishments" placeholder="Accomplished today"></textarea>
-         </div>
-            <div class = "grid-item-2-3">
-            <div class = "grid-item2">
-               <textarea id="challenges" name="challenges" placeholder="Challenges"></textarea>
-            </div>
-            <div class = "grid-item3">
-               <textarea id="goals" name="goals" placeholder="Goals"></textarea>
-            </div>
-      </div>
-         <div class = "grid-item4">
-            <textarea id="reflections" name="reflections" placeholder="Reflections"></textarea>
-         </div>
 
+   <!--Left panel with markdown editor, preview, and buttons-->
+   <div class="left-panel">
+      <div class="markdown-container">
+         <textarea id="markdown-editor" class="editor" placeholder="Markdown"></textarea>
+         <div id="markdown-preview" class="preview"></div>
       </div>
+
+      <button class="preview-button">Preview</button>
+      <button class="editor-button">Editor</button>
+      <button class="save-button">Save</button>
+   </div>
+   
+
+   <div class="right-panel">
+         <div class="role-fulfilled-container">
+            <img id="documentation" src="../img/documentation.png" alt="documentation" class="icon">
+            <img id="coding" src="../img/coding.png" alt="coding" class="icon">
+            <img id="discussion" src="../img/discussion.png" alt="discussion">
+            <img id="debugging" src="../img/degubbing.png" alt="debugging">
+      </div>
+      <div class="bug-tracker-container">
+         <textarea id="bug-tracker" name="bug-tracker" placeholder="Bug Tracker"></textarea>
+      </div>
+      <div class="learnings-container">
+         <textarea id="learnings" name="learnings" placeholder="Learnings"></textarea>
+      </div>
+         
+   </div>
+   <script src="../js/dev-journal.js"></script>
    </body>
 </html>
