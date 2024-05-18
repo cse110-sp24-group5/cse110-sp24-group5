@@ -6,7 +6,7 @@ body {
     overflow: hidden; /* Hides everything that is outside of the viewport */
 }
 
-/* specifically targets the text in the user message box */
+/* Sspecifically targets the text in the user message box */
 section h2 {
     color: white;
     font-size: 3vh;
