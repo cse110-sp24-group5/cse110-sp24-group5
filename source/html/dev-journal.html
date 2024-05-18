@@ -16,53 +16,57 @@
    </div>
 
    <!--Left panel with markdown editor, preview, and buttons-->
-   <div class="left-panel">
-      <div class="markdown-container">
-         <textarea id="markdown-editor" class="editor" placeholder="Markdown"></textarea>
-         <div id="markdown-preview" class="preview"></div>
-      </div>
 
-      <button class="preview-button">Preview</button>
-      <button class="editor-button">Editor</button>
-      <button class="save-button">Save</button>
-   </div>
+   <div class = grid-container>
+        <div class="left-panel">
+            <div class="markdown-container">
+                <textarea id="markdown-editor" class="editor" placeholder="Markdown"></textarea>
+                <div id="markdown-preview" class="preview"></div>
+            </div>
+
+            <div class = "all-buttons">
+                <button class="preview-button">Preview</button>
+                <button class="editor-button">Editor</button>
+                <button class="save-button">Save</button>
+            </div>
+        </div>
    
 
-   <div class="right-panel">
-      <div>
-         <div class="icon-checkbox">
-             <input type="checkbox" id="documentationCheckbox">
-             <label for="documentationCheckbox">
-                 <img src="../img/documentation.png" alt="documentation">
-             </label>
-         </div>
-         <div class="icon-checkbox">
-             <input type="checkbox" id="codingCheckbox">
-             <label for="codingCheckbox">
-                 <img src="../img/coding.png" alt="coding">
-             </label>
-         </div>
-         <div class="icon-checkbox">
-             <input type="checkbox" id="discussionCheckbox">
-             <label for="discussionCheckbox">
-                 <img src="../img/discussion.png" alt="discussion">
-             </label>
-         </div>
-         <div class="icon-checkbox">
-             <input type="checkbox" id="debuggingCheckbox">
-             <label for="debuggingCheckbox">
-                 <img src="../img/debugging.png" alt="debugging">
-             </label>
-         </div>
-     </div>
-      <div class="bug-tracker-container">
-         <textarea id="bug-tracker" name="bug-tracker" placeholder="Bug Tracker"></textarea>
-      </div>
-      <div class="learnings-container">
-         <textarea id="learnings" name="learnings" placeholder="Learnings"></textarea>
-      </div>
-         
-   </div>
+        <div class="right-panel">
+            <div class = "icon-checkboxes">
+                <div class="icon-checkbox1">
+                    <input type="checkbox" id="documentationCheckbox">
+                    <label for="documentationCheckbox">
+                        <img src="../img/documentation.png" alt="documentation">
+                    </label>
+                </div>
+                <div class="icon-checkbox2">
+                    <input type="checkbox" id="codingCheckbox">
+                    <label for="codingCheckbox">
+                        <img src="../img/coding.png" alt="coding">
+                    </label>
+                </div>
+                <div class="icon-checkbox3">
+                    <input type="checkbox" id="discussionCheckbox">
+                    <label for="discussionCheckbox">
+                        <img src="../img/discussion.png" alt="discussion">
+                    </label>
+                </div>
+                <div class="icon-checkbox4">
+                    <input type="checkbox" id="debuggingCheckbox">
+                    <label for="debuggingCheckbox">
+                        <img src="../img/debugging.png" alt="debugging">
+                    </label>
+                </div>
+            </div>
+            <div class="bug-tracker-container">
+                <textarea id="bug-tracker" name="bug-tracker" placeholder="Bug Tracker"></textarea>
+            </div>
+            <div class="learnings-container">
+                <textarea id="learnings" name="learnings" placeholder="Learnings"></textarea>
+            </div>      
+        </div>
+    </div>
    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
    <script src="../js/dev-journal.js"></script>
    </body>

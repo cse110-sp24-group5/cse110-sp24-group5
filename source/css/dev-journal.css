@@ -4,11 +4,6 @@
     src: url(./Montserrat-Italic-VariableFont_wght.ttf)
 }
 
-/*adds the margin of 10 px to the left to every element on screen*/
-title {
-    margin-left: 50px;
-}
-
 /*Sets the background color to gradient*/
 body {
     /* set viewport height to 100, without this line, the gradient won't be rendered properly*/
@@ -25,7 +20,7 @@ body {
 
 /*Makes it so that date element is in the top right corner*/
 .date-element {
-    position: fixed;
+    position: absolute;
     top: 30px;
     right: 2%; 
     font-size: 0.7em;
@@ -55,22 +50,39 @@ body {
 
 @media screen and (width >= 800px) {
     .grid-container {
-        display: flex;
-        align-content: flex-start;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 0px 50px;
-        flex-wrap: wrap;  
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
     
     #markdown-editor {
-        width: 45vw;
+        width: 40vw;
         height: 700px;
         margin: 2%; 
         background: rgba(255, 255, 255, 0.4); 
         box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
+        border-radius: 3%;
+    }
+   
+    .icon-checkboxes {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        margin-bottom: 50px;
     }
 
+    #bug-tracker, #learnings{
+        width: 40vw;
+        height: 250px;
+        margin: 2%; 
+        background: rgba(255, 255, 255, 0.4); 
+        box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
+        border-radius: 3%;
+    }
 
-   
+    .left-panel, .right-panel {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+ 
 }
