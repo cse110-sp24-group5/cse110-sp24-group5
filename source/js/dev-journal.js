@@ -44,7 +44,6 @@ function showPreview(){
     // show the preview
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.innerHTML = html;
-    markdownPreview.style.display = 'block';
 }
 
 /**

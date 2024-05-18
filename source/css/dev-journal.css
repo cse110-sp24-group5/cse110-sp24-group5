@@ -76,7 +76,7 @@ body {
     /*these are the dimensions of the markdown editor*/
     #markdown-editor {
         width: 40vw;
-        height: 600px;
+        height: 540px;
         margin: 1%; 
         background: rgba(255, 255, 255, 0.4); 
         box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
