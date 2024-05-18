@@ -46,14 +46,22 @@ body {
     background-color: #96BFEF;
     border: 0.5px solid #78b4f9;
     margin-left: auto; /* Forces the preview button to the right*/
-    margin-right: 8%; /*Aligns it with the top right of markdown editor*/
-    
+}
+
+/* Gets the buttons to lie on the same row*/
+.markdown-buttons   {
+    display: flex; /**/
+    margin-left: 70%; /* shoves it to the right */
+    border: 1px solid black;
+    margin-right: 8%;
 }
 
 /*this part sets the individual colors of button*/
 .editor-button {
     background-color: #bbdafb;
     border: 0.5px solid #60a9f6;
+    margin-left: auto; /* Forces the preview button to the right*/
+    margin-right: 8%; /*Aligns it with the top right of markdown editor*/
 }
 
 /*this part sets the individual colors of button*/
