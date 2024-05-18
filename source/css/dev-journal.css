@@ -50,10 +50,10 @@ body {
 
 /* Gets the buttons to lie on the same row*/
 .markdown-buttons   {
-    display: flex; /**/
+    display: flex; /* makes the button align into a row */
     margin-left: 70%; /* shoves it to the right */
-    border: 1px solid black;
-    margin-right: 8%;
+    /*border: 1px solid black; used to test the size of the div */
+    margin-right: 8%; /* aligns the buttons the top right of the markdown editor*/
 }
 
 /*this part sets the individual colors of button*/
