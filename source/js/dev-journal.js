@@ -1,4 +1,3 @@
-
 /**
  * Format the date to be of the form YYYY-MM-DD
  * 
@@ -13,9 +12,10 @@ function formatDate(dateObject) {
 }
 
 /**
- * Set the datepicker and title to the current Date when the page is loaded
+ * Set the datepicker and title to the current Date when the page is loaded.
+ * When the date on the datepicker changes, the same should be reflected in the title.
  */
-function setTodayDate() {
+function setTitleDate() {
     
     const datepicker = document.getElementById('datepicker');
     const title = document.getElementById('title');
@@ -32,4 +32,28 @@ function setTodayDate() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", setTodayDate);
+function showPreview(markdown_string){
+    console.log('in show preview')
+    const input = document.querySelector('.editor');
+    const html = marked.parse(input.value);
+
+    // show the preview
+    const markdownPreview = document.getElementById('markdown-preview');
+    markdownPreview.innerHTML = html;
+    markdownPreview.style.display = 'block';
+}
+
+function showEditor(){
+    // hide the preview
+    console.log('in show editor')
+    const markdownPreview = document.getElementById('markdown-preview');
+    markdownPreview.style.display = 'none';
+}
+
+document.addEventListener("DOMContentLoaded", setTitleDate());
+
+const editorButton = document.querySelector('.editor-button');
+const previewButton = document.querySelector('.preview-button');
+
+editorButton.addEventListener('click', showEditor);
+previewButton.addEventListener('click', showPreview);
