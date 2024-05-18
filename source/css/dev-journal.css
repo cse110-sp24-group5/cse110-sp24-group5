@@ -1,3 +1,37 @@
+/*Since Montserrat is not an embedded font, we need to provide the URL to it*/
+@font-face {
+    font-family: 'Montesserat';
+    src: url(./Montserrat-Italic-VariableFont_wght.ttf)
+}
+
+/*adds the margin of 10 px to the left to every element on screen*/
+title {
+    margin-left: 50px;
+}
+
+/*Sets the background color to gradient*/
+body {
+    /* set viewport height to 100, without this line, the gradient won't be rendered properly*/
+    background: linear-gradient(rgba(222, 150, 255, 0.3) 23.5%, rgba(54, 194, 247, 0.3)74.5%); /*renders the background color*/
+    font-family: 'Montesserat'; /*set the font for the text*/
+    font-size: 1.5em;
+    margin-left: 15px;
+    min-height: 100vh;
+    max-width: 100%; 
+    overflow: visible; 
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/*Makes it so that date element is in the top right corner*/
+.date-element {
+    position: fixed;
+    top: 30px;
+    right: 2%; 
+    font-size: 0.7em;
+}
+
+
 /* Style for buttons */
 .icon-button {
     display: inline-block;
@@ -17,4 +51,26 @@
 .select-all-container {
     margin-top: 20px;
     text-align: center;
+}
+
+@media screen and (width >= 800px) {
+    .grid-container {
+        display: flex;
+        align-content: flex-start;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 0px 50px;
+        flex-wrap: wrap;  
+    }
+    
+    #markdown-editor {
+        width: 45vw;
+        height: 700px;
+        margin: 2%; 
+        background: rgba(255, 255, 255, 0.4); 
+        box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
+    }
+
+
+   
 }
