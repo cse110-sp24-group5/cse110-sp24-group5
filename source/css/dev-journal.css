@@ -1,128 +1,20 @@
-/* How the faces are arranged */
-.faces {
-    display: inline-flex;
-    justify-content: space-around;
+/* Style for buttons */
+.icon-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
 }
 
-@font-face {
-    font-family: Montesserat; /* Give your font a name */
-    src: url("./Montserrat-Italic-VariableFont_wght.ttf");
+.icon-button img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
 }
 
-body {
-    background: linear-gradient(180deg, rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%) 74.5%);
-    min-height: 100vh;
-    max-width: 100%; 
-    overflow: visible; 
-    margin-left: 2%;
-    margin-right: 2%;
-    font-family: Montesserat, Arial, Helvetica, sans-serif; /* Give your font a name */
-    src: url("./Montserrat-Italic-VariableFont_wght.ttf");
-    font-size: 1.5em;
+.select-all-container {
+    margin-top: 20px;
+    text-align: center;
 }
-
-.date-element {
-    position: fixed;
-    top: 17px;
-    right: 2%; 
-    font-size: 0.7em;
-}
-
-.emoji {
-    height: 6vh; 
-    margin: -3vw 3vw 0;
-}
-
-.face {
-    margin: 3vw;
-}
-
-h1{
-    margin: 2%;
-}
-
-#challenges::placeholder, #goals::placeholder, #reflections::placeholder,#accomplishments::placeholder {
-    font-size: 2em;
-    font-family: Montesserat, Arial, Helvetica, sans-serif; /* Give your font a name */
-    src: url("./Montserrat-Italic-VariableFont_wght.ttf");
-}
-
-h3{
-    margin : 2%;
-}
-
-.widget-title {
-    margin-top: 0;
-}
-
-
-@media screen and (width >= 800px) {
-    .grid-container {
-        display: flex;
-        place-content: flex-start flex-start;
-        flex-flow: row wrap;
-        gap: 0 50px;  
-    }
-
-    .faces{
-        width: 45vw; 
-        height: 200px;
-    }
-
-    #accomplishments{
-        width: 45vw;
-        height: 150px;
-        margin: 2%; 
-        background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%);
-    }
-
-    #challenges{
-        width: 45vw;
-        height: 200px; 
-        margin: 2%; 
-        background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%); 
-    }
-
-    #goals {
-        width: 45vw;
-        height: 300px; 
-        margin: 2%; 
-        background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%);
-    }
-
-    #reflections{
-        width: 45vw;
-        height: 550px; 
-        margin: 2%; 
-        background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%); 
-    }
-}
-
-@media screen and (width <= 800px) {
-    /* Targets the way boxes are displayed */
-.grid-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-
-}
-
-#challenges,#reflections,#accomplishments,#goals{
-    width: 45vw;
-    height: 200px; 
-    margin: 2%; 
-    background: rgb(255 255 255 / 40%);
-    border-radius: 1em; 
-    box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%);
-}
-
-}
-
