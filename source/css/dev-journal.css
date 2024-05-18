@@ -50,11 +50,13 @@ body {
     
 }
 
+/*this part sets the individual colors of button*/
 .editor-button {
     background-color: #bbdafb;
     border: 0.5px solid #60a9f6;
 }
 
+/*this part sets the individual colors of button*/
 .save-button {
     background-color: rgba(222, 150, 255, 0.3);
     border: 0.5px solid #b291e6;
@@ -65,7 +67,8 @@ body {
     font-style: italic;
     font-size: 1.5em;
     font-family: "Montesserat";
-  }
+}
+
 
 /*This is the layout for every single device over 800 px*/
 @media screen and (width >= 800px) {
