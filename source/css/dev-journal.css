@@ -48,12 +48,18 @@ body {
     margin-left: auto; /* Forces the preview button to the right*/
 }
 
+/*.all-buttons {
+    display:flex;
+    margin-right: auto;
+    margin-left: 2%;
+}*/
+
 /* Gets the buttons to lie on the same row*/
 .markdown-buttons   {
     display: flex; /* makes the button align into a row */
-    margin-left: 70%; /* shoves it to the right */
-    /*border: 1px solid black; used to test the size of the div */
-    margin-right: 8%; /* aligns the buttons the top right of the markdown editor*/
+    justify-content: flex-end; /* gets the buttons div to not clip through div*/
+    /*border: 1px solid black;*/
+    margin-left:auto; /* shoves the div to the right */
 }
 
 /*this part sets the individual colors of button*/
@@ -77,6 +83,17 @@ body {
     font-family: "Montesserat";
 }
 
+/* Controls the entire right section of the page*/
+.right-panel {
+    /*border: 1px solid black;*/
+    margin-left: auto;
+}
+
+/* Controls the entire left section of the page*/
+.left-panel {
+    margin-right: auto;
+    /*border: 1px solid black;*/
+}
 
 /*This is the layout for every single device over 800 px*/
 @media screen and (width >= 800px) {
