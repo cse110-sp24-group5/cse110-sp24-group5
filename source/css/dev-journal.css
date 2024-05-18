@@ -4,8 +4,10 @@
     src: url(./Montserrat-Italic-VariableFont_wght.ttf)
 }
 
+/*Makes the title align to the center of the markdown text box*/
 #title {
-    margin-left: 15%;
+    font-weight: normal;
+    margin-left: 13%;
 }
 /*Sets the background color to gradient*/
 body {
@@ -39,6 +41,7 @@ body {
     padding: 5px;
 }
 
+/*this part sets the individual colors of each button*/
 .preview-button {
     background-color: #96BFEF;
     border: 0.5px solid #78b4f9;
@@ -54,39 +57,23 @@ body {
     border: 0.5px solid #b291e6;
 }
 
-/* Style for buttons 
-.icon-button {
-    display: inline-block;
-    margin: 10px;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    cursor: pointer;
-}
-
-.icon-button img {
-    max-width: 100%;
-    max-height: 100%;
-    vertical-align: middle;
-}*/
-
+/*Sets the size and font of the placeholders for the text areas*/
 ::placeholder {
     font-style: italic;
     font-size: 1.5em;
     font-family: "Montesserat";
   }
 
-.select-all-container {
-    margin-top: 20px;
-    text-align: center;
-}
-
+/*This is the layout for every single device over 800 px*/
 @media screen and (width >= 800px) {
+
+    /*We want a grid to be able to have two panels of elements*/
     .grid-container {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 50% 50%; /*size of both columns is about half the screen*/
     }
     
+    /*these are the dimensions of the markdown editor*/
     #markdown-editor {
         width: 40vw;
         height: 600px;
@@ -97,12 +84,15 @@ body {
         margin-bottom: 25px;
     }
    
+    /*This makes all the checkbox items align in a row, and makes it so that
+    each image will have a 15px gap between them all*/
     .icon-checkboxes {
         display: flex;
         flex-direction: row;
         gap: 15px;
     }
 
+    /*creates the same dimensions for the bugtracker and learning text areas*/
     #bug-tracker, #learnings{
         width: 40vw;
         height: 250px;
@@ -126,5 +116,4 @@ body {
         gap: 80px;
     }    
 
-   
 }
