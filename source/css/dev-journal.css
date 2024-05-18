@@ -79,9 +79,8 @@ body {
         height: 540px;
         margin: 1%; 
         background: rgba(255, 255, 255, 0.4); 
-        box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
         border-radius: 1%;
-        margin-bottom: 25px;
+        transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
     }
    
     /*This makes all the checkbox items align in a row, and makes it so that
@@ -98,8 +97,13 @@ body {
         height: 250px;
         margin: 2%; 
         background: rgba(255, 255, 255, 0.4); 
-        box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
+        
         border-radius: 1%;
+        transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+    }
+
+    #markdown-editor:focus, #learnings:focus, #bug-tracker:focus {
+        box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
     }
 
     /*for the left and the right panels, we want each element in
