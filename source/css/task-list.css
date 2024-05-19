@@ -8,6 +8,27 @@ body {
     background-color: white;
 }
 
+@font-face {
+    font-family: Montesserat; /* Give your font a name */
+    src: url("./Montserrat-Italic-VariableFont_wght.ttf");
+}
+
+/* Font for all text in task-list/pop-up */
+
+#date,
+#close-task-list,
+#task,
+p,
+#add,
+#close-pop-up,
+#task-title,
+#title-text,
+#desc-text,
+#task-desc,
+#confirm {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
 /* Color variables */
 
 :root {
@@ -43,7 +64,7 @@ body {
     min-height: 440px;
     background-color: var(--color5);
     border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, var(--shadow-opacity, 0.2));
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / var(--shadow-opacity, 0.2));
 }
 
 /* Task List top subsection */
@@ -182,8 +203,9 @@ p {
     top: 35%;
     left: 50%;
     transform: translate(-50%, 80%);
-     /*display: none;  Initially hide section-2,uncomment the code in js development */
-    border: 0 solid var(--color3); /*Fix redundant top border in pop-up section*/
+
+     /* display: none;  Initially hide section-2,uncomment the code in js development */
+    border: 0 solid var(--color3); /* Fix redundant top border in pop-up section */
     font-weight: bolder;
     justify-content: center;
 }
@@ -246,7 +268,7 @@ p {
     font-size: small;
 }
 
-#titleText {
+#title-text {
     border-radius: 10px;
     background-color: var(--color4);
     border: none;
@@ -254,7 +276,7 @@ p {
     height: 30px;
 }
 
-#descText {
+#desc-text {
     border-radius: 5px;
     background-color: var(--color4);
     border: none;
@@ -271,8 +293,8 @@ p {
 }
 
 #confirm {
-    margin: 20px auto 20px auto;
-    padding: 10px 20px 10px 20px;
+    margin: 20px auto;
+    padding: 10px 20px;
     border-radius: 5px;
     border: 1px solid #DFBDE4;
     background-color: #F2E5FB;
@@ -280,24 +302,8 @@ p {
 }
 
 #confirm:hover{
-    background-color: rgb(235, 209, 252);
+    background-color: rgb(235 209 252);
     color: white;
-}
-
-/* Font for all text in task-list/pop-up */
-
-#date,
-#close-task-list,
-#task,
-p,
-#add,
-#close-pop-up,
-#task-title,
-#titleText,
-#descText,
-#task-desc,
-#confirm {
-    font-family: Montserrat;
 }
 
 /* Media query for smaller screens */
@@ -329,8 +335,8 @@ p,
        size: 80%;
        
     }
+
     .pop-up.parent{
-        
         width: 55%;
         top: 30%
 
@@ -348,15 +354,14 @@ p,
     
 
     
-    #titleText, 
-    #descText{
+    #title-text, 
+    #desc-text{
         width: 93%;
     }
 
 }
 
-@media (max-width: 480px) {
-
+@media (width <= 480px) {
     #date {
         margin-left: auto;
         font-style: italic;
@@ -379,8 +384,8 @@ p,
         top: 30%
     }
 
-    #titleText, 
-    #descText{
+    #title-text, 
+    #desc-text{
         width: 88%;
     }
 
@@ -402,7 +407,7 @@ p,
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgb(0 0 0 / 10%);
     backdrop-filter: blur(5px);
     z-index: 1;
     display: none; /* Initially hidden */
