@@ -38,12 +38,14 @@ function setFields() {
  * and displays the preview <div>
  */
 function showPreview(){
+    console.log("show preview")
     const input = document.querySelector('.editor');
     const html = marked.parse(input.value);
 
     // show the preview
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.innerHTML = html;
+    markdownPreview.style.display = 'block' // what to put here
 }
 
 /**
