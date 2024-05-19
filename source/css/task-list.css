@@ -179,7 +179,7 @@ p {
 .pop-up.parent {
     position: fixed;
     align-items: center;
-    top: 35%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, 80%);
      /*display: none;  Initially hide section-2,uncomment the code in js development */
@@ -246,7 +246,7 @@ p {
     font-size: small;
 }
 
-#titleText {
+#title-text {
     border-radius: 10px;
     background-color: var(--color4);
     border: none;
@@ -254,7 +254,7 @@ p {
     height: 30px;
 }
 
-#descText {
+#desc-text {
     border-radius: 5px;
     background-color: var(--color4);
     border: none;
@@ -293,8 +293,8 @@ p,
 #add,
 #close-pop-up,
 #task-title,
-#titleText,
-#descText,
+#title-text,
+#desc-text,
 #task-desc,
 #confirm {
     font-family: Montserrat;
@@ -348,8 +348,8 @@ p,
     
 
     
-    #titleText, 
-    #descText{
+    #title-text, 
+    #desc-text{
         width: 93%;
     }
 
@@ -379,8 +379,8 @@ p,
         top: 30%
     }
 
-    #titleText, 
-    #descText{
+    #title-text, 
+    #desc-text{
         width: 88%;
     }
 

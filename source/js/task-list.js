@@ -5,8 +5,8 @@ function init () {
     const closePopUp = document.getElementById('close-pop-up');
     const addTaskButton = document.getElementById('add'); // Add task button
     const confirmButton = document.getElementById('confirm'); // Confirm button
-    const titleInput = document.getElementById('titleText'); // Title text input
-    const descriptionInput = document.getElementById('descText'); // Description text
+    const titleInput = document.getElementById('title-text'); // Title text input
+    const descriptionInput = document.getElementById('desc-text'); // Description text
     let editMode = false;
     let editedTaskId;
     let deletedTaskId;
