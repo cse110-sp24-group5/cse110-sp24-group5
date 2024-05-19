@@ -32,7 +32,10 @@ body {
 /* Task List section */
 
 .task-list.parent {
-    position: relative;
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
 }
 
 
@@ -308,19 +311,25 @@ p,
 
 @media screen and (width <= 820px) {
     .task-list.parent{
-
-        width: 70%;
+        top: -18%;
+        width: 60%;
         margin: 10px 60 10 10;
+        max-height: 500px;
     }
 
     .task-list.child{
         height: 120%;
     }
 
+    #date{
+        font-size: x-large;
+    }
+
     .task-list-middle {
         overflow-y: auto;
         border: 1px solid white;
-        max-height: 550px;
+        max-height: 320px;
+        font-size:small;
     }
 
     #add{
@@ -330,7 +339,7 @@ p,
     .pop-up.parent{
         
         width: 55%;
-        top: 35%
+        top: 30%
 
     }
 

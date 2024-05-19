@@ -27,6 +27,7 @@ function getTasksFromStorage() {
     return JSON.parse(localStorage.getItem('tasks') || '[]');
 }
 
+
 /**
  * Creates a task by creating the task's associated HTML and adding the 
  * task's associated task object to the task object array in localStorage. The function pulls the 

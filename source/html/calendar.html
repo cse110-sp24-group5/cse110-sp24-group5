@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar</title>
-    <!-- Main Stylesheet & Scripts -->
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="/source/css/calendar.css">
+    <link rel="stylesheet" href="/source/css/task-list.css">
+
     <!-- Montserrat font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!-- Roboto font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
+
+    <!--Scripts -->
     <script src="/source/js/calendar.js"></script>
+    <script src="../js/task-list.js"></script>
+
 </head>
 <body>
 
@@ -56,5 +63,113 @@
         <ul class="days"></ul> <!-- Will dynamically add days via JavaScript -->
 
     </section>
+    <section class="task-list parent hidden"> <!-- change to hide: <section class="task-list parent hidden"> -->
+        <!--This is the beginning of our task list-->
+        <div class="task-list child">
+            <div class="task-list-top">
+                <!--Title for the task list-->
+                <h2 id="date">May 15, 2024</h2>
+                <!--Button to close task list-->
+                <button id="closeTaskList">X</button>
+            </div>
+            <!--Tasks listed out-->
+            <div class="task-list-middle">
+                <ul class="task-list-ul">
+                    <li>
+                        <!-- Task includes title, edit button, delete button...-->
+                        <div class="placeholder-task">
+                            <h3 id="task">Task 1</h3>
+                            <button id ="edit" type="submit">
+                                <img src="../img/edit_task.png">
+                            </button>
+                            <button id="delete" type="submit">
+                                <img src="../img/delete_task.png">
+                            </button>
+                        </div>
+                        <!-- ...and a description on the next line-->
+                        <p>Description</p>
+                    </li>
+                    <li>
+                        <div class="placeholder-task">
+                            <h3 id="task">Task 2</h3>
+                            <button id ="edit" type="submit">
+                                <img src="../img/edit_task.png">
+                            </button>
+                            <button id="delete" type="submit">
+                                <img src="../img/delete_task.png">
+                            </button>
+                        </div>
+                        <p>Description</p>
+                    </li>
+                    <li>
+                        <div class="placeholder-task">
+                            <h3 id="task">Task 3</h3>
+                            <button id ="edit" type="submit">
+                                <img src="../img/edit_task.png">
+                            </button>
+                            <button id="delete" type="submit">
+                                <img src="../img/delete_task.png">
+                            </button>
+                        </div>
+                        <p>Description</p>
+                    </li>
+                    <li>
+                        <div class="placeholder-task">
+                            <h3 id="task">Task 4</h3>
+                            <button id ="edit" type="submit">
+                                <img src="../img/edit_task.png">
+                            </button>
+                            <button id="delete" type="submit">
+                                <img src="../img/delete_task.png">
+                            </button>
+                        </div>
+                        <p>Description</p>
+                    </li>
+                    <li>
+                        <div class="placeholder-task">
+                            <h3 id="task">Task 5</h3>
+                            <button id ="edit" type="submit">
+                                <img src="../img/edit_task.png">
+                            </button>
+                            <button id="delete" type="submit">
+                                <img src="../img/delete_task.png">
+                            </button>
+                        </div>
+                        <p>Description</p>
+                    </li>
+                <!--Tasks will added here using JS!-->
+                </ul>
+            </div>
+            <div class="task-list-bottom">
+                <!--Button to add task by opening pop-up-->
+                <button id="add">+</button>
+            </div>
+        </div>
+    </section>
+
+    <!--This particular section contains the html for the add/edit pop-up-->
+    <section class="pop-up parent hidden"> <!-- change to hide: <section class="pop-up parent hidden"> -->
+        <div class="pop-up child">
+            <!--Input for new task-->
+            <div class="pop-up-top">
+                <!--Button to close pop-up-->
+                <button id="closePopUp">X</button>
+            </div>
+            <div class="pop-up-middle">
+                <!-- Task input includes title and description...-->
+                <h3 id="taskTitle">Task Title:</h3>
+                <input type="text" id="titleText">
+                <h3 id="taskDesc">Task Description:</h3>
+                <textarea id="descText" rows="4" cols="50"></textarea>
+            </div>
+            <div class="pop-up-bottom">
+                <!--Button to save task and close pop-up-->
+                <button id="confirm">Confirm</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+    </footer>
+    
 </body>
 </html>
