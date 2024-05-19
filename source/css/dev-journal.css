@@ -50,9 +50,8 @@ body {
 /* Gets the buttons to lie on the same row */
 .markdown-buttons   {
     display: flex; /* makes the button align into a row */
-    justify-content: flex-end; /* gets the buttons div to not clip through div */
+    justify-content: center; /* gets the buttons centered */
     gap: 20px;
-    justify-content: center;
 }
 
 /* this part sets the individual colors of button */
@@ -212,12 +211,12 @@ body {
         margin: 5%
     }
 
-    /* Controls the size of the markdown section*/
+    /* Controls the size of the markdown section */
     .left-panel {
         margin: 5%;
     }
 
-    /* control the layout of the icons*/
+    /* control the layout of the icons */
     .icons {
         display: flex;
         justify-content: center;
@@ -237,7 +236,7 @@ body {
         margin: 1%; 
     }
 
-    /* Modifies the markdown section*/
+    /* Modifies the markdown section */
     #markdown-editor, #markdown-preview{
         position: absolute;
         top: 0;
