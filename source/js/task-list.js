@@ -150,7 +150,7 @@ function init () {
     
                 // Create div for task content
                 const taskContent = document.createElement('div');
-                taskContent.classList.add('placeholder-task');
+                taskContent.classList.add('task-container');
     
                 // Create h3 element for task title
                 const taskTitle = document.createElement('h3');

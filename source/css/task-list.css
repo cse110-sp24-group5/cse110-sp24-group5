@@ -144,7 +144,7 @@ body {
     padding-right: 20px;
 }
 
-.placeholder-task {
+.task-container {
     display: flex;
     justify-content: space-between;
     align-items: center; /* Center vertically */
