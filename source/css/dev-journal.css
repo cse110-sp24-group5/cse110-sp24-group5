@@ -7,7 +7,7 @@
 /*Makes the title align to the center of the markdown text box*/
 #title {
     font-weight: normal;
-    margin-left: 13%;
+    text-align: center;
 }
 /*Sets the background color to gradient*/
 body {
@@ -45,7 +45,6 @@ body {
 .preview-button {
     background-color: #96BFEF;
     border: 0.5px solid #78b4f9;
-    margin-left: auto; /* Forces the preview button to the right*/
 }
 
 /*.all-buttons {
@@ -58,8 +57,7 @@ body {
 .markdown-buttons   {
     display: flex; /* makes the button align into a row */
     justify-content: flex-end; /* gets the buttons div to not clip through div*/
-    /*border: 1px solid black;*/
-    margin-left:auto; /* shoves the div to the right */
+    gap: 20px;
 }
 
 /*this part sets the individual colors of button*/
@@ -83,16 +81,16 @@ body {
     font-family: "Montesserat";
 }
 
-/* Controls the entire right section of the page*/
+/* Controls the entire right section of the page */
 .right-panel {
-    /*border: 1px solid black;*/
-    margin-left: auto;
+    flex: 1;
+    margin-left: 10px; /* Space between the panels */
 }
 
-/* Controls the entire left section of the page*/
+/* Controls the entire left section of the page */
 .left-panel {
-    margin-right: auto;
-    /*border: 1px solid black;*/
+    flex: 1;
+    margin-right: 10px; /* Space between the panels */
 }
 
 /*This is the layout for every single device over 800 px*/
@@ -111,18 +109,19 @@ body {
         margin: 1%; 
     }
     
-    #markdown-editor, #markdown-preview {
+    #markdown-editor, #markdown-preview{
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        border: none;
+        border: 1px solid black;
         padding: 10px;
         box-sizing: border-box;
         border-radius: 1%;
         background: rgba(255, 255, 255, 0.4); 
         transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+        outline: none; /*Do not display blue boundary when selected*/
     }
     
     #markdown-preview {
@@ -142,26 +141,72 @@ body {
    
     /*This makes all the checkbox items align in a row, and makes it so that
     each image will have a 15px gap between them all*/
-    .icon-checkboxes {
+    .icons {
         display: flex;
         flex-direction: row;
         gap: 15px;
     }
 
     /*creates the same dimensions for the bugtracker and learning text areas*/
-    #bug-tracker, #learnings{
+    .bug-tracker-container, .learnings-container, #icon-checkboxes{
         width: 40vw;
-        height: 250px;
+        height: 100%;
         margin: 2%; 
-        background: rgba(255, 255, 255, 0.4); 
-        
+        background: rgba(255, 255, 255, 0.4);
+        padding: 2%;
+        border: 1px solid black;
         border-radius: 1%;
-        transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
     }
 
-    #markdown-editor:focus, #learnings:focus, #bug-tracker:focus {
-        box-shadow: 1vw 1vw 2vw 1vw rgba(63, 102, 210, 0.36);
+    .bug-tracker-container textarea, .learnings-container textarea {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+        border: none; /* Remove default border */
+        resize: none; /* Prevent resizing by the user */
+        padding: 10px; /* Optional: add padding for text inside the textarea */
+        background: none;
+        outline: none
     }
+
+    .icons {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .icons input[type="checkbox"] {
+        display: none; /* Hide default checkboxes */
+    }
+  
+    /* Style the label to look like a checkbox */
+    .icons label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    /* Style the checkbox image */
+    .icons label img {
+        width: 40px; /* Adjust the size of the checkbox image */
+        height: 40px; /* Adjust the size of the checkbox image */
+    }
+  
+    /* Style the checked state */
+    .icons input[type="checkbox"]:checked + label::after {
+        content: '';
+        position: absolute;
+        top: 50%; /* Position at the center vertically */
+        left: 50%; /* Position at the center horizontally */
+        transform: translate(-50%, -50%); /* Center the rectangle */
+        width: 50px;
+        height: 50px;
+        background-color: #ccc; /* Grey color for the selected state */
+        border-radius: 20px; /* Rounded edges */
+        z-index: -1; /* Ensure rectangle is below the image */
+    }
+  
+
 
     /*for the left and the right panels, we want each element in
     each panel to be aligned to the center, which is what this accomplishes*/
@@ -170,11 +215,4 @@ body {
        flex-direction: column;
        align-items: center;
     }
-
-    /*this makes it so that the space between buttons is 30px*/
-    .all-buttons {
-        display: flex;
-        gap: 80px;
-    }    
-
 }
