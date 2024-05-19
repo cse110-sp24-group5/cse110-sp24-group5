@@ -1,6 +1,6 @@
 /* The background of the website */
 body {
-    background: linear-gradient(to bottom, #4EC5FF, #94C8F1 40%, #EEA0FF 95%); /* Background color */
+    background:linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* Background color */
     min-height: 100vh; /* Makes the background color the entirety of the viewport */
     max-width: min-content; /* Prevents excessive width to the body */
     overflow: hidden; /* Hides everything that is outside of the viewport */
