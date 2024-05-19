@@ -8,14 +8,14 @@ body {
 
 /* Sspecifically targets the text in the user message box */
 section h2 {
-    color: white;
+    color: black;
     font-size: 3vh;
     text-align: center;
 }  
 
 /* Specifically targets the text above the icon boxes */
 section section h2 {
-    color: white;
+    color: black;
     text-align: center;
     font-size: 3vh;
     margin-bottom: 10px;
