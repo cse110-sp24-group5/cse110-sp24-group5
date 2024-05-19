@@ -1,3 +1,5 @@
+/* marked */
+
 /**
  * Format the date to be of the form YYYY-MM-DD
  * 
@@ -40,6 +42,7 @@ function setFields() {
 function showPreview(){
     console.log("show preview")
     const input = document.querySelector('.editor');
+    // eslint-disable-next-line no-undef
     const html = marked.parse(input.value);
 
     // show the preview
