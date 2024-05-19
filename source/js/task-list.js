@@ -32,14 +32,29 @@ function init () {
         localStorage.setItem('tasks', tasksJSON);
         console.log(tasks);
     }
+
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+    // Function to show the overlay
+    function showOverlay() {
+        overlay.classList.add('active');
+    }
+
+    // Function to hide the overlay
+    function hideOverlay() {
+        overlay.classList.remove('active');
+    }
     
     // Function to show the pop-up
     function showPopUp() {
+        showOverlay();
         popUp.classList.remove('hidden');
     }
 
     // Function to hide the pop-up
     function hidePopUp() {
+        hideOverlay();
         popUp.classList.add('hidden');
     }
 
@@ -139,11 +154,12 @@ function init () {
     
                 // Create h3 element for task title
                 const taskTitle = document.createElement('h3');
+                taskTitle.id = 'task';
                 taskTitle.textContent = task.titleText; // Set task title
     
                 // Create edit button
                 const editButton = document.createElement('button');
-                editButton.id = `edit_${index}`; // Set unique id for edit button
+                editButton.id = 'edit'; // Set unique id for edit button
                 editButton.type = 'submit';
                 editButton.addEventListener('click', () => handleEditButtonClick(task));
                 const editIcon = document.createElement('img');
@@ -152,7 +168,7 @@ function init () {
     
                 // Create delete button
                 const deleteButton = document.createElement('button');
-                deleteButton.id = `delete_${index}`; // Set unique id for delete button
+                deleteButton.id = 'delete'; // Set unique id for delete button
                 deleteButton.type = 'submit';
                 deleteButton.addEventListener('click', () => handleDeleteButtonClick(task));
                 const deleteIcon = document.createElement('img');

@@ -83,13 +83,28 @@ function init () {
         }
     }
 
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+    // Function to show the overlay
+    function showOverlay() {
+        overlay.classList.add('active');
+    }
+
+    // Function to hide the overlay
+    function hideOverlay() {
+        overlay.classList.remove('active');
+    }
+
     function showTaskListPopUp(date) {
+        showOverlay();
         const dateElement = document.getElementById('date');
         dateElement.textContent = date;
         taskList.classList.remove('hidden');
     }
 
     function hideTaskListPopUp() {
+        hideOverlay();
         taskList.classList.add('hidden');
     }
 
