@@ -270,7 +270,7 @@ body {
     /* creates the same dimensions for the bugtracker and learning text areas */
     .bug-tracker-container, .learnings-container, #icon-checkboxes{
         width: auto;
-        height: 100%;
+        height: 150px;
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
