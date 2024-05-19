@@ -6,7 +6,7 @@ function init () {
     const monthYearText = document.querySelector('.month-year'); // Current month and year header text
     const daysContainer = document.querySelector('.days'); // Container to store days
     const taskList = document.querySelector('.task-list.parent');
-    const closeTaskList = document.getElementById('closeTaskList');
+    const closeTaskList = document.getElementById('close-task-list');
 
     let currentDate = new Date(); // Define today's current timestamp
     

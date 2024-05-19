@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init () {
     const popUp = document.querySelector('.pop-up.parent');
-    const closePopUp = document.getElementById('closePopUp');
+    const closePopUp = document.getElementById('close-pop-up');
     const addTaskButton = document.getElementById('add'); // Add task button
     const confirmButton = document.getElementById('confirm'); // Confirm button
     const titleInput = document.getElementById('titleText'); // Title text input

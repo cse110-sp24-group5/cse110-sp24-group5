@@ -18,8 +18,8 @@ body {
     --color5: #f4ebfa;
     --edit:#c9cdff;
     --delete: #efd9f6;
-    --preClose: #E59F9F;
-    --onClose: #fa5353;
+    --pre-close: #E59F9F;
+    --on-close: #fa5353;
 }
 
 .hidden {
@@ -43,7 +43,7 @@ body {
     min-height: 440px;
     background-color: var(--color5);
     border-radius: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, var(--shadow-opacity, 0.2));
 }
 
 /* Task List top subsection */
@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: space-between; /* Space elements evenly */
     align-items: center; /* Center elements vertically */
-    padding: 0px 20px 0px 20px; /* padding format: top right bottom left */
+    padding: 0 20px /* padding format: top right bottom left */
 }
 
 #date {
@@ -87,26 +87,25 @@ body {
     
 }
 
-#closeTaskList {
+#close-task-list {
     margin-left: auto; /* Push the close button to the right */
     font-size: xx-large;
-    color: var(--preClose);
+    color: var(--pre-close);
     background-color: transparent;
     border: transparent;
 }
 
-#closeTaskList:hover{
-    color: var(--onClose);
+#close-task-list:hover{
+    color: var(--on-close);
 }
 
 #add {
     margin-left: auto; /* Push the close button to the right */
-    font-family: 'Inter';
+    font-family: Inter, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 60px;
     line-height: 58px;
-
     display: flex;
     align-items: center;
     width: 50px;
@@ -119,6 +118,7 @@ body {
     background-color: var(--color1); 
     color: white;
 }
+
     /*
     original code
     font-style: italic;
@@ -129,7 +129,6 @@ body {
     width: 50px;
     height: 50px;
     color: white;
-    
     */
 
 /* Task List middle subsection */
@@ -148,7 +147,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center; /* Center vertically */
-    padding: 10px 0px 0px 20px;
+    padding: 10px 0 0 20px;
 }
 
 #task {
@@ -157,10 +156,9 @@ body {
     font-weight: bold;
 }
 
-
 p {
     margin: 0;
-    padding: 10px 0px 20px 20px;
+    padding: 10px 0 20px 20px;
     border-bottom: 1px solid white;
     border-width: 50%;
     font-size: smaller;
@@ -172,12 +170,12 @@ p {
     display: flex;
     justify-content: space-between; /* Space elements evenly */
     align-items: center; /* Center elements vertically */
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
 }
 
 /* Pop-up section */
 
-/*Place Pop-up section with the Task-list section*/
+/* Place Pop-up section with the Task-list section */
 .pop-up.parent {
     position: fixed;
     align-items: center;
@@ -185,10 +183,8 @@ p {
     left: 50%;
     transform: translate(-50%, 80%);
      /*display: none;  Initially hide section-2,uncomment the code in js development */
-    border: 0px solid var(--color3); /*Fix redundant top border in pop-up section*/
+    border: 0 solid var(--color3); /*Fix redundant top border in pop-up section*/
     font-weight: bolder;
-
-    
     justify-content: center;
 }
 
@@ -198,8 +194,6 @@ p {
     background-color: white;
     border-radius: 20px;
     border: 1px solid #3F66D2;
-
-
     position: absolute;
     top:0;
     right:0;
@@ -210,10 +204,10 @@ p {
 .pop-up-top {
     display: flex;
     align-items: start;
-    padding: 10px 20px 0px 20px;
+    padding: 10px 20px 0;
 }
 
-#closePopUp {
+#close-pop-up {
     margin-left: auto; /* Push the close button to the right */
     font-size: xx-large;
     color: #E59F9F;
@@ -221,31 +215,31 @@ p {
     border: transparent;
 }
 
-#closePopUp:hover{
+#close-pop-up:hover{
     color: #fa5353;
 }
 
 /* Pop-up middle subsection */
 
 .pop-up-middle {
-    padding: 0px 0px 0px 20px;
+    padding: 0 0 0 20px;
 }
 
-#taskTitle{
-    font-family: "Arial";
+#task-title{
+    font-family: Arial, sans-serif;
     font-size: large;
     font-style: normal;
     font-weight: bold;
 }
 
-#taskTitle,
-#taskDesc {
+#task-title,
+#task-desc {
     margin: 0;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0;
     color: #3F66D2;
 }
 
-#taskDesc {
+#task-desc {
     opacity: 0.5;
     font-style: italic;
     font-weight: lighter;
@@ -293,17 +287,17 @@ p {
 /* Font for all text in task-list/pop-up */
 
 #date,
-#closeTaskList,
+#close-task-list,
 #task,
 p,
 #add,
-#closePopUp,
-#taskTitle,
+#close-pop-up,
+#task-title,
 #titleText,
 #descText,
-#taskDesc,
+#task-desc,
 #confirm {
-    font-family: "Montserrat";
+    font-family: Montserrat;
 }
 
 /* Media query for smaller screens */
@@ -342,13 +336,13 @@ p,
 
     }
 
-    #taskTitle{
+    #task-title{
         font-size: large;
         font-style: normal;
         font-weight: 700;
     }
 
-    #taskDesc {
+    #task-desc {
         font-size: small;
     }
     
@@ -390,12 +384,12 @@ p,
         width: 88%;
     }
 
-    #taskTitle{
+    #task-title{
         margin-top: -8%;
         font-size:medium;
     }
     
-    #closePopUp{
+    #close-pop-up{
         margin-top: 0;
         font-size:x-large;
     }
