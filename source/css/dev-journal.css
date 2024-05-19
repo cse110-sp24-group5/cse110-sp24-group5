@@ -317,8 +317,8 @@ body {
     }
 }
 
-/* Better spaccing for really small screens */
-@media screen and (max-width: 425px) {
+/* Better spacing for really small screens */
+@media screen and (min-width: 0px) and (max-width: 425px) {
     #title {
         font-weight: normal;
         text-align: center;
