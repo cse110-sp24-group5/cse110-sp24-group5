@@ -203,7 +203,7 @@ body {
     #title {
         font-weight: normal;
         text-align: center;
-        margin-top: 12%;
+        margin-top: 14%;
     }
 
     /* Controls the size of the role, bug, and learnings section */
@@ -314,14 +314,5 @@ body {
         background-color: #ccc; /* Grey color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
-    }
-}
-
-/* Better spacing for really small screens */
-@media screen and (min-width: 0px) and (max-width: 425px) {
-    #title {
-        font-weight: normal;
-        text-align: center;
-        margin-top: 20%;
     }
 }
