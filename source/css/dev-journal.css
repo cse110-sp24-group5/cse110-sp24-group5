@@ -47,25 +47,18 @@ body {
     border: 0.5px solid #78b4f9;
 }
 
-/* .all-buttons {
-    display:flex;
-    margin-right: auto;
-    margin-left: 2%;
-} */
-
 /* Gets the buttons to lie on the same row */
 .markdown-buttons   {
     display: flex; /* makes the button align into a row */
     justify-content: flex-end; /* gets the buttons div to not clip through div */
     gap: 20px;
+    justify-content: center;
 }
 
 /* this part sets the individual colors of button */
 .editor-button {
     background-color: #bbdafb;
     border: 0.5px solid #60a9f6;
-    margin-left: auto; /* Forces the preview button to the right */
-    margin-right: 8%; /* Aligns it with the top right of markdown editor */
 }
 
 /* this part sets the individual colors of button */
@@ -85,6 +78,7 @@ body {
 .right-panel {
     flex: 1;
     margin-left: 10px; /* Space between the panels */
+    border: 1px solid black;
 }
 
 /* Controls the entire left section of the page */
@@ -93,7 +87,9 @@ body {
     margin-right: 10px; /* Space between the panels */
 }
 
-/* This is the layout for every single device over 800 px */
+
+
+/* This is the layout for every single device over  and equal to 800 px */
 @media screen and (width >= 800px) {
     /* We want a grid to be able to have two panels of elements */
     .grid-container {
@@ -195,8 +191,6 @@ body {
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }
-  
-
 
     /* for the left and the right panels, we want each element in
     each panel to be aligned to the center, which is what this accomplishes */
@@ -204,5 +198,66 @@ body {
        display: flex;
        flex-direction: column;
        align-items: center;
+    }
+}
+
+/* This is the layout for every single device under 800 px */
+@media screen and (width < 800px) {
+    /* Push the title below the date picker */
+    #title {
+        font-weight: normal;
+        text-align: center;
+        margin-top: 16vw;
+    }
+
+    /* Controls the size of the role, bug, and learnings section */
+    .right-panel {
+        margin: 5%
+    }
+
+    /* Controls the size of the markdown section*/
+    .left-panel {
+        margin: 5%;
+    }
+
+    /* control the layout of the icons*/
+    .icons {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    /* control the checkbox */
+    .icons input[type="checkbox"] {
+        display: none; /* Hide default checkboxes */
+    }
+
+    /* control the size of the markdown */
+    .markdown-container {
+        position: relative;
+        width: auto; /* fill width of the left side container */
+        height: 540px; /* match the editor, preview height */
+        margin: 1%; 
+    }
+
+    /* Modifies the markdown section*/
+    #markdown-editor, #markdown-preview{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 1%;
+        background: rgb(255 255 255 / 40%); 
+        transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+        outline: none; /* Do not display blue boundary when selected */
+    }
+
+    .save-buttons {
+        display: flex;
+        justify-content: center;
     }
 }
