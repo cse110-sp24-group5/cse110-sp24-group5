@@ -146,7 +146,9 @@ function loadData() {
 
 }
 
-
+/**
+ * Fields are set, saved data is loaded in when upon DOMContentLoaded
+ */
 function load(){
     // set the title and other input fields to contents of localStorage
     setFields();
