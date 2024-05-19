@@ -204,7 +204,7 @@ body {
     #title {
         font-weight: normal;
         text-align: center;
-        margin-top: 16vw;
+        margin-top: 13%;
     }
 
     /* Controls the size of the role, bug, and learnings section */
@@ -261,7 +261,7 @@ body {
         font-family: sans-serif;
         font-size: 0.7em;
     }
-    
+
     /* centers the save button with the markdown section */
     .save-buttons {
         display: flex;
