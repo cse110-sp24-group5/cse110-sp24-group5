@@ -2,7 +2,7 @@
 
 **Deployed website**
 
-https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html
+[https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html](https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html)
 
 1. Using the calendar and dev journal icons on the home page you should be able get to respective features
 2. Calendar
