@@ -7,44 +7,82 @@
       <link rel="stylesheet" href="../css/dev-journal.css">
    </head>
    <body>
-      <p>
-      <h1> TITLE </h1>
-      </p>
-   <!-- Datepicker element, I defined a new div so I could get all the content in the top right corner -->
+
+    <!-- Go back element -->
+    <div class="back-element">
+        <a href="./index.html">
+        <img src="../img/previous-month.png" alt="back arrow">
+        </a>
+    </div>
+
+    <h1 id="title"> TITLE </h1>
+
+   <!-- Datepicker element -->
    <div class = "date-element">
       <label for="datepicker">Select Date:</label>
       <input type="date" id="datepicker" name="datepicker">
    </div>
-   Sentiment Widget
-      <!--Sentiment Analysis Widget-->
-   <div class = "grid-container">
-      <div class="faces">
-         <div class="face" id="happy">
-            <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
-         </div>
-         <div class="face neutral" id="neutral">
-            <img class="emoji" id="neutral_image" src="../img/soso_face.png" alt="Neutral Face"> 
-         </div>
-         <div class="face sad" id="sad">
-            <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
-         </div>
-      </div>
-      <!-- Input boxes -->
-         <div class = "grid-item1">
-            <textarea id="accomplishments" name="accomplishments" placeholder="Accomplished today"></textarea>
-         </div>
-            <div class = "grid-item-2-3">
-            <div class = "grid-item2">
-               <textarea id="challenges" name="challenges" placeholder="Challenges"></textarea>
-            </div>
-            <div class = "grid-item3">
-               <textarea id="goals" name="goals" placeholder="Goals"></textarea>
-            </div>
-      </div>
-         <div class = "grid-item4">
-            <textarea id="reflections" name="reflections" placeholder="Reflections"></textarea>
-         </div>
 
-      </div>
+   <!--Left panel with markdown editor, preview, and buttons-->
+
+   <div class ="grid-container">
+        <div class="left-panel">
+            <div class="markdown-buttons">
+                <button class="editor-button">Editor</button>
+                <button class="preview-button">Preview</button>
+            </div>
+            <div class="markdown-container">
+                <textarea id="markdown-editor" class="editor" placeholder="Markdown"></textarea>
+                <div id="markdown-preview" class="preview"></div>
+            </div>
+
+            <div class = "save-buttons">
+                <button class="save-button">Save</button>
+            </div>
+        </div>
+   
+
+        <div class="right-panel">
+            <div id = "icon-checkboxes">
+                
+                <p>Role Fulfilled:</p>
+                <div class="icons">
+                <div class="icon-checkbox1">
+                    <input type="checkbox" id="documentationCheckbox">
+                    <label for="documentationCheckbox">
+                        <img src="../img/documentation.png" alt="documentation">
+                    </label>
+                </div>
+                <div class="icon-checkbox2">
+                    <input type="checkbox" id="codingCheckbox">
+                    <label for="codingCheckbox">
+                        <img src="../img/coding.png" alt="coding">
+                    </label>
+                </div>
+                <div class="icon-checkbox3">
+                    <input type="checkbox" id="discussionCheckbox">
+                    <label for="discussionCheckbox">
+                        <img src="../img/discussion.png" alt="discussion">
+                    </label>
+                </div>
+                <div class="icon-checkbox4">
+                    <input type="checkbox" id="debuggingCheckbox">
+                    <label for="debuggingCheckbox">
+                        <img src="../img/debugging.png" alt="debugging">
+                    </label>
+                </div>
+                </div>
+                
+            </div>
+            <div class="bug-tracker-container">
+                <textarea id="bug-tracker" name="bug-tracker" placeholder="Bug Tracker"></textarea>
+            </div>
+            <div class="learnings-container">
+                <textarea id="learnings" name="learnings" placeholder="Learnings"></textarea>
+            </div>      
+        </div>
+    </div>
+   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   <script src="../js/dev-journal.js"></script>
    </body>
 </html>

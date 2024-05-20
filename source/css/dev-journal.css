@@ -1,128 +1,318 @@
-/* How the faces are arranged */
-.faces {
-    display: inline-flex;
-    justify-content: space-around;
-}
-
+/* Since Montserrat is not an embedded font, we need to provide the URL to it */
 @font-face {
-    font-family: Montesserat; /* Give your font a name */
-    src: url("./Montserrat-Italic-VariableFont_wght.ttf");
+    font-family: Montesserat;
+    src: url("./Montserrat-Italic-VariableFont_wght.ttf")
 }
 
+/* Makes the title align to the center of the markdown text box */
+#title {
+    font-weight: normal;
+    text-align: center;
+}
+
+/* Sets the background color to gradient */
 body {
-    background: linear-gradient(180deg, rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%) 74.5%);
+    /* set viewport height to 100, without this line, the gradient won't be rendered properly */
+    background: linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* renders the background color */
+    font-family: Montesserat, Arial, Helvetica, sans-serif; /* set the font for the text */
+    font-size: 1.5em; /* font size of the text in the body */ 
     min-height: 100vh;
     max-width: 100%; 
     overflow: visible; 
     margin-left: 2%;
     margin-right: 2%;
-    font-family: Montesserat, Arial, Helvetica, sans-serif; /* Give your font a name */
-    src: url("./Montserrat-Italic-VariableFont_wght.ttf");
-    font-size: 1.5em;
 }
 
+/* Makes it so that date element is in the top right corner */
 .date-element {
-    position: fixed;
-    top: 17px;
+    position: absolute; 
+    top: 30px;
     right: 2%; 
     font-size: 0.7em;
 }
 
-.emoji {
-    height: 6vh; 
-    margin: -3vw 3vw 0;
+/* adjusts the styling of the buttons */
+.preview-button, .editor-button, .save-button {
+    border-radius: 5%;
+    cursor: pointer;
+    font-family: Montesserat, Arial, Helvetica, sans-serif;
+    height: 35px;
+    width: 70px;
+    padding: 5px;
 }
 
-.face {
-    margin: 3vw;
+/* this part sets the individual colors of button and placement */
+.preview-button {
+    background-color: #96BFEF;
+    border: 0.5px solid #78b4f9;
 }
 
-h1{
-    margin: 2%;
+/* Gets the buttons to lie on the same row */
+.markdown-buttons   {
+    display: flex; /* makes the button align into a row */
+    justify-content: center; /* gets the buttons centered */
+    gap: 20px;
 }
 
-#challenges::placeholder, #goals::placeholder, #reflections::placeholder,#accomplishments::placeholder {
-    font-size: 2em;
-    font-family: Montesserat, Arial, Helvetica, sans-serif; /* Give your font a name */
-    src: url("./Montserrat-Italic-VariableFont_wght.ttf");
+/* this part sets the individual colors of button */
+.editor-button {
+    background-color: #bbdafb;
+    border: 0.5px solid #60a9f6;
 }
 
-h3{
-    margin : 2%;
+/* this part sets the individual colors of button */
+.save-button {
+    background-color: rgb(222 150 255 / 30%);
+    border: 0.5px solid #b291e6;
 }
 
-.widget-title {
-    margin-top: 0;
+/* Sets the size and font of the placeholders for the text areas */
+::placeholder {
+    font-style: italic;
+    font-size: 1.5em;
+    font-family: Montesserat, Arial, Helvetica, sans-serif;
 }
 
+/* Controls the entire right section of the page */
+.right-panel {
+    flex: 1;
+    margin-left: 10px; /* Space between the panels */
+}
 
+/* Controls the entire left section of the page */
+.left-panel {
+    flex: 1;
+    margin-right: 10px; /* Space between the panels */
+}
+
+/* This is the layout for every single device over  and equal to 800 px */
 @media screen and (width >= 800px) {
+    /* We want a grid to be able to have two panels of elements */
     .grid-container {
+        display: grid;
+        grid-template-columns: 50% 50%; /* size of both columns is about half the screen */
+    }
+    
+    .markdown-container {
+        position: relative;
+        width: 40vw; /* match the editor, preview width */
+        height: 540px; /* match the editor, preview height */
+        margin: 1%; 
+    }
+    
+    #markdown-editor, #markdown-preview{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 1%;
+        background: rgb(255 255 255 / 40%); 
+        transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+        outline: none; /* Do not display blue boundary when selected */
+    }
+    
+    #markdown-preview {
+        z-index: 2; /* Make sure preview has a solid background */
+        display: none; /* Start with the preview hidden */
+        overflow-y: auto; /* Add overflow handling if the preview content is long */
+        background-color: white;
+        font-family: sans-serif;
+        font-size: 0.7em;
+    }
+    
+    #markdown-editor {
+        z-index: 1;
+    }
+    
+
+    /* creates the same dimensions for the bugtracker and learning text areas */
+    .bug-tracker-container, .learnings-container, #icon-checkboxes{
+        width: 40vw;
+        height: 100%;
+        margin: 2%; 
+        background: rgb(255 255 255 / 40%);
+        padding: 2%;
+        border: 1px solid black;
+        border-radius: 1%;
+    }
+
+    .bug-tracker-container textarea, .learnings-container textarea {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+        border: none; /* Remove default border */
+        resize: none; /* Prevent resizing by the user */
+        padding: 10px; /* Add padding for text inside the textarea */
+        background: none;
+        outline: none
+    }
+
+    .icons {
         display: flex;
-        place-content: flex-start flex-start;
-        flex-flow: row wrap;
-        gap: 0 50px;  
+        justify-content: center;
+        gap: 50px;
     }
 
-    .faces{
-        width: 45vw; 
-        height: 200px;
+    .icons input[type="checkbox"] {
+        display: none; /* Hide default checkboxes */
+    }
+  
+    /* Style the label to look like a checkbox */
+    .icons label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    /* Style the checkbox image */
+    .icons label img {
+        width: 40px; /* Adjust the size of the checkbox image */
+        height: 40px; /* Adjust the size of the checkbox image */
+    }
+  
+    /* Style the checked state */
+    .icons input[type="checkbox"]:checked + label::after {
+        content: '';
+        position: absolute;
+        top: 50%; /* Position at the center vertically */
+        left: 50%; /* Position at the center horizontally */
+        transform: translate(-50%, -50%); /* Center the rectangle */
+        width: 50px;
+        height: 50px;
+        background-color: #ccc; /* Grey color for the selected state */
+        border-radius: 20px; /* Rounded edges */
+        z-index: -1; /* Ensure rectangle is below the image */
     }
 
-    #accomplishments{
-        width: 45vw;
+    /* for the left and the right panels, we want each element in
+    each panel to be aligned to the center, which is what this accomplishes */
+    .left-panel, .right-panel {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+}
+
+/* This is the layout for every single device under 800 px */
+@media screen and (width < 800px) {
+    /* Push the title below the date picker */
+    #title {
+        font-weight: normal;
+        text-align: center;
+        margin-top: 14%;
+    }
+
+    /* Controls the size of the role, bug, and learnings section */
+    .right-panel {
+        margin: 5%
+    }
+
+    /* Controls the size of the markdown section */
+    .left-panel {
+        margin: 5%;
+    }
+
+    /* control the layout of the icons */
+    .icons {
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+    }
+
+    /* control the checkbox */
+    .icons input[type="checkbox"] {
+        display: none; /* Hide default checkboxes */
+    }
+
+    /* control the size of the markdown */
+    .markdown-container {
+        position: relative;
+        width: auto; /* fill width of the left side container */
+        height: 400px; /* match the editor, preview height */
+        margin: 1%; 
+    }
+
+    /* Modifies the markdown section */
+    #markdown-editor, #markdown-preview{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 1%;
+        background: rgb(255 255 255 / 40%); 
+        transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+        outline: none; /* Do not display blue boundary when selected */
+    }
+
+    #markdown-preview {
+        z-index: 2; /* Make sure preview has a solid background */
+        display: none; /* Start with the preview hidden */
+        overflow-y: auto; /* Add overflow handling if the preview content is long */
+        background-color: white;
+        font-family: sans-serif;
+        font-size: 0.7em;
+    }
+
+    /* centers the save button with the markdown section */
+    .save-buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* creates the same dimensions for the bugtracker and learning text areas */
+    .bug-tracker-container, .learnings-container, #icon-checkboxes{
+        width: auto;
         height: 150px;
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%);
+        padding: 2%;
+        border: 1px solid black;            
+        border-radius: 1%;
+    }
+    
+    .bug-tracker-container textarea, .learnings-container textarea {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+        border: none; /* Remove default border */
+        resize: none; /* Prevent resizing by the user */
+        padding: 10px; /* Add padding for text inside the textarea */
+        background: none;
+        outline: none
     }
 
-    #challenges{
-        width: 45vw;
-        height: 200px; 
-        margin: 2%; 
-        background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%); 
+    /* Style the label to look like a checkbox */
+    .icons label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    /* Style the checkbox image */
+    .icons label img {
+        width: 40px; /* Adjust the size of the checkbox image */
+        height: 40px; /* Adjust the size of the checkbox image */
     }
 
-    #goals {
-        width: 45vw;
-        height: 300px; 
-        margin: 2%; 
-        background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%);
-    }
-
-    #reflections{
-        width: 45vw;
-        height: 550px; 
-        margin: 2%; 
-        background: rgb(255 255 255 / 40%);
-        border-radius: 1em; 
-        box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%); 
+    /* Style the checked state */
+    .icons input[type="checkbox"]:checked + label::after {
+        content: '';
+        position: absolute;
+        top: 50%; /* Position at the center vertically */
+        left: 50%; /* Position at the center horizontally */
+        transform: translate(-50%, -50%); /* Center the rectangle */
+        width: 50px;
+        height: 50px;
+        background-color: #ccc; /* Grey color for the selected state */
+        border-radius: 20px; /* Rounded edges */
+        z-index: -1; /* Ensure rectangle is below the image */
     }
 }
-
-@media screen and (width <= 800px) {
-    /* Targets the way boxes are displayed */
-.grid-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-
-}
-
-#challenges,#reflections,#accomplishments,#goals{
-    width: 45vw;
-    height: 200px; 
-    margin: 2%; 
-    background: rgb(255 255 255 / 40%);
-    border-radius: 1em; 
-    box-shadow: 1vw 1vw 2vw 1vw rgb(63 102 210 / 36%);
-}
-
-}
-
