@@ -86,7 +86,7 @@ section section h2 {
 }
 
 /* Media query for smaller screens */
-@media screen and (width <= 800px) {
+@media screen and (max-width: 800px) {
     /* Targets the way boxes are displayed */
     .box-container {
         flex-direction: column;
