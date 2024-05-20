@@ -144,7 +144,7 @@ function init () {
         // Check if tasks exist for the date
         if (dailyTasks && dailyTasks.length > 0) {
             // Loop through the tasks and create HTML elements
-            dailyTasks.forEach((task, index) => {
+            dailyTasks.forEach((task) => {
                 // Create list item for each task
                 const taskItem = document.createElement('li');
     
@@ -230,7 +230,7 @@ function init () {
     const days = document.querySelectorAll('.days li');
     days.forEach(day => {
         day.addEventListener('click', () => {
-            dateElement = document.getElementById('date');
+            const dateElement = document.getElementById('date');
             // Construct a unique key for localStorage based on the selected date
             const dateText = dateElement.textContent;
             addTaskForDate(dateText);

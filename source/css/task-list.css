@@ -22,6 +22,21 @@ body {
     --on-close: #fa5353;
 }
 
+/* Font for all text in task-list/pop-up */
+#date,
+#close-task-list,
+#task,
+p,
+#add,
+#close-pop-up,
+#task-title,
+#title-text,
+#desc-text,
+#task-desc,
+#confirm {
+    font-family: Montserrat, sans-serif;
+}
+
 .hidden {
     display: none;
 }
@@ -30,7 +45,7 @@ body {
 /* Task List section */
 
 .task-list.parent {
-    position: absolute;
+    position: fixed;
     top: -5%;
     left: 50%;
     transform: translate(-50%, 50%);
@@ -43,7 +58,7 @@ body {
     min-height: 440px;
     background-color: var(--color5);
     border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, var(--shadow-opacity, 0.2));
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / var(--shadow-opacity, 0.2));
 }
 
 /* Task List top subsection */
@@ -112,6 +127,7 @@ body {
     height: 50px;
     background-color: var(--color2);
     color: white;
+    padding-bottom: 8px;
 }
 
 #add:hover{
@@ -143,6 +159,14 @@ body {
     padding-right: 20px;
 }
 
+.task-list-ul p {
+    margin: 0;
+    padding: 10px 0 20px 20px;
+    border-bottom: 1px solid white;
+    border-width: 50%;
+    font-size: smaller;
+}
+
 .task-container {
     display: flex;
     justify-content: space-between;
@@ -154,14 +178,6 @@ body {
     margin: 0;
     flex: 0.9;
     font-weight: bold;
-}
-
-p {
-    margin: 0;
-    padding: 10px 0 20px 20px;
-    border-bottom: 1px solid white;
-    border-width: 50%;
-    font-size: smaller;
 }
 
 /* Task List bottom subsection */
@@ -182,8 +198,9 @@ p {
     top: 30%;
     left: 50%;
     transform: translate(-50%, 80%);
-     /*display: none;  Initially hide section-2,uncomment the code in js development */
-    border: 0 solid var(--color3); /*Fix redundant top border in pop-up section*/
+
+     /* display: none;  Initially hide section-2,uncomment the code in js development */
+    border: 0 solid var(--color3); /* Fix redundant top border in pop-up section */
     font-weight: bolder;
     justify-content: center;
 }
@@ -194,7 +211,7 @@ p {
     background-color: white;
     border-radius: 20px;
     border: 1px solid #3F66D2;
-    position: absolute;
+    position: fixed;
     top:0;
     right:0;
 }
@@ -271,8 +288,8 @@ p {
 }
 
 #confirm {
-    margin: 20px auto 20px auto;
-    padding: 10px 20px 10px 20px;
+    margin: 20px auto;
+    padding: 10px 20px;
     border-radius: 5px;
     border: 1px solid #DFBDE4;
     background-color: #F2E5FB;
@@ -280,31 +297,15 @@ p {
 }
 
 #confirm:hover{
-    background-color: rgb(235, 209, 252);
+    background-color: rgb(235 209 252);
     color: white;
-}
-
-/* Font for all text in task-list/pop-up */
-
-#date,
-#close-task-list,
-#task,
-p,
-#add,
-#close-pop-up,
-#task-title,
-#title-text,
-#desc-text,
-#task-desc,
-#confirm {
-    font-family: Montserrat;
 }
 
 /* Media query for smaller screens */
 
 @media screen and (width <= 820px) {
     .task-list.parent{
-        top: -18%;
+        top: -10%;
         width: 60%;
         margin: 10px 60 10 10;
         max-height: 500px;
@@ -329,8 +330,8 @@ p,
        size: 80%;
        
     }
+
     .pop-up.parent{
-        
         width: 55%;
         top: 30%
 
@@ -355,8 +356,7 @@ p,
 
 }
 
-@media (max-width: 480px) {
-
+@media (width <= 480px) {
     #date {
         margin-left: auto;
         font-style: italic;
@@ -402,7 +402,7 @@ p,
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgb(0 0 0 / 10%);
     backdrop-filter: blur(5px);
     z-index: 1;
     display: none; /* Initially hidden */
@@ -418,4 +418,3 @@ p,
 .overlay.active {
     display: block;
 }
-

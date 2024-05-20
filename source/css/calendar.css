@@ -6,6 +6,7 @@
     --background-color: linear-gradient(180deg, rgb(95 192 255 / 30%) 23.5%, rgb(91 194 255 / 30%) 39.5%, rgb(219 147 255 / 30%) 100%);
     --blank-day-color: #F4F5FF;
     --pink-selected-day-color: #F2E5FB;
+    --dashboard-color: #A3AED4;
 }
 
 /* centers html container on screen */
@@ -144,6 +145,31 @@ img {
 /* hides the abbreivated weekdays which are used for mobile devices */
 .short-weekdays {
     display: none;
+}
+
+.back-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px
+}
+
+.back-element a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.back-element img {
+    width: 10px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.back-element p {
+    font-family: Montserrat, sans-serif;
+    margin: auto;
+    color: var(--dashboard-color);
 }
 
 /* handle smaller screens sizing with fonts */
