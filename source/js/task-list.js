@@ -236,4 +236,20 @@ function init () {
             addTaskForDate(dateText);
         });
     });
+    function track_days(){
+        const days = document.querySelectorAll('.days li');
+        days.forEach(day => {
+            day.addEventListener('click', () => {
+                const dateElement = document.getElementById('date');
+                // Construct a unique key for localStorage based on the selected date
+                const dateText = dateElement.textContent;
+                addTaskForDate(dateText);
+            });
+        });
+    }
+
+    const prevMonthButton = document.querySelector('.prev-month');
+    const nextMonthButton = document.querySelector('.next-month');
+    prevMonthButton.addEventListener('click', track_days);
+    nextMonthButton.addEventListener('click', track_days);
 };
