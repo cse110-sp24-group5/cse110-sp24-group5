@@ -85,6 +85,31 @@ body {
     margin-right: 10px; /* Space between the panels */
 }
 
+.back-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px
+}
+
+.back-element a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.back-element img {
+    width: 10px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.back-element p {
+    font-family: sans-serif;
+    color: #A3AED4;
+    font-size: 16px;
+}
+
 /* This is the layout for every single device over  and equal to 800 px */
 @media screen and (width >= 800px) {
     /* We want a grid to be able to have two panels of elements */

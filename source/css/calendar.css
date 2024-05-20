@@ -167,7 +167,7 @@ img {
 }
 
 .back-element p {
-    font-family: Montserrat, sans-serif;
+    font-family: sans-serif;
     margin: auto;
     color: var(--dashboard-color);
 }
