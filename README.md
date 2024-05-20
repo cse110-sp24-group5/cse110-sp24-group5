@@ -1,5 +1,8 @@
 # cse110-sp24-group5
 
+**Deployed website**
+https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html
+
 **Team Page**
 
 https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team
