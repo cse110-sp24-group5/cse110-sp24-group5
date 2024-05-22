@@ -166,8 +166,7 @@ img {
     /* Resizing font sizes for smaller devices */
     .calendar {
        margin: 0;
-       /* scales the width of the calander as the screen size decreases */
-       min-width: 99.5vw;
+       min-width: 99.5vw; /* scales the width of the calander as the screen size decreases */
     }
 
     /* hides the lengthened weekdays names which are need for desktops */
