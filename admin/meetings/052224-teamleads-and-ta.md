@@ -41,7 +41,7 @@ Note: Kanban board is also set up for effective task management
 
 1. Releases on github. This is one one of the examples: https://github.com/yt-dlp/yt-dlp/releases
 2. Documentation
-3. Use PWA to cache data
+3. Use PWA - local first with data cached using ServiceWorkers
 4. If the commits and branches are prefixed, change logs can be generated based on that
 5. Focus on testing **unit, e2e, physical testing**. Can be nice to performing testing with actual users and get their feedback. What did we incorporate, what are yet to be done?
 6. Analytics for the webstie (average user has notes this long, time spent) - may need a backend server for this
