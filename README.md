@@ -35,4 +35,5 @@ https://miro.com/app/board/uXjVKMiOIZM=/
 https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&t=WDiy1Dt2cr4rP5Ny-1
 
 **MVP/EC Video**
+
 https://youtu.be/2HepYe5-YLw
