@@ -17,13 +17,20 @@
 
     <h1 id="title"> TITLE </h1>
 
+
    <!-- Datepicker element -->
-   <div class = "date-element">
-      <label for="datepicker">Select Date:</label>
-      <input type="date" id="datepicker" name="datepicker">
-      <br>
-      <h7> Click on a day to view and modify tasks!</h7>
-   </div>
+  <header class = "header-contents">
+    <div class = "date-element">
+        <h7 class = "date-select-text"> Click on a day to view and modify tasks!</h7>
+        <div>
+            <label for="datepicker">Select Date:</label>
+            <input type="date" id="datepicker" name="datepicker">
+        </div>
+    </div>
+</header>
+
+ 
+
 
    <!--Left panel with markdown editor, preview, and buttons-->
 
@@ -84,6 +91,8 @@
             </div>      
         </div>
     </div>
+   
+
    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
    <script src="../js/dev-journal.js"></script>
    </body>

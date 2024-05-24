@@ -25,7 +25,7 @@ body {
 
 /* Makes it so that date element is in the top right corner */
 .date-element {
-    position: absolute; 
+    position: absolute;
     top: 30px;
     right: 2%; 
     font-size: 0.7em;
@@ -199,16 +199,27 @@ body {
 
 /* This is the layout for every single device under 800 px */
 @media screen and (width < 800px) {
-    /* Push the title below the date picker */
+    /*This is so the date picker and the text are centered at the top for a phone*/
+    @media screen and (width < 600px) {
+
+        /*Makes sure the date element text is centered and the left and right spacing is equal on both sides */
+        .date-element {
+            text-align: center;
+            right: 4%; 
+            left: 4%;
+        }
+    }
+
+    /*styles the title*/
     #title {
         font-weight: normal;
         text-align: center;
-        margin-top: 14%;
+        margin-top: 10%;
     }
 
     /* Controls the size of the role, bug, and learnings section */
     .right-panel {
-        margin: 5%
+        margin: 5%;
     }
 
     /* Controls the size of the markdown section */
