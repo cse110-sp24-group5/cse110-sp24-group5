@@ -32,8 +32,7 @@ section section h2 {
     margin-left: 6vw; /* Controls the size of the greeting box */
     margin-right: 4vw; /* Controls the size of the greeting box */
     margin-top: 6vh; /* Controls the size of the greeting box */
-    border-radius: 20px;
-    border-radius: 3vw; /* Rounds the edges of the box */
+    border-radius: 6vw; /* Rounds the edges of the box */
     background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the container */
 }
 
@@ -96,18 +95,19 @@ section section h2 {
 
     /* targets the text above the icon boxes */
     section section h2 {
-        margin-left: 16vw; /* Centers the text above the icon boxes */
+        text-align: center; /* Centers the text above the icon boxes */
     }
 
     /* targets the sentiment analysis box */
     .container {
-        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        width: 85vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
         margin-bottom: 2vh; /* Add vertical margin between boxes */
         margin-top: 7vh; /* Add vertical margin to center better for mobile */
         box-sizing: border-box; 
-        max-width: 70%;
         padding: 40px;
-        margin-left: auto;
+        max-height: 200px;
+        height: 17vh;
+        
 
         h2 {
             font-size: 4vw; /* Adjust font size for smaller screens */
@@ -116,13 +116,14 @@ section section h2 {
 
     /* targets the icon boxes */
     .box {
-        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        width: 85vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
         height: 17vh;
+        max-height: 200px;
         margin: 2vh; /* Add vertical margin between boxes */
         box-sizing: border-box; 
-        max-width: 70%;
         padding: 20px;
         margin-left: auto;
+        margin-right: auto;
     }
 
 
