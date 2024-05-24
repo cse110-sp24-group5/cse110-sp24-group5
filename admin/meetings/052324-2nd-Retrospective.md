@@ -39,10 +39,10 @@ N/A
 
 ![Mad, Sad, Glad Results](052324-img/052324-mad-sad-glad.png)
 
-#### **Most Voted Three Suggestions**
-+ More meetings between each language development's group,increase collaborations through more weekly meetings.
-+ Implement more features for the project product than the warm-up. 
-+ Previewing future labs early to provide better assistance in future projects.
+#### **Most Voted Suggestions**
++ In general, getting more feedback from everyone and communicating if working on same task.
++ Buggy code which was largely a result of the time constraints.
++ Happy with group progess on the MVP!
 
 ### Outstanding Action Items
 
