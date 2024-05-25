@@ -22,9 +22,7 @@ describe('Dev Journal Website', () => {
         expect(titleText).toBe(date);
     }, 10000);
 
-    /**
-     * Test if the date on page changes once datepicker is clicked
-     */
+    // Test if the date on page changes once datepicker is clicked
     it('Date change', async () => {
         const datepicker = await page.$('#datepicker');
         const newDate = '2024-01-01';
@@ -43,21 +41,19 @@ describe('Dev Journal Website', () => {
         expect(titleText).toBe(newDate);
     }, 10000);
 
-    // writing in the markdown editor
     it('Writing in markdown editor and saving', async () => {
-        
-        // set date
-        const datepicker = await page.$('#datepicker');
+    
+        // Set date
+        let datepicker = await page.$('#datepicker');
         const newDate = '2024-01-01';        
         await page.evaluate((element, date) => {
             element.value = date;
             element.dispatchEvent(new Event('change'));
         }, datepicker, newDate);
-
     
         // Wait for the editor to be available
         await page.waitForSelector('#markdown-editor');
-        const editorHandle = await page.$('#markdown-editor');
+        let editorHandle = await page.$('#markdown-editor');
     
         // Click on the editor to focus it
         await editorHandle.click();
@@ -67,21 +63,36 @@ describe('Dev Journal Website', () => {
         await page.keyboard.type(markdownContent);
     
         const buttonHandle = await page.$('.save-button');
-        console.log(buttonHandle);
         // Click the save button
         page.on('dialog', async dialog => {
             await dialog.accept(); // Press the "OK" button on the dialog
         });
         await buttonHandle.click();
-
+    
         // Wait for a short while to ensure the save operation completes
         await new Promise(resolve => setTimeout(resolve, 2000));
         
-        const localStorageContent = await page.evaluate(() => {return localStorage.getItem("2024-01-01");})
+        // Reload the page
+        await page.reload();
+    
+        // Wait for the editor to be available again after reload
+        datepicker = await page.$('#datepicker');
+        await page.evaluate((element, date) => {
+            element.value = date;
+            element.dispatchEvent(new Event('change'));
+        }, datepicker, newDate);
+    
 
+        editorHandle = await page.$('#markdown-editor');
+        await editorHandle.click();
+    
+        // Evaluate the content of the editor to check if it matches the inserted content
+        const editorContent = await page.evaluate(element => element.value, editorHandle);
+    
         // Expect the editor content to be the inserted content
-        expect(JSON.parse(localStorageContent).markdownEditor).toBe(markdownContent); 
+        expect(editorContent).toBe(markdownContent); 
     }, 20000);
+    
     
 
 });
