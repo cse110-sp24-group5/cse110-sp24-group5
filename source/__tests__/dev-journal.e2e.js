@@ -14,7 +14,26 @@ describe('Dev Journal test suite', () => {
 
     //click on some of the roles fulfilled
 
-    //check if they are highlighted in the proper color
+    it('Check some of the role icons on the screen', async () => {
+        //first grab two icons
+        const discussionIcon = await page.$('#discussionCheckbox');
+        const documentationIcon = await page.$('#documentationCheckbox');
+
+        //now click on the two icons
+        await discussionIcon.click();
+        await documentationIcon.click();
+
+        //check if they are both highlighted in the proper color
+        const isHighlightedDiscussion = await page.$eval('#discussionCheckbox', (elem) => {
+            return window.getComputedStyle(elem).backgroundColor;
+        });
+        const isHighlightedDocumentation = await page.$eval('#documentationCheckbox', (elem) => {
+            return window.getComputedStyle(elem).backgroundColor;
+        });
+        
+        expect(isHighlightedDiscussion).toBe('#ccc');
+        expect(isHighlightedDocumentation).toBe('#ccc');
+    });
 
     //enter text on the bug tracker and learnings and check if that's saved
 
