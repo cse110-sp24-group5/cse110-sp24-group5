@@ -1,5 +1,5 @@
 const URL = 'https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/dev-journal.html';
-describe('Dev Journal Website', () => {
+describe('Dev Journal Page', () => {
 
     // First, visit the website
     beforeAll(async () => {
@@ -22,7 +22,9 @@ describe('Dev Journal Website', () => {
         expect(titleText).toBe(date);
     }, 10000);
 
-    // Test if the date on page changes once datepicker is clicked
+    /**
+     * Test if the date on page changes once datepicker is clicked
+     */
     it('Date change', async () => {
         const datepicker = await page.$('#datepicker');
         const newDate = '2024-01-01';
@@ -41,15 +43,17 @@ describe('Dev Journal Website', () => {
         expect(titleText).toBe(newDate);
     }, 10000);
 
+    // writing in the markdown editor
     it('Writing in markdown editor and saving', async () => {
-    
-        // Set date
+        
+        // set date
         let datepicker = await page.$('#datepicker');
         const newDate = '2024-01-01';        
         await page.evaluate((element, date) => {
             element.value = date;
             element.dispatchEvent(new Event('change'));
         }, datepicker, newDate);
+
     
         // Wait for the editor to be available
         await page.waitForSelector('#markdown-editor');
@@ -93,6 +97,4 @@ describe('Dev Journal Website', () => {
         expect(editorContent).toBe(markdownContent); 
     }, 20000);
     
-    
-
 });
