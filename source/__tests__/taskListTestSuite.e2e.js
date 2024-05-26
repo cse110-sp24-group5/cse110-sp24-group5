@@ -18,6 +18,13 @@ describe('Task list test suite', () => {
         //find and click on the add new task (+) button
         const addNewTaskButton = await page.$('#add');
         await addNewTaskButton.click();
+        //find and click on the confirm button
+        page.on('dialog', async dialog => {
+            expect(dialog.message()).toBe('Please provide a title.');
+            await dialog.accept();
+        });          
+        const confirmButton = await page.$('#confirm');
+        await confirmButton.click();
         //find, click on, and type "This is a test task title" into the task title text entry box
         const taskTitleText = await page.$('#title-text');
         await taskTitleText.click();
@@ -26,8 +33,7 @@ describe('Task list test suite', () => {
         const taskDescText = await page.$('#desc-text');
         await taskDescText.click();
         await page.keyboard.type('This is a test task description');
-        //find and click on the confirm button
-        const confirmButton = await page.$('#confirm');
+        //click on the confirm button again
         await confirmButton.click();
         //Get the newly added task's title from the task list
         const displayedTaskTitle = await page.$('.task-container>#task');

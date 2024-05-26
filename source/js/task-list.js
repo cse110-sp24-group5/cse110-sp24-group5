@@ -82,7 +82,7 @@ function init () {
 
         // Check if a title is provided
         if (!title) {
-            alert("Please provide a title.");
+            alert('Please provide a title.');
             return; // Stop further execution
         }
 
