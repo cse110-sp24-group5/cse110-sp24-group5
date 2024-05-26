@@ -189,11 +189,11 @@ it('Reloading Learnings', async () => {
     expect(enteredTextAfterReload).toBe(inputText);
 }, 20000);
 
-it('Markdown Content Persistence', async () => {
+it('Reloading Markdown ', async () => {
     await page.waitForSelector('#markdown-editor');
     const markdownEditorTextArea = await page.$('#markdown-editor');
 
-    const markdownContent = '# Test Markdown Content\nThis is a test for Markdown content persistence.';
+    const markdownContent = '# Test Markdown Content\nThis is a test for Markdown .';
     await markdownEditorTextArea.type(markdownContent);
 
     const saveButton = await page.$('.save-button');
