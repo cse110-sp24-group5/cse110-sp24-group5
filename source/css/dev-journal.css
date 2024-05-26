@@ -6,7 +6,7 @@
 
 /* Makes the title align to the center of the markdown text box */
 #title {
-    font-weight: normal;
+    font-weight: lighter;
     text-align: center;
 }
 
@@ -15,7 +15,7 @@ body {
     /* set viewport height to 100, without this line, the gradient won't be rendered properly */
     background: linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* renders the background color */
     font-family: Montesserat, Arial, Helvetica, sans-serif; /* set the font for the text */
-    font-size: 1.5em; /* font size of the text in the body */
+    font-size: 1.3em; /* font size of the text in the body */
     min-height: 100vh;
     max-width: 100%; 
     overflow: visible; 
@@ -31,9 +31,17 @@ body {
     font-size: 0.7em;
 }
 
+.markdown-buttons{
+    background-color: rgb(221, 207, 255);
+    padding : 10px;
+
+    width: 150px;
+    align-items: center;
+    border-radius: 5%;
+}
 /* adjusts the styling of the buttons */
 .preview-button, .editor-button, .save-button {
-    border-radius: 5%;
+    border-radius: 10%;
     cursor: pointer;
     font-family: Montesserat, Arial, Helvetica, sans-serif;
     height: 35px;
@@ -41,10 +49,20 @@ body {
     padding: 5px;
 }
 
+.preview-button:hover {
+    background-color:#f5deff;
+}
+
+.editor-button:hover {
+    background-color:#f9eaff;
+}
 /* this part sets the individual colors of button and placement */
 .preview-button {
     background-color: #96BFEF;
     border: 0.5px solid #78b4f9;
+    
+    /* for rightend alignment */
+   
 }
 
 /* Gets the buttons to lie on the same row */
@@ -69,7 +87,7 @@ body {
 /* Sets the size and font of the placeholders for the text areas */
 ::placeholder {
     font-style: italic;
-    font-size: 1.5em;
+    font-size: 1.1em;
     font-family: Montesserat, Arial, Helvetica, sans-serif;
 }
 
@@ -79,10 +97,16 @@ body {
     margin-left: 10px; /* Space between the panels */
 }
 
+.right-panel p{
+   margin-left: 10px;
+   font-size: 1.0rem;
+}
 /* Controls the entire left section of the page */
 .left-panel {
     flex: 1;
     margin-right: 10px; /* Space between the panels */
+    align-items: center;
+
 }
 
 /* This is the layout for every single device over  and equal to 800 px */
@@ -129,14 +153,23 @@ body {
     }
     
 
-    /* creates the same dimensions for the bugtracker and learning text areas */
-    .bug-tracker-container, .learnings-container, #icon-checkboxes{
+    #icon-checkboxes{
         width: 40vw;
-        height: 100%;
+        height: 50%;
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
-        border: 1px solid black;
+        border: 1px solid rgb(203, 216, 239);
+        border-radius: 1%;
+    }
+    /* creates the same dimensions for the bugtracker and learning text areas */
+    .bug-tracker-container, .learnings-container{
+        width: 40vw;
+        height: 90%;
+        margin: 2%; 
+        background: rgb(255 255 255 / 40%);
+        padding: 2%;
+        border: 1px solid rgb(217, 224, 237);
         border-radius: 1%;
     }
 
@@ -170,10 +203,11 @@ body {
     
     /* Style the checkbox image */
     .icons label img {
-        width: 40px; /* Adjust the size of the checkbox image */
-        height: 40px; /* Adjust the size of the checkbox image */
+        width: 30px; /* Adjust the size of the checkbox image */
+        height: 30px; /* Adjust the size of the checkbox image */
     }
-  
+
+    
     /* Style the checked state */
     .icons input[type="checkbox"]:checked + label::after {
         content: '';
@@ -183,7 +217,7 @@ body {
         transform: translate(-50%, -50%); /* Center the rectangle */
         width: 50px;
         height: 50px;
-        background-color: #ccc; /* Grey color for the selected state */
+        background-color: rgb(169, 193, 248); /* Grey color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }
@@ -225,6 +259,7 @@ body {
     /* Controls the size of the markdown section */
     .left-panel {
         margin: 5%;
+        align-items: center;
     }
 
     /* control the layout of the icons */
