@@ -15,7 +15,6 @@ What strategies can we implement to enforce strict branch management policies?
 
 Decided on a template for creating pull requests that includes: description + changes made + instructions for testing + screenshots + policy checklist + review guidelines.
 Decided to enforce detailed naming, branch protection and old repo pruning as a part of our branch management.
-Decided to use Jest as our unit testing library.
 
 ## Decision Specifics
 
