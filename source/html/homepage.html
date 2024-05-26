@@ -18,17 +18,11 @@
     <section>
         <div class="container">
             <h2>Greetings <name>NAME!</name> How are you feeling today?</h2>
-            <div class="faces">
-                <div class="face" id="happy">
-                    <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
-                </div>
-                <div class="face neutral" id="neutral">
-                    <img class="emoji" id="neutral_image" src="../img/soso_face.png" alt="Neutral Face"> 
-                </div>
-                <div class="face sad" id="sad">
-                    <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
-                </div>
-            </div> 
+               
+            <div id="sentiment-widget">
+                <input type="range" name="sentiment" id="sentiment" value="50" min="0" max="100" step="1" />
+            </div>
+            
         </div>
     </section>
     <!-- Section to access the other pages -->
