@@ -77,6 +77,7 @@ describe('Test to ensure all components of main page are working', () => {
     it('Ensures home page works OFFLINE', async () => {
         // goes offline
         await page.setOfflineMode(true);
+        await page.reload();
         // get the home url
         const home_URL = await page.url();
         // checks to see if it matches the deployed page
@@ -137,10 +138,11 @@ describe('Test to ensure all components of main page are working', () => {
         expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
         // Goes back online
         await page.setOfflineMode(false);
+        await page.reload();
     });
 
     // Sentiment widget component #TODO
-    it('Ensures interaction with sentiment widget works', async () => {
+    it('Ensures interaction with sentiment widget works OFFLINE', async () => {
 
     });
 });
