@@ -31,7 +31,7 @@
         "preset": "jest-puppeteer"
     },
     "dependencies": {
-        "jsdocs": "^1.0.0",
+        "jsdocs": "^0.0.1",
         "marked": "^12.0.2",
         "nyc": "^15.1.0"
     }
