@@ -14,12 +14,13 @@ describe('Dev Journal Page', () => {
         const titleText = await titleHandle.evaluate(el => el.textContent);
 
         const currentDate = new Date();
-        // converts to yyyy-mm-dd
-        const formattedDate = currentDate.toISOString();
-        // only select the date - discard the time
-        const date = formattedDate.split('T')[0];
+        // specify the desired time zone
+        const timeZone = 'America/Los_Angeles'; // Pacific Time
+        const options = { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' };
+        // get the formatted date string in the desired time zone
+        const formattedDate = currentDate.toLocaleDateString('en-US', options).replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2');
 
-        expect(titleText).toBe(date);
+        expect(titleText).toBe(formattedDate);
     }, 10000);
 
     /**
