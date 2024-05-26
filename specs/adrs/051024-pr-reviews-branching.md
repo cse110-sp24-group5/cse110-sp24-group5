@@ -81,14 +81,6 @@ Ensure communication between team members when editing the repo’s branches, on
 
 ---
 
-### Unit Testing Library:
-We decided to go with Jest.
-Firstly, our project is built using HTML, CSS, and JavaScript, and Jest is well-suited for testing JavaScript codebases. Its comprehensive testing capabilities, including unit testing, integration testing, and snapshot testing, ensure that we can thoroughly test our JavaScript code and catch any potential issues or regressions.
-Secondly, we have implemented linting and code quality checks using CodeClimate, and Jest seamlessly integrates with such tools. This integration allows us to enforce code quality standards and catch potential issues or violations during the testing process, ensuring that our codebase adheres to best practices and maintains a high level of quality.
-Another factor that influenced my decision was Jest's zero-configuration setup. Getting started with testing can be a daunting task, but Jest's zero-configuration approach made it easy for us to start writing tests right away without spending time on complex configurations. This was particularly beneficial for our team, as we had a tight timeline and limited experience with testing frameworks.
-
----
-
 ### Consequences
 
 #### PR Structure
