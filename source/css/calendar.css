@@ -173,6 +173,7 @@ img {
 }
 
 /* handle smaller screens sizing with fonts */
+/* stylelint-disable-next-line media-feature-range-notation */
 @media only screen and (max-width: 768px) {
     /* centers html container */
     html {

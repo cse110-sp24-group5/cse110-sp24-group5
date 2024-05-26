@@ -110,7 +110,6 @@ function saveData() {
     };
 
     jsonData[currentDate] = data;
-    console.log(jsonData);
 
     // Save the JSON data to local storage with the current date as the key
     if (localStorage) {
@@ -134,14 +133,12 @@ function loadData() {
     const jsonData = localStorage.getItem('dev-journal');
     let data = JSON.parse(jsonData);
 
-    console.log(data);
     if (!data){
         data = {};
     }
 
-    if (!data.hasOwnProperty(currentDate)) {
+    if (!(currentDate in data)) {
         // set to default - empty strings and unselected
-        console.log('Data for day never saved')
         document.getElementById('markdown-editor').value = '';
         document.getElementById('documentationCheckbox').checked = false;
         document.getElementById('codingCheckbox').checked = false;
@@ -153,8 +150,6 @@ function loadData() {
     }
 
     data = data[currentDate];
-
-    console.log(data);
 
     // Set values from data object to corresponding elements
     document.getElementById('markdown-editor').value = data.markdownEditor;
