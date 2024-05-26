@@ -23,8 +23,6 @@ Check out our deployed website [here](https://cse110-sp24-group5.github.io/cse11
 - **Role Selection**: Select roles that you fulfilled on a given day.
 - **Saving Data**: All input data is saved to localStorage upon clicking the save button.
 
-**Note**: This is just the MVP. Some features, including mood tracking, are still being fixed.
-
 ## Team Page
 
 Learn more about our team [here](https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team).
