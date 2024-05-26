@@ -1,5 +1,11 @@
 # CSE110 SP24 Group 5
 
+![HTML](https://img.shields.io/badge/HTML-5E5C5C?style=for-the-badge&logo=html5)
+![CSS](https://img.shields.io/badge/CSS-5E5C5C?style=for-the-badge&logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&logo=javascript)
+![JSDoc](https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&logo=jsdoc)
+![Super Linter](https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&logo=github-actions)
+
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status.
 
 ## Deployed Website
