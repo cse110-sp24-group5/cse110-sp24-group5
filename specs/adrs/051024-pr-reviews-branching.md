@@ -56,7 +56,7 @@ Strict PR Policy:
 
 
 #### Reviewing Guidelines:
-The template suggests that 3-4 team members should review the PR before it can be merged.
+The template suggests that at least 2 team members should review the PR before it can be merged. (at least 2 team leads + 1 additional member since 05/23/24)
 All automated tests should pass locally.
 The code should follow the project's coding conventions and standards.
 It should pass all appropriate linters and CodeClimate quality checks.
