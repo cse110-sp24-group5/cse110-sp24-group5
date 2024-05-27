@@ -1,21 +1,21 @@
 /* The background of the website */
 body {
-    background: linear-gradient(to bottom, #4EC5FF, #94C8F1 40%, #EEA0FF 95%); /* Background color */
+    background:linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* Background color */
     min-height: 100vh; /* Makes the background color the entirety of the viewport */
     max-width: min-content; /* Prevents excessive width to the body */
     overflow: hidden; /* Hides everything that is outside of the viewport */
 }
 
-/* specifically targets the text in the user message box */
+/* Sspecifically targets the text in the user message box */
 section h2 {
-    color: white;
+    color: black;
     font-size: 3vh;
     text-align: center;
 }  
 
 /* Specifically targets the text above the icon boxes */
 section section h2 {
-    color: white;
+    color: black;
     text-align: center;
     font-size: 3vh;
     margin-bottom: 10px;
@@ -86,7 +86,8 @@ section section h2 {
 }
 
 /* Media query for smaller screens */
-@media screen and (width <= 800px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 800px) {
     /* Targets the way boxes are displayed */
     .box-container {
         flex-direction: column;

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Panda Coding Express</title>
+      <link rel="stylesheet" href="../css/dev-journal.css">
+   </head>
+   <body>
+
+    <!-- Go back element -->
+    <div class="back-element">
+        <a href="./index.html">
+            <img src="../img/previous-month.png" alt="back arrow">
+            <p>Dashboard</p>
+        </a>
+    </div>
+
+    <h1 id="title"> TITLE </h1>
+
+   <!-- Datepicker element -->
+   <div class = "date-element">
+      <label for="datepicker">Select Date:</label>
+      <input type="date" id="datepicker" name="datepicker">
+   </div>
+
+   <!--Left panel with markdown editor, preview, and buttons-->
+
+   <div class ="grid-container">
+        <div class="left-panel">
+            <div class="markdown-buttons">
+                <button class="editor-button">Editor</button>
+                <button class="preview-button">Preview</button>
+            </div>
+            <div class="markdown-container">
+                <textarea id="markdown-editor" class="editor" placeholder="Markdown"></textarea>
+                <div id="markdown-preview" class="preview"></div>
+            </div>
+
+            <div class = "save-buttons">
+                <button class="save-button">Save</button>
+            </div>
+        </div>
+   
+
+        <div class="right-panel">
+            <div id = "icon-checkboxes">
+                
+                <p>Role Fulfilled:</p>
+                <div class="icons">
+                <div class="icon-checkbox1">
+                    <input type="checkbox" id="documentationCheckbox">
+                    <label for="documentationCheckbox">
+                        <img src="../img/documentation.png" alt="documentation">
+                    </label>
+                </div>
+                <div class="icon-checkbox2">
+                    <input type="checkbox" id="codingCheckbox">
+                    <label for="codingCheckbox">
+                        <img src="../img/coding.png" alt="coding">
+                    </label>
+                </div>
+                <div class="icon-checkbox3">
+                    <input type="checkbox" id="discussionCheckbox">
+                    <label for="discussionCheckbox">
+                        <img src="../img/discussion.png" alt="discussion">
+                    </label>
+                </div>
+                <div class="icon-checkbox4">
+                    <input type="checkbox" id="debuggingCheckbox">
+                    <label for="debuggingCheckbox">
+                        <img src="../img/debugging.png" alt="debugging">
+                    </label>
+                </div>
+                </div>
+                
+            </div>
+            <div class="bug-tracker-container">
+                <textarea id="bug-tracker" name="bug-tracker" placeholder="Bug Tracker"></textarea>
+            </div>
+            <div class="learnings-container">
+                <textarea id="learnings" name="learnings" placeholder="Learnings"></textarea>
+            </div>      
+        </div>
+    </div>
+   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   <script src="../js/dev-journal.js"></script>
+   </body>
+</html>
