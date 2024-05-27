@@ -59,6 +59,10 @@ function showEditor(){
     console.log('in show editor')
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.style.display = 'none';
+
+    // Focus on the markdown editor
+    const markdownEditor = document.getElementById('markdown-editor');
+    markdownEditor.focus();
 }
 
 /**
@@ -179,14 +183,20 @@ function load(){
     const saveButton = document.querySelector('.save-button');
     saveButton.addEventListener('click', saveData);
 
-    // Save using terminal by pressing 's' key followed by Enter in terminal input
+    // Terminal for 's', 'p', or 'e' key followed by Enter in terminal input
     const terminalInput = document.getElementById('terminal-input');
     terminalInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter' && terminalInput.value === 's') {
-            saveData();
-            terminalInput.value = ''; // Clear the input after saving
-        }
-    });
+        if (event.key === 'Enter') {
+            if (terminalInput.value === 's') {
+                saveData();
+            } else if (terminalInput.value === 'p') {
+                showPreview();
+            } else if (terminalInput.value === 'e') {
+                showEditor();
+            }
+        terminalInput.value = ''; // Clear the input after action
+      }
+  });
 
 }
 
