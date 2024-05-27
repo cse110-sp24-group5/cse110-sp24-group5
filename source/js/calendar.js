@@ -5,6 +5,8 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month'); // Right arrow button
     const monthYearText = document.querySelector('.month-year'); // Current month and year header text
     const daysContainer = document.querySelector('.days'); // Container to store days
+    const taskList = document.querySelector('.task-list.parent');
+    const closeTaskList = document.getElementById('close-task-list');
 
     let currentDate = new Date(); // Define today's current timestamp
     
@@ -50,6 +52,10 @@ function init () {
             day.appendChild(dayNumber); // Append the span to the list item so it is contained within it
             day.setAttribute('tabindex', '0'); // Add tabindex attribute
             daysContainer.appendChild(day);
+
+              day.addEventListener('click', () => {
+                showTaskListPopUp(`${month} ${i}, ${year}`);
+            });
         }
 
         // Insert blank spaces at the end to fill out the month
@@ -113,6 +119,33 @@ function init () {
             document.documentElement.style.setProperty('--number-of-rows', 5)
         }
     }
+
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+    // Function to show the overlay
+    function showOverlay() {
+        overlay.classList.add('active');
+    }
+
+    // Function to hide the overlay
+    function hideOverlay() {
+        overlay.classList.remove('active');
+    }
+
+    function showTaskListPopUp(date) {
+        showOverlay();
+        const dateElement = document.getElementById('date');
+        dateElement.textContent = date;
+        taskList.classList.remove('hidden');
+    }
+
+    function hideTaskListPopUp() {
+        hideOverlay();
+        taskList.classList.add('hidden');
+    }
+
+    closeTaskList.addEventListener('click', hideTaskListPopUp);
 
     // Render the calendar for a the specified date
     renderCalendar(currentDate);
