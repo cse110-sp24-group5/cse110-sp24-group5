@@ -167,3 +167,24 @@ function load(){
 
 
 document.addEventListener("DOMContentLoaded", load);
+
+
+
+/**
+ * Open the Small Terminal using crtl + /
+ */
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === '/') {
+        toggleTerminal();
+    }
+});
+
+function toggleTerminal() {
+    const terminal = document.getElementById('terminal');
+    if (terminal.style.display === 'none' || terminal.style.display === '') {
+        terminal.style.display = 'flex';
+        document.getElementById('terminal-input').focus();
+    } else {
+        terminal.style.display = 'none';
+    }
+}
