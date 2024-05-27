@@ -86,7 +86,8 @@ section section h2 {
 }
 
 /* Media query for smaller screens */
-@media screen and (width <= 800px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 800px) {
     /* Targets the way boxes are displayed */
     .box-container {
         flex-direction: column;
