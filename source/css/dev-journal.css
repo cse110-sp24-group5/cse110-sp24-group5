@@ -23,22 +23,41 @@ body {
     margin-right: 2%;
 }
 
+/*Set the back button's position above title*/
+.back-element{
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    
+}
+
 /* Makes it so that date element is in the top right corner */
 .date-element {
     position: absolute;
-    top: 30px;
-    right: 2%; 
-    font-size: 0.7em;
+    top: 20px;
+    right: 5%; 
+    font-size: 0.6em;
+    
 }
 
-.markdown-buttons{
-    background-color: rgb(221, 207, 255);
-    padding : 10px;
+.h7{
+    font-size: 0.5em;
+}
 
+/* background strip to group preview and editor button*/
+.markdown-buttons{
+    background-color: rgb(252, 236, 255);
+    opacity: 50%;
+    padding : 10px;
     width: 150px;
     align-items: center;
     border-radius: 5%;
 }
+
+.preview-button, .editor-button{
+    font-size: x-small; 
+}
+
 /* adjusts the styling of the buttons */
 .preview-button, .editor-button, .save-button {
     border-radius: 10%;
@@ -49,33 +68,38 @@ body {
     padding: 5px;
 }
 
+/* Added hover for preview, editor, save buttons */
 .preview-button:hover {
-    background-color:#f5deff;
+    background-color:#ffdefc;
 }
 
 .editor-button:hover {
-    background-color:#f9eaff;
+    background-color:#ffdefc;
 }
+
+.save-button:hover{
+    color:#182431;
+    font-weight: 600;
+    background-color: rgba(201, 85, 255, 0.3);
+}
+
 /* this part sets the individual colors of button and placement */
 .preview-button {
     background-color: #96BFEF;
     border: 0.5px solid #78b4f9;
-    
-    /* for rightend alignment */
-   
 }
 
 /* Gets the buttons to lie on the same row */
 .markdown-buttons   {
     display: flex; /* makes the button align into a row */
     justify-content: center; /* gets the buttons centered */
-    gap: 20px;
+    gap: 10px;
 }
 
 /* this part sets the individual colors of button */
 .editor-button {
-    background-color: #bbdafb;
-    border: 0.5px solid #60a9f6;
+    background-color: #96BFEF;
+    border: 0.5px solid #78b4f9;
 }
 
 /* this part sets the individual colors of button */
@@ -101,6 +125,7 @@ body {
    margin-left: 10px;
    font-size: 1.0rem;
 }
+
 /* Controls the entire left section of the page */
 .left-panel {
     flex: 1;
@@ -231,6 +256,18 @@ body {
     }
 }
 
+/*styling the datepicker*/
+input[type="date"] {
+    border: 1px solid rgb(124, 161, 255);
+    border-radius: 4px;
+    padding: 4px;
+    margin-left: 2px;
+    margin-top: 3px;
+    background-color: #d1e7ff;
+    opacity: 60%;
+    
+}
+
 /* This is the layout for every single device under 800 px */
 @media screen and (width < 800px) {
     /*This is so the date picker and the text are centered at the top for a phone*/
@@ -239,16 +276,20 @@ body {
         /*Makes sure the date element text is centered and the left and right spacing is equal on both sides */
         .date-element {
             text-align: center;
+            top: 3%;
             right: 4%; 
             left: 4%;
+            bottom: 10%;
         }
     }
 
     /*styles the title*/
     #title {
-        font-weight: normal;
+        font-weight: light;
+        font-style: bold;
         text-align: center;
-        margin-top: 10%;
+        margin-top: 20%;
+        
     }
 
     /* Controls the size of the role, bug, and learnings section */
