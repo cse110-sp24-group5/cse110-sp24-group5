@@ -178,6 +178,16 @@ function load(){
 
     const saveButton = document.querySelector('.save-button');
     saveButton.addEventListener('click', saveData);
+
+    // Save using terminal by pressing 's' key followed by Enter in terminal input
+    const terminalInput = document.getElementById('terminal-input');
+    terminalInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' && terminalInput.value === 's') {
+            saveData();
+            terminalInput.value = ''; // Clear the input after saving
+        }
+    });
+
 }
 
 
