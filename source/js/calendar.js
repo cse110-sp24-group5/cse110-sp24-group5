@@ -48,6 +48,7 @@ function init () {
                 dayNumber.textContent = i;
             }
             day.appendChild(dayNumber); // Append the span to the list item so it is contained within it
+            day.setAttribute('tabindex', '0'); // Add tabindex attribute
             daysContainer.appendChild(day);
         }
 
@@ -60,20 +61,46 @@ function init () {
             daysContainer.appendChild(emptyDay);
         }
 
-        // Add event listener to each calendar day
-        const calendarDays = document.querySelectorAll('li');
-        for (let i = 0; i < calendarDays.length; i++) {
-            let day = calendarDays[i];
+        // Add event listeners to each calendar day (to handle either clicking via mouse or clicking enter and navigating with tab)
+        const calendarDays = document.querySelectorAll('.days li');
+        calendarDays.forEach((day) => {
             day.addEventListener('click', (event) => {
-                // Remove 'selected' class from previously selected day
-                const selectedDay = document.querySelector('.selected');
-                if (selectedDay) {
-                    selectedDay.classList.remove('selected');
-                }
-                // Toggle the selected class to show/hide the pink border on the newly selected day
-                const dayNumber = event.currentTarget.querySelector('span');
-                dayNumber.classList.add('selected');
+                event.preventDefault(); // Prevents the default click behavior (which may cause a focus change)
+                selectDay(event.currentTarget); // The default scenario where a day is clicked and a pink highlight appears
             });
+
+            day.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Prevents the default enter behavior (which may cause a form submission)
+                    selectDay(event.currentTarget); // Handles day selection via enter button
+                }
+            });
+
+            day.addEventListener('focus', (event) => {
+                // Add focus class to the day to show focus state
+                event.currentTarget.classList.add('focus');
+            });
+
+            day.addEventListener('blur', (event) => {
+                // Remove focus class when focus is lost
+                event.currentTarget.classList.remove('focus');
+            });
+        });
+
+        /**
+         * Selects the specified day by adding a 'selected' class to the day's number.
+         * @param {HTMLElement} dayElement - The day element to select.
+         */
+        function selectDay(dayElement) {
+            // Remove 'selected' class from previously selected day
+            const selectedDay = document.querySelector('.selected');
+            if (selectedDay) {
+                selectedDay.classList.remove('selected');
+            }
+
+            // Toggle the 'selected' class to show/hide the pink overlay
+            const dayNumber = dayElement.querySelector('span');
+            dayNumber.classList.toggle('selected');
         }
 
         /* handling edges cases for where different months need different row numbers */
