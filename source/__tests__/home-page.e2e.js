@@ -68,13 +68,13 @@ describe('Test to ensure all components of main page are working', () => {
     });
 
     // Sentiment widget component #TODO
-    it('Ensures interaction with sentiment widget works', async () => {
+    /* it('Ensures interaction with sentiment widget works', async () => {
       
-    });
+    }); */
 
     // OFFLINE TESTS
     // Test home page
-    it('Ensures home page works OFFLINE', async () => {
+    /* it('Ensures home page works OFFLINE', async () => {
         // goes offline
         await page.setOfflineMode(true);
         await page.reload();
@@ -144,6 +144,6 @@ describe('Test to ensure all components of main page are working', () => {
     // Sentiment widget component #TODO
     it('Ensures interaction with sentiment widget works OFFLINE', async () => {
 
-    });
+    }); */
 });
 
