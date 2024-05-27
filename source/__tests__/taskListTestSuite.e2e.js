@@ -2,7 +2,8 @@
 describe('Task list test suite', () => {
     //Start by visiting the calendar part of our webapp
     beforeAll(async () => {
-        await page.goto('http://127.0.0.1:5501/source/html/calendar.html'); //https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar
+        //await page.goto('http://127.0.0.1:5501/source/html/calendar.html'); //https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar
+        await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
     it('Check "add new task" functionality on the first day of the current month', async () => {
         console.log('Check "add new task" functionality on the first day of the current month');
@@ -237,4 +238,73 @@ describe('Task list test suite', () => {
             expect(displayedTaskDescText).toBe(`Description for task ${i + 1}`);
         }
     }, 100000); //extended timeout for adding 50 tasks
+
+    // Tasks are independent of each other (eg. they don't match if the days are in the same position in the calendar)
+    it('Check tasks are independent and vary based on date and position in calendar', async() => {
+        console.log('Check that tasks are independent on the 1st of May and the 5th of June');
+        // find and click on the fourth day of the current month 
+        const fourthOfMay = await page.$('.days:not(.blank-day):nth-child(4)');
+        await fourthOfMay.click();
+        // find and click on add task button 
+        const addMayTask = await page.$('#add');
+        await addMayTask.click();
+        //find, click on, and type 'Title for 4th of May'
+        const mayTitleText = await page.$('#title-text');
+        await mayTitleText.click();
+        await page.keyboard.type('Title for 4th of May');
+        //find, click on, and type 'Task for 4th of May' into the task description text entry box
+        const mayDescText = await page.$('#desc-text');
+        await mayDescText.click();
+        await page.keyboard.type('Task for 4th of May');
+        //find and click on the confirm button
+        const mayConfirm = await page.$('#confirm');
+        await mayConfirm.click();
+        //get task title and task description from 4th of May
+        const mayTitleDisplay = await page.$('.task-container>#task');
+        const mayTitleDisplayVal = await mayTitleDisplay.getProperty('innerText');
+        const mayTitleDisplayText = await mayTitleDisplayVal.jsonValue();
+        //get the May's task's description from the task list
+        const mayDisplayTaskDesc = await page.$('.task-container+p');
+        const mayDisplayVal = await mayDisplayTaskDesc.getProperty('innerText');
+        const mayDisplayDescText = await mayDisplayVal.jsonValue();
+
+        // move to next month (June)
+        const nextMonth = await page.$('.next-month');
+        await nextMonth.click();
+        // find and click on the 1st day of June
+        const firstOfJune = await page.$('.days:not(.blank-day)');
+        await firstOfJune.click();
+        // find and click on add task button 
+        const addJuneTask = await page.$('#add');
+        await addJuneTask.click();
+        //find, click on, and type 'Title for 1st of June'
+        const juneTitleText = await page.$('#title-text');
+        await juneTitleText.click();
+        await page.keyboard.type('Title for 1st of June');
+        //find, click on, and type 'Task for 1st of June' into the task description text entry box
+        const juneDescText = await page.$('#desc-text');
+        await juneDescText.click();
+        await page.keyboard.type('Task for 1st of June');
+        //find and click on the confirm button
+        const juneConfirm = await page.$('#confirm');
+        await juneConfirm.click();
+
+        // get task title and task description from 1st of June
+        const juneTitleDisplay = await page.$('.task-container>#task');
+        const juneTitleDisplayVal = await juneTitleDisplay.getProperty('innerText');
+        const juneTitleDisplayText = await juneTitleDisplayVal.jsonValue();
+        //get June's added task's description from the task list
+        const juneDisplayTaskDesc = await page.$('.task-container+p');
+        const juneDisplayVal = await juneDisplayTaskDesc.getProperty('innerText');
+        const juneDisplayDescText = await juneDisplayVal.jsonValue();
+    
+        // expect May and June task titles to be different
+        expect(mayTitleDisplayText).toBe('Title for 4th of May');
+        expect(juneTitleDisplayText).toBe('Title for 1st of June');
+        // expect May and June task descriptions to be different
+        expect(mayDisplayDescText).toBe('Task for 4th of May');
+        expect(juneDisplayDescText).toBe('Task for 1st of June');
+
+    }, 10000);
+
 });
