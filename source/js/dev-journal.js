@@ -195,6 +195,7 @@ function load(){
                 showEditor();
             }
         terminalInput.value = ''; // Clear the input after action
+        terminal.style.display = 'none'; //Make the terminal invisible after pressing enter
       }
   });
 
