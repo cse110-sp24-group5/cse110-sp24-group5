@@ -10,7 +10,7 @@ body {
 /* specifically targets the text in the user message box */
 section h2 {
     color: black;
-    font-size: 200%;
+    font-size: 150%;
     text-align: center;
     margin-top: 1%;
 }  
@@ -19,7 +19,7 @@ section h2 {
 section section h2 {
     color: black;
     text-align: center;
-    font-size: 250%;
+    font-size: 200%;
     margin-bottom: 10px;
 }
 
@@ -31,9 +31,10 @@ section section h2 {
     align-items: center;
     height: auto;
     border: 2px solid white; /* Border color and width of the greeting box */
-    margin: 0% 6%;
+    margin: 2% 6% 0% 6%;
     border-radius: 3vw; /* Rounds the edges of the box */
     background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the container */
+    padding: 1%; /* adds some room between the emojis and text against the container */
 }
 
 /* How the faces are arranged */
@@ -80,8 +81,8 @@ section section h2 {
 
 /* Controls the size of the emojis */
 .emoji {
-    width: 12vw;
-    height: 12vw;
+    width: 10vw;
+    height: 10vw;
 }
 
 /* Media query for smaller screens */
