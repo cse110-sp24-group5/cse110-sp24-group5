@@ -31,7 +31,7 @@ section section h2 {
     align-items: center;
     height: auto;
     border: 2px solid white; /* Border color and width of the greeting box */
-    margin: 2% 6% 0% 6%;
+    margin: 2% 6% 0%;
     border-radius: 3vw; /* Rounds the edges of the box */
     background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the container */
     padding: 1%; /* adds some room between the emojis and text against the container */
