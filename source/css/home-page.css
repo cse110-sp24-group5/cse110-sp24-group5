@@ -1,3 +1,9 @@
+:root {
+    --emoji1: url('../img/Group 8.svg');
+    --emoji2: url('../img/Group 10.svg');
+    --emoji3: url('../img/Group 10.svg');
+  }
+  
 /* The background of the website */
 body {
     background:linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* Background color */
@@ -37,34 +43,22 @@ section section h2 {
     background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the container */
 }
 
-/* How the faces are arranged */
-.faces {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* The size of the emoji faces */
-.face {
-    font-size: 6vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
-}
-
 /* sentiment analysis widget */
 #sentiment-widget{
-    width: 90%; 
+    width: 80%; 
 }
 
 #sentiment{
+    margin-top: 30px;
  -webkit-appearance: none;
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  background: rgb(255, 234, 253);
+  background: linear-gradient(to right, red, yellow, green);
   outline: none;
-  opacity: 0.5;
+  opacity: 0.7;
   -webkit-transition: .2s;
-  transition: opacity .2s;
+  transition: opacity .15s ease-in-out;
 }
 
 #sentiment:hover{
@@ -73,8 +67,47 @@ section section h2 {
 
 /* the image on the slider for the sentiment-analysis */
 #sentiment::-webkit-slider-thumb {
-    background: url('../img/soso_face.png');
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    cursor: pointer;
+    background: url('../img/Group\ 10.svg');
 }
+
+#sentiment::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    background: url('../img/Group\ 10.svg');
+}
+
+
+#sentiment[value="0"]::-webkit-slider-thumb {
+    background-image: var(--emoji1);
+  }
+  
+  #sentiment[value="33"]::-webkit-slider-thumb {
+    background-image: var(--emoji1);
+  }
+  
+  #sentiment[value="34"]::-webkit-slider-thumb {
+    background-image: var(--emoji2);
+  }
+  
+  #sentiment[value="66"]::-webkit-slider-thumb {
+    background-image:var(--emoji2);
+  }
+  
+  #sentiment[value="67"]::-webkit-slider-thumb {
+    background-image:var(--emoji2);
+  }
+  
+  #sentiment[value="100"]::-webkit-slider-thumb {
+    background-image: var(--emoji2);
+  }
 
 
 /* How the icon boxes are arranged */
@@ -82,7 +115,9 @@ section section h2 {
     display: flex;
     justify-content: space-between; /* Align items with space between them */
     margin-top: 20px; /* Adjust margin as needed */
+    
 }
+
 
 /* The boxes surrounding the DevJournal and Calander */
 .box {
