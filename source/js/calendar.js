@@ -75,6 +75,16 @@ function init () {
                 dayNumber.classList.add('selected');
             });
         }
+
+        /* handling edges cases for where different months need different row numbers */
+        const blankDays = document.querySelectorAll('.blank-day');
+        if (blankDays.length > 7) {
+            document.documentElement.style.setProperty('--number-of-rows', 6); /* handles cases where months had thin extra row */
+        } else if (blankDays.length == 0) {
+            document.documentElement.style.setProperty('--number-of-rows', 4); /* fixes February bug with extra blank row */
+        } else {
+            document.documentElement.style.setProperty('--number-of-rows', 5)
+        }
     }
 
     // Render the calendar for a the specified date
