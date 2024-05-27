@@ -239,6 +239,56 @@ describe('Task list test suite', () => {
         }
     }, 100000); //extended timeout for adding 50 tasks
 
+    it('Check "close add pop-up" functionality on the first day of the current month', async () => {
+        console.log('Check "close add pop-up" functionality on the first day of the current month');
+        //find and click on the first day of the current month
+        const firstOfTheMonth = await page.$('.days:not(.blank-day)');
+        await firstOfTheMonth.click();
+        //find and click on the add new task (+) button
+        const addNewTaskButton = await page.$('#add');
+        await addNewTaskButton.click();
+        //Confirm whether or not the hidden class is applied to pop-up (it shouldn't be applied since the pop-up should be visible)
+        const popUpParentBeforeClose = await page.$$('section.pop-up.parent.hidden');
+        expect(popUpParentBeforeClose.length).toBe(0);
+        //find and click on the close add pop-up button (x)
+        const closePopUpButton = await page.$('#close-pop-up');
+        await closePopUpButton.click();
+        //Confirm whether or not the hidden class is applied to the pop-up (it should be applied since the pop-up shouldn't be visible)
+        const popUpParentAfterClose = await page.$$('section.pop-up.parent.hidden');
+        expect(popUpParentAfterClose.length).toBe(1);
+    });
+    
+    it('Check "close edit pop-up" functionality on the first day of the current month', async () => {
+        console.log('Check "close edit pop-up" functionality on the first day of the current month');
+        //find and click on the edit task button for the first task in the tasklist
+        const firstTaskEditButton = await page.$('.task-container>#edit');
+        await firstTaskEditButton.click();
+        //Confirm whether or not the hidden class is applied to pop-up (it shouldn't be applied since the pop-up should be visible)
+        const popUpParentBeforeClose = await page.$$('section.pop-up.parent.hidden');
+        expect(popUpParentBeforeClose.length).toBe(0);
+        //find and click on the close add pop-up button (x)
+        const closePopUpButton = await page.$('#close-pop-up');
+        await closePopUpButton.click();
+        //Confirm whether or not the hidden class is applied to the pop-up (it should be applied since the pop-up shouldn't be visible)
+        const popUpParentAfterClose = await page.$$('section.pop-up.parent.hidden');
+        expect(popUpParentAfterClose.length).toBe(1);
+    });
+    
+    it('Check "close tasklist" functionlity on the first day of the current month', async () => {
+        console.log('Check "close tasklist" functionlity on the first day of the current month');
+        //Confirm whether or not the hidden class is applied to tasklist (it shouldn't be applied since the tasklist should be visible)
+        const taskListParentBeforeClose = await page.$$('section.task-list.parent.hidden');
+        expect(taskListParentBeforeClose.length).toBe(0);
+        //find and click on the close tasklist button (x)
+        const closeTaskListButton = await page.$('#close-task-list');
+        await closeTaskListButton.click();
+        //Confirm whether or not the hidden class is apllied to the tasklist (it should be applied since the tasklist shouldn't be visible)
+        const taskListParentAfterClose = await page.$$('section.task-list.parent.hidden');
+        expect(taskListParentAfterClose.length).toBe(1);
+        console.log('Check "add new task" functionality on the first day of the current month');
+    });
+    
+
     // Tasks are independent of each other (eg. they don't match if the days are in the same position in the calendar)
     it('Check tasks are independent and vary based on date and position in calendar', async() => {
         console.log('Check that tasks are independent on the 1st of May and the 5th of June');
