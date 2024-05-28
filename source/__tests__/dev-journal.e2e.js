@@ -72,7 +72,7 @@ describe('Dev Journal Page', () => {
     
         const buttonHandle = await page.$('.save-button');
         // Click the save button
-        page.on('dialog', async dialog => {
+        page.once('dialog', async dialog => {
             await dialog.accept(); // Press the "OK" button on the dialog
         });
         await buttonHandle.click();
@@ -152,71 +152,164 @@ it('Deleting All Text from Markdown Editor', async () => {
     expect(editorContentAfterDeletion).toBe("");
 }, 20000);
 
+
 it('Reloading Bug Tracker ', async () => {
-    await page.waitForSelector('#bug-tracker');
-    const bugTrackerTextArea = await page.$('#bug-tracker');
+    let datepicker = await page.$('#datepicker');
+        const newDate = '2024-03-05';        
+        await page.evaluate((element, date) => {
+            element.value = date;
+            element.dispatchEvent(new Event('change'));
+        }, datepicker, newDate);
 
-    const inputText = 'Test bug description for persistence';
-    await bugTrackerTextArea.type(inputText);
+    
+        // Wait for the editor to be available
+        await page.waitForSelector('#bug-tracker');
+        let editorHandle = await page.$('#bug-tracker');
+    
+        // Click on the editor to focus it
+        await editorHandle.click();
+    
+        // Content to be typed into the editor
+        const bugTrackerContent = 'End to end testing bug fixed in dev-journal-test branch';
+        await page.keyboard.type(bugTrackerContent);
+    
+        const buttonHandle = await page.$('.save-button');
+        // Click the save button
+        page.once('dialog', async dialog => {
+            await dialog.accept(); // Press the "OK" button on the dialog
+        });
+       await buttonHandle.click();
+    
+        // Wait for a short while to ensure the save operation completes
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Reload the page
+        await page.reload();
+    
+        // Wait for the editor to be available again after reload
+        datepicker = await page.$('#datepicker');
+        await page.evaluate((element, date) => {
+            element.value = date;
+            element.dispatchEvent(new Event('change'));
+        }, datepicker, newDate);
+    
 
-    const saveButton = await page.$('.save-button');
-    await saveButton.click();
-
-    await page.reload();
-
-    await page.waitForSelector('#bug-tracker');
-    const bugTrackerTextAreaAfterReload = await page.$('#bug-tracker');
-
-    const textAfterReload = await page.evaluate(element => element.value, bugTrackerTextAreaAfterReload);
-
-    expect(textAfterReload).toBe(inputText);
+        editorHandle = await page.$('#bug-tracker');
+        await editorHandle.click();
+    
+        // Evaluate the content of the editor to check if it matches the inserted content
+        const editorContent = await page.evaluate(element => element.value, editorHandle);
+    
+        // Expect the editor content to be the inserted content
+        expect(editorContent).toBe(bugTrackerContent); 
 }, 20000);
+
 
 it('Reloading Learnings', async () => {
-    await page.waitForSelector('#learnings');
-    const learningsTextArea = await page.$('#learnings');
+   // set date
+   let datepicker = await page.$('#datepicker');
+   const newDate = '2024-07-12';        
+   await page.evaluate((element, date) => {
+       element.value = date;
+       element.dispatchEvent(new Event('change'));
+   }, datepicker, newDate);
 
-    const inputText = 'Test learnings description for persistence';
-    await learningsTextArea.type(inputText);
 
-    const saveButton = await page.$('.save-button');
-    await saveButton.click();
+   // Wait for the editor to be available
+   await page.waitForSelector('#learnings');
+   let editorHandle = await page.$('#learnings');
 
-    await page.reload();
+   // Click on the editor to focus it
+   await editorHandle.click();
 
-    await page.waitForSelector('#learnings');
-    const textAreaAfterReload = await page.$('#learnings');
+   // Content to be typed into the editor
+   const learningsContent = 'Today I learned how to end-to-end test with puppeteer';
+   await page.keyboard.type(learningsContent);
 
-    const enteredTextAfterReload = await page.evaluate(element => element.value, textAreaAfterReload);
-    //const Output = "";
+   const buttonHandle = await page.$('.save-button');
+   // Click the save button
+   page.once('dialog', async dialog => {
+       await dialog.accept(); // Press the "OK" button on the dialog
+   });
+  await buttonHandle.click();
 
-    expect(enteredTextAfterReload).toBe(inputText);
+   // Wait for a short while to ensure the save operation completes
+   await new Promise(resolve => setTimeout(resolve, 2000));
+   
+   // Reload the page
+   await page.reload();
+
+   // Wait for the editor to be available again after reload
+   datepicker = await page.$('#datepicker');
+   await page.evaluate((element, date) => {
+       element.value = date;
+       element.dispatchEvent(new Event('change'));
+   }, datepicker, newDate);
+
+
+   editorHandle = await page.$('#learnings');
+   await editorHandle.click();
+
+   // Evaluate the content of the editor to check if it matches the inserted content
+   const editorContent = await page.evaluate(element => element.value, editorHandle);
+
+   // Expect the editor content to be the inserted content
+   expect(editorContent).toBe(learningsContent); 
 }, 20000);
+
 
 it('Reloading Markdown ', async () => {
-    await page.waitForSelector('#markdown-editor');
-    const markdownEditorTextArea = await page.$('#markdown-editor');
+        // set date
+        let datepicker = await page.$('#datepicker');
+        const newDate = '2024-02-01';        
+        await page.evaluate((element, date) => {
+            element.value = date;
+            element.dispatchEvent(new Event('change'));
+        }, datepicker, newDate);
 
-    const markdownContent = '# Test Markdown Content\nThis is a test for Markdown .';
-    await markdownEditorTextArea.type(markdownContent);
+    
+        // Wait for the editor to be available
+        await page.waitForSelector('#markdown-editor');
+        let editorHandle = await page.$('#markdown-editor');
+    
+        // Click on the editor to focus it
+        await editorHandle.click();
+    
+        // Content to be typed into the editor
+        const markdownContent = 'This is some sample content, this should be here after \nreloading';
+        await page.keyboard.type(markdownContent);
+    
+        const buttonHandle = await page.$('.save-button');
+        // Click the save button
+        page.once('dialog', async dialog => {
+            await dialog.accept(); // Press the "OK" button on the dialog
+        });
+       await buttonHandle.click();
+    
+        // Wait for a short while to ensure the save operation completes
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Reload the page
+        await page.reload();
+    
+        // Wait for the editor to be available again after reload
+        datepicker = await page.$('#datepicker');
+        await page.evaluate((element, date) => {
+            element.value = date;
+            element.dispatchEvent(new Event('change'));
+        }, datepicker, newDate);
+    
 
-    const saveButton = await page.$('.save-button');
-    await saveButton.click();
+        editorHandle = await page.$('#markdown-editor');
+        await editorHandle.click();
+    
+        // Evaluate the content of the editor to check if it matches the inserted content
+        const editorContent = await page.evaluate(element => element.value, editorHandle);
+    
+        // Expect the editor content to be the inserted content
+        expect(editorContent).toBe(markdownContent); 
 
-    await page.reload();
-
-    await page.waitForSelector('#markdown-editor');
-    const markdownEditorTextAreaAfterReload = await page.$('#markdown-editor');
-
-    const enteredMarkdownContentAfterReload = await page.evaluate(element => element.value, markdownEditorTextAreaAfterReload);
-
-    expect(enteredMarkdownContentAfterReload).toBe(markdownContent);
 }, 20000);
-
-
-
-
-
 
     
 });
