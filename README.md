@@ -37,6 +37,8 @@ Learn more about our team [here](https://cse110-sp24-group5.github.io/cse110-sp2
 
 - **Team Video**: Watch our team video [here](https://www.youtube.com/watch?v=mqnLJw1I7lg).
 - **MVP/EC Video**: Watch the MVP/EC demonstration video [here](https://youtu.be/2HepYe5-YLw).
+-  **Status Video 2**: Watch the Status Video 2 demonstration video [here](https://www.youtube.com/watch?v=myacnpHmjUQ).
+
 
 ## Design Resources
 
