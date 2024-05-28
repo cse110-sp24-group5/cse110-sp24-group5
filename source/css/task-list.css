@@ -302,7 +302,7 @@ p,
 }
 
 /* Media query for smaller screens */
-
+/* stylelint-disable-next-line media-feature-range-notation */
 @media screen and (max-width: 820px) {
     .task-list.parent{
         top: -10%;
@@ -356,6 +356,7 @@ p,
 
 }
 
+/* stylelint-disable-next-line media-feature-range-notation */
 @media (max-width: 480px) {
     #date {
         margin-left: auto;
