@@ -1,40 +1,30 @@
-/*// changes emoji when user uses slider
-let currentSentiment = document.querySelector('.sentiment');
-currentSentiment.addEventListener("change", (event) => {
-    let current = event.target.value;
 
-    // sad emoji
-    if((current >= 0) || (current <= 33)){
+window.addEventListener('DOMContentLoaded', init);
+    // Corrected selector
 
+function init(){
+    const sentimentSlider = document.querySelector('#sentiment');
+    const faceIcon = document.querySelector('#sentiment-widget img');
+
+     // Function to update the face icon based on the slider value
+     function updateFaceIcon(value) {
+        value = parseInt(value);
+        console.log("Slider value:", value); 
+        if (value <= 33) {
+            faceIcon.src = "../img/sad_face.png"; // Directly set the src attribute
+        } else if (value <= 67) {
+            faceIcon.src = "../img/middle.svg"; // Directly set the src attribute
+        } else {
+            faceIcon.src = "../img/end.svg"; // Directly set the src attribute
+        }
     }
-    // neutral emoji
-    else if ((current >= 34) || (current <= 67)){
 
-    }
-    // happy emoji
-    else{
+    // Initial face icon update
+    updateFaceIcon(sentimentSlider.value);
 
-    }
-
-});*/
-
-/*not working so far*/
-document.addEventListener('DOMContentLoaded', () => {
-    const sentimentSlider = document.getElementById('sentiment');
-  
+    // Add event listener to the slider
     sentimentSlider.addEventListener('input', () => {
-      const value = sentimentSlider.value;
-      console.log("Value:", value);
-      updateSliderThumb(value);
+        const mood = sentimentSlider.value;
+        updateFaceIcon(mood);
     });
-    
-   
-    function updateSliderThumb(value) {
-      document.documentElement.style.setProperty('--emoji1', value <= 33 ? 'url(\'../img/Group 8.svg\')' : 'none');
-      document.documentElement.style.setProperty('--emoji2', (value > 33 && value <= 66) ? 'url(\'../img/Group 10.svg\')' : 'none');
-      document.documentElement.style.setProperty('--emoji3', value > 66 ? 'url(\'../img/Group 10.svg\')' : 'none');
-    }
-    
-
-    sentimentSlider.dispatchEvent(new Event('input'));
-  });
+}

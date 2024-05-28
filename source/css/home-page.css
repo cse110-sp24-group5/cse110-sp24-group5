@@ -1,9 +1,4 @@
-:root {
-    --emoji1: url('../img/Group 8.svg');
-    --emoji2: url('../img/Group 10.svg');
-    --emoji3: url('../img/Group 10.svg');
-  }
-  
+
 /* The background of the website */
 body {
     background:linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* Background color */
@@ -33,7 +28,7 @@ section section h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 30vh;
+    height: 35vh;
     border: 2px solid white; /* Border color and width of the greeting box */
     margin-left: 6vw; /* Controls the size of the greeting box */
     margin-right: 4vw; /* Controls the size of the greeting box */
@@ -49,20 +44,22 @@ section section h2 {
 }
 
 #sentiment{
-    margin-top: 30px;
+margin-top: 40px;
  -webkit-appearance: none;
   width: 100%;
   height: 10px;
   border-radius: 5px;
   background: linear-gradient(to right, red, yellow, green);
   outline: none;
-  opacity: 0.7;
+  opacity: 0.3;
   -webkit-transition: .2s;
   transition: opacity .15s ease-in-out;
+  
 }
 
 #sentiment:hover{
-    opacity: 1;
+    background: linear-gradient(to right, red, yellow, green);
+    opacity: 0.7;
 }
 
 /* the image on the slider for the sentiment-analysis */
@@ -73,42 +70,29 @@ section section h2 {
     height: 50px;
     background: transparent;
     cursor: pointer;
-    background: url('../img/Group\ 10.svg');
+    background: url('../img/Vector.svg');
+    opacity: 1;
 }
 
 #sentiment::-moz-range-thumb {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background: transparent;
     cursor: pointer;
-    background: url('../img/Group\ 10.svg');
+    background: url('../img/Vector.svg');
+    opacity : 1;
 }
 
+#face-icon {
+    padding-top: 10px;
+    width: 80px;
+    height: 80px;
+    transition: fill 0.3s;
+    /*placing icon in center*/
+    margin: 0 auto;
+    display: block;
 
-#sentiment[value="0"]::-webkit-slider-thumb {
-    background-image: var(--emoji1);
-  }
-  
-  #sentiment[value="33"]::-webkit-slider-thumb {
-    background-image: var(--emoji1);
-  }
-  
-  #sentiment[value="34"]::-webkit-slider-thumb {
-    background-image: var(--emoji2);
-  }
-  
-  #sentiment[value="66"]::-webkit-slider-thumb {
-    background-image:var(--emoji2);
-  }
-  
-  #sentiment[value="67"]::-webkit-slider-thumb {
-    background-image:var(--emoji2);
-  }
-  
-  #sentiment[value="100"]::-webkit-slider-thumb {
-    background-image: var(--emoji2);
-  }
-
+}
 
 /* How the icon boxes are arranged */
 .box-container {
@@ -117,7 +101,6 @@ section section h2 {
     margin-top: 20px; /* Adjust margin as needed */
     
 }
-
 
 /* The boxes surrounding the DevJournal and Calander */
 .box {
