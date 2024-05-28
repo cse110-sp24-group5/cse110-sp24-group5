@@ -3,7 +3,7 @@ describe('Task list test suite', () => {
     // Start by visiting the calendar part of our webapp
     beforeAll(async () => {
         //await page.goto('http://127.0.0.1:5501/source/html/calendar.html');
-        await page.goto('https:// cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
+        await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
     // Add new task functionality
     it('Check "add new task" functionality on the first day of the current month', async () => {

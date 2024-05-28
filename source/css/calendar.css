@@ -173,7 +173,7 @@ img {
 }
 
 /* handle smaller screens sizing with fonts */
-@media only screen and (max-width: 768px) {
+@media only screen and (width <= 768px) {
     /* centers html container */
     html {
         display: table;

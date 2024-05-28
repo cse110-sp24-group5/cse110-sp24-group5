@@ -303,7 +303,7 @@ p,
 
 /* Media query for smaller screens */
 
-@media screen and (max-width: 820px) {
+@media screen and (width <= 820px) {
     .task-list.parent{
         top: -10%;
         width: 60%;
@@ -356,7 +356,7 @@ p,
 
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     #date {
         margin-left: auto;
         font-style: italic;
