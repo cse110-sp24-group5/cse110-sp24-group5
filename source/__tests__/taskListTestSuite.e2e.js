@@ -2,8 +2,8 @@
 describe('Task list test suite', () => {
     // Start by visiting the calendar part of our webapp
     beforeAll(async () => {
-        await page.goto('http://127.0.0.1:5501/source/html/calendar.html');
-        // await page.goto('https:// cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
+        //await page.goto('http://127.0.0.1:5501/source/html/calendar.html');
+        await page.goto('https:// cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
     // Add new task functionality
     it('Check "add new task" functionality on the first day of the current month', async () => {
@@ -312,7 +312,7 @@ describe('Task list test suite', () => {
     it('Check tasks are independent and vary based on date and position in calendar', async() => {
         console.log('Check that tasks are independent on the 1st of May and the 5th of June');
         // find and click on first Saturday of the current month 
-        await page.evaluate(() => {
+        await page.evaluate(() => { // note: const fourthOfMay = await page.$('.days:not(.blank-day):nth-child(4)'); had unexpected behavior
             // Select the 7th element using querySelectorAll, index starts from 0
             const firstSatOfMay = document.querySelectorAll('.days li')[6]; // Index 6 is the 7th element
             firstSatOfMay.click();
@@ -402,7 +402,8 @@ describe('Task list test suite', () => {
         await closeTaskList.click();
     }, 10000);
 
-    it('Check "close add pop-up" functionality on the first day of the current month', async () => {
+    // Close add pop-up functionality
+    it('Check "close add pop-up" functionality on the first day of the current month', async () => { // note: current month is now June after the independent task test
         console.log('Check "close add pop-up" functionality on the first day of the current month');
         // find and click on the first day of the current month
         const firstOfTheMonth = await page.$('.days:not(.blank-day)');
@@ -421,7 +422,8 @@ describe('Task list test suite', () => {
         expect(popUpParentAfterClose.length).toBe(1);
     });
     
-    it('Check "close edit pop-up" functionality on the first day of the current month', async () => {
+    // Close edit pop-up functionality
+    it('Check "close edit pop-up" functionality on the first day of the current month', async () => { // note: current month is now June after the independent task test
         console.log('Check "close edit pop-up" functionality on the first day of the current month');
         // find and click on the add new task (+) button
         const addNewTaskButton = await page.$('#add');
@@ -451,7 +453,8 @@ describe('Task list test suite', () => {
         expect(popUpParentAfterClose.length).toBe(1);
     });
     
-    it('Check "close tasklist" functionlity on the first day of the current month', async () => {
+    // Close task-list functionality
+    it('Check "close tasklist" functionlity on the first day of the current month', async () => { // note: current month is now June after the independent task test
         console.log('Check "close tasklist" functionlity on the first day of the current month');
         // Confirm whether or not the hidden class is applied to tasklist (it shouldn't be applied since the tasklist should be visible)
         const taskListParentBeforeClose = await page.$$('section.task-list.parent.hidden');
