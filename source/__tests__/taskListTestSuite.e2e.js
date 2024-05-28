@@ -313,8 +313,8 @@ describe('Task list test suite', () => {
         console.log('Check that tasks are independent on the 1st of May and the 5th of June');
         // find and click on first Saturday of the current month 
         await page.evaluate(() => { // note: const fourthOfMay = await page.$('.days:not(.blank-day):nth-child(4)'); had unexpected behavior
-            // Select the 7th element using querySelectorAll, index starts from 0
-            const firstSatOfMay = document.querySelectorAll('.days li')[6]; // Index 6 is the 7th element
+            // Select the 7th element of the calendar month
+            const firstSatOfMay = document.querySelectorAll('.days li')[6];
             firstSatOfMay.click();
         });
         let date = await page.$eval('#date', element => element.textContent);
@@ -350,8 +350,8 @@ describe('Task list test suite', () => {
         await prevMonth.click();
         // find and click on first Saturday of April
         await page.evaluate(() => {
-            // Select the 7th element using querySelectorAll, index starts from 0
-            const firstSatOfApr = document.querySelectorAll('.days li')[6]; // Index 6 is the 7th element
+            // Select the 7th element of the calendar month
+            const firstSatOfApr = document.querySelectorAll('.days li')[6];
             firstSatOfApr.click();
         });
         date = await page.$eval('#date', element => element.textContent);
@@ -364,8 +364,8 @@ describe('Task list test suite', () => {
         await nextMonth.click();
         // find and click on the first Saturday of June
         await page.evaluate(() => {
-            // Select the 7th element using querySelectorAll, index starts from 0
-            const firstSatOfJun = document.querySelectorAll('.days li')[6]; // Index 6 is the 7th element
+            // Select the 7th element of the calendar month
+            const firstSatOfJun = document.querySelectorAll('.days li')[6];
             firstSatOfJun.click();
         });
         date = await page.$eval('#date', element => element.textContent);
