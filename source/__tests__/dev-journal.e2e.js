@@ -311,5 +311,65 @@ it('Reloading Markdown ', async () => {
 
 }, 20000);
 
+it('Testing button icons color after clicking', async() => {
+    let datepicker = await page.$('#datepicker');
+    const newDate = '2024-09-28';        
+    await page.evaluate((element, date) => {
+        element.value = date;
+        element.dispatchEvent(new Event('change'));
+    }, datepicker, newDate);
+
+    //get the background color before being clicked (should all be the same color, so I'm only grabbing the color from one button)
+    const backgroundColorElement = await page.$('label[for="documentationCheckbox"]');
     
+    const initialBGColor = await page.evaluateHandle(element => {
+        // Use getComputedStyle to get the computed style
+        const computedColor = window.getComputedStyle(element);
+        return computedColor.backgroundColor;
+      }, backgroundColorElement);
+
+    //get all of the buttons
+    const documentationButton = await page.$('label[for="documentationCheckbox"]');
+    const codingButton = await page.$('label[for="codingCheckbox"]');
+    const discussionButton = await page.$('label[for="discussionCheckbox"]');
+    const testingButton = await page.$('label[for="debuggingCheckbox"]');
+
+    //click all of the buttons
+    await documentationButton.click();
+    await codingButton.click();
+    await discussionButton.click();
+    await testingButton.click();
+
+    //get the background color for the buttons after they're checked
+    const documentationColor = await page.evaluateHandle(element => {
+        // Use getComputedStyle to get the computed style
+        const computedColor = window.getComputedStyle(element);
+        return computedColor.backgroundColor;
+      }, documentationButton);
+
+    const codingColor = await page.evaluateHandle(element => {
+        // Use getComputedStyle to get the computed style
+        const computedColor = window.getComputedStyle(element);
+        return computedColor.backgroundColor;
+    }, codingButton);
+
+    const discussionColor = await page.evaluateHandle(element => {
+        // Use getComputedStyle to get the computed style
+        const computedColor = window.getComputedStyle(element);
+        return computedColor.backgroundColor;
+    }, discussionButton);
+
+    const testingColor = await page.evaluateHandle(element => {
+        // Use getComputedStyle to get the computed style
+        const computedColor = window.getComputedStyle(element);
+        return computedColor.backgroundColor;
+    }, testingButton);
+
+    //Expect current bg color to be different from initial
+    expect(documentationColor).not.toBe(initialBGColor);
+    expect(codingColor).not.toBe(initialBGColor);
+    expect(testingColor).not.toBe(initialBGColor);
+    expect(discussionColor).not.toBe(initialBGColor);
+
+}, 20000) 
 });
