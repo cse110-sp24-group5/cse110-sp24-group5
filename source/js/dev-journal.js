@@ -65,6 +65,20 @@ function showEditor(){
     markdownEditor.focus();
 }
 
+/* Put the cursor in the bug editor */
+function showBug(){
+    // Focus on the bug editor
+    const bugTracker = document.getElementById('bug-tracker');
+    bugTracker.focus();
+}
+
+/* Put the cursor in the learnings editor */
+function showLearnings(){
+    // Focus on the learnings editor
+    const learningsTracker = document.getElementById('learnings');
+    learningsTracker.focus();
+}
+
 /**
  * Saves data to local storage in the following format
  * 
@@ -183,16 +197,21 @@ function load(){
     const saveButton = document.querySelector('.save-button');
     saveButton.addEventListener('click', saveData);
 
-    // Terminal for 's', 'p', or 'e' key followed by Enter in terminal input
+    // Terminal for 's', 'p', 'e', 'b' or 'l' key followed by Enter in terminal input
     const terminalInput = document.getElementById('terminal-input');
     terminalInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            if (terminalInput.value === 's') {
+            if (terminalInput.value === 's') { //Save
                 saveData();
-            } else if (terminalInput.value === 'p') {
+            } else if (terminalInput.value === 'p') { //Preview
                 showPreview();
-            } else if (terminalInput.value === 'e') {
+            } else if (terminalInput.value === 'e') { //Edit
                 showEditor();
+            } else if (terminalInput.value == 'b'){ //Bug
+                showBug(); 
+            }
+            else if (terminalInput.value == 'l'){ //Learnings
+                showLearnings();
             }
         terminalInput.value = ''; // Clear the input after action
         terminal.style.display = 'none'; //Make the terminal invisible after pressing enter
