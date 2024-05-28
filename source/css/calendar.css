@@ -172,6 +172,17 @@ img {
     color: var(--dashboard-color);
 }
 
+#terminal {
+    /* Initially hide the terminal */
+    display: none;
+}
+
+#terminal input {
+    /* increases height and width so placeholder can be read */
+    width: 200px;
+    height: 20px;
+}
+
 /* handle smaller screens sizing with fonts */
 /* stylelint-disable-next-line media-feature-range-notation */
 @media only screen and (max-width: 768px) {

@@ -113,7 +113,14 @@ body {
 }
 
 #terminal {
-    display: none; /* Initially hide the terminal */
+    /* Initially hide the terminal */
+    display: none;
+}
+
+#terminal input {
+    /* increases height and width so placeholder can be read */
+    width: 200px;
+    height: 20px;
 }
 
 /* This is the layout for every single device over  and equal to 800 px */

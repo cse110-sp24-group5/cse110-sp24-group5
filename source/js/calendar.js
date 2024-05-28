@@ -124,4 +124,32 @@ function init () {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar(currentDate);
     });
+
+    let terminalState = localStorage.getItem('terminalState');
+    // checks if terminal was previously opened on another page and if so it toggles it on
+    if(terminalState == 'open') {
+        toggleTerminal(true);
+    }
 };
+
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === '/') {
+        toggleTerminal();
+    }
+});
+
+function toggleTerminal(forceState) {
+    const terminal = document.getElementById('terminal');
+    // if terminal was previously opened or display is off
+    if (forceState === true || terminal.style.display === 'none' || terminal.style.display === '') {
+        terminal.style.display = 'flex';
+        document.getElementById('terminal-input').focus();
+        // sets terminalState to open in localStorage so it saves across all pages
+        localStorage.setItem('terminalState', 'open');
+    } else {
+        // toggles off terminal
+        terminal.style.display = 'none';
+        // removes terminalState since it was toggled off so it will be toggled off across all pages
+        localStorage.removeItem('terminalState');
+    }
+}
