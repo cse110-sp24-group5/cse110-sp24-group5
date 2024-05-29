@@ -177,7 +177,7 @@ body {
         z-index: 1;
     }
     
-
+     /* minimize the space icon box takes */
     #icon-checkboxes{
         width: 40vw;
         height: 50%;
@@ -187,6 +187,7 @@ body {
         border: 1px solid rgb(203, 216, 239);
         border-radius: 1%;
     }
+
     /* creates the same dimensions for the bugtracker and learning text areas */
     .bug-tracker-container, .learnings-container{
         width: 40vw;
@@ -242,7 +243,7 @@ body {
         transform: translate(-50%, -50%); /* Center the rectangle */
         width: 50px;
         height: 50px;
-        background-color: rgb(169, 193, 248); /* Grey color for the selected state */
+        background-color: rgb(169, 193, 248); /* Blue color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }
@@ -308,6 +309,13 @@ input[type="date"] {
         display: flex;
         justify-content: center;
         gap: 10%;
+        margin-bottom: -20px;
+    }
+
+    #icon-checkboxes{
+        width: 40vw;
+        height: 30%;
+         
     }
 
     /* control the checkbox */
@@ -339,6 +347,17 @@ input[type="date"] {
         outline: none; /* Do not display blue boundary when selected */
     }
 
+    .markdown-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; /* Centers the container itself */
+        padding: 10px;
+        background-color: rgba(252, 236, 255, 0.5);
+        border-radius: 5%;
+        width: fit-content; /* Ensures the width is only as wide as its content */
+    }
+
     #markdown-preview {
         z-index: 2; /* Make sure preview has a solid background */
         display: none; /* Start with the preview hidden */
@@ -361,7 +380,7 @@ input[type="date"] {
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
-        border: 1px solid black;            
+        border: 1px solid rgb(147, 185, 224);            
         border-radius: 1%;
     }
     
@@ -385,8 +404,8 @@ input[type="date"] {
     
     /* Style the checkbox image */
     .icons label img {
-        width: 40px; /* Adjust the size of the checkbox image */
-        height: 40px; /* Adjust the size of the checkbox image */
+        width: 30px; /* Adjust the size of the checkbox image */
+        height: 30px; /* Adjust the size of the checkbox image */
     }
 
     /* Style the checked state */
@@ -398,7 +417,7 @@ input[type="date"] {
         transform: translate(-50%, -50%); /* Center the rectangle */
         width: 50px;
         height: 50px;
-        background-color: #ccc; /* Grey color for the selected state */
+        background-color: rgb(169, 193, 248); /* Blue color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }
