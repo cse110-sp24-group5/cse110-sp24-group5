@@ -213,6 +213,43 @@ function load(){
             else if (terminalInput.value === 'l'){ //Learnings
                 showLearnings();
             }
+
+            // Get existing tasks from localStorage
+            const tasks = loadTasksFromStorage();
+
+            //Get the current taskname in the terminal, we need a regex to parse out the command at the end
+            const pattern = /^(.*)\s([dea])$/;
+            
+            //checks if the input matches the specific pattern
+            const matchedTaskCommand = terminalInput.value.match(pattern);
+
+            if(matchedTaskCommand) {
+               //get the string for the task, match[0] gives the entrire striring, match[1] gets the first group, which
+                //is the task name
+                const taskname = match[1];
+
+                //get the letter at the end (either a d or e)
+                const commandLetter = match[2];
+
+                if(commandLetter == 'd') {
+
+                    //check if the task exists in localStorage
+                    
+
+                }
+                else if(commandLetter == 'a') {
+
+
+                }
+                else if(commandLetter == 'e') {
+
+                    
+                }
+
+            }
+
+            
+            
         terminalInput.value = ''; // Clear the input after action
         terminal.style.display = 'none'; //Make the terminal invisible after pressing enter
         }
