@@ -125,8 +125,8 @@ p,
     line-height: 58px;
     display: flex;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 3rem;
+    height: 3rem;
     background-color: var(--color2);
     color: white;
     padding-bottom: 8px;
@@ -364,7 +364,7 @@ p,
 }
 
 /* stylelint-disable-next-line media-feature-range-notation */
-@media (max-width: 480px) {
+@media (min-width: 480px) {
     #date {
         margin-left: auto;
         font-style: italic;
