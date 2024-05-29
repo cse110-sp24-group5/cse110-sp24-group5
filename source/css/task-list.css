@@ -46,16 +46,18 @@ p,
 
 .task-list.parent {
     position: fixed;
-    top: -5%;
+    top: -3%;
     left: 50%;
     transform: translate(-50%, 50%);
+  
 }
 
 
 .task-list {
-    width: 100%; /* Adjust width as needed */
-    max-width: 600px; /* Set maximum width */
-    min-height: 440px;
+    width: 70vw; /* Adjust width as needed */
+    max-width: 800px; /* Set maximum width */
+    min-height: 55vh;
+    max-height: 500px;
     background-color: var(--color5);
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / var(--shadow-opacity, 0.2));
@@ -134,18 +136,6 @@ p,
     background-color: var(--color1); 
     color: white;
 }
-
-    /*
-    original code
-    font-style: italic;
-    font-size: xx-large;
-    font-weight: bold;
-    align-items: center;
-    background-color: #708EE8
-    width: 50px;
-    height: 50px;
-    color: white;
-    */
 
 /* Task List middle subsection */
 
@@ -319,6 +309,23 @@ p,
         font-size: x-large;
     }
 
+    .task-list.parent {
+        position: fixed;
+        top: -2%;
+        left: 45%;
+        transform: translate(-50%, 50%);
+      
+    }
+    
+    .task-list {
+        width: 70vw; /* Adjust width as needed */
+        max-width: 70vw; /* Set maximum width */
+        min-height: 50vh;
+        background-color: var(--color5);
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / var(--shadow-opacity, 0.2));
+    }
+
     .task-list-middle {
         overflow-y: auto;
         border: 1px solid white;
@@ -327,7 +334,7 @@ p,
     }
 
     #add{
-       size: 80%;
+       size: 60%;
        
     }
 
@@ -375,6 +382,7 @@ p,
         font-size: small;
     }
 
+
     .pop-up.parent{
         width: 55%;
         top: 30%
@@ -383,6 +391,23 @@ p,
     #title-text, 
     #desc-text{
         width: 88%;
+    }
+
+    .task-list.parent {
+        position: fixed;
+        top: 0%;
+        left: 45%;
+        transform: translate(-50%, 50%);
+      
+    }
+    
+    .task-list {
+        width: 70vw; /* Adjust width as needed */
+        max-width: 70vw; /* Set maximum width */
+        min-height: 50vh;
+        background-color: var(--color5);
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / var(--shadow-opacity, 0.2));
     }
 
     #task-title{
