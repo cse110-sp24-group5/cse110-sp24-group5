@@ -79,10 +79,31 @@ function init () {
                 // Toggle the selected class to show/hide the pink border on the newly selected day
                 const dayNumber = event.currentTarget.querySelector('span');
                 dayNumber.classList.add('selected');
+                
+ //newly added//
+                const selectedDate = new Date(date.getFullYear(), date.getMonth(), parseInt(dayNumber.textContent));
+
+                // Retrieve sentiment data for the selected date
+                const sentimentData = getSentimentData(selectedDate);
+                
+                // Display sentiment data
+                if (sentimentData) {
+                    // Example: Display sentiment as a tooltip
+                    day.setAttribute('title', `Sentiment: ${sentimentData.value}`);
+                }
             });
         }
     }
 
+    function getSentimentData(date) {
+        const sentimentData = JSON.parse(localStorage.getItem('sentimentData')) || [];
+        const sentimentEntry = sentimentData.find(entry => {
+            // Check if sentiment entry date matches the given date
+            return new Date(entry.timestamp).toDateString() === date.toDateString();
+        });
+        return sentimentEntry;
+    }
+//finished adding over here//
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
