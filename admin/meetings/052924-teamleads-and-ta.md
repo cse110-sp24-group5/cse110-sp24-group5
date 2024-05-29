@@ -40,7 +40,18 @@ Minor CSS changes, Sentiment Analysis Widget, Keyboard Shortcuts
 **TODOs**
 Making it a progressive web app
 
-
 ---
 ### Feedback from TA
+
+1. Look into branch pruning and remove useless branches
+2. Test coverage (Code climage / Codeacy)
+3. PWA
+4. Comment adequately but not too much
+5. Test manually to see it does not break when you test/use it
+6. If you get user feedback (it is important), try to include that in the report.
+7. Akshay will be holding final interviews later this week or week 10. Potential questions:
+
+   What have you done? What are they key decisions that went into it?
+   What do you think others did?
+   Know about the CI/CD pipeline.
 
