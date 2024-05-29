@@ -107,13 +107,11 @@ section section h2 {
         padding: 40px;
         max-height: 200px;
         height: 17vh;
-        
-
-        h2 {
-            font-size: 4vw; /* Adjust font size for smaller screens */
-        }
     }
 
+    .h2 {
+        font-size: 4vw; /* Adjust font size for smaller screens */
+    }
     /* targets the icon boxes */
     .box {
         width: 85vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
