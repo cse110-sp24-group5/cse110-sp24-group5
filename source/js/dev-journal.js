@@ -207,10 +207,10 @@ function load(){
                 showPreview();
             } else if (terminalInput.value === 'e') { //Edit
                 showEditor();
-            } else if (terminalInput.value == 'b'){ //Bug
+            } else if (terminalInput.value === 'b'){ //Bug
                 showBug(); 
             }
-            else if (terminalInput.value == 'l'){ //Learnings
+            else if (terminalInput.value === 'l'){ //Learnings
                 showLearnings();
             }
         terminalInput.value = ''; // Clear the input after action
