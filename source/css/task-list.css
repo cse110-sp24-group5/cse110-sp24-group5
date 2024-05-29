@@ -302,8 +302,8 @@ p,
 }
 
 /* Media query for smaller screens */
-
-@media screen and (width <= 820px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 820px) {
     .task-list.parent{
         top: -10%;
         width: 60%;
@@ -356,7 +356,8 @@ p,
 
 }
 
-@media (width <= 480px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media (max-width: 480px) {
     #date {
         margin-left: auto;
         font-style: italic;

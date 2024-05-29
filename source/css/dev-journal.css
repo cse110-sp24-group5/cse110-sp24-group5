@@ -1,3 +1,5 @@
+/* stylelint-disable-next-line media-feature-range-notation */
+
 /* Since Montserrat is not an embedded font, we need to provide the URL to it */
 @font-face {
     font-family: Montesserat;
@@ -111,7 +113,8 @@ body {
 }
 
 /* This is the layout for every single device over  and equal to 800 px */
-@media screen and (width >= 768px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (min-width: 768px) {
     /* We want a grid to be able to have two panels of elements */
     .grid-container {
         display: grid;
@@ -223,7 +226,8 @@ body {
 }
 
 /* This is the layout for every single device under 800 px */
-@media screen and (width <= 768px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 768px) {
     /* Push the title below the date picker */
     #title {
         font-weight: normal;
