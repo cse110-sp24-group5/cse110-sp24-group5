@@ -55,3 +55,4 @@ Making it a progressive web app
    What do you think others did?
    Know about the CI/CD pipeline.
 
+We're doing very well on the project overall!
