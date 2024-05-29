@@ -128,6 +128,15 @@ img {
     border: solid;
     border-color: var(--border-color);
     padding-left: 0.5rem; /* Added padding to the left of the day number to match Figma design */
+    position: relative;
+}
+
+/* trying to position sentiment emoji in the bottom right corner of the calendar */
+.calendar-sentiment {
+    position: absolute;
+    left: 13vh;
+    top: 7vh; 
+    height: auto;
 }
 
 /* Color the blank days in the calendar to differentiate them */

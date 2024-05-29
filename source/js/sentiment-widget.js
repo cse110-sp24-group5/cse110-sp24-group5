@@ -29,6 +29,14 @@ function init(){
         updateFaceIcon(mood);
     });
 
+    // Store user's sentiment in localStorage
+    document.querySelector('#sentiment').addEventListener('input', () => {
+        let currentEmotionSrc = faceIcon.src;
+        let currentDate = new Date();  
+        let formattedDate = currentDate.toISOString().split('T')[0];
+        localStorage.setItem(formattedDate, currentEmotionSrc);
+    });
+
     let userName = localStorage.getItem("userName");
     //if userName has not yet been entered
     if(!userName) {

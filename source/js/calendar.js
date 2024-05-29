@@ -50,17 +50,33 @@ function init () {
                 dayNumber.textContent = i;
             }
             day.appendChild(dayNumber); // Append the span to the list item so it is contained within it
-            daysContainer.appendChild(day);
 
-              day.addEventListener('click', () => {
+            day.addEventListener('click', () => {
                 showTaskListPopUp(`${month} ${i}, ${year}`);
             });
+
+            // will display user's chosen sentiment on current day in the calendar
+            let currentFormattedDate = currentDate.toISOString().split('T')[0]; // splits the timestamp from the date
+            let renderedDate = new Date(year, date.getMonth(), i);
+            let renderedFormattedDate = renderedDate.toISOString().split('T')[0];
+
+            let currentImgSrc = localStorage.getItem(currentFormattedDate);
+            // if there exists an img in localStorage and the date matches the current date
+            if(currentImgSrc && (currentFormattedDate == renderedFormattedDate)){
+                let img = document.createElement('img');
+                img.src = currentImgSrc;
+                img.alt = `${currentFormattedDate}`;
+                img.classList.add('calendar-sentiment'); // gives the class name calendar-sentiment to the added emoji
+                day.appendChild(img);
+            }
+
+            daysContainer.appendChild(day);
         }
 
         // Insert blank spaces at the end to fill out the month
         const daysToFill = (7 - (lastDayOfMonth + 1)) % 7;
         for (let i = 0; i <  daysToFill; i++) {
-            const emptyDay = document.createElement('li');
+            const emptyDay = document.createElement('li'); // gives the class name calendar-sentiment to the added emoji
             emptyDay.textContent = '';
             emptyDay.classList.add('blank-day'); // Add class to empty days
             daysContainer.appendChild(emptyDay);
@@ -124,4 +140,5 @@ function init () {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar(currentDate);
     });
+
 };
