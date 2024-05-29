@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panda Coding Express</title>
     <link rel="stylesheet" href="../css/home-page.css">
+    <link rel="stylesheet" href="../css/terminal.css">
     <!-- Implement the Montserrat font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
@@ -13,7 +14,21 @@
         }
     </style>
 </head>
-<body>
+<!--Custom attribute to identify home page-->
+<body data-page="home">
+
+    <!-- Terminal HTML structure -->
+    <div id="terminal" class="hidden">
+        <div id="terminal-header">
+        <span>Terminal</span>
+        <button id="terminal-close">X</button>
+        </div>
+        <div id="terminal-body">
+        <pre id="terminal-content"></pre>
+        <input type="text" id="terminal-input" autocomplete="off">
+        </div>
+    </div>
+
     <!-- Section for greeting -->
     <section>
         <div class="container">
@@ -52,5 +67,6 @@
             </div>
         </section>
     </section>
+    <script src="../js/terminal.js"></script>
 </body>
 </html>
