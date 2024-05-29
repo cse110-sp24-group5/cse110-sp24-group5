@@ -243,7 +243,7 @@ function load(){
                 }
                 else if(commandLetter == 'e') {
 
-                    
+
                 }
 
             }
@@ -251,7 +251,7 @@ function load(){
             
             
         terminalInput.value = ''; // Clear the input after action
-        terminal.style.display = 'none'; //Make the terminal invisible after pressing enter
+        terminalInput.style.display = 'none'; //Make the terminal invisible after pressing enter
         }
     });
 
