@@ -83,6 +83,7 @@ body {
     background-color: rgba(201, 85, 255, 0.3);
 }
 
+
 /* this part sets the individual colors of button and placement */
 .preview-button {
     background-color: #96BFEF;
@@ -106,6 +107,7 @@ body {
 .save-button {
     background-color: rgb(222 150 255 / 30%);
     border: 0.5px solid #b291e6;
+    
 }
 
 /* Sets the size and font of the placeholders for the text areas */
@@ -134,7 +136,22 @@ body {
 
 }
 
-/* This is the layout for every single device over  and equal to 800 px */
+.checkbox-label {
+    font-size: xx-small; 
+    display: block;
+    width: 100%;
+    
+}
+
+.icon-checkbox1, .icon-checkbox3, .icon-checkbox4{
+    display: flex;
+   flex-direction: column;
+   align-items: center; 
+   margin-left: 0%;
+
+}
+
+/* This is the layout for every single device over and equal to 800 px */
 @media screen and (width >= 800px) {
     /* We want a grid to be able to have two panels of elements */
     .grid-container {
@@ -202,10 +219,10 @@ body {
     .bug-tracker-container textarea, .learnings-container textarea {
         width: 100%;
         height: 100%;
-        box-sizing: border-box; /* Includes padding and border in the element's total width and height */
-        border: none; /* Remove default border */
-        resize: none; /* Prevent resizing by the user */
-        padding: 10px; /* Add padding for text inside the textarea */
+        box-sizing: border-box; 
+        border: none; 
+        resize: none; 
+        padding: 10px; 
         background: none;
         outline: none
     }
@@ -213,9 +230,10 @@ body {
     .icons {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 50px;
     }
-
+    
     .icons input[type="checkbox"] {
         display: none; /* Hide default checkboxes */
     }
@@ -229,11 +247,11 @@ body {
     
     /* Style the checkbox image */
     .icons label img {
-        width: 30px; /* Adjust the size of the checkbox image */
-        height: 30px; /* Adjust the size of the checkbox image */
+        width: 50px; 
+        height: 50px; 
     }
 
-    
+
     /* Style the checked state */
     .icons input[type="checkbox"]:checked + label::after {
         content: '';
@@ -255,6 +273,7 @@ body {
        flex-direction: column;
        align-items: center;
     }
+    
 }
 
 /*styling the datepicker*/
@@ -367,11 +386,6 @@ input[type="date"] {
         font-size: 0.7em;
     }
 
-    /* centers the save button overall */
-    .save-buttons {
-        display: flex;
-        justify-content: center;  
-    }
 
     /* creates the same dimensions for the bugtracker and learning text areas */
     .bug-tracker-container, .learnings-container, #icon-checkboxes{

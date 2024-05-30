@@ -23,7 +23,6 @@
     <div class = "date-element">
         <h7 class = "date-select-text"> Select a day to start journaling!</h7>
         <div>
-            <label for="datepicker">Select Date:</label>
             <input type="date" id="datepicker" name="datepicker">
         </div>
     </div>
@@ -46,9 +45,6 @@
             </div>
         </div>
 
-        
-   
-
         <div class="right-panel">
             <div id = "icon-checkboxes">
                 
@@ -58,43 +54,44 @@
                 <div class="icon-checkbox1">
                     <input type="checkbox" id="documentationCheckbox">
                     <label for="documentationCheckbox">
-                        <img src="../img/documentation.svg" alt="documentation">
-                    </label>
+                        <img src="../img/documentation.svg" alt="documentation"> 
+                    </label> 
+                    <div class="checkbox-label">Document</div>
                 </div>
                 <div class="icon-checkbox2">
                     <input type="checkbox" id="codingCheckbox">
                     <label for="codingCheckbox">
                         <img src="../img/coding.svg" alt="coding">
-                    </label>
+                    </label> <br>
+                    <div class="checkbox-label">Code</div>
                 </div>
                 <div class="icon-checkbox3">
                     <input type="checkbox" id="discussionCheckbox">
                     <label for="discussionCheckbox">
                         <img src="../img/discussion.svg" alt="discussion">
                     </label>
+                    <div class="checkbox-label">Communicate</div>
                 </div>
                 <div class="icon-checkbox4">
                     <input type="checkbox" id="debuggingCheckbox">
                     <label for="debuggingCheckbox">
                         <img src="../img/debugging.svg" alt="debugging">
-                    </label>
+                    </label> 
+                    <div class="checkbox-label">Debug</div>
                 </div>
                 </div>
-                
             </div>
             <div class="bug-tracker-container">
                 <textarea id="bug-tracker" name="bug-tracker" placeholder="Bug Tracker"></textarea>
             </div>
             <div class="learnings-container">
                 <textarea id="learnings" name="learnings" placeholder="Learnings"></textarea>
-            </div>      
-        </div>
+            </div>
+        </div>   
     </div>
-
     <div class = "save-buttons">
         <button class="save-button">Save</button>
-    </div>
-   
+    </div> 
 
    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
    <script src="../js/dev-journal.js"></script>
