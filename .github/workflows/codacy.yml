@@ -1,52 +1,16 @@
-name: Release
+name: Codacy Analysis
 
-on:
-  push:
-    branches:
-      -*
+on: [push, pull_request]
 
 jobs:
-  build:
+  codacy-analysis:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
+    
     steps:
-    # Step 1: Checkout the repository
-    - uses: actions/checkout@v2
-    
-    # Step 2: Set up Node.js
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    
-    # Step 3: Install dependencies
-    - name: Install Dependencies
-      run: npm install
-    
-    # Step 4: Run tests and generate coverage report
-    - name: Run Tests and Generate Coverage
-      run: npm run test -- --coverage # Adjust this command according to your test script
-    
-    # Step 5: Send coverage report to Codacy
-    - name: Send Coverage Report to Codacy
-      run: npx codacy-coverage -r coverage/lcov.info
-      env:
-        CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
-    
-    # Step 6: Get coverage grade from Codacy and handle build result
-    - name: Get Coverage Grade
-      run: |
-        grade=$(curl -s -X GET "https://api.codacy.com/2.0/commit/$(git rev-parse HEAD)/coverage" \
-          -H 'Accept: application/json' \
-          -H "project_token: ${{ secrets.CODACY_PROJECT_TOKEN }}" | jq -r '.totalCoverage.grade')
-        echo "Coverage Grade: $grade"
-        if [[ "$grade" == "A" ]]; then
-          echo -e "\e[1;42m Grade $grade is ok. Build will continue. \e[0m"
-        else
-          echo -e "\e[1;31m Grade $grade is below the expected and the build will stop. \e[0m"
-          exit 1
-        fi
-      env:
-        CI: true
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Run Codacy Analysis
+        uses: codacy/codacy-analysis-cli-action@v3
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
