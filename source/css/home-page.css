@@ -67,8 +67,8 @@ margin-top: 40px;
 #sentiment::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 5vh;
-    height: 5vh;
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
     background: url('../img/inverted-triangle.svg');
     background-color: transparent;
