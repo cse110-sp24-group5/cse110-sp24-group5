@@ -89,6 +89,11 @@ body {
     font-size: x-small; 
 }
 
+.save-buttons {
+    display: flex;
+    justify-content: center;
+}
+
 /* adjusts the styling of the buttons */
 .preview-button, .editor-button, .save-button {
     border-radius: 10%;
