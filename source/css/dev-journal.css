@@ -1,5 +1,7 @@
 /* stylelint-disable-next-line media-feature-range-notation */
-
+:root {
+    --dashboard-color: #A3AED4;
+}
 /* Since Montserrat is not an embedded font, we need to provide the URL to it */
 @font-face {
     font-family: Montesserat;
@@ -30,7 +32,7 @@ body {
     position: absolute; 
     top: 30px;
     right: 2%; 
-    font-size: 0.7em;
+    font-size: 0.1em;
 }
 
 /* adjusts the styling of the buttons */
@@ -98,6 +100,7 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .back-element img {
@@ -108,10 +111,9 @@ body {
 
 .back-element p {
     font-family: sans-serif;
-    color: #A3AED4;
-    font-size: 16px;
+    margin: auto;
+    color: var(--dashboard-color);
 }
-
 /* This is the layout for every single device over  and equal to 800 px */
 /* stylelint-disable-next-line media-feature-range-notation */
 @media screen and (min-width: 768px) {
