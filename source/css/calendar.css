@@ -133,7 +133,7 @@ img {
 
 /* trying to position sentiment emoji in the bottom right corner of the calendar */
 .calendar-sentiment {
-    position: absolute;
+    position: relative;
     left: 13vh;
     top: 7vh; 
     height: auto;
