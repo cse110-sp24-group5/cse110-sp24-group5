@@ -1,5 +1,7 @@
 # CSE110 SP24 Group 5
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ca37cf664d60428d8da9771900eae5d7)](https://app.codacy.com/gh/cse110-sp24-group5/cse110-sp24-group5?utm_source=github.com&utm_medium=referral&utm_content=cse110-sp24-group5/cse110-sp24-group5&utm_campaign=Badge_Grade)
+
 ![HTML](https://img.shields.io/badge/HTML-5E5C5C?style=for-the-badge&logo=html5)
 ![CSS](https://img.shields.io/badge/CSS-5E5C5C?style=for-the-badge&logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&logo=javascript)
