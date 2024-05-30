@@ -48,7 +48,9 @@ function showPreview(){
     // show the preview
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.innerHTML = html;
-    markdownPreview.style.display = 'block' // what to put here
+    markdownPreview.style.display = 'block' 
+    const markdownEditor = document.getElementById('markdown-editor');
+    markdownEditor.style.display = 'none';
 }
 
 /**
@@ -59,6 +61,8 @@ function showEditor(){
     console.log('in show editor')
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.style.display = 'none';
+    const markdownEditor = document.getElementById('markdown-editor');
+    markdownEditor.style.display = 'block';
 }
 
 /**
