@@ -46,6 +46,8 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month'); // Right arrow button
     const monthYearText = document.querySelector('.month-year'); // Current month and year header text
     const daysContainer = document.querySelector('.days'); // Container to store days
+    const taskList = document.querySelector('.task-list.parent');
+    const closeTaskList = document.getElementById('close-task-list');
 
     let currentDate = new Date(); // Define today's current timestamp
     
@@ -89,7 +91,12 @@ function init () {
                 dayNumber.textContent = i;
             }
             day.appendChild(dayNumber); // Append the span to the list item so it is contained within it
+            day.setAttribute('tabindex', '0'); // Add tabindex attribute
             daysContainer.appendChild(day);
+
+              day.addEventListener('click', () => {
+                showTaskListPopUp(`${month} ${i}, ${year}`);
+            });
         }
 
         // Insert blank spaces at the end to fill out the month
@@ -101,22 +108,85 @@ function init () {
             daysContainer.appendChild(emptyDay);
         }
 
-        // Add event listener to each calendar day
-        const calendarDays = document.querySelectorAll('li');
-        for (let i = 0; i &lt; calendarDays.length; i++) {
-            let day = calendarDays[i];
+        // Add event listeners to each calendar day (to handle either clicking via mouse or clicking enter and navigating with tab)
+        const calendarDays = document.querySelectorAll('.days li');
+        calendarDays.forEach((day) => {
             day.addEventListener('click', (event) => {
-                // Remove 'selected' class from previously selected day
-                const selectedDay = document.querySelector('.selected');
-                if (selectedDay) {
-                    selectedDay.classList.remove('selected');
-                }
-                // Toggle the selected class to show/hide the pink border on the newly selected day
-                const dayNumber = event.currentTarget.querySelector('span');
-                dayNumber.classList.add('selected');
+                event.preventDefault(); // Prevents the default click behavior (which may cause a focus change)
+                selectDay(event.currentTarget); // The default scenario where a day is clicked and a pink highlight appears
             });
+
+            day.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Prevents the default enter behavior (which may cause a form submission)
+                    selectDay(event.currentTarget); // Handles day selection via enter button
+                }
+            });
+
+            day.addEventListener('focus', (event) => {
+                // Add focus class to the day to show focus state
+                event.currentTarget.classList.add('focus');
+            });
+
+            day.addEventListener('blur', (event) => {
+                // Remove focus class when focus is lost
+                event.currentTarget.classList.remove('focus');
+            });
+        });
+
+        /**
+         * Selects the specified day by adding a 'selected' class to the day's number.
+         * @param {HTMLElement} dayElement - The day element to select.
+         */
+        function selectDay(dayElement) {
+            // Remove 'selected' class from previously selected day
+            const selectedDay = document.querySelector('.selected');
+            if (selectedDay) {
+                selectedDay.classList.remove('selected');
+            }
+
+            // Toggle the 'selected' class to show/hide the pink overlay
+            const dayNumber = dayElement.querySelector('span');
+            dayNumber.classList.toggle('selected');
+        }
+
+        /* handling edges cases for where different months need different row numbers */
+        const blankDays = document.querySelectorAll('.blank-day');
+        if (blankDays.length > 7) {
+            document.documentElement.style.setProperty('--number-of-rows', 6); /* handles cases where months had thin extra row */
+        } else if (blankDays.length == 0) {
+            document.documentElement.style.setProperty('--number-of-rows', 4); /* fixes February bug with extra blank row */
+        } else {
+            document.documentElement.style.setProperty('--number-of-rows', 5)
         }
     }
+
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+    // Function to show the overlay
+    function showOverlay() {
+        overlay.classList.add('active');
+    }
+
+    // Function to hide the overlay
+    function hideOverlay() {
+        overlay.classList.remove('active');
+    }
+
+    function showTaskListPopUp(date) {
+        showOverlay();
+        const dateElement = document.getElementById('date');
+        dateElement.textContent = date;
+        taskList.classList.remove('hidden');
+    }
+
+    function hideTaskListPopUp() {
+        hideOverlay();
+        taskList.classList.add('hidden');
+    }
+
+    closeTaskList.addEventListener('click', hideTaskListPopUp);
 
     // Render the calendar for a the specified date
     renderCalendar(currentDate);
@@ -144,7 +214,7 @@ function init () {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Thu May 30 2024 17:44:18 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Thu May 30 2024 17:57:43 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
