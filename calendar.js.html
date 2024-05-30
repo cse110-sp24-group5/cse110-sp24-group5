@@ -91,6 +91,7 @@ function init () {
                 dayNumber.textContent = i;
             }
             day.appendChild(dayNumber); // Append the span to the list item so it is contained within it
+            day.setAttribute('tabindex', '0'); // Add tabindex attribute
             daysContainer.appendChild(day);
 
               day.addEventListener('click', () => {
@@ -107,20 +108,56 @@ function init () {
             daysContainer.appendChild(emptyDay);
         }
 
-        // Add event listener to each calendar day
-        const calendarDays = document.querySelectorAll('li');
-        for (let i = 0; i &lt; calendarDays.length; i++) {
-            let day = calendarDays[i];
+        // Add event listeners to each calendar day (to handle either clicking via mouse or clicking enter and navigating with tab)
+        const calendarDays = document.querySelectorAll('.days li');
+        calendarDays.forEach((day) => {
             day.addEventListener('click', (event) => {
-                // Remove 'selected' class from previously selected day
-                const selectedDay = document.querySelector('.selected');
-                if (selectedDay) {
-                    selectedDay.classList.remove('selected');
-                }
-                // Toggle the selected class to show/hide the pink border on the newly selected day
-                const dayNumber = event.currentTarget.querySelector('span');
-                dayNumber.classList.add('selected');
+                event.preventDefault(); // Prevents the default click behavior (which may cause a focus change)
+                selectDay(event.currentTarget); // The default scenario where a day is clicked and a pink highlight appears
             });
+
+            day.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Prevents the default enter behavior (which may cause a form submission)
+                    selectDay(event.currentTarget); // Handles day selection via enter button
+                }
+            });
+
+            day.addEventListener('focus', (event) => {
+                // Add focus class to the day to show focus state
+                event.currentTarget.classList.add('focus');
+            });
+
+            day.addEventListener('blur', (event) => {
+                // Remove focus class when focus is lost
+                event.currentTarget.classList.remove('focus');
+            });
+        });
+
+        /**
+         * Selects the specified day by adding a 'selected' class to the day's number.
+         * @param {HTMLElement} dayElement - The day element to select.
+         */
+        function selectDay(dayElement) {
+            // Remove 'selected' class from previously selected day
+            const selectedDay = document.querySelector('.selected');
+            if (selectedDay) {
+                selectedDay.classList.remove('selected');
+            }
+
+            // Toggle the 'selected' class to show/hide the pink overlay
+            const dayNumber = dayElement.querySelector('span');
+            dayNumber.classList.toggle('selected');
+        }
+
+        /* handling edges cases for where different months need different row numbers */
+        const blankDays = document.querySelectorAll('.blank-day');
+        if (blankDays.length > 7) {
+            document.documentElement.style.setProperty('--number-of-rows', 6); /* handles cases where months had thin extra row */
+        } else if (blankDays.length == 0) {
+            document.documentElement.style.setProperty('--number-of-rows', 4); /* fixes February bug with extra blank row */
+        } else {
+            document.documentElement.style.setProperty('--number-of-rows', 5)
         }
     }
 
@@ -165,75 +202,7 @@ function init () {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar(currentDate);
     });
-
-    // Terminal for day number followed by Enter key
-    const terminalInput = document.getElementById('terminal-input');
-    terminalInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            // Check if the input is in the format MM/YYYY
-            const input = terminalInput.value.trim(); // Trim input to remove any extra spaces
-            const dateRegex = /^(\d{2})\/(\d{4})$/;
-            if (dateRegex.test(input)) {
-                const [, month, year] = input.match(dateRegex).map(Number);
-                const newDate = new Date(year, month - 1); // Create a new date object for the specified month and year
-
-                // Validate the new date
-                if (!isNaN(newDate.getTime())) {
-                    currentDate = newDate; // Update currentDate to the new date
-                    renderCalendar(currentDate); // Render the calendar for the new month and year
-                }
-            } else { // Otherwise, the date is just an integer so we can use 1-31 to select the day
-
-                // Check if the input is a single day number (e.g., 1-31)
-                const dayNumber = parseInt(terminalInput.value); // Getting the integer value from the terminal input
-                if (dayNumber >= 1 &amp;&amp; dayNumber &lt;= 31) {
-                    const dayElements = document.querySelectorAll('.days li span'); // Select all day elements (spans inside list items) in the calendar
-                    
-                    // Get the total number of days in the current month
-                    // new Date(year, month + 1, 0) gets the last day of the current month
-                    const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
-
-                    // Check if there are day elements and if the day number is within the range of days in the month
-                    if (dayElements.length > 0 &amp;&amp; dayNumber &lt;= daysInMonth) {
-                        dayElements[dayNumber - 1].click(); // Simulate a click on the day element (subtract 1 due to zero indexing)
-                    }
-                }
-
-            }
-
-        terminalInput.value = ''; // Clear the input after action
-        terminal.style.display = 'none'; //Make the terminal invisible after pressing enter
-        }
-    });
-
-    let terminalState = localStorage.getItem('terminalState');
-    // checks if terminal was previously opened on another page and if so it toggles it on
-    if(terminalState == 'open') {
-        toggleTerminal(true);
-    }
-};
-
-document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey &amp;&amp; event.key === '/') {
-        toggleTerminal();
-    }
-});
-
-function toggleTerminal(forceState) {
-    const terminal = document.getElementById('terminal');
-    // if terminal was previously opened or display is off
-    if (forceState === true || terminal.style.display === 'none' || terminal.style.display === '') {
-        terminal.style.display = 'flex';
-        document.getElementById('terminal-input').focus();
-        // sets terminalState to open in localStorage so it saves across all pages
-        localStorage.setItem('terminalState', 'open');
-    } else {
-        // toggles off terminal
-        terminal.style.display = 'none';
-        // removes terminalState since it was toggled off so it will be toggled off across all pages
-        localStorage.removeItem('terminalState');
-    }
-}</code></pre>
+};</code></pre>
         </article>
     </section>
 
@@ -245,7 +214,7 @@ function toggleTerminal(forceState) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Thu May 30 2024 01:54:28 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Thu May 30 2024 03:39:37 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
