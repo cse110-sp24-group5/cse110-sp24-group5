@@ -57,23 +57,16 @@ document.addEventListener('DOMContentLoaded', function () {
       // Add logic for home page commands
       terminalContent.textContent += `\nHome Page command executed: ${command}`;
 
-      // "cd calendar"
-      const currentPage = document.body.getAttribute('data-page');
-      switch(currentPage) {
-        case 'home':
+      // "cd calendar
+      switch(command) {
+        case 'cd calendar':
           window.location.href = 'calendar.html'
           break;
-        default:
-          terminalContent.textContent += `\nMust be in home to cd to calendar`;
-      }
-
-      // "cd dev-journal"
-      switch(currentPage) {
-        case 'home':
+        case 'cd dev-journal':
           window.location.href = 'dev-journal.html'
           break;
         default:
-          terminalContent.textContent += `\nMust be in home to cd to calendar`;
+          terminalContent.textContent += `\nCommand not recognized`;
       }
 
     }
@@ -83,6 +76,13 @@ document.addEventListener('DOMContentLoaded', function () {
         terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
 
         // "cd .." - back to home
+        switch(command) {
+          case 'cd ..':
+            window.location.href = 'index.html'
+            break;
+          default:
+            terminalContent.textContent += `\nCommand not recognized`;
+        }
 
         
     }
@@ -92,7 +92,13 @@ document.addEventListener('DOMContentLoaded', function () {
         terminalContent.textContent += `\nDev Journal Page command executed: ${command}`;
 
         // "cd .." - back to home
-
+        switch(command) {
+          case 'cd ..':
+            window.location.href = 'index.html'
+            break;
+          default:
+            terminalContent.textContent += `\nCommand not recognized`;
+        }
         // other commands for page
     }
   });
