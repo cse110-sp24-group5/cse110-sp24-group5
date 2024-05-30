@@ -193,7 +193,7 @@ margin-top: 40px;
 
 }
 /*re-define width and height for IOS and Android phones */
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 550px) {
     #sentiment::-webkit-slider-thumb {
         width: 25px;
         height: 2rem;
