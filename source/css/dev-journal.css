@@ -45,6 +45,32 @@ body {
     font-size: 0.6em;    
 }
 
+.back-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px
+}
+
+.back-element a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-element img {
+    width: 10px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.back-element p {
+    font-family: sans-serif;
+    margin: auto;
+    color: var(--dashboard-color);
+}
+
 .h7{
     font-size: 0.5em;
 }
