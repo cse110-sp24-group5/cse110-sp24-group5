@@ -1,3 +1,6 @@
+:root {
+    --dashboard-color: #A3AED4;
+}
 /* Since Montserrat is not an embedded font, we need to provide the URL to it */
 @font-face {
     font-family: Montesserat;
@@ -29,6 +32,8 @@ body {
     position: absolute;
     top: 20px;
     left: 5%;
+    margin: auto;
+    color: var(--dashboard-color);
     
 }
 
