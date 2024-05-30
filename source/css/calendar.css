@@ -6,6 +6,8 @@
     --background-color: linear-gradient(180deg, rgb(95 192 255 / 30%) 23.5%, rgb(91 194 255 / 30%) 39.5%, rgb(219 147 255 / 30%) 100%);
     --blank-day-color: #F4F5FF;
     --pink-selected-day-color: #F2E5FB;
+    --dashboard-color: #A3AED4;
+    --number-of-rows: 5; /* Default value */
 }
 
 /* centers html container on screen */
@@ -113,7 +115,7 @@ img {
     grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
 
     /* space between the rows */
-    grid-template-rows: [row1] 6rem [row2] 6rem [row3] 6rem [row4] 6rem [row5] 6rem;
+    grid-template-rows: repeat(var(--number-of-rows), 6rem); /* initally 5 but will need to change for some months */
     border-bottom: solid 0.1rem var(--border-color);
     border-left: solid 0.1rem var(--border-color);
     border-right: solid 0.1rem var(--border-color);
@@ -146,8 +148,34 @@ img {
     display: none;
 }
 
+.back-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px
+}
+
+.back-element a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.back-element img {
+    width: 10px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.back-element p {
+    font-family: sans-serif;
+    margin: auto;
+    color: var(--dashboard-color);
+}
+
 /* handle smaller screens sizing with fonts */
-@media screen and (width <= 1115px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media only screen and (max-width: 768px) {
     /* centers html container */
     html {
         display: table;
@@ -166,7 +194,7 @@ img {
     /* Resizing font sizes for smaller devices */
     .calendar {
        margin: 0;
-       min-width: 350px;
+       min-width: 99.5vw; /* scales the width of the calander as the screen size decreases */
     }
 
     /* hides the lengthened weekdays names which are need for desktops */

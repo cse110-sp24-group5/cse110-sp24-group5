@@ -84,6 +84,17 @@ function showEditor(){
  */
 function saveData() {
     const currentDate = document.getElementById('datepicker').value;
+
+    if (!localStorage) {
+        alert("Local storage is not supported on this browser. Data cannot be loaded.");
+    }
+
+    let jsonData = localStorage.getItem('dev-journal');
+    jsonData = JSON.parse(jsonData);
+    if (!jsonData){
+        jsonData = {};
+    }
+
     const markdownEditor = document.getElementById('markdown-editor').value;
     const roleFulfilled = {
         documentation: document.getElementById('documentationCheckbox').checked,
@@ -102,12 +113,11 @@ function saveData() {
         reflections: reflections
     };
 
-    // Convert the data object to JSON
-    const jsonData = JSON.stringify(data);
+    jsonData[currentDate] = data;
 
     // Save the JSON data to local storage with the current date as the key
     if (localStorage) {
-        localStorage.setItem(currentDate, jsonData);
+        localStorage.setItem('dev-journal', JSON.stringify(jsonData));
         alert("Data saved successfully!");
     } else {
         alert("Local storage is not supported on this browser. Can not save data!");
@@ -124,9 +134,14 @@ function loadData() {
         alert("Local storage is not supported on this browser. Data cannot be loaded.");
     }
 
-    const jsonData = localStorage.getItem(currentDate);
+    const jsonData = localStorage.getItem('dev-journal');
+    let data = JSON.parse(jsonData);
 
-    if (!jsonData) {
+    if (!data){
+        data = {};
+    }
+
+    if (!(currentDate in data)) {
         // set to default - empty strings and unselected
         document.getElementById('markdown-editor').value = '';
         document.getElementById('documentationCheckbox').checked = false;
@@ -137,7 +152,8 @@ function loadData() {
         document.getElementById('learnings').value = '';
         return;
     }
-    const data = JSON.parse(jsonData);
+
+    data = data[currentDate];
 
     // Set values from data object to corresponding elements
     document.getElementById('markdown-editor').value = data.markdownEditor;

@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar</title>
-    <!-- Main Stylesheet & Scripts -->
-    <link rel="stylesheet" href="/source/css/calendar.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../css/calendar.css">
+    <link rel="stylesheet" href="../css/task-list.css">
+
     <!-- Montserrat font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!-- Roboto font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
-    <script src="/source/js/calendar.js"></script>
+
+    <!--Scripts -->
+    <script src="../js/calendar.js"></script>
+    <script src="../js/task-list.js"></script>
+
 </head>
 <body>
+    <!-- Go back element -->
+    <div class="back-element">
+        <a href="./index.html">
+            <img src="../img/previous-month.png" alt="back arrow">
+            <p>Dashboard</p>
+        </a>
+    </div>
 
     <!-- section for entire calendar -->
     <section class="calendar">
@@ -20,13 +34,13 @@
         <!-- div for calendar month and arrows -->
         <div class="header">
             <button class="prev-month">
-                <img src="/source/img/previous-month.png" alt="previous month">
+                <img src="../img/previous-month.png" alt="previous month">
             </button>
             <div> 
                 <h1 class="month-year">[Month] [Year]</h1> <!-- Will dynamically update month and year via JavaScript -->
             </div> 
             <button class="next-month">
-                <img src="/source/img/next-month.png" alt="next month">
+                <img src="../img/next-month.png" alt="next month">
             </button>
         </div>
 
@@ -56,5 +70,65 @@
         <ul class="days"></ul> <!-- Will dynamically add days via JavaScript -->
 
     </section>
+    <section class="task-list parent hidden"> <!-- change to hide: <section class="task-list parent hidden"> -->
+        <!--This is the beginning of our task list-->
+        <div class="task-list child">
+            <div class="task-list-top">
+                <!--Title for the task list-->
+                <h2 id="date">May 15, 2024</h2>
+                <!--Button to close task list-->
+                <button id="close-task-list">X</button>
+            </div>
+            <!--Tasks listed out-->
+            <div class="task-list-middle">
+                <ul class="task-list-ul">
+                    <!-- <li> -->
+                        <!-- Task includes title, edit button, delete button...-->
+                        <!-- <div class="task-container">
+                            <h3 id="task">Task 1</h3>
+                            <button id ="edit" type="submit">
+                                <img src="../img/edit_task.png">
+                            </button>
+                            <button id="delete" type="submit">
+                                <img src="../img/delete_task.png">
+                            </button>
+                        </div> -->
+                        <!-- ...and a description on the next line -->
+                        <!-- <p>Description</p> -->
+                    <!-- </li> -->
+                <!--Tasks will added here using JS!-->
+                </ul>
+            </div>
+            <div class="task-list-bottom">
+                <!--Button to add task by opening pop-up-->
+                <button id="add">+</button>
+            </div>
+        </div>
+    </section>
+
+    <!--This particular section contains the html for the add/edit pop-up-->
+    <section class="pop-up parent hidden"> <!-- change to hide: <section class="pop-up parent hidden"> -->
+        <div class="pop-up child">
+            <!--Input for new task-->
+            <div class="pop-up-top">
+                <!--Button to close pop-up-->
+                <button id="close-pop-up">X</button>
+            </div>
+            <div class="pop-up-middle">
+                <!-- Task input includes title and description...-->
+                <h3 id="task-title">Task Title:</h3>
+                <input type="text" id="title-text">
+                <h3 id="task-desc">Task Description:</h3>
+                <textarea id="desc-text" rows="4" cols="50"></textarea>
+            </div>
+            <div class="pop-up-bottom">
+                <!--Button to save task and close pop-up-->
+                <button id="confirm">Confirm</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+    </footer>
+    
 </body>
 </html>
