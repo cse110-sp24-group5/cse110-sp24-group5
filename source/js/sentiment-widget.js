@@ -29,15 +29,19 @@ function init(){
         }
     }
 
-    // Initial face icon update
-    updateFaceIcon(sentimentSlider.value);
-
     // Add event listener to the slider
     sentimentSlider.addEventListener('input', () => {
         const mood = sentimentSlider.value;
+        localStorage.setItem('savedMood', mood);
         updateFaceIcon(mood);
         recordSentiment(mood); 
     });
+
+    const savedMood = localStorage.getItem('savedMood');
+    if(savedMood) {
+        sentimentSlider.value = parseInt(savedMood);
+        updateFaceIcon(savedMood);
+    }
 
     // Store user's sentiment in localStorage
     document.querySelector('#sentiment').addEventListener('input', () => {
