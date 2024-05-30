@@ -8,7 +8,11 @@ function init(){
     document.querySelector('#name');
 
     function recordSentiment(value) {
-        const timestamp = new Date().toISOString(); // Generate timestamp
+        let currentDate = new Date();  
+        let year = currentDate.getFullYear();
+        let month = currentDate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based index
+        let day = currentDate.getDate();
+        let timestamp = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`; // Generate timestamp
         const sentimentEntry = { timestamp, value };
         // Store sentiment entry in local storage
         const sentimentData = JSON.parse(localStorage.getItem('sentimentData')) || [];
@@ -47,7 +51,10 @@ function init(){
     document.querySelector('#sentiment').addEventListener('input', () => {
         let currentEmotionSrc = faceIcon.src;
         let currentDate = new Date();  
-        let formattedDate = currentDate.toISOString().split('T')[0];
+        let year = currentDate.getFullYear();
+        let month = currentDate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based index
+        let day = currentDate.getDate();
+        let formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
         localStorage.setItem(formattedDate, currentEmotionSrc);
     });
 
