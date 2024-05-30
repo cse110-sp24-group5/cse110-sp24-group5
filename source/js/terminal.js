@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
           case 'cd ..':
             window.location.href = 'index.html'
             break;
+          case 'clear': //Clear the terminal
+            terminalContent.textContent = '';
+            break;
           default:
             terminalContent.textContent += `\nCommand not recognized`;
         }
