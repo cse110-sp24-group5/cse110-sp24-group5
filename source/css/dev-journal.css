@@ -6,7 +6,8 @@
 
 /* Makes the title align to the center of the markdown text box */
 #title {
-    font-weight: lighter;
+    font-weight: normal;
+    font-style: bold;
     text-align: center;
 }
 
@@ -304,8 +305,8 @@ input[type="date"] {
 
     /*styles the title*/
     #title {
-        font-weight: bold;
-        font-style: italic;
+        font-weight: normal;
+        font-style: bold;
         text-align: center;
         margin-top: 20%;
         
@@ -380,7 +381,6 @@ input[type="date"] {
         z-index: 2; /* Make sure preview has a solid background */
         display: none; /* Start with the preview hidden */
         overflow-y: auto; /* Add overflow handling if the preview content is long */
-        background-color: white;
         font-family: sans-serif;
         font-size: 0.7em;
     }
