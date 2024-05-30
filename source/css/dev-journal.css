@@ -40,10 +40,10 @@ body {
 }
 
 .back-element {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    padding: 20px
+    padding: 10px;
 }
 
 .back-element a {
@@ -66,7 +66,9 @@ body {
 }
 
 .h7{
-    font-size: 0.5em;
+    font-size: 0.3em;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 /* background strip to group preview and editor button */
@@ -321,6 +323,7 @@ input[type="date"] {
         .date-element {
             text-align: center;
             inset: 3% 4% 10%;
+            margin-top: 10px;
         }
     }
 
