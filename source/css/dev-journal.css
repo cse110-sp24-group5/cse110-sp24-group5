@@ -28,15 +28,7 @@ body {
     margin-right: 2%;
 }
 
-/* Set the back button's position above title */
-.back-element{
-    position: absolute;
-    top: 20px;
-    left: 5%;
-    margin: auto;
-    color: var(--dashboard-color);
-    
-}
+
 
 /* Makes it so that date element is in the top right corner */
 .date-element {
@@ -84,6 +76,9 @@ body {
     width: 150px;
     align-items: center;
     border-radius: 5%;
+    display: flex; /* makes the button align into a row */
+    justify-content: center; /* gets the buttons centered */
+    gap: 10px;
 }
 
 .preview-button, .editor-button{
@@ -105,33 +100,15 @@ body {
     padding: 5px;
 }
 
-/* Added hover for preview, editor, save buttons */
-.preview-button:hover {
-    background-color:#ffdefc;
-}
-
-.editor-button:hover {
-    background-color:#ffdefc;
-}
-
-.save-button:hover{
-    color:#182431;
-    font-weight: 600;
-    background-color: rgb(201 85 255 / 30%);
-}
-
-
 /* this part sets the individual colors of button and placement */
 .preview-button {
     background-color: #96BFEF;
     border: 0.5px solid #78b4f9;
 }
 
-/* Gets the buttons to lie on the same row */
-.markdown-buttons   {
-    display: flex; /* makes the button align into a row */
-    justify-content: center; /* gets the buttons centered */
-    gap: 10px;
+/* Added hover for preview, editor, save buttons */
+.preview-button:hover {
+    background-color:#ffdefc;
 }
 
 /* this part sets the individual colors of button */
@@ -140,12 +117,22 @@ body {
     border: 0.5px solid #78b4f9;
 }
 
+.editor-button:hover {
+    background-color:#ffdefc;
+}
+
 /* this part sets the individual colors of button */
 .save-button {
     background-color: rgb(222 150 255 / 30%);
-    border: 0.5px solid #b291e6;
-    
+    border: 0.5px solid #b291e6;  
 }
+
+.save-button:hover{
+    color:#182431;
+    font-weight: 600;
+    background-color: rgb(201 85 255 / 30%);
+}
+
 
 /* Sets the size and font of the placeholders for the text areas */
 ::placeholder {
