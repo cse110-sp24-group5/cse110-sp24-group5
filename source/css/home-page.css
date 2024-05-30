@@ -76,8 +76,6 @@ margin-top: 40px;
 }
 
 #sentiment::-moz-range-thumb {
-    width: 5vh;
-    height: 5vh;
     cursor: pointer;
     background: url('../img/inverted-triangle.svg');
     opacity : 1;
@@ -155,7 +153,11 @@ margin-top: 40px;
         max-width: 70%;
         padding: 40px;
         margin-left: auto;
-
+    }
+    
+    /* targets the font in the sentiment analysis box */
+    .container h2 {
+        font-size: 100%;
     }
 
     .h2 {
@@ -173,6 +175,11 @@ margin-top: 40px;
         margin-left: auto;
     }
 
+    /* targets the sentiment analysis emoji */
+    #face-icon {
+        height: 8vh;
+        width: 8vh;
+    }
 
     /* targets the icons specifically to make them smaller in mobile case */
     .icon {
