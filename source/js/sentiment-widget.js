@@ -8,19 +8,15 @@ function init(){
     document.querySelector('#name');
 
     function recordSentiment(value) {
-        const now = new Date();
 
-        // Format the date and time as a local string
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed, so we add 1
-        const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        const localTimestamp = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
-        //const timestamp = new Date().toISOString(); // Generate timestamp
-        console.log('Local Timestamp:', localTimestamp);
-        const sentimentEntry = { localTimestamp, value };
+
+        let currentDate = new Date();  
+        let year = currentDate.getFullYear();
+        let month = currentDate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based index
+        let day = currentDate.getDate();
+        let timestamp = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`; // Generate timestamp
+        const sentimentEntry = { timestamp, value };
+
         // Store sentiment entry in local storage
         const sentimentData = JSON.parse(localStorage.getItem('sentimentData')) || [];
         sentimentData.push(sentimentEntry);
@@ -59,7 +55,10 @@ function init(){
     document.querySelector('#sentiment').addEventListener('input', () => {
         let currentEmotionSrc = faceIcon.src;
         let currentDate = new Date();  
-        let formattedDate = currentDate.toISOString().split('T')[0];
+        let year = currentDate.getFullYear();
+        let month = currentDate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based index
+        let day = currentDate.getDate();
+        let formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
         localStorage.setItem(formattedDate, currentEmotionSrc);
     });
 

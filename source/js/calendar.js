@@ -56,13 +56,16 @@ function init () {
             });
 
             // will display user's chosen sentiment on current day in the calendar
-            let currentFormattedDate = currentDate.toISOString().split('T')[0]; // splits the timestamp from the date
-            let renderedDate = new Date(year, date.getMonth(), i);
-            let renderedFormattedDate = renderedDate.toISOString().split('T')[0];
+            const monthNum = currentDate.getMonth() + 1;
+            let currentFormattedDate = `${year}-${monthNum < 10 ? '0' + monthNum : monthNum}-${currentDate.getDate() < 10 ? '0' + currentDate.getDate() : currentDate.getDate()}`; // splits the timestamp from the date
+            console.log(currentFormattedDate);
+            let renderedFormattedDate = `${year}-${monthNum < 10 ? '0' + monthNum : monthNum}-${i < 10 ? '0' + i : i}`;
 
             let currentImgSrc = localStorage.getItem(currentFormattedDate);
+            console.log(currentImgSrc);
             // if there exists an img in localStorage and the date matches the current date
             if(currentImgSrc && (currentFormattedDate == renderedFormattedDate)){
+                console.log("in if statement");
                 let img = document.createElement('img');
                 img.src = currentImgSrc;
                 img.alt = `${currentFormattedDate}`;
