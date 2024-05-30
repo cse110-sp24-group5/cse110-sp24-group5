@@ -1,6 +1,7 @@
 :root {
     --dashboard-color: #A3AED4;
 }
+
 /* Since Montserrat is not an embedded font, we need to provide the URL to it */
 @font-face {
     font-family: Montesserat;
@@ -27,7 +28,7 @@ body {
     margin-right: 2%;
 }
 
-/*Set the back button's position above title*/
+/* Set the back button's position above title */
 .back-element{
     position: absolute;
     top: 20px;
@@ -75,10 +76,10 @@ body {
     font-size: 0.5em;
 }
 
-/* background strip to group preview and editor button*/
+/* background strip to group preview and editor button */
 .markdown-buttons{
-    background-color: rgb(252, 236, 255);
-    opacity: 50%;
+    background-color: rgb(252 236 255);
+    opacity: 0.5;
     padding : 10px;
     width: 150px;
     align-items: center;
@@ -116,7 +117,7 @@ body {
 .save-button:hover{
     color:#182431;
     font-weight: 600;
-    background-color: rgba(201, 85, 255, 0.3);
+    background-color: rgb(201 85 255 / 30%);
 }
 
 
@@ -208,7 +209,7 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid rgb(203, 216, 239);
+        border: 1px solid rgb(203 216 239);
         padding: 10px;
         box-sizing: border-box;
         border-radius: 1%;
@@ -221,7 +222,7 @@ body {
         z-index: 2; /* Make sure preview has a solid background */
         display: none; /* Start with the preview hidden */
         overflow-y: auto; /* Add overflow handling if the preview content is long */
-        border: 1px solid rgb(203, 216, 239);
+        border: 1px solid rgb(203 216 239);
         font-family: sans-serif;
         font-size: 0.7em;
     }
@@ -237,7 +238,7 @@ body {
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
-        border: 1px solid rgb(203, 216, 239);
+        border: 1px solid rgb(203 216 239);
         border-radius: 1%;
     }
 
@@ -248,7 +249,7 @@ body {
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
-        border: 1px solid rgb(217, 224, 237);
+        border: 1px solid rgb(217 224 237);
         border-radius: 1%;
     }
 
@@ -297,7 +298,7 @@ body {
         transform: translate(-50%, -50%); /* Center the rectangle */
         width: 80px;
         height: 70px;
-        background-color: rgb(169, 193, 248); /* Blue color for the selected state */
+        background-color: rgb(169 193 248); /* Blue color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }
@@ -312,34 +313,30 @@ body {
     
 }
 
-/*styling the datepicker*/
+/* styling the datepicker */
 input[type="date"] {
-    border: 1px solid rgb(124, 161, 255);
+    border: 1px solid rgb(124 161 255);
     border-radius: 4px;
     padding: 4px;
     margin-left: 2px;
     margin-top: 3px;
     background-color: #d1e7ff;
-    opacity: 60%;
+    opacity: 0.6;
     
 }
 
 /* This is the layout for every single device under 800 px */
 @media screen and (width < 800px) {
-    /*This is so the date picker and the text are centered at the top for a phone*/
+    /* This is so the date picker and the text are centered at the top for a phone */
     @media screen and (width < 600px) {
-
-        /*Makes sure the date element text is centered and the left and right spacing is equal on both sides */
+        /* Makes sure the date element text is centered and the left and right spacing is equal on both sides */
         .date-element {
             text-align: center;
-            top: 3%;
-            right: 4%; 
-            left: 4%;
-            bottom: 10%;
+            inset: 3% 4% 10%;
         }
     }
 
-    /*styles the title*/
+    /* styles the title */
     #title {
         font-weight: normal;
         font-style: bold;
@@ -408,7 +405,7 @@ input[type="date"] {
         align-items: center;
         margin: 0 auto; /* Centers the container itself */
         padding: 10px;
-        background-color: rgba(252, 236, 255, 0.5);
+        background-color: rgb(252 236 255 / 50%);
         border-radius: 5%;
         width: fit-content; /* Ensures the width is only as wide as its content */
     }
@@ -429,7 +426,7 @@ input[type="date"] {
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
-        border: 1px solid rgb(147, 185, 224);            
+        border: 1px solid rgb(147 185 224);            
         border-radius: 1%;
     }
     
@@ -466,7 +463,7 @@ input[type="date"] {
         transform: translate(-50%, -50%); /* Center the rectangle */
         width: 65px;
         height: 70px;
-        background-color: rgb(169, 193, 248); /* Blue color for the selected state */
+        background-color: rgb(169 193 248); /* Blue color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }

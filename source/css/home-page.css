@@ -112,6 +112,7 @@ section section h2 {
     .h2 {
         font-size: 4vw; /* Adjust font size for smaller screens */
     }
+
     /* targets the icon boxes */
     .box {
         width: 85vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
