@@ -94,22 +94,41 @@ document.addEventListener('DOMContentLoaded', function () {
         // "cd .." - back to home
         switch(command) {
           case 'cd ..':
-            window.location.href = 'index.html'
+            window.location.href = 'index.html';
             break;
-          /*case 'p':
+          case 'cd calendar':
+            window.location.href = 'calendar.html';
+            break;
+          case 'p': // Preview
             showPreview();
             break;
-          case 'e':
+          case 'e': // Edit
             showEditor();
             break;
-          case 's':
-            saveData();
+          case 's': // Save
+            saveData(); 
             break;
-          case 'b':
-            showBug();
+          case 'b': //Bug
+            showBug(); 
             break;
-          case 'l':
-            showLearnings();*/
+          case 'l': // Learnings  
+            showLearnings();
+            break;
+          case 'bug': //Check the bug role
+            toggleCheckbox('debuggingCheckbox');
+            break;
+          case 'disc': //Check the discussion role
+            toggleCheckbox('discussionCheckbox');
+            break;
+          case 'code': //Check the code role
+            toggleCheckbox('codingCheckbox');
+            break;
+          case 'doc': //Check the documentation role
+            toggleCheckbox('documentationCheckbox');
+            break;
+          case 'clear': //Clear the terminal
+            terminalContent.textContent = '';
+            break;
           default:
             terminalContent.textContent += `\nCommand not recognized`;
         }

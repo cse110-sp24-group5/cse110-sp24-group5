@@ -79,6 +79,12 @@ function showLearnings(){
     learningsTracker.focus();
 }
 
+/* Mark the Checkbox of the Roles */
+function toggleCheckbox(checkboxId) {
+    const checkbox = document.getElementById(checkboxId);
+    checkbox.checked = !checkbox.checked;
+}
+
 /**
  * Saves data to local storage in the following format
  * 
@@ -198,6 +204,7 @@ function load(){
     saveButton.addEventListener('click', saveData);
 
     // Terminal for 's', 'p', 'e', 'b' or 'l' key followed by Enter in terminal input
+    /*
     const terminalInput = document.getElementById('terminal-input');
     terminalInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
@@ -217,6 +224,7 @@ function load(){
         terminalInput.style.display = 'none'; //Make the terminal invisible after pressing enter
         }
     });
+    */
 
     let terminalState = localStorage.getItem('terminalState');
         // checks if terminal was previously opened on another page and if so it toggles it on
