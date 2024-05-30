@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
 
         // "cd .." - back to home
-        switch(command) {
+         switch(command) {
           case 'cd ..':
             window.location.href = 'index.html'
             break;
@@ -96,6 +96,20 @@ document.addEventListener('DOMContentLoaded', function () {
           case 'cd ..':
             window.location.href = 'index.html'
             break;
+          /*case 'p':
+            showPreview();
+            break;
+          case 'e':
+            showEditor();
+            break;
+          case 's':
+            saveData();
+            break;
+          case 'b':
+            showBug();
+            break;
+          case 'l':
+            showLearnings();*/
           default:
             terminalContent.textContent += `\nCommand not recognized`;
         }
