@@ -65,7 +65,7 @@ function init(){
     let userName = localStorage.getItem("userName");
     //if userName has not yet been entered
     if(!userName) {
-        //prompt the user for their name and if they hti cancel then make userName an empty string
+        //prompt the user for their name and if they hit cancel then make userName an empty string
         userName = prompt("Please enter your name:") || "";
         // Save the name in local storage for future use
         localStorage.setItem("userName", userName);
