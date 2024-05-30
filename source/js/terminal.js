@@ -58,8 +58,24 @@ document.addEventListener('DOMContentLoaded', function () {
       terminalContent.textContent += `\nHome Page command executed: ${command}`;
 
       // "cd calendar"
+      const currentPage = document.body.getAttribute('data-page');
+      switch(currentPage) {
+        case 'home':
+          window.location.href = 'calendar.html'
+          break;
+        default:
+          terminalContent.textContent += `\nMust be in home to cd to calendar`;
+      }
 
       // "cd dev-journal"
+      switch(currentPage) {
+        case 'home':
+          window.location.href = 'dev-journal.html'
+          break;
+        default:
+          terminalContent.textContent += `\nMust be in home to cd to calendar`;
+      }
+
     }
   
     function handleCalendarCommands(command) {
