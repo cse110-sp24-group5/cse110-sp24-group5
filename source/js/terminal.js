@@ -76,6 +76,38 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add logic for calendar page commands
         terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
 
+        // Terminal for day number followed by Enter key
+        let currentDate = new Date(); // Define today's current timestamp
+        // Check if the input is in the format MM/YYYY
+        const input = command.trim(); // Trim input to remove any extra spaces
+        const dateRegex = /^(\d{2})\/(\d{4})$/;
+        if (dateRegex.test(input)) {
+            const [, month, year] = input.match(dateRegex).map(Number);
+            const newDate = new Date(year, month - 1); // Create a new date object for the specified month and year
+
+            // Validate the new date
+            if (!isNaN(newDate.getTime())) {
+                currentDate = newDate; // Update currentDate to the new date
+                renderCalendar(currentDate); // Render the calendar for the new month and year
+            }
+        } else if (parseInt(command) >= 1 && parseInt(command) <= 31) { // Otherwise, the date is just an integer so we can use 1-31 to select the day
+
+            // Check if the input is a single day number (e.g., 1-31)
+            const dayNumber = parseInt(command); // Getting the integer value from the terminal input
+            if (dayNumber >= 1 && dayNumber <= 31) {
+                const dayElements = document.querySelectorAll('.days li span'); // Select all day elements (spans inside list items) in the calendar
+                
+                // Get the total number of days in the current month
+                // new Date(year, month + 1, 0) gets the last day of the current month
+                const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+
+                // Check if there are day elements and if the day number is within the range of days in the month
+                if (dayElements.length > 0 && dayNumber <= daysInMonth) {
+                    dayElements[dayNumber - 1].click(); // Simulate a click on the day element (subtract 1 due to zero indexing)
+                }
+            }
+        } else {
+
         //regex for changing the directory (going back to the homepage)
         const regexCD = /cd \.\./i;
 
