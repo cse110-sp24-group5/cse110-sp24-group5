@@ -6,14 +6,30 @@ document.addEventListener('DOMContentLoaded', function () {
   const terminalInput = document.getElementById('terminal-input');
   const terminalContent = document.getElementById('terminal-content');
   const terminalClose = document.getElementById('terminal-close');
-
+  const titleInput = document.getElementById('title-text'); // Title text input
+  const descriptionInput = document.getElementById('desc-text'); // Description text
+  const popUp = document.querySelector('.pop-up.parent');
+  
   function toggleTerminal() {
     terminal.classList.toggle('hidden');
     if (!terminal.classList.contains('hidden')) {
       terminalInput.focus();
     }
   }
+ // Function to show the pop-up
+ function showPopUp() {
+  showOverlay();
+  popUp.classList.remove('hidden');
+}
 
+const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+    // Function to show the overlay
+ // Function to show the overlay
+ function showOverlay() {
+  overlay.classList.add('active');
+}
   document.addEventListener('keydown', function (event) {
     if (event.ctrlKey && event.key === '/') {
       event.preventDefault();
@@ -82,6 +98,21 @@ document.addEventListener('DOMContentLoaded', function () {
     saveTasksToStorage(tasks);
     addTaskForDate(dateText);
 }
+
+function handleEditButtonClick(task) {
+  // Set edit mode to true
+  editMode = true;
+  editedTaskId = task.id;
+
+  // Populate title and description inputs with task data
+  titleInput.value = task.titleText;
+  descriptionInput.value = task.descText;
+
+  // Show the pop-up
+  showPopUp();
+}
+
+
 function addTaskForDate(dateText) {
   // Get the task list ul element
   const taskList = document.querySelector('.task-list-ul');
@@ -144,6 +175,16 @@ function saveTasksToStorage(tasks) {
   console.log(tasks);
 }
 
+function getTasksForDate(date) {
+  const allTasks = loadTasksFromStorage();
+  return allTasks.filter(task => task.date === date);
+}
+
+function loadTasksFromStorage() {
+  const tasksJSON = localStorage.getItem('tasks');
+  return tasksJSON ? JSON.parse(tasksJSON) : [];
+}
+
   function handleCalendarCommands(command) {
       // Add logic for calendar page commands
       terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
@@ -196,18 +237,50 @@ function saveTasksToStorage(tasks) {
         //check if the last char is a d, e, or a
         const lastChar = command.charAt(command.length - 1);
         const taskName = command.substring(0, command.length - 2);
-        const tasks = loadTasksFromStorage();
         const dateElement = document.getElementById('date');
         const dateText = dateElement.textContent;
-        for (task of tasks){
-          if(task.date == dateText){
-            if(task.titleText == taskName){
-              if(lastChar == 'd') {
-                handleDeleteButtonClick(taskName);
-              }
+
+        //get all the tasks for the specified date
+        const tasksForDate = getTasksForDate(dateText);
+
+        //then loop through all of the tasks for that specific date
+
+        for(const task of tasksForDate) {
+          if(task.titleText == taskName) {
+            if(lastChar == 'd') {
+              handleDeleteButtonClick(task);
+            }
+            else if(lastChar == 'a') {
+              addTaskForDate(dateText);
+            }
+            else {
+              handleEditButtonClick(task);
             }
           }
         }
+
+
+
+          /*if(task.date == dateText){
+            //get all the tasks associated with the date
+            const tasksForDate = getTasksForDate(dateText);
+            for(const currTaskOfDate of tasksForDate) {
+              console.log(currTaskOfDate);
+              if(task.titleText == taskName){
+                if(lastChar == 'd') {
+                  console.log(taskName);
+                  handleDeleteButtonClick(taskName);
+                }
+                else if(lastChar == 'a') {
+                  addTaskForDate(dateText);
+                }
+                else {
+                  handleEditButtonClick(task);
+                }
+              }
+            }
+          }*/
+        
       }
       else {
         terminalContent.textContent += `\nCommand not recognized: ${command}`;
