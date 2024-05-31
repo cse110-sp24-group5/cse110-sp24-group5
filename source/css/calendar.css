@@ -46,7 +46,12 @@ body {
 }
 
 /* remove the background button that appears on default for buttons so we can replace with images */
-button {
+.prev-month {
+    border: none;
+    background: transparent;
+}
+
+.next-month {
     border: none;
     background: transparent;
 }
@@ -173,16 +178,7 @@ img {
     color: var(--dashboard-color);
 }
 
-#terminal {
-    /* Initially hide the terminal */
-    display: none;
-}
 
-#terminal input {
-    /* increases height and width so placeholder can be read */
-    width: 200px;
-    height: 20px;
-}
 
 /* handle smaller screens sizing with fonts */
 /* stylelint-disable-next-line media-feature-range-notation */
