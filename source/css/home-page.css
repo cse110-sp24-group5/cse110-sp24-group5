@@ -73,12 +73,14 @@ margin-top: 40px;
     background: url('../img/inverted-triangle.svg');
     background-color: transparent;
     opacity: 1;
+    background-size : contain;
 }
 
 #sentiment::-moz-range-thumb {
     cursor: pointer;
     background: url('../img/inverted-triangle.svg');
     opacity : 1;
+    background-size : contain;
 }
 
 #face-icon {
@@ -188,4 +190,29 @@ margin-top: 40px;
         margin: auto;
         object-fit: contain;
     }
+
+}
+/*re-define width and height for IOS and Android phones */
+@media screen and (max-width: 550px) {
+    #sentiment::-webkit-slider-thumb {
+        width: 25px;
+        height: 2rem;
+        background: url('../img/inverted-triangle-smaller.svg');
+        margin-bottom: 10px;
+    }
+
+    #sentiment::-moz-range-thumb {
+        width: 25px;
+        height: 2rem;
+        background: url('../img/inverted-triangle-smaller.svg');
+        margin-bottom: 10px;
+    }
+
+    input[type="range"]::-ms-thumb {
+        width: 25px;
+        height: 2rem;
+        background: url('../img/inverted-triangle-smaller.svg');
+        margin-bottom: 10px;
+    }
+
 }
