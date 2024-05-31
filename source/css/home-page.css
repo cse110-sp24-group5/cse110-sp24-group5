@@ -70,7 +70,8 @@ margin-top: 40px;
     width: 2.5rem;
     height: 2.5rem;
     cursor: pointer;
-    background: url('../img/inverted-triangle.svg');
+   /* background: url('../img/inverted-triangle.svg');*/
+    background: var(--emoji-image);
     background-color: transparent;
     opacity: 1;
     background-size : contain;
@@ -78,7 +79,8 @@ margin-top: 40px;
 
 #sentiment::-moz-range-thumb {
     cursor: pointer;
-    background: url('../img/inverted-triangle.svg');
+    /*background: url('../img/inverted-triangle.svg');*/
+    background: var(--emoji-image);
     opacity : 1;
     background-size : contain;
 }

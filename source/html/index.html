@@ -23,12 +23,35 @@
             <h2>Greetings<name id="name">!</name> How are you feeling today?</h2>
                
             <div id="sentiment-widget">
-                <img class="icon" id = "face-icon" src="../img/middle.svg" alt="face">
+                <img class="icon" id = "face-icon" src="../img/soso_face.png" alt="face">
                 <input type="range" name="sentiment" id="sentiment" value="50" min="0" max="100" step="1" />
             </div>
 
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let sliderIcon = document.querySelector('#sentiment');
+            let emojiUrl;
+            let updateSlider = () => {
+                let currentValue = sliderIcon.value;
+                if (currentValue <= 20) {
+                    emojiUrl = "../img/angry_face.png"; 
+                } else if (currentValue <= 40) {
+                    emojiUrl = "../img/sad_face.png"; 
+                } else if(currentValue <= 60){
+                    emojiUrl = "../img/soso_face.png"; 
+                } else if(currentValue <= 80){
+                    emojiUrl = "../img/happy_face.png"; 
+                }else {
+                    emojiUrl = "../img/laughing_face.png"; 
+                }
+                sliderIcon.style.setProperty('--emoji-image', `url(${emojiUrl})`);
+            };
+            sliderIcon.addEventListener('input', updateSlider);
+            updateSlider();
+        });
+    </script>
     <!-- Section to access the other pages -->
     <section class="box-container">
         <!-- Section for Calendar -->
