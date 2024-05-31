@@ -126,6 +126,10 @@ document.addEventListener('DOMContentLoaded', function () {
           const lastChar = command.charAt(command.length - 1);
           const taskName = command.substring(0, command.length - 2);
           if(lastChar == 'd') {
+            const tasksDictionary = localStorage.getItem('tasks');
+            const parsedTaskArray = tasksJSON ? JSON.parse(tasksJSON) : [];
+            
+            const currDate = document.getElementById('date');
             handleDeleteButtonClick(taskName);
           }
           else if(lastChar == 'a') {
@@ -143,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
        
       
   }
+}
   
     function handleDevJournalCommands(command) {
         // Add logic for dev journal page commands
