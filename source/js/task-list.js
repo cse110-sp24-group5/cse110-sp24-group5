@@ -226,6 +226,15 @@ function init () {
         saveTasksToStorage(tasks);
         addTaskForDate(dateText);
     }
+        deletedTaskId = task.id
+        let tasks = loadTasksFromStorage();
+
+        // Use filter to remove the task with the given id
+        tasks = tasks.filter(task => task.id !== deletedTaskId);
+
+        saveTasksToStorage(tasks);
+        addTaskForDate(dateText);
+    }
 
     const days = document.querySelectorAll('.days li');
     days.forEach(day => {
@@ -252,4 +261,3 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
-};
