@@ -135,13 +135,13 @@ document.addEventListener('DOMContentLoaded', function () {
           case 'cd calendar':
             window.location.href = 'calendar.html';
             break;
-          case 'p': // Preview
+          case 'md p': // Preview
             showPreview();
             break;
-          case 'e': // Edit
+          case 'md e': // Edit
             showEditor();
             break;
-          case 's': // Save
+          case 'md s': // Save
             saveData(); 
             break;
           case 'b': //Bug
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
           case 'bug': //Check the bug role
             toggleCheckbox('debuggingCheckbox');
             break;
-          case 'disc': //Check the discussion role
+          case 'com': //Check the communication role
             toggleCheckbox('discussionCheckbox');
             break;
           case 'code': //Check the code role
@@ -161,6 +161,9 @@ document.addEventListener('DOMContentLoaded', function () {
             break;
           case 'doc': //Check the documentation role
             toggleCheckbox('documentationCheckbox');
+            break;
+          case 'debug':
+            toggleCheckbox('debuggingCheckbox');
             break;
           case 'clear': //Clear the terminal
             terminalContent.textContent = '';
