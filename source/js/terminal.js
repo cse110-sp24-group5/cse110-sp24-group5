@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // "cd .." - back to home
          switch(command) {
-          case 'cd ..':
+          case 'cd ..' || 'cd dashboard':
             window.location.href = 'index.html'
             break;
           case 'clear': //Clear the terminal
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // "cd .." - back to home
         switch(command) {
-          case 'cd ..':
+          case 'cd ..' || 'cd dashboard':
             window.location.href = 'index.html';
             break;
           case 'cd calendar':
