@@ -199,22 +199,22 @@ margin-top: 40px;
     #sentiment::-webkit-slider-thumb {
         width: 25px;
         height: 2rem;
-        background: url('../img/inverted-triangle-smaller.svg');
-        margin-bottom: 10px;
+        /*background: url('../img/inverted-triangle-smaller.svg');*/
+        background-repeat: no-repeat;
     }
 
     #sentiment::-moz-range-thumb {
         width: 25px;
         height: 2rem;
-        background: url('../img/inverted-triangle-smaller.svg');
-        margin-bottom: 10px;
+        /*background: url('../img/inverted-triangle-smaller.svg');*/
+        background-repeat: no-repeat;
+        margin-bottom: 0px;
     }
 
     input[type="range"]::-ms-thumb {
         width: 25px;
         height: 2rem;
-        background: url('../img/inverted-triangle-smaller.svg');
-        margin-bottom: 10px;
+        /*background: url('../img/inverted-triangle-smaller.svg');*/
     }
 
 }

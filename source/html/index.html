@@ -30,6 +30,7 @@
         </div>
     </section>
     <script>
+        // creates dynamically changing slider icon based on user value
         document.addEventListener('DOMContentLoaded', function() {
             let sliderIcon = document.querySelector('#sentiment');
             let emojiUrl;
@@ -48,9 +49,22 @@
                 }
                 sliderIcon.style.setProperty('--emoji-image', `url(${emojiUrl})`);
             };
-            sliderIcon.addEventListener('input', updateSlider);
+
+            // store the current icon into localStorage so that if the user refreshes the page the icon doesn't reset
+            sliderIcon.addEventListener('input', () => {
+                updateSlider();
+                localStorage.setItem('currentSliderValue', sliderIcon.value);
+            });
+
+            // will pull from localStorage the current icon value if user refreshes the page
+            let savedIcon = localStorage.getItem('currentSliderValue');
+            if (savedIcon !== null) { 
+                sliderIcon.value = savedIcon;
+            }
             updateSlider();
+
         });
+
     </script>
     <!-- Section to access the other pages -->
     <section class="box-container">
