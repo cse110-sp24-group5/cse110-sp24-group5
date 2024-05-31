@@ -227,7 +227,7 @@ function init () {
         saveTasksToStorage(tasks);
         addTaskForDate(dateText);
     }
-        deletedTaskId = task.id
+        deletedTaskId = tasks.id;
         let tasks = loadTasksFromStorage();
 
         // Use filter to remove the task with the given id
