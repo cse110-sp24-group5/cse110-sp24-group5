@@ -8,32 +8,28 @@ function init () {
     const titleInput = document.getElementById('title-text'); // Title text input
     const descriptionInput = document.getElementById('desc-text'); // Description text input
     let editMode = false; // Variable to track whether the pop-up is in edit mode
-    let editedTaskId; // Stores the ID of the task being edited
-    let deletedTaskId; // Stores the ID of the task being deleted
-
-    // Function to generate a unique ID for tasks
-    function generateUniqueId() {
-        // Generate a random number and convert it to a string
-        return Math.floor(Math.random() * 1000000).toString();
-    }
+    let editedTaskTitle; // Stores the title of the task being edited
+    let deletedTaskTitle; // Stores the title of the task being deleted
 
     // Function to retrieve tasks from localStorage or returns an empty array if no tasks are found.
     function loadTasksFromStorage() {
         const tasksJSON = localStorage.getItem('tasks');
-        return tasksJSON ? JSON.parse(tasksJSON) : [];
+        return tasksJSON ? JSON.parse(tasksJSON) : {};
     }
     
     // Function to filter tasks based on the provided date.
     function getTasksForDate(date) {
-        const allTasks = loadTasksFromStorage();
-        return allTasks.filter(task => task.date === date);
+        const tasksObj = loadTasksFromStorage();
+        return tasksObj[date] || [];
     }
 
     // Function to save tasks to localStorage.
-    function saveTasksToStorage(tasks) {
-        const tasksJSON = JSON.stringify(tasks);
-        localStorage.setItem('tasks', tasksJSON);
-        console.log(tasks);
+    function saveTasksToStorage(date, tasks) {
+        const tasksObj = loadTasksFromStorage();
+        tasksObj[date] = tasks;
+        localStorage.setItem('tasks', JSON.stringify(tasksObj));
+        console.log(tasksObj);
+        console.log(Object.keys(tasksObj).length);
     }
 
     const overlay = document.createElement('div');
@@ -88,10 +84,10 @@ function init () {
 
         if (editMode) {
             // Get existing tasks from localStorage
-            const tasks = loadTasksFromStorage();
+            const tasks = getTasksForDate(dateText);
 
-            // Find the task to edit by its ID
-            const editedTaskIndex = tasks.findIndex(task => task.id === editedTaskId);
+            // Find the task to edit by its title
+            const editedTaskIndex = tasks.findIndex(task => task.titleText === editedTaskTitle);
 
             if (editedTaskIndex !== -1) {
                 // Update the title and description of the edited task
@@ -99,26 +95,26 @@ function init () {
                 tasks[editedTaskIndex].descText = description;
 
                 // Save the updated tasks array back to localStorage
-                saveTasksToStorage(tasks);
+                saveTasksToStorage(dateText, tasks);
 
                 // Update the display for the edited task
                 addTaskForDate(dateText);
             }
             // Reset edit mode and editedTaskId
             editMode = false;
-            editedTaskId = null;
+            editedTaskTitle = null;
         } else {
             // Get existing tasks from localStorage or initialize as an empty array
-            const tasks = loadTasksFromStorage();
+            const tasks = getTasksForDate(dateText);
 
             // Create a new task object
-            const newTask = { id: generateUniqueId(), titleText: title, descText: description, date: dateText };
+            const newTask = { titleText: title, descText: description };
 
             // Add the new task to the existing tasks array
             tasks.push(newTask);
 
             // Save the updated tasks array back to localStorage
-            saveTasksToStorage(tasks);
+            saveTasksToStorage(dateText, tasks);
 
             // adds task for the specified date
             addTaskForDate(dateText);
@@ -206,7 +202,7 @@ function init () {
     function handleEditButtonClick(task) {
         // Set edit mode to true
         editMode = true;
-        editedTaskId = task.id;
+        editedTaskTitle = task.titleText;
 
         // Populate title and description inputs with task data
         titleInput.value = task.titleText;
@@ -222,14 +218,23 @@ function init () {
         // Construct a unique key for localStorage based on the selected date
         const dateText = dateElement.textContent;
 
-        deletedTaskId = task.id
-        let tasks = loadTasksFromStorage();
+        deletedTaskTitle = task.titleText;
+        let tasks = getTasksForDate(dateText);
 
         // Use filter to remove the task with the given id
-        tasks = tasks.filter(task => task.id !== deletedTaskId);
+        tasks = tasks.filter(taskFilter => taskFilter.titleText !== deletedTaskTitle);
 
-        saveTasksToStorage(tasks);
+        console.log('Tasks object before deletion:');
+        saveTasksToStorage(dateText, tasks);
         addTaskForDate(dateText);
+
+        const tasksObj = loadTasksFromStorage();
+        if (tasks.length == 0) { // Check if the tasks array is empty for the given day after deletion
+            delete tasksObj[dateText]; // Remove the corresponding date key from the tasks object
+            localStorage.setItem('tasks', JSON.stringify(tasksObj)); // Update the localStorage
+            console.log('Tasks object after deletion:');
+            console.log(tasksObj);
+        }
     }
 
     // Function to add event listeners to each day element in the calendar.
