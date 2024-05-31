@@ -28,12 +28,16 @@ function init(){
      function updateFaceIcon(value) {
         value = parseInt(value);
         console.log("Slider value:", value); 
-        if (value <= 33) {
+        if (value <= 20) {
+            faceIcon.src = "../img/angry_face.png"; // Directly set the src attribute
+        } else if (value <= 40) {
             faceIcon.src = "../img/sad_face.png"; // Directly set the src attribute
-        } else if (value <= 67) {
-            faceIcon.src = "../img/middle.svg"; // Directly set the src attribute
-        } else {
-            faceIcon.src = "../img/end.svg"; // Directly set the src attribute
+        } else if(value <= 60){
+            faceIcon.src = "../img/soso_face.png"; // Directly set the src attribute
+        } else if(value <= 80){
+            faceIcon.src = "../img/happy_face.png"; // Directly set the src attribute
+        }else {
+            faceIcon.src = "../img/laughing_face.png"; // Directly set the src attribute
         }
     }
 
