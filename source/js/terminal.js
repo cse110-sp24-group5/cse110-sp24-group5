@@ -1,4 +1,5 @@
 // terminal.js
+
 document.addEventListener('DOMContentLoaded', function () {
     const terminal = document.getElementById('terminal');
     const terminalInput = document.getElementById('terminal-input');
@@ -14,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
   
     document.addEventListener('keydown', function (event) {
       if (event.ctrlKey && event.key === '/') {
-        console.log('toggle terminal')
         event.preventDefault();
         toggleTerminal();
       }
@@ -57,82 +57,109 @@ document.addEventListener('DOMContentLoaded', function () {
       // Add logic for home page commands
       terminalContent.textContent += `\nHome Page command executed: ${command}`;
 
-      // "cd calendar
-      switch(command) {
-        case 'cd calendar':
-          window.location.href = 'calendar.html'
-          break;
-        case 'cd dev-journal':
-          window.location.href = 'dev-journal.html'
-          break;
-        default:
-          terminalContent.textContent += `\nCommand not recognized`;
+      // regexes for commands
+      const regexCalendarCD = /cd calendar/i;
+      const regexDevJournal = /dev-journal/i;
+      if(regexCalendarCD.test(command)) {
+        window.location.href = 'calendar.html';
       }
-
+      else if(regexDevJournal.test(command)) {
+        window.location.href = 'dev-journal.html';
+      }
+      else {
+        terminalContent.textContent += `\nCommand not recognized`;
+      }
     }
-  
+
+
     function handleCalendarCommands(command) {
         // Add logic for calendar page commands
         terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
 
-        // "cd .." - back to home
-         switch(command) {
-          case 'cd ..':
-            window.location.href = 'index.html'
-            break;
-          default:
-            terminalContent.textContent += `\nCommand not recognized`;
-        }
+        //regex for changing the directory (going back to the homepage)
+        const regexCD = /cd \.\./i;
 
-        
-    }
+        //regex for the tasklist commands
+        const regexTaskList = /.* [dea]$/;
+
+
+  
+        if(regexCD.test(command)) {
+          // "cd .." - back to home, case insensitive
+          window.location.href = 'index.html';
+        }
+        else if(regexTaskList.test(command)) {
+          //check if the last char is a d, e, or a
+          
+          const lastChar = command.charAt(command.length - 1);
+          const taskName = command.substring(0, command.length - 2);
+          if(lastChar == 'd') {
+            handleDeleteButtonClick(taskName);
+          }
+          else if(lastChar == 'a') {
+
+          }
+          else {
+
+          }
+
+
+        }
+        else {
+          terminalContent.textContent += `\nCommand not recognized: ${command}`;
+        }
+       
+      
+  }
   
     function handleDevJournalCommands(command) {
         // Add logic for dev journal page commands
         terminalContent.textContent += `\nDev Journal Page command executed: ${command}`;
 
-        // "cd .." - back to home
-        switch(command) {
-          case 'cd ..':
-            window.location.href = 'index.html';
-            break;
-          case 'cd calendar':
-            window.location.href = 'calendar.html';
-            break;
-          case 'p': // Preview
-            showPreview();
-            break;
-          case 'e': // Edit
-            showEditor();
-            break;
-          case 's': // Save
-            saveData(); 
-            break;
-          case 'b': //Bug
-            showBug(); 
-            break;
-          case 'l': // Learnings  
-            showLearnings();
-            break;
-          case 'bug': //Check the bug role
-            toggleCheckbox('debuggingCheckbox');
-            break;
-          case 'disc': //Check the discussion role
-            toggleCheckbox('discussionCheckbox');
-            break;
-          case 'code': //Check the code role
-            toggleCheckbox('codingCheckbox');
-            break;
-          case 'doc': //Check the documentation role
-            toggleCheckbox('documentationCheckbox');
-            break;
-          case 'clear': //Clear the terminal
-            terminalContent.textContent = '';
-            break;
-          default:
-            terminalContent.textContent += `\nCommand not recognized`;
+        //defining all regular expressions here
+        const regexCD = /cd \.\./i;
+        const regexBug = /bug/i;
+        const regexDisc = /disc/i;
+        const regexCode = /code/i;
+        const regexDoc = /doc/i;
+        const regexClear = /clear/i;
+
+        if(regexCD.test(command)) {
+          window.location.href = 'index.html';
         }
-        // other commands for page
+        else if(regexBug.test(command)) {
+          toggleCheckbox('debuggingCheckbox');
+        }
+        else if(regexDisc.test(command)) {
+          toggleCheckbox('discussionCheckbox');
+        }
+        else if(regexCode.test(command)) {
+          toggleCheckbox('codingCheckbox');
+        }
+        else if(regexDoc.test(command)) {
+          toggleCheckbox('documentationCheckbox');
+        }
+        else if(regexClear.test(command)) {
+          terminalContent.textContent = '';
+        }
+        else if(command === 'p' || command === 'P') {
+          showPreview();
+        }
+        else if(command === 'e' || command === 'E') {
+          showEditor();
+        }
+        else if(command === 's' || command === 'S') {
+          saveData(); 
+        }
+        else if(command === 'b' || command === 'B') {
+          showBug(); 
+        }
+        else if(command === 'l' || command === 'L') {
+          showLearnings();
+        }
+        else {
+          terminalContent.textContent += `\nCommand not recognized`;
+        }
     }
   });
   
