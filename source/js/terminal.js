@@ -1,5 +1,6 @@
 // terminal.js
 
+
 document.addEventListener('DOMContentLoaded', function () {
   const terminal = document.getElementById('terminal');
   const terminalInput = document.getElementById('terminal-input');

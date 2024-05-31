@@ -213,11 +213,12 @@ function init () {
     }
 
     function handleDeleteButtonClick(task) {
+        console.log(task)
         const dateElement = document.getElementById('date');
         // Construct a unique key for localStorage based on the selected date
         const dateText = dateElement.textContent;
 
-        deletedTaskId = task.id
+        deletedTaskId = task.id;
         let tasks = loadTasksFromStorage();
 
         // Use filter to remove the task with the given id
