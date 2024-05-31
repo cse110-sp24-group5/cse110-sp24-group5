@@ -13,6 +13,45 @@ function formatDate(dateObject) {
     return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 }
 
+let isChanged = false;
+
+function markChanged() {
+    isChanged = true;
+}
+
+function setupUnsavedChangesWarning() {
+    // Mark fields as changed when content is modified
+    document.getElementById('markdown-editor').addEventListener('input', markChanged);
+    document.getElementById('bug-tracker').addEventListener('input', markChanged);
+    document.getElementById('learnings').addEventListener('input', markChanged);
+    document.getElementById('documentationCheckbox').addEventListener('change', markChanged);
+    document.getElementById('codingCheckbox').addEventListener('change', markChanged);
+    document.getElementById('discussionCheckbox').addEventListener('change', markChanged);
+    document.getElementById('debuggingCheckbox').addEventListener('change', markChanged);
+
+    // Handle the beforeunload event(load the page)
+    window.addEventListener('beforeunload', function(event) {
+        if (isChanged) {
+            event.preventDefault(); // Prevents the default action
+            event.returnValue = ''; // Necessary for modern browsers to display the prompt
+        }
+    });
+
+    // Mark changes as saved
+    const saveButton = document.querySelector('.save-button');
+    if (saveButton) {
+        saveButton.addEventListener('click', function() {
+            console.log('Save button clicked. Setting isChanged to false.');
+            isChanged = false;
+        });
+    }
+}
+
+// Initialize the setup function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    setupUnsavedChangesWarning();
+});
+
 /**
  * Set the datepicker and title to the current Date when the page is loaded.
  * When the date on the datepicker changes, the same should be reflected in the title.
