@@ -1,0 +1,12 @@
+{
+    "name": "Panda Coding Express",
+    "short_name": "Team 5",
+    "description": "Dev journal with integrated calendar and task list",
+    "start_url": "source/html/index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "blue",
+    "icons": [
+    ]
+  }
+  
