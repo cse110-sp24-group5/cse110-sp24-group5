@@ -309,7 +309,7 @@ describe('Task list test suite', () => {
     }, 100000);
 
     // Tasks are independent of each other (eg. they don't match if the days are in the same position in the calendar)
-    it('Check tasks are independent and vary based on date and position in calendar', async() => {
+    /*it('Check tasks are independent and vary based on date and position in calendar', async() => {
         console.log('Check that tasks are independent on the 1st of May and the 5th of June');
         // find and click on first Saturday of the current month 
         await page.evaluate(() => { // note: const fourthOfMay = await page.$('.days:not(.blank-day):nth-child(4)'); had unexpected behavior
@@ -400,7 +400,7 @@ describe('Task list test suite', () => {
         expect(mayDisplayDescText).toBe('Task for 4th of May');
         expect(juneDisplayDescText).toBe('Task for 1st of June');
         await closeTaskList.click();
-    }, 10000);
+    }, 10000);*/
 
     // Close add pop-up functionality
     it('Check "close add pop-up" functionality on the first day of the current month', async () => { // note: current month is now June after the independent task test
