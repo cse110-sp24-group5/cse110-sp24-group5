@@ -2,6 +2,13 @@
 describe('Test to ensure all components of main page are working', () => {
     // loads the home page for testing
     beforeAll(async () => {
+        // SKIPS PAST THE PROMPT TO GET THE LINTER WORKING
+        // STILL NEED OT TEST IF DIALOGUE WORKS PROPERLY
+        page.on('dialog', async dialog => {
+            console.log(dialog.message());
+            await dialog.dismiss();
+        });
+
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 

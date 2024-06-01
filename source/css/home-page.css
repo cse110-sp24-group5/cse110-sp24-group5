@@ -1,3 +1,4 @@
+
 /* The background of the website */
 body {
     background: linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* Background color */
@@ -29,7 +30,7 @@ section section h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 35vh;
     border: 2px solid white; /* Border color and width of the greeting box */
     margin: 2% 6% 0%;
     border-radius: 3vw; /* Rounds the edges of the box */
@@ -37,24 +38,71 @@ section section h2 {
     padding: 1%; /* adds some room between the emojis and text against the container */
 }
 
-/* How the faces are arranged */
-.faces {
-    display: flex;
-    justify-content: space-between;
+/* sentiment analysis widget */
+#sentiment-widget{
+    width: 80%; 
 }
 
-/* The size of the emoji faces */
-.face {
-    font-size: 6vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
+#sentiment{
+margin-top: 40px;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, red, yellow, green);
+  outline: none;
+  opacity: 0.3;
+  transition: .2s;
+  transition: opacity .15s ease-in-out;
+  
+}
+
+#sentiment:hover{
+    background: linear-gradient(to right, red, yellow, green);
+    opacity: 0.7;
+}
+
+/* the image on the slider for the sentiment-analysis */
+#sentiment::-webkit-slider-thumb {
+    appearance: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+
+   /* background: url('../img/inverted-triangle.svg'); */
+    background: var(--emoji-image);
+    background-color: transparent;
+    opacity: 1;
+    background-size : contain;
+}
+
+#sentiment::-moz-range-thumb {
+    cursor: pointer;
+
+    /* background: url('../img/inverted-triangle.svg'); */
+    background: var(--emoji-image);
+    opacity : 1;
+    background-size : contain;
+}
+
+#face-icon {
+    padding-top: 10px;
+    width: 80px;
+    height: 80px;
+    transition: fill 0.3s;
+
+    /* placing icon in center */
+    margin: 0 auto;
+    display: block;
+
 }
 
 /* How the icon boxes are arranged */
 .box-container {
     display: flex;
-    justify-content: center; /* Align items with space between them */
-    margin: 2%; /* Adjust margin as needed */
+    justify-content: space-between; /* Align items with space between them */
+    margin-top: 20px; /* Adjust margin as needed */
+    
 }
 
 /* The boxes surrounding the DevJournal and Calander */
@@ -106,11 +154,16 @@ section section h2 {
         width: 70vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
         box-sizing: border-box; 
         padding: 40px;
-        margin: 5vh auto;
+        margin-left: auto;
+    }
+    
+    /* targets the font in the sentiment analysis box */
+    .container h2 {
+        font-size: 100%;
+    }
 
-        h2 {
-            font-size: 150%; /* Adjust font size for smaller screens */
-        }
+    .h2 {
+        font-size: 4vw; /* Adjust font size for smaller screens */
     }
 
     /* targets the icon boxes */
@@ -122,6 +175,11 @@ section section h2 {
         margin-bottom: 5vh;
     }
 
+    /* targets the sentiment analysis emoji */
+    #face-icon {
+        height: 8vh;
+        width: 8vh;
+    }
 
     /* targets the icons specifically to make them smaller in mobile case */
     .icon {
@@ -129,4 +187,34 @@ section section h2 {
         max-width:  fit-content;
         margin: auto;
     }
+
+}
+
+/* re-define width and height for IOS and Android phones */
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 550px) {
+    #sentiment::-webkit-slider-thumb {
+        width: 25px;
+        height: 2rem;
+
+        /* background: url('../img/inverted-triangle-smaller.svg'); */
+        background-repeat: no-repeat;
+    }
+
+    #sentiment::-moz-range-thumb {
+        width: 25px;
+        height: 2rem;
+
+        /* background: url('../img/inverted-triangle-smaller.svg'); */
+        background-repeat: no-repeat;
+        margin-bottom: 0;
+    }
+
+    input[type="range"]::-ms-thumb {
+        width: 25px;
+        height: 2rem;
+
+        /* background: url('../img/inverted-triangle-smaller.svg'); */
+    }
+
 }
