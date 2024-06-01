@@ -2,41 +2,6 @@
 //         so do not move it next to the other scripts
 
 const CACHE_NAME = 'panda-coding-express';
-const html = [
-  '/source/html/calendar.html',
-  '/source/html/dev-journal.html',
-  '/source/html/index.html',
-  '/source/html/task-list.html',
-];
-const js = [
-  '/source/js/calendar.js',
-  '/source/js/dev-journal.js',
-  '/source/js/sentiment-widget.js',
-  '/source/js/task-list.js',
-
-];
-const css = [
-  '/source/css/calendar.css',
-  '/source/css/dev-journal.css',
-  '/source/css/home-page.css',
-  '/source/css/calendar.css',
-  '/source/css/Montserrat-Italic-VariableFont_wght.ttf',
-  '/source/css/task-list.css',
-];
-const img = [];
-
-const allFiles = html.concat(js, css, img);
-
-// Installs the service worker. Feed it some initial URLs to cache
-self.addEventListener('install', function (event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      // B6. TODO - Add all of the URLs from RECIPE_URLs here so that they are
-      //            added to the cache when the ServiceWorker is installed
-      return cache.addAll(allFiles);
-    })
-  );
-});
 
 // Activates the service worker
 self.addEventListener('activate', function (event) {
