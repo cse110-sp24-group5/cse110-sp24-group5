@@ -61,6 +61,9 @@ function init () {
     // Event listener for the "Add Task" button
     addTaskButton.addEventListener('click', () => {
         showPopUp();
+        // Reset text input values
+        titleInput.value = '';
+        descriptionInput.value = '';
     });
 
     // Event listener for the "Close" button in the pop-up
