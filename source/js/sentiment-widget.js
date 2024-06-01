@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', init);
     // Corrected selector
 
 function init(){
+    initializeServiceWorker();
     const sentimentSlider = document.querySelector('#sentiment');
     const faceIcon = document.querySelector('#sentiment-widget img');
     document.querySelector('#name');
