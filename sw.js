@@ -1,10 +1,28 @@
 // sw.js - This file needs to be in the root of the directory to work,
 //         so do not move it next to the other scripts
 
-const CACHE_NAME = 'lab-8-starter';
-const html = [];
-const js = [];
-const css = [];
+const CACHE_NAME = 'panda-coding-express';
+const html = [
+  '/source/html/calendar.html',
+  '/source/html/dev-journal.html',
+  '/source/html/index.html',
+  '/source/html/task-list.html',
+];
+const js = [
+  '/source/js/calendar.js',
+  '/source/js/dev-journal.js',
+  '/source/js/sentiment-widget.js',
+  '/source/js/task-list.js',
+
+];
+const css = [
+  '/source/css/calendar.css',
+  '/source/css/dev-journal.css',
+  '/source/css/home-page.css',
+  '/source/css/calendar.css',
+  '/source/css/Montserrat-Italic-VariableFont_wght.ttf',
+  '/source/css/task-list.css',
+];
 const img = [];
 
 const allFiles = html.concat(js, css, img);
