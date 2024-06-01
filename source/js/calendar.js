@@ -50,11 +50,6 @@ function init () {
                 dayNumber.textContent = i;
             }
             day.appendChild(dayNumber); // Append the span to the list item so it is contained within it
-<<<<<<< HEAD
-=======
-            day.setAttribute('tabindex', '0'); // Add tabindex attribute
-            daysContainer.appendChild(day);
->>>>>>> dev
 
             day.addEventListener('click', () => {
                 showTaskListPopUp(`${month} ${i}, ${year}`);
@@ -90,7 +85,6 @@ function init () {
         const calendarDays = document.querySelectorAll('.days li');
         calendarDays.forEach((day) => {
             day.addEventListener('click', (event) => {
-<<<<<<< HEAD
                 // Remove 'selected' class from previously selected day
                 const selectedDay = document.querySelector('.selected');
                 if (selectedDay) {
@@ -100,10 +94,6 @@ function init () {
                 const dayNumber = event.currentTarget.querySelector('span');
                 dayNumber.classList.add('selected');
                
-=======
-                event.preventDefault(); // Prevents the default click behavior (which may cause a focus change)
-                selectDay(event.currentTarget); // The default scenario where a day is clicked and a pink highlight appears
->>>>>>> dev
             });
 
             day.addEventListener('keydown', (event) => {
