@@ -37,15 +37,15 @@
             let updateSlider = () => {
                 let currentValue = sliderIcon.value;
                 if (currentValue <= 20) {
-                    emojiUrl = "../img/angry_face.png"; 
+                    emojiUrl = "../img/angry_face_slide.png"; 
                 } else if (currentValue <= 40) {
-                    emojiUrl = "../img/sad_face.png"; 
+                    emojiUrl = "../img/sad_face_slide.png"; 
                 } else if(currentValue <= 60){
-                    emojiUrl = "../img/soso_face.png"; 
+                    emojiUrl = "../img/soso_face_slide.png"; 
                 } else if(currentValue <= 80){
-                    emojiUrl = "../img/happy_face.png"; 
+                    emojiUrl = "../img/happy_face_slide.png"; 
                 }else {
-                    emojiUrl = "../img/laughing_face.png"; 
+                    emojiUrl = "../img/laughing_face_slide.png"; 
                 }
                 sliderIcon.style.setProperty('--emoji-image', `url(${emojiUrl})`);
             };
