@@ -325,7 +325,9 @@ function loadTasksFromStorage() {
         showEditor();
       }
       else if(command === 's' || command === 'S') {
-        saveData(); 
+        saveData();
+        const event = new Event('saveFromTerminal');
+        document.dispatchEvent(event); 
       }
       else if(command === 'b' || command === 'B') {
         showBug(); 

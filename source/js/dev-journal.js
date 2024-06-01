@@ -37,7 +37,7 @@ function setupUnsavedChangesWarning() {
         }
     });
 
-    // Mark changes as saved
+    // Mark changes as saved using the save button
     const saveButton = document.querySelector('.save-button');
     if (saveButton) {
         saveButton.addEventListener('click', function() {
@@ -45,6 +45,11 @@ function setupUnsavedChangesWarning() {
             isChanged = false;
         });
     }
+
+    // Mark changes as saved using the terminal
+    document.addEventListener('saveFromTerminal', function() {
+        isChanged = false;
+    });
 }
 
 // Initialize the setup function when the page loads
