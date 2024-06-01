@@ -303,13 +303,7 @@ p,
 
 /* Media query for smaller screens */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 820px) {
-    .task-list.parent{
-        top: -10%;
-        width: 60%;
-        margin: 10px 60 10 10;
-        max-height: 500px;
-    }
+@media screen and (max-width: 799px) {
 
     .task-list.child{
         height: 120%;
