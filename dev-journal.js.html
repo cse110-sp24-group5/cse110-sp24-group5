@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDayClickEvents">addDayClickEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#clearPreviousDays">clearPreviousDays</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createBlankDay">createBlankDay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createCalendarDay">createCalendarDay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createCalendarDays">createCalendarDays</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createOverlay">createOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#formatDate">formatDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getMonthDetails">getMonthDetails</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hideOverlay">hideOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hideTaskListPopUp">hideTaskListPopUp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertBlankSpacesAtEnd">insertBlankSpacesAtEnd</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertBlankSpacesAtStart">insertBlankSpacesAtStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadData">loadData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#renderCalendar">renderCalendar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#saveData">saveData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setFields">setFields</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#settingRowNumber">settingRowNumber</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showEditor">showEditor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showOverlay">showOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showPreview">showPreview</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showTaskListPopUp">showTaskListPopUp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateMonthYearText">updateMonthYearText</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#convertDateToWords">convertDateToWords</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#formatDate">formatDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadData">loadData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#saveData">saveData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setFields">setFields</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showEditor">showEditor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showPreview">showPreview</a></span></li>
 </nav>
 
 <div id="main">
@@ -54,50 +54,19 @@ function formatDate(dateObject) {
     return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 }
 
-let isChanged = false;
+/**
+ * Convert a date string from YYYY-MM-DD format to words without suffix.
+ *
+ * @param {string} dateStr - The date string in YYYY-MM-DD format.
+ * @returns {string} The date in words without suffix.
+ */
+function convertDateToWords(dateStr) {
+    const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
 
-function markChanged() {
-    isChanged = true;
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return `${months[month - 1]} ${day}, ${year}`;
 }
-
-function setupUnsavedChangesWarning() {
-    // Mark fields as changed when content is modified
-    document.getElementById('markdown-editor').addEventListener('input', markChanged);
-    document.getElementById('bug-tracker').addEventListener('input', markChanged);
-    document.getElementById('learnings').addEventListener('input', markChanged);
-    document.getElementById('documentationCheckbox').addEventListener('change', markChanged);
-    document.getElementById('codingCheckbox').addEventListener('change', markChanged);
-    document.getElementById('discussionCheckbox').addEventListener('change', markChanged);
-    document.getElementById('debuggingCheckbox').addEventListener('change', markChanged);
-
-    // Handle the beforeunload event(load the page)
-    window.addEventListener('beforeunload', function(event) {
-        if (isChanged) {
-            event.preventDefault(); // Prevents the default action
-            event.returnValue = ''; // Necessary for modern browsers to display the prompt
-        }
-    });
-
-    // Mark changes as saved using the save button
-    const saveButton = document.querySelector('.save-button');
-    if (saveButton) {
-        saveButton.addEventListener('click', function() {
-            console.log('Save button clicked. Setting isChanged to false.');
-            isChanged = false;
-        });
-    }
-
-    // Mark changes as saved using the terminal
-    document.addEventListener('saveFromTerminal', function() {
-        isChanged = false;
-    });
-}
-
-// Initialize the setup function when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    setupUnsavedChangesWarning();
-});
-
 
 /**
  * Set the datepicker and title to the current Date when the page is loaded.
@@ -112,11 +81,14 @@ function setFields() {
     const currentDate = new Date();
     const formattedDate = formatDate(currentDate);
     datepicker.value = formattedDate;
-    title.innerText = formattedDate;
+    title.innerText = convertDateToWords(formattedDate);
 
     // Event listener to update title when date changes
     datepicker.addEventListener('change', function() {
-        title.innerText = datepicker.value;
+        let dateValue = new Date(datepicker.value);
+        let formattedDate = dateValue.toISOString().split('T')[0];
+
+        title.innerText = convertDateToWords(formattedDate);
         loadData();
     });
 }
@@ -134,7 +106,9 @@ function showPreview(){
     // show the preview
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.innerHTML = html;
-    markdownPreview.style.display = 'block' // what to put here
+    markdownPreview.style.display = 'block' 
+    const markdownEditor = document.getElementById('markdown-editor');
+    markdownEditor.style.display = 'none';
 }
 
 /**
@@ -145,30 +119,8 @@ function showEditor(){
     console.log('in show editor')
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.style.display = 'none';
-
-    // Focus on the markdown editor
     const markdownEditor = document.getElementById('markdown-editor');
-    markdownEditor.focus();
-}
-
-/* Put the cursor in the bug editor */
-function showBug(){
-    // Focus on the bug editor
-    const bugTracker = document.getElementById('bug-tracker');
-    bugTracker.focus();
-}
-
-/* Put the cursor in the learnings editor */
-function showLearnings(){
-    // Focus on the learnings editor
-    const learningsTracker = document.getElementById('learnings');
-    learningsTracker.focus();
-}
-
-/* Mark the Checkbox of the Roles */
-function toggleCheckbox(checkboxId) {
-    const checkbox = document.getElementById(checkboxId);
-    checkbox.checked = !checkbox.checked;
+    markdownEditor.style.display = 'block';
 }
 
 /**
@@ -288,38 +240,13 @@ function load(){
 
     const saveButton = document.querySelector('.save-button');
     saveButton.addEventListener('click', saveData);
-
-    // Terminal for 's', 'p', 'e', 'b' or 'l' key followed by Enter in terminal input
-    /*
-    const terminalInput = document.getElementById('terminal-input');
-    terminalInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            if (terminalInput.value === 's') { //Save
-                saveData();
-            } else if (terminalInput.value === 'p') { //Preview
-                showPreview();
-            } else if (terminalInput.value === 'e') { //Edit
-                showEditor();
-            } else if (terminalInput.value === 'b'){ //Bug
-                showBug(); 
-            }
-            else if (terminalInput.value === 'l'){ //Learnings
-                showLearnings();
-            }
-        terminalInput.value = ''; // Clear the input after action
-        terminalInput.style.display = 'none'; //Make the terminal invisible after pressing enter
-        }
-    });
-    */
-
-    let terminalState = localStorage.getItem('terminalState');
-        // checks if terminal was previously opened on another page and if so it toggles it on
-        if(terminalState == 'open') {
-            toggleTerminal(true);
-        }
 }
 
-document.addEventListener("DOMContentLoaded", load);</code></pre>
+
+
+document.addEventListener("DOMContentLoaded", load);
+
+</code></pre>
         </article>
     </section>
 
@@ -331,7 +258,7 @@ document.addEventListener("DOMContentLoaded", load);</code></pre>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Jun 01 2024 09:23:06 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Jun 01 2024 16:10:29 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
