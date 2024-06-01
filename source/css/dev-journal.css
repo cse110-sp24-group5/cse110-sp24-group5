@@ -1,4 +1,7 @@
 /* stylelint-disable-next-line media-feature-range-notation */
+:root {
+    --dashboard-color: #A3AED4;
+}
 
 /* Since Montserrat is not an embedded font, we need to provide the URL to it */
 @font-face {
@@ -9,6 +12,7 @@
 /* Makes the title align to the center of the markdown text box */
 #title {
     font-weight: normal;
+    font-style: bold;
     text-align: center;
 }
 
@@ -17,7 +21,7 @@ body {
     /* set viewport height to 100, without this line, the gradient won't be rendered properly */
     background: linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* renders the background color */
     font-family: Montesserat, Arial, Helvetica, sans-serif; /* set the font for the text */
-    font-size: 1.5em; /* font size of the text in the body */ 
+    font-size: 1.3em; /* font size of the text in the body */
     min-height: 100vh;
     max-width: 100%; 
     overflow: visible; 
@@ -25,17 +29,73 @@ body {
     margin-right: 2%;
 }
 
+
+
 /* Makes it so that date element is in the top right corner */
 .date-element {
-    position: absolute; 
-    top: 30px;
-    right: 2%; 
-    font-size: 0.7em;
+    position: absolute;
+    top: 20px;
+    right: 5%; 
+    font-size: 0.6em;    
+}
+
+.back-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.back-element a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-element img {
+    width: 10px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.back-element p {
+    font-family: sans-serif;
+    margin: auto;
+    color: var(--dashboard-color);
+}
+
+.h7{
+    font-size: 0.3em;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* background strip to group preview and editor button */
+.markdown-buttons{
+    background-color: rgb(252 236 255);
+    opacity: 0.5;
+    padding : 10px;
+    width: 150px;
+    align-items: center;
+    border-radius: 5%;
+    display: flex; /* makes the button align into a row */
+    justify-content: center; /* gets the buttons centered */
+    gap: 10px;
+}
+
+.preview-button, .editor-button{
+    font-size: x-small; 
+}
+
+.save-buttons {
+    display: flex;
+    justify-content: center;
 }
 
 /* adjusts the styling of the buttons */
 .preview-button, .editor-button, .save-button {
-    border-radius: 5%;
+    border-radius: 10%;
     cursor: pointer;
     font-family: Montesserat, Arial, Helvetica, sans-serif;
     height: 35px;
@@ -49,29 +109,38 @@ body {
     border: 0.5px solid #78b4f9;
 }
 
-/* Gets the buttons to lie on the same row */
-.markdown-buttons   {
-    display: flex; /* makes the button align into a row */
-    justify-content: center; /* gets the buttons centered */
-    gap: 20px;
+/* Added hover for preview, editor, save buttons */
+.preview-button:hover {
+    background-color:#ffdefc;
 }
 
 /* this part sets the individual colors of button */
 .editor-button {
-    background-color: #bbdafb;
-    border: 0.5px solid #60a9f6;
+    background-color: #96BFEF;
+    border: 0.5px solid #78b4f9;
+}
+
+.editor-button:hover {
+    background-color:#ffdefc;
 }
 
 /* this part sets the individual colors of button */
 .save-button {
     background-color: rgb(222 150 255 / 30%);
-    border: 0.5px solid #b291e6;
+    border: 0.5px solid #b291e6;  
 }
+
+.save-button:hover{
+    color:#182431;
+    font-weight: 600;
+    background-color: rgb(201 85 255 / 30%);
+}
+
 
 /* Sets the size and font of the placeholders for the text areas */
 ::placeholder {
     font-style: italic;
-    font-size: 1.5em;
+    font-size: 1.1em;
     font-family: Montesserat, Arial, Helvetica, sans-serif;
 }
 
@@ -81,40 +150,37 @@ body {
     margin-left: 10px; /* Space between the panels */
 }
 
+.right-panel p{
+   margin-left: 10px;
+   font-size: 1.0rem;
+}
+
 /* Controls the entire left section of the page */
 .left-panel {
     flex: 1;
     margin-right: 10px; /* Space between the panels */
-}
-
-.back-element {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px
-}
-
-.back-element a {
-    display: flex;
     align-items: center;
-    text-decoration: none;
+
 }
 
-.back-element img {
-    width: 10px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Add some space between image and text */
+.checkbox-label {
+    font-size: xx-small; 
+    display: block;
+    width: 100%;
+    
 }
 
-.back-element p {
-    font-family: sans-serif;
-    color: #A3AED4;
-    font-size: 16px;
+.icon-checkbox1, .icon-checkbox3, .icon-checkbox4{
+    display: flex;
+   flex-direction: column;
+   align-items: center; 
+   margin-left: 0%;
+
 }
 
-/* This is the layout for every single device over  and equal to 800 px */
+/* This is the layout for every single device over and equal to 800 px */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
     /* We want a grid to be able to have two panels of elements */
     .grid-container {
         display: grid;
@@ -134,7 +200,7 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid black;
+        border: 1px solid rgb(203 216 239);
         padding: 10px;
         box-sizing: border-box;
         border-radius: 1%;
@@ -147,7 +213,7 @@ body {
         z-index: 2; /* Make sure preview has a solid background */
         display: none; /* Start with the preview hidden */
         overflow-y: auto; /* Add overflow handling if the preview content is long */
-        background-color: white;
+        border: 1px solid rgb(203 216 239);
         font-family: sans-serif;
         font-size: 0.7em;
     }
@@ -156,25 +222,35 @@ body {
         z-index: 1;
     }
     
-
-    /* creates the same dimensions for the bugtracker and learning text areas */
-    .bug-tracker-container, .learnings-container, #icon-checkboxes{
+     /* minimize the space icon box takes */
+    #icon-checkboxes{
         width: 40vw;
-        height: 100%;
+        height: 50%;
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
-        border: 1px solid black;
+        border: 1px solid rgb(203 216 239);
+        border-radius: 1%;
+    }
+
+    /* creates the same dimensions for the bugtracker and learning text areas */
+    .bug-tracker-container, .learnings-container{
+        width: 40vw;
+        height: 90%;
+        margin: 2%; 
+        background: rgb(255 255 255 / 40%);
+        padding: 2%;
+        border: 1px solid rgb(217 224 237);
         border-radius: 1%;
     }
 
     .bug-tracker-container textarea, .learnings-container textarea {
         width: 100%;
         height: 100%;
-        box-sizing: border-box; /* Includes padding and border in the element's total width and height */
-        border: none; /* Remove default border */
-        resize: none; /* Prevent resizing by the user */
-        padding: 10px; /* Add padding for text inside the textarea */
+        box-sizing: border-box; 
+        border: none; 
+        resize: none; 
+        padding: 10px; 
         background: none;
         outline: none
     }
@@ -182,9 +258,10 @@ body {
     .icons {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 50px;
     }
-
+    
     .icons input[type="checkbox"] {
         display: none; /* Hide default checkboxes */
     }
@@ -198,10 +275,11 @@ body {
     
     /* Style the checkbox image */
     .icons label img {
-        width: 40px; /* Adjust the size of the checkbox image */
-        height: 40px; /* Adjust the size of the checkbox image */
+        width: 30px; 
+        height: 30px; 
     }
-  
+
+
     /* Style the checked state */
     .icons input[type="checkbox"]:checked + label::after {
         content: '';
@@ -209,9 +287,9 @@ body {
         top: 50%; /* Position at the center vertically */
         left: 50%; /* Position at the center horizontally */
         transform: translate(-50%, -50%); /* Center the rectangle */
-        width: 50px;
-        height: 50px;
-        background-color: #ccc; /* Grey color for the selected state */
+        width: 80px;
+        height: 70px;
+        background-color: rgb(169 193 248); /* Blue color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }
@@ -223,26 +301,53 @@ body {
        flex-direction: column;
        align-items: center;
     }
+    
+}
+
+/* styling the datepicker */
+input[type="date"] {
+    border: 1px solid rgb(124 161 255);
+    border-radius: 4px;
+    padding: 4px;
+    margin-left: 2px;
+    margin-top: 3px;
+    background-color: #d1e7ff;
+    opacity: 0.6;
+    
 }
 
 /* This is the layout for every single device under 800 px */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 768px) {
-    /* Push the title below the date picker */
+@media screen and (max-width: 800px) {
+    /* This is so the date picker and the text are centered at the top for a phone */
+    /* stylelint-disable-next-line media-feature-range-notation */
+    @media screen and (max-width: 600px) {
+        /* Makes sure the date element text is centered and the left and right spacing is equal on both sides */
+        .date-element {
+            text-align: center;
+            inset: 3% 4% 10%;
+            margin-top: 10px;
+        }
+    }
+
+    /* styles the title */
     #title {
         font-weight: normal;
+        font-style: bold;
         text-align: center;
-        margin-top: 14%;
+        margin-top: 20%;
+        
     }
 
     /* Controls the size of the role, bug, and learnings section */
     .right-panel {
-        margin: 5%
+        margin: 5%;
     }
 
     /* Controls the size of the markdown section */
     .left-panel {
         margin: 5%;
+        align-items: center;
     }
 
     /* control the layout of the icons */
@@ -250,6 +355,13 @@ body {
         display: flex;
         justify-content: center;
         gap: 10%;
+        margin-bottom: -20px;
+    }
+
+    #icon-checkboxes{
+        width: 40vw;
+        height: 30%;
+         
     }
 
     /* control the checkbox */
@@ -272,7 +384,7 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid black;
+        border: 1px solid rgb(147 185 224);
         padding: 10px;
         box-sizing: border-box;
         border-radius: 1%;
@@ -281,20 +393,25 @@ body {
         outline: none; /* Do not display blue boundary when selected */
     }
 
+    .markdown-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; /* Centers the container itself */
+        padding: 10px;
+        background-color: rgb(252 236 255 / 50%);
+        border-radius: 5%;
+        width: fit-content; /* Ensures the width is only as wide as its content */
+    }
+
     #markdown-preview {
         z-index: 2; /* Make sure preview has a solid background */
         display: none; /* Start with the preview hidden */
         overflow-y: auto; /* Add overflow handling if the preview content is long */
-        background-color: white;
         font-family: sans-serif;
         font-size: 0.7em;
     }
 
-    /* centers the save button with the markdown section */
-    .save-buttons {
-        display: flex;
-        justify-content: center;
-    }
 
     /* creates the same dimensions for the bugtracker and learning text areas */
     .bug-tracker-container, .learnings-container, #icon-checkboxes{
@@ -303,7 +420,7 @@ body {
         margin: 2%; 
         background: rgb(255 255 255 / 40%);
         padding: 2%;
-        border: 1px solid black;            
+        border: 1px solid rgb(147 185 224);            
         border-radius: 1%;
     }
     
@@ -327,8 +444,8 @@ body {
     
     /* Style the checkbox image */
     .icons label img {
-        width: 40px; /* Adjust the size of the checkbox image */
-        height: 40px; /* Adjust the size of the checkbox image */
+        width: 30px; /* Adjust the size of the checkbox image */
+        height: 30px; /* Adjust the size of the checkbox image */
     }
 
     /* Style the checked state */
@@ -338,9 +455,9 @@ body {
         top: 50%; /* Position at the center vertically */
         left: 50%; /* Position at the center horizontally */
         transform: translate(-50%, -50%); /* Center the rectangle */
-        width: 50px;
-        height: 50px;
-        background-color: #ccc; /* Grey color for the selected state */
+        width: 65px;
+        height: 70px;
+        background-color: rgb(169 193 248); /* Blue color for the selected state */
         border-radius: 20px; /* Rounded edges */
         z-index: -1; /* Ensure rectangle is below the image */
     }

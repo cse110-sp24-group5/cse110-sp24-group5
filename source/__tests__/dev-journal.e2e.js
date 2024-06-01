@@ -19,10 +19,12 @@ describe('Dev Journal Page', () => {
         const currentDay = currentDate.getDate();
         const currentMonth = currentDate.getMonth() + 1; // Adding 1 since months are zero-based
         const currentYear = currentDate.getFullYear();
-    
-        // Formatting date in yyyy/mm/dd format
-        let formattedDate = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-${currentDay.toString().padStart(2, '0')}`;
-    
+            
+        const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+
+        let formattedDate = `${months[currentMonth - 1]} ${currentDay}, ${currentYear}`;
+
         expect(titleText).toBe(formattedDate);
     }, 10000);
 
@@ -32,6 +34,7 @@ describe('Dev Journal Page', () => {
     it('Date change', async () => {
         const datepicker = await page.$('#datepicker');
         const newDate = '2024-01-01';
+        const newDateStr = 'January 1, 2024'
         
         // Evaluate function to set the datepicker value and dispatch change event
         await page.evaluate((element, date) => {
@@ -44,7 +47,7 @@ describe('Dev Journal Page', () => {
         const titleHandle = await page.$('#title');
         const titleText = await titleHandle.evaluate(el => el.textContent);
 
-        expect(titleText).toBe(newDate);
+        expect(titleText).toBe(newDateStr);
     }, 10000);
 
     // writing in the markdown editor

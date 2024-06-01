@@ -18,11 +18,19 @@
 
     <h1 id="title"> TITLE </h1>
 
+
    <!-- Datepicker element -->
-   <div class = "date-element">
-      <label for="datepicker">Select Date:</label>
-      <input type="date" id="datepicker" name="datepicker">
-   </div>
+  <header class = "header-contents">
+    <div class = "date-element">
+        <div>
+            Select date:
+            <input type="date" id="datepicker" name="datepicker">
+        </div>
+    </div>
+</header>
+
+ 
+
 
    <!--Left panel with markdown editor, preview, and buttons-->
 
@@ -37,52 +45,58 @@
                 <div id="markdown-preview" class="preview"></div>
             </div>
 
-            <div class = "save-buttons">
-                <button class="save-button" id="save-button">Save</button>
-            </div>
         </div>
-   
 
         <div class="right-panel">
             <div id = "icon-checkboxes">
                 
                 <p>Role Fulfilled:</p>
+                <!--Changed from png to svg, ensuring high-resolution after zooming in-->
                 <div class="icons">
                 <div class="icon-checkbox1">
                     <input type="checkbox" id="documentationCheckbox">
                     <label for="documentationCheckbox">
-                        <img src="../img/documentation.png" alt="documentation">
-                    </label>
+                        <img src="../img/documentation.svg" alt="documentation"> 
+                    </label> 
+                    <div class="checkbox-label">Document</div>
                 </div>
                 <div class="icon-checkbox2">
                     <input type="checkbox" id="codingCheckbox">
                     <label for="codingCheckbox">
-                        <img src="../img/coding.png" alt="coding">
-                    </label>
+                        <img src="../img/coding.svg" alt="coding">
+                    </label> <br>
+                    <div class="checkbox-label">Code</div>
                 </div>
                 <div class="icon-checkbox3">
                     <input type="checkbox" id="discussionCheckbox">
                     <label for="discussionCheckbox">
-                        <img src="../img/discussion.png" alt="discussion">
+                        <img src="../img/discussion.svg" alt="discussion">
                     </label>
+                    <div class="checkbox-label">Communicate</div>
                 </div>
                 <div class="icon-checkbox4">
                     <input type="checkbox" id="debuggingCheckbox">
                     <label for="debuggingCheckbox">
-                        <img src="../img/debugging.png" alt="debugging">
-                    </label>
+                        <img src="../img/debugging.svg" alt="debugging">
+                    </label> 
+                    <div class="checkbox-label">Debug</div>
                 </div>
                 </div>
-                
             </div>
             <div class="bug-tracker-container">
-                <textarea id="bug-tracker" name="bug-tracker" placeholder="Bug Tracker"></textarea>
+                <p>Bug Tracker:</p>
+                <textarea id="bug-tracker" name="bug-tracker" placeholder="Track any Bugs that you faced today and their solutions here!"></textarea>
             </div>
             <div class="learnings-container">
-                <textarea id="learnings" name="learnings" placeholder="Learnings"></textarea>
-            </div>      
-        </div>
+                <p>Learnings:</p>
+                <textarea id="learnings" name="learnings" placeholder="Reflect on your learnings here!"></textarea>
+            </div>
+        </div>   
     </div>
+    <div class = "save-buttons">
+        <button class="save-button">Save</button>
+    </div> 
+
    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
    <script src="../js/dev-journal.js"></script>
    </body>
