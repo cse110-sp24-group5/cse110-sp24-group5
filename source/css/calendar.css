@@ -177,7 +177,7 @@ img {
 @media (max-width: 400px) {
     /*Fix back arrow on left top corner for some phone view*/
     .back-element {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
     }
@@ -210,7 +210,6 @@ img {
     .back-element img {
         width: 10px; /* Adjust size as needed */
         height: auto; /* Maintain aspect ratio */
-        margin-right: 10px; /* Add some space between image and text */
     }
     
     .back-element p {
