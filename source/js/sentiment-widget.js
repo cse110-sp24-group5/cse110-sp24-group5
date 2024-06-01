@@ -7,6 +7,36 @@ function init(){
     const faceIcon = document.querySelector('#sentiment-widget img');
     document.querySelector('#name');
 
+    function initializeServiceWorker() {   
+        //Check if 'serviceWorker' is supported in the current browser
+        if('serviceWorker' in navigator) {
+      
+          // Listen for the 'load' event on the window object.
+          window.addEventListener('load', function() {
+            try {
+              //Register './sw.js' as a service worker
+              const registration = navigator.serviceWorker.register("sw.js", {
+                scope: "./",
+              });
+      
+              // Once the service worker has been successfully registered, console
+              //  log that it was successful.
+              if (registration.installing) {
+                console.log("Service worker installing");
+              } else if (registration.waiting) {
+                console.log("Service worker installed");
+              } else if (registration.active) {
+                console.log("Service worker active");
+              }
+            } catch (error) {
+      
+              console.error(`Registration failed with ${error}`);
+            }
+          });
+        }
+      }
+
+
     function recordSentiment(value) {
 
 
