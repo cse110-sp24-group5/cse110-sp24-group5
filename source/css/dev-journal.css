@@ -179,7 +179,8 @@ body {
 }
 
 /* This is the layout for every single device over and equal to 800 px */
-@media screen and (width >= 800px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (min-width: 800px) {
     /* We want a grid to be able to have two panels of elements */
     .grid-container {
         display: grid;
@@ -316,9 +317,9 @@ input[type="date"] {
 }
 
 /* This is the layout for every single device under 800 px */
-@media screen and (width < 800px) {
+@media screen and (max-width: 800px) {
     /* This is so the date picker and the text are centered at the top for a phone */
-    @media screen and (width < 600px) {
+    @media screen and (max-width: 600px) {
         /* Makes sure the date element text is centered and the left and right spacing is equal on both sides */
         .date-element {
             text-align: center;
