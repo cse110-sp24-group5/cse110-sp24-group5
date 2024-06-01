@@ -317,8 +317,10 @@ input[type="date"] {
 }
 
 /* This is the layout for every single device under 800 px */
+/* stylelint-disable-next-line media-feature-range-notation */
 @media screen and (max-width: 800px) {
     /* This is so the date picker and the text are centered at the top for a phone */
+    /* stylelint-disable-next-line media-feature-range-notation */
     @media screen and (max-width: 600px) {
         /* Makes sure the date element text is centered and the left and right spacing is equal on both sides */
         .date-element {
