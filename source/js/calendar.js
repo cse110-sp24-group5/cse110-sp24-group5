@@ -32,6 +32,7 @@ function renderCalendar(date) {
  
  
     let currentDate = new Date(); // Define today's current timestamp
+    currentDate.setDate(1); // Set the current timestamp to the first of the month
  
  
     // Render the calendar for the current date
