@@ -1,5 +1,24 @@
 // terminal.js
+document.addEventListener('DOMContentLoaded', function() {
+  var infoBtn = document.getElementById('infoBtn');
+  var infoBox = document.getElementById('infoBox');
+  var closeBtn = document.getElementById('closeBtn');
 
+  infoBtn.addEventListener('click', function() {
+      infoBox.style.display = 'block';
+  });
+
+  closeBtn.addEventListener('click', function() {
+      infoBox.style.display = 'none';
+  });
+
+  // Close the info box if the user clicks outside of it
+  window.onclick = function(event) {
+      if (event.target != infoBox && event.target != infoBtn && event.target != closeBtn) {
+          infoBox.style.display = 'none';
+      }
+  };
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   const terminal = document.getElementById('terminal');
