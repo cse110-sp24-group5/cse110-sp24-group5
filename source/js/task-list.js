@@ -10,6 +10,7 @@ function init () {
     let editMode = false;
     let editedTaskId;
     let deletedTaskId;
+    let isSaved = false; // Flag to track if there are unsaved changes
 
     // Function to generate a unique ID for tasks
     function generateUniqueId() {
@@ -64,10 +65,28 @@ function init () {
     });
 
     // Event listener for the "Close" button in the pop-up
-    closePopUp.addEventListener('click', hidePopUp);
+    closePopUp.addEventListener('click', () => {
+        if (isSaved) {
+            const confirmClose = confirm("You have unsaved changes. Are you sure you want to close?");
+            if (confirmClose) {
+                hidePopUp();
+                clearInputs();
+                isSaved = false;
+            }
+        } else {
+            hidePopUp();
+        }
+    });
 
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
+
+    // Event listener for input changes to set isDirty flag
+    [titleInput, descriptionInput].forEach(input => {
+        input.addEventListener('input', () => {
+            isSaved = true;
+        });
+    });
 
     // Function to handle the "Confirm" button click event
     function handleConfirmButtonClick() {
@@ -123,8 +142,14 @@ function init () {
         
         // Hide the pop-up
         hidePopUp();
-
+        
         // Clear the inputs for the next task
+        clearInputs();
+        isSaved = false;
+    }
+
+    // Function to clear input fields
+    function clearInputs() {
         titleInput.value = '';
         descriptionInput.value = '';
     }
@@ -227,15 +252,6 @@ function init () {
         saveTasksToStorage(tasks);
         addTaskForDate(dateText);
     }
-        deletedTaskId = tasks.id;
-        let tasks = loadTasksFromStorage();
-
-        // Use filter to remove the task with the given id
-        tasks = tasks.filter(task => task.id !== deletedTaskId);
-
-        saveTasksToStorage(tasks);
-        addTaskForDate(dateText);
-    }
 
     const days = document.querySelectorAll('.days li');
     days.forEach(day => {
@@ -246,6 +262,7 @@ function init () {
             addTaskForDate(dateText);
         });
     });
+
     function track_days(){
         const days = document.querySelectorAll('.days li');
         days.forEach(day => {
@@ -262,3 +279,12 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
+
+    // Warn the user if they attempt to leave the page with unsaved changes
+    window.addEventListener('beforeunload', (event) => {
+        if (isSaved) {
+            event.preventDefault();
+            event.returnValue = '';
+        }
+    });
+}
