@@ -311,7 +311,7 @@ function loadTasksFromStorage() {
       //defining all regular expressions here
       const regexCD = /cd \.\./i;
       const regexBug = /bug/i;
-      const regexDisc = /disc/i;
+      const regexDisc = /com/i;
       const regexCode = /code/i;
       const regexDoc = /doc/i;
       const regexClear = /clear/i;
@@ -334,10 +334,10 @@ function loadTasksFromStorage() {
       else if(regexClear.test(command)) {
         terminalContent.textContent = '';
       }
-      else if(command === 'p' || command === 'P') {
+      else if(command === 'md p' || command === 'MD P') {
         showPreview();
       }
-      else if(command === 'e' || command === 'E') {
+      else if(command === 'md e' || command === 'MD E') {
         showEditor();
       }
       else if(command === 's' || command === 'S') {
