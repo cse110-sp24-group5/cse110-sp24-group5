@@ -78,11 +78,8 @@ function showEditor(){
     console.log('in show editor')
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.style.display = 'none';
-    markdownEditor.style.display = 'block';
-
-    // Focus on the markdown editor
     const markdownEditor = document.getElementById('markdown-editor');
-    markdownEditor.focus();
+    markdownEditor.style.display = 'block';
 }
 
 /* Put the cursor in the bug editor */
