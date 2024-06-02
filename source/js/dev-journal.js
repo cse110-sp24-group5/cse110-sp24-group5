@@ -15,8 +15,34 @@ function formatDate(dateObject) {
 
 let isChanged = false;
 
+/* This function is to check if the user made any changes in the Dev-Journal or not */
 function markChanged() {
-    isChanged = true;
+    // Check if any text boxes are non-empty
+    const markdownEditor = document.getElementById('markdown-editor');
+    const bugTracker = document.getElementById('bug-tracker');
+    const learnings = document.getElementById('learnings');
+    
+    const isTextChanged = markdownEditor.value.trim() !== '' ||
+                          bugTracker.value.trim() !== '' ||
+                          learnings.value.trim() !== '';
+
+    // Check if any checkboxes are selected
+    const documentationCheckbox = document.getElementById('documentationCheckbox');
+    const codingCheckbox = document.getElementById('codingCheckbox');
+    const discussionCheckbox = document.getElementById('discussionCheckbox');
+    const debuggingCheckbox = document.getElementById('debuggingCheckbox');
+    
+    const isCheckboxChanged = documentationCheckbox.checked ||
+                              codingCheckbox.checked ||
+                              discussionCheckbox.checked ||
+                              debuggingCheckbox.checked;
+
+    // Set isChanged to true only if there are changes
+    if (isTextChanged || isCheckboxChanged) {
+        isChanged = true;
+    } else {
+        isChanged = false;
+    }
 }
 
 function setupUnsavedChangesWarning() {
