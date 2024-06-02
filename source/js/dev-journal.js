@@ -1,5 +1,4 @@
 /* marked */
-
 /**
  * Format the date to be of the form YYYY-MM-DD
  * 
@@ -83,7 +82,7 @@ function showEditor(){
 }
 
 /* Put the cursor in the bug editor */
-function showBug(){
+export function showBug(){
     // Focus on the bug editor
     const bugTracker = document.getElementById('bug-tracker');
     bugTracker.focus();
