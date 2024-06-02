@@ -82,6 +82,7 @@ section section h2 {
     width: 8vw;
     height: 8vw;
 }
+
 /* Info dropdown styles */
 .info-dropdown {
     position: absolute;
@@ -107,7 +108,7 @@ section section h2 {
     right: 20px; /* Adjust as needed */
     background-color: white;
     border: 1px solid #ccc;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
     border-radius: 4px;
     padding: 16px;
     width: 500px; 
