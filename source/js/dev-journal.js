@@ -14,6 +14,20 @@ function formatDate(dateObject) {
 }
 
 /**
+ * Convert a date string from YYYY-MM-DD format to words without suffix.
+ *
+ * @param {string} dateStr - The date string in YYYY-MM-DD format.
+ * @returns {string} The date in words without suffix.
+ */
+function convertDateToWords(dateStr) {
+    const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return `${months[month - 1]} ${day}, ${year}`;
+}
+
+/**
  * Set the datepicker and title to the current Date when the page is loaded.
  * When the date on the datepicker changes, the same should be reflected in the title.
  */
@@ -26,11 +40,14 @@ function setFields() {
     const currentDate = new Date();
     const formattedDate = formatDate(currentDate);
     datepicker.value = formattedDate;
-    title.innerText = formattedDate;
+    title.innerText = convertDateToWords(formattedDate);
 
     // Event listener to update title when date changes
     datepicker.addEventListener('change', function() {
-        title.innerText = datepicker.value;
+        let dateValue = new Date(datepicker.value);
+        let formattedDate = dateValue.toISOString().split('T')[0];
+
+        title.innerText = convertDateToWords(formattedDate);
         loadData();
     });
 }
@@ -48,7 +65,9 @@ function showPreview(){
     // show the preview
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.innerHTML = html;
-    markdownPreview.style.display = 'block' // what to put here
+    markdownPreview.style.display = 'block' 
+    const markdownEditor = document.getElementById('markdown-editor');
+    markdownEditor.style.display = 'none';
 }
 
 /**
@@ -59,6 +78,7 @@ function showEditor(){
     console.log('in show editor')
     const markdownPreview = document.getElementById('markdown-preview');
     markdownPreview.style.display = 'none';
+    markdownEditor.style.display = 'block';
 
     // Focus on the markdown editor
     const markdownEditor = document.getElementById('markdown-editor');
@@ -234,3 +254,4 @@ function load(){
 }
 
 document.addEventListener("DOMContentLoaded", load);
+

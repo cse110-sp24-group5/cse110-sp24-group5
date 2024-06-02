@@ -1,15 +1,15 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init () {
-    const popUp = document.querySelector('.pop-up.parent');
-    const closePopUp = document.getElementById('close-pop-up');
+    const popUp = document.querySelector('.pop-up.parent'); // Pop-up element
+    const closePopUp = document.getElementById('close-pop-up'); // Close pop-up button
     const addTaskButton = document.getElementById('add'); // Add task button
     const confirmButton = document.getElementById('confirm'); // Confirm button
     const titleInput = document.getElementById('title-text'); // Title text input
-    const descriptionInput = document.getElementById('desc-text'); // Description text
-    let editMode = false;
-    let editedTaskId;
-    let deletedTaskId;
+    const descriptionInput = document.getElementById('desc-text'); // Description text input
+    let editMode = false; // Variable to track whether the pop-up is in edit mode
+    let editedTaskId; // Stores the ID of the task being edited
+    let deletedTaskId; // Stores the ID of the task being deleted
 
     // Function to generate a unique ID for tasks
     function generateUniqueId() {
@@ -17,16 +17,19 @@ function init () {
         return Math.floor(Math.random() * 1000000).toString();
     }
 
+    // Function to retrieve tasks from localStorage or returns an empty array if no tasks are found.
     function loadTasksFromStorage() {
         const tasksJSON = localStorage.getItem('tasks');
         return tasksJSON ? JSON.parse(tasksJSON) : [];
     }
     
+    // Function to filter tasks based on the provided date.
     function getTasksForDate(date) {
         const allTasks = loadTasksFromStorage();
         return allTasks.filter(task => task.date === date);
     }
 
+    // Function to save tasks to localStorage.
     function saveTasksToStorage(tasks) {
         const tasksJSON = JSON.stringify(tasks);
         localStorage.setItem('tasks', tasksJSON);
@@ -79,7 +82,7 @@ function init () {
 
         // Check if a title is provided
         if (!title) {
-            alert("Please provide a title.");
+            alert('Please provide a title.');
             return; // Stop further execution
         }
 
@@ -199,6 +202,7 @@ function init () {
         }
     }
 
+    // Function to handle the edit button click event
     function handleEditButtonClick(task) {
         // Set edit mode to true
         editMode = true;
@@ -212,6 +216,7 @@ function init () {
         showPopUp();
     }
 
+    // Function to handle the delete icon click event
     function handleDeleteButtonClick(task) {
         console.log(task)
         const dateElement = document.getElementById('date');
@@ -237,16 +242,8 @@ function init () {
         addTaskForDate(dateText);
     }
 
-    const days = document.querySelectorAll('.days li');
-    days.forEach(day => {
-        day.addEventListener('click', () => {
-            const dateElement = document.getElementById('date');
-            // Construct a unique key for localStorage based on the selected date
-            const dateText = dateElement.textContent;
-            addTaskForDate(dateText);
-        });
-    });
-    function track_days(){
+    // Function to add event listeners to each day element in the calendar.
+    function track_days() {
         const days = document.querySelectorAll('.days li');
         days.forEach(day => {
             day.addEventListener('click', () => {
@@ -258,6 +255,9 @@ function init () {
         });
     }
 
+    track_days();
+
+    // Ensures that unique keys are constructed for localStorage across different months
     const prevMonthButton = document.querySelector('.prev-month');
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
