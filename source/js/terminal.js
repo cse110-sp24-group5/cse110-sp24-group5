@@ -269,10 +269,7 @@ function loadTasksFromStorage() {
             if(lastChar == 'd') {
               handleDeleteButtonClick(task);
             }
-            else if(lastChar == 'a') {
-              addTaskForDate(dateText);
-            }
-            else {
+            else if(lastChar == 'e') {
               handleEditButtonClick(task);
             }
           }
