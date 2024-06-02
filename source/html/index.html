@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../css/home-page.css">
     <!-- Implement the Montserrat font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!--Javascript library for implementing-->
+    <script src = "https://d3js.org/d3.v7.min.js"></script>
+    
     <style>
         h2 {
             font-family: 'Montserrat';
@@ -17,20 +20,52 @@
     <!-- Section for greeting -->
     <section>
         <div class="container">
-            <h2>Greetings <name>NAME!</name> How are you feeling today?</h2>
-            <div class="faces">
-                <div class="face" id="happy">
-                    <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
-                </div>
-                <div class="face neutral" id="neutral">
-                    <img class="emoji" id="neutral_image" src="../img/soso_face.png" alt="Neutral Face"> 
-                </div>
-                <div class="face sad" id="sad">
-                    <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
-                </div>
+            <h2>Greetings<name id="name">!</name> How are you feeling today?</h2>
+               
+            <div id="sentiment-widget">
+                <img class="icon" id = "face-icon" src="../img/soso_face.png" alt="face">
+                <input type="range" name="sentiment" id="sentiment" value="50" min="0" max="100" step="1" />
             </div>
+
         </div>
     </section>
+    <script>
+        // creates dynamically changing slider icon based on user value
+        document.addEventListener('DOMContentLoaded', function() {
+            let sliderIcon = document.querySelector('#sentiment');
+            let emojiUrl;
+            let updateSlider = () => {
+                let currentValue = sliderIcon.value;
+                if (currentValue <= 20) {
+                    emojiUrl = "../img/angry_face_slide.png"; 
+                } else if (currentValue <= 40) {
+                    emojiUrl = "../img/sad_face_slide.png"; 
+                } else if(currentValue <= 60){
+                    emojiUrl = "../img/soso_face_slide.png"; 
+                } else if(currentValue <= 80){
+                    emojiUrl = "../img/happy_face_slide.png"; 
+                }else {
+                    emojiUrl = "../img/laughing_face_slide.png"; 
+                }
+                sliderIcon.style.setProperty('--emoji-image', `url(${emojiUrl})`);
+            };
+
+            // store the current icon into localStorage so that if the user refreshes the page the icon doesn't reset
+            sliderIcon.addEventListener('input', () => {
+                updateSlider();
+                localStorage.setItem('currentSliderValue', sliderIcon.value);
+            });
+
+            // will pull from localStorage the current icon value if user refreshes the page
+            let savedIcon = localStorage.getItem('currentSliderValue');
+            if (savedIcon !== null) { 
+                sliderIcon.value = savedIcon;
+            }
+            updateSlider();
+
+        });
+
+    </script>
     <!-- Section to access the other pages -->
     <section class="box-container">
         <!-- Section for Calendar -->
@@ -52,5 +87,6 @@
             </div>
         </section>
     </section>
+    <script src="../js/sentiment-widget.js"></script>
 </body>
 </html>

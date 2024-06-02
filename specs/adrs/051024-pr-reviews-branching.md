@@ -15,7 +15,6 @@ What strategies can we implement to enforce strict branch management policies?
 
 Decided on a template for creating pull requests that includes: description + changes made + instructions for testing + screenshots + policy checklist + review guidelines.
 Decided to enforce detailed naming, branch protection and old repo pruning as a part of our branch management.
-Decided to use Jest as our unit testing library.
 
 ## Decision Specifics
 
@@ -56,7 +55,7 @@ Strict PR Policy:
 
 
 #### Reviewing Guidelines:
-The template suggests that at least 2 team members should review the PR before it can be merged.
+The template suggests that at least 2 team members should review the PR before it can be merged. (at least 2 team leads + 1 additional member since 05/23/24).
 All automated tests should pass locally.
 The code should follow the project's coding conventions and standards.
 It should pass all appropriate linters and CodeClimate quality checks.
@@ -78,14 +77,6 @@ Pruning Old Feature Branches:
 Cleanup repo branches from time to time, delete branches that have already been merged, abandoned, or have been inactive.
 Enforce occasional team reviews of branches so team members can discuss which branches to remove or merge.
 Ensure communication between team members when editing the repo’s branches, one person’s decision to remove branches should not be a surprise to anyone.
-
----
-
-### Unit Testing Library:
-We decided to go with Jest.
-Firstly, our project is built using HTML, CSS, and JavaScript, and Jest is well-suited for testing JavaScript codebases. Its comprehensive testing capabilities, including unit testing, integration testing, and snapshot testing, ensure that we can thoroughly test our JavaScript code and catch any potential issues or regressions.
-Secondly, we have implemented linting and code quality checks using CodeClimate, and Jest seamlessly integrates with such tools. This integration allows us to enforce code quality standards and catch potential issues or violations during the testing process, ensuring that our codebase adheres to best practices and maintains a high level of quality.
-Another factor that influenced my decision was Jest's zero-configuration setup. Getting started with testing can be a daunting task, but Jest's zero-configuration approach made it easy for us to start writing tests right away without spending time on complex configurations. This was particularly beneficial for our team, as we had a tight timeline and limited experience with testing frameworks.
 
 ---
 
