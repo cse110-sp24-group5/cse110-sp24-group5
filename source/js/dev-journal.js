@@ -1,4 +1,5 @@
 /* marked */
+
 /**
  * Format the date to be of the form YYYY-MM-DD
  * 
@@ -10,20 +11,6 @@ function formatDate(dateObject) {
     const month = String(dateObject.getMonth() + 1);
     const day = String(dateObject.getDate());
     return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-}
-
-/**
- * Convert a date string from YYYY-MM-DD format to words without suffix.
- *
- * @param {string} dateStr - The date string in YYYY-MM-DD format.
- * @returns {string} The date in words without suffix.
- */
-function convertDateToWords(dateStr) {
-    const months = ["January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"];
-
-    const [year, month, day] = dateStr.split('-').map(Number);
-    return `${months[month - 1]} ${day}, ${year}`;
 }
 
 /**
@@ -39,22 +26,15 @@ function setFields() {
     const currentDate = new Date();
     const formattedDate = formatDate(currentDate);
     datepicker.value = formattedDate;
-    title.innerText = convertDateToWords(formattedDate);
+    title.innerText = formattedDate;
 
     // Event listener to update title when date changes
     datepicker.addEventListener('change', function() {
-        let dateValue = new Date(datepicker.value);
-        let formattedDate = dateValue.toISOString().split('T')[0];
-
-        title.innerText = convertDateToWords(formattedDate);
+        title.innerText = datepicker.value;
         loadData();
     });
 }
 
-/**
- * Sets up the inner HTML of the preview to be the parsed version of markdown
- * and displays the preview <div>
- */
 function showPreview(){
     console.log("show preview")
     const input = document.querySelector('.editor');
@@ -82,7 +62,7 @@ function showEditor(){
 }
 
 /* Put the cursor in the bug editor */
-export function showBug(){
+function showBug(){
     // Focus on the bug editor
     const bugTracker = document.getElementById('bug-tracker');
     bugTracker.focus();
@@ -250,4 +230,3 @@ function load(){
 }
 
 document.addEventListener("DOMContentLoaded", load);
-
