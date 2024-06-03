@@ -54,20 +54,44 @@ To use our WebApp you can use the following link: https://cse110-sp24-group5.git
 
 ## Features
 
-### 1. Calendar
-- **Navigation**: Move through different months seamlessly using arrow buttons.
-- **Task Viewing**: Click on a day to view the task list for that specific date. The number of tasks for a specific date can be viewed from the calendar page. Tasks are retrieved from localStorage.
-- **Task Management**: Add, edit, and remove tasks for any given day.
-- **Saving Tasks**: Click the save button to store tasks in localStorage.
+### 1. Dashboard
+
+- **Navigation**: Users can seamlessly move through different months using intuitive buttons for the calendar and Dev Journal, ensuring easy access to past and future dates.
+
+
+### 2. Calendar
+
+The calendar feature provides a comprehensive view of tasks and events, allowing developers to efficiently manage their schedules and stay organized.
+
+- **Task Viewing**: By clicking on a specific day, users can view the task list associated with that date. The number of tasks for a given date is visually displayed on the calendar page, providing an at-a-glance overview of workload distribution. Tasks are retrieved from localStorage, ensuring data persistence across sessions.
+
+- **Task Management**: Users can add, edit, and remove tasks for any given day directly from the calendar interface. This streamlined workflow promotes efficient task organization and management.
+
+- **Saving Tasks**: To ensure data integrity, users can click the save button to store their tasks in localStorage, enabling seamless access to their task lists across multiple sessions or devices.
 
 ### 2. Dev Journal
-- **Default View**: Opens with the current date by default.
-- **Date Picker**: Use the date picker to switch between dates.
-- **Markdown Editor**: Write and preview your journal entries using a markdown editor.
-  - **Scrolling**: If your content exceeds the viewable area, you can scroll within both the preview and the editor.
-  - **Toggle View**: Switch between the editor and the preview using the provided buttons.
-- **Role Selection**: Select roles that you fulfilled on a given day.
-- **Saving Data**: All input data is saved to localStorage upon clicking the save button.
+
+The Dev Journal feature provides a dedicated space for developers to document their daily activities, thoughts, and learnings, fostering personal growth and reflection.
+
+- **Default View**: Upon opening the Dev Journal, users are presented with the current date by default, ensuring a smooth and intuitive start to their journaling experience.
+
+- **Date Picker**: A user-friendly date picker allows users to easily switch between dates, enabling them to access and update journal entries for any specific day.
+
+- **Markdown Editor**: Leveraging the power of Markdown, the Dev Journal offers a rich and versatile editing experience. Users can write and preview their journal entries using a fully-featured markdown editor, supporting formatting, code snippets, and other advanced features.
+
+- **Scrolling**: If the content exceeds the viewable area, users can seamlessly scroll within both the preview and the editor panes, ensuring a comfortable and uninterrupted writing experience.
+  
+- **Toggle View**: With the click of a button, users can toggle between the editor and the preview views, allowing for efficient switching between writing and reviewing modes.
+
+- **Role Selection**: To provide context and clarity, users can select the roles they fulfilled on a given day, such as working on code, documentation, debugging and communication.  This feature enhances the journaling experience by
+  encompassing the different roles a software engineer fulfils.
+
+- **Bug Tracker**: To help Software Engineers keep track of unique Bugs they encounter and their solutions, we have a space to track bugs. This can also be a metaphor to bugs or problems they encounter in their lives as a Software Engineer and not just Bugs related to Code.
+
+- **Learnings**: To help our user keep track of thier daily learning we have dedicated a space to this.
+  
+- **Saving Data**: All input data, including journal entries and selected roles, is automatically saved to localStorage upon clicking the save button, ensuring data persistence and enabling users to pick up where they left off seamlessly.
+
 
 ## Component Interaction
 
