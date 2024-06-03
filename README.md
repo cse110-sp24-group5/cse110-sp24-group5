@@ -14,10 +14,9 @@ Check out our deployed website [here](https://cse110-sp24-group5.github.io/cse11
 - [Introduction](#introduction)
 - [Installation and Setup](#installation-and-setup)
 - [Features](#features)
-- [Keyboard Shortcuts](#keyboard-shortcuts)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Linting](#linting)
-- [JSDocs](#jsdocs)
+- [JSDoc](#jsdoc)
 - [Testing](#testing)
 - [Agile Concepts](#agile-concepts)
 - [Application of the -ilities](#application-of-the-ilities)
@@ -104,15 +103,41 @@ The Dev Journal feature provides a dedicated space for developers to document th
   
 - **Saving Data**: All input data, including journal entries and selected roles, is automatically saved to localStorage upon clicking the save button, ensuring data persistence and enabling users to pick up where they left off seamlessly.
 
-## Keyboard Shortcuts
+### 4. Keyboard Shortcuts
 
+To help developers quickly navigate through our features, we included keyboard shortcuts (all of which are case insensitive) that can used in the terminal for efficient usage of our application.
+
+- **Opening Terminal**: `ctrl` + `\`
+
+- **Homepage Shortcuts**:
+    * Go to developer journal: `cd dev-journal`
+    * Go to calendar: `cd calendar`
+
+- **Developer Journal Shortcuts**:
+    * Go to dashboard: `cd..`
+    * Preview markdown document: `md p`
+    * Edit markdown document: `md e`
+    * Write learnings: `l`
+    * Write bugs: `b`
+    * Choosing roles:
+        * debugging: `bug`
+        * documentation: `doc`
+        * coding: `code`
+        * communication: `com`
+
+- **Calendar Shortcuts**:
+    * Choosing a date: `DD`
+    * Choosing a month and year: `MM/YYYY`
+    * Deleting a task: `taskname d`
+    * Editing a task: `taskname e`
 
 ## CI/CD Pipeline
 Our CI/CD pipeline ensures the quality and reliability of our code through the following stages:
 1. **Run Linters**: Automatically checks for code style issues and potential bugs. 
-2. **Generate JSDocs**: Creates up-to-date documentation for our code. 
-3. **Run Unit Tests**: Verifies that individual components of our application work correctly. 
-4. **Run End-to-End Tests**: Simulates real user interactions to validate the entire workflow.
+2. **Generate JSDoc**: Creates up-to-date documentation for our code.
+3. **Run Codacy Tests**: 
+4. **Run Unit Tests**: Verifies that individual components of our application work correctly. 
+5. **Run End-to-End Tests**: Simulates real user interactions to validate the entire workflow.
 
 ## Linting
 Linting is a crucial practice that helps ensure code quality, consistency, and maintainability across the entire codebase. In this project, linting has been set up for HTML, CSS, and JavaScript to adhere to industry-standard best practices and coding conventions. HTML linting checks for proper markup structure, CSS linting maintains consistent stylesheet styles, and JavaScript linting catches syntax errors, potential bugs, and performance issues in the application's logic and functionality.
@@ -121,55 +146,80 @@ We have implemented automated linting checks performed on every push or pull req
  
 1. **ESLint**: Helps detect syntax errors and code style issues in our JavaScript
     * `npx eslint "**/*.js"` to run on all JS files
+      
 2. **StyleLint**: Helps detect style issues in CSS
     * `npx stylelint "**/*.css"` to run on all CSS files in the directory
+      
 3. **HTML Linting**: Helps detect issues in our HTML
     * `npx htmhint "**/*.html"` to run on all HTML files in the directory
+      
 4. **Fixing local linter issues**: Run all commands with `-fix` tag
 
-## JSDocs
+## JSDoc
 
+Automated and up-to-date documentation: By integrating JSDoc into our CI/CD pipeline, the documentation is automatically generated and updated whenever changes are pushed, ensuring that the documentation always reflects the latest codebase.
+
+Consistent formatting and structure: JSDoc provides a consistent and standardized format for documenting functions, classes, and other code elements, making it easier for developers to navigate and understand the codebase.
+
+Integration with development tools: Many IDEs and code editors have built-in support for JSDoc, allowing developers to easily view and access documentation while writing code.
 
 ## Testing
-1. **Codacy tests**:
+
+1. **Codacy Tests**:
     * ...
 
-2. **Unit tests**: 
-    * ...
-      
-3. **E2E tests**: We created a variety of E2E tests for our developer journal and calendar features. Our comprehensive tests ensure that there are no issues or bugs in our application following any possible action a user could take.
+2. **Unit Tests**: 
+    * Run all unit tests in the directory using:
+        * `npm run unitTests`
+          
+    * Run a specific E2E test file in the directory using:
+        * `npm run unitTests -- <path to file>`
+   
+3. **E2E Tests**: We created a variety of comprehensive E2E tests to ensure that there are no issues or bugs in our application following any possible action a user could take.
+    * List of our testing suites:
+        * `home-page.e2e.js` which tests our homepage 
+        * `dev-journal.e2e.js` which tests our developer journal feature
+        * `taskListTestSuite.e2e.js` which tests our calendar and task-list feature
+          
     * Run all E2E tests in the directory using: 
         * `npm run e2eTests`
-     
+          
     * Run a specific E2E test file in the directory using:
         * `npm run e2eTests -- <path to file>`
 
-<!-- not sure if Agile should be included or not (we can include links to documents if we decide to -->
 ## Agile Concepts
 
-1. User stories
-2. Sprint
-3. Sprint Review
-4. Retrospective
+1. **User Stories**
+![user-story-1](source/img/user-story-1.png)
+![user-story-2](source/img/user-story-2.png)
+![user-story-3](source/img/user-story-3.png)
+   
+3. **Sprint**: 
+
+   
+4. **Sprint Review**: A meeting done at the end of each sprint, held to discuss what was accomplished in our sprint and our individual contributions.
+    * [Sprint Review #1](admin/meetings/042724.sprint-1-review.md)
+    * [Sprint Review #2](admin/meetings/052324-2nd-Sprint-Meeting.md)
+   
+5. **Retrospective**: A meeting held after the sprint review used to reflect our previous sprint and discuss the high level issues of what went right and wrong. 
+    * [Retrospective meeting #1](admin/meetings/042724-retrospective.md)
+    * [Retrospective meeting #2](admin/meetings/052324-2nd-Retrospective.md)
+
+6. **Burn Down Chart**: In order to keep track of our progress throughout our development process, how much we have accomplished, and how much more we need to accomplish, we utilized GitHub Projects' project tracker.
+![project-tracker-1](source/img/project-tracker-1.png)
+![project-tracker-2](source/img/project-tracker-2.png)
 
 ## Application of the -ilities
 
-1. Functional Suitability
-   
-2. Performance Efficiency
+1. **Functional Suitability**: 
+    * We designed comprehensive unit and end-to-end tests utilizing Jest to ensure that all bugs and issues in our application have been addressed. We discuss our testing methods more in depth [here](#testing).
 
-3. Compatibility
-
-4. Usability
-   
-5. Reliability
-   
-6. Security
+2. **Usability**:
+    * Since our application is targetted toward developers, we have designed terminal command shortcuts which can be accesed using one's keyboard so that developers can easily access and move between features. [Click here](#features) to learn about the commands that we have created.
+    * We have also created a progressive web app (PWA) so that developers can install our application and use it offline. [Click here](#installation-and-setup) for more information about our PWA.
     
-7. Maintainability
-    
-8. Portability
-    
+3. **Maintainability**:
+    * To ensure that our code is good-quality and made to last, we utilized Codeacy tests to ... [Click here](#testing) to learn more about our Codeacy tests and what they accomplish. 
 
 ## Resources
 
