@@ -1,4 +1,4 @@
-/* dev-journal.js */
+// dev-journal.js
 
 /**
  * Format the date to be of the form YYYY-MM-DD
