@@ -20,9 +20,6 @@ function renderCalendar(date) {
  
  window.addEventListener('DOMContentLoaded', init);
  
- /**
- * Initialize the calendar and event listeners
- */
  function init() {
     const prevMonthButton = document.querySelector('.prev-month'); // Left arrow button
     const nextMonthButton = document.querySelector('.next-month'); // Right arrow button

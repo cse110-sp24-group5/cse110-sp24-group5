@@ -190,7 +190,7 @@ function loadData() {
 /**
  * Fields are set, saved data is loaded in when upon DOMContentLoaded
  */
-function load(){
+function init() {
     // set the title and other input fields to contents of localStorage
     setFields();
     loadData();
@@ -211,4 +211,4 @@ function load(){
         }
 }
 
-document.addEventListener("DOMContentLoaded", load);
+document.addEventListener("DOMContentLoaded", init);

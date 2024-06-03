@@ -1,3 +1,5 @@
+// task-list.js
+
 window.addEventListener('DOMContentLoaded', init);
 
 function init () {
@@ -11,18 +13,6 @@ function init () {
     let editMode = false; // Variable to track whether the pop-up is in edit mode
     let editedTaskTitle; // Stores the title of the task being edited
     let deletedTaskTitle; // Stores the title of the task being deleted
-
-    // Function to retrieve tasks from localStorage or returns an empty array if no tasks are found
-    function loadTasksFromStorage() {
-        const tasksJSON = localStorage.getItem('tasks');
-        return tasksJSON ? JSON.parse(tasksJSON) : {};
-    }
-    
-    // Function to filter tasks based on the provided date
-    function getTasksForDate(date) {
-        const tasksObj = loadTasksFromStorage();
-        return tasksObj[date] || [];
-    }
 
     // Function to save tasks to localStorage
     function saveTasksToStorage(date, tasks) {
@@ -46,17 +36,21 @@ function init () {
         overlay.classList.remove('active');
     }
     
-    // Function to show the pop-up
-    function showPopUp() {
-        showOverlay();
-        popUp.classList.remove('hidden');
-    }
 
     // Function to hide the pop-up
     function hidePopUp() {
         hideOverlay();
         popUp.classList.add('hidden');
     }
+
+    /** 
+     * Function to show the pop-up
+     */
+    function showPopUp() {
+        showOverlay();
+        popUp.classList.remove('hidden');
+    }
+
 
     // Event listener for the "Add Task" button
     addTaskButton.addEventListener('click', () => {
@@ -281,3 +275,15 @@ function init () {
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
 };
+
+// Function to retrieve tasks from localStorage or returns an empty array if no tasks are found
+function loadTasksFromStorage() {
+    const tasksJSON = localStorage.getItem('tasks');
+    return tasksJSON ? JSON.parse(tasksJSON) : {};
+}
+    
+// Function to filter tasks based on the provided date
+function getTasksForDate(date) {
+    const tasksObj = loadTasksFromStorage();
+    return tasksObj[date] || [];
+}
