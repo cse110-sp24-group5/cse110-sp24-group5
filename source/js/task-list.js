@@ -7,33 +7,30 @@ function init () {
     const confirmButton = document.getElementById('confirm'); // Confirm button
     const titleInput = document.getElementById('title-text'); // Title text input
     const descriptionInput = document.getElementById('desc-text'); // Description text input
+    let isDuplicate = false; // Variable to track whether there exists a duplicate entry
     let editMode = false; // Variable to track whether the pop-up is in edit mode
-    let editedTaskId; // Stores the ID of the task being edited
-    let deletedTaskId; // Stores the ID of the task being deleted
+    let editedTaskTitle; // Stores the title of the task being edited
+    let deletedTaskTitle; // Stores the title of the task being deleted
 
-    // Function to generate a unique ID for tasks
-    function generateUniqueId() {
-        // Generate a random number and convert it to a string
-        return Math.floor(Math.random() * 1000000).toString();
-    }
-
-    // Function to retrieve tasks from localStorage or returns an empty array if no tasks are found.
+    // Function to retrieve tasks from localStorage or returns an empty array if no tasks are found
     function loadTasksFromStorage() {
         const tasksJSON = localStorage.getItem('tasks');
-        return tasksJSON ? JSON.parse(tasksJSON) : [];
+        return tasksJSON ? JSON.parse(tasksJSON) : {};
     }
     
-    // Function to filter tasks based on the provided date.
+    // Function to filter tasks based on the provided date
     function getTasksForDate(date) {
-        const allTasks = loadTasksFromStorage();
-        return allTasks.filter(task => task.date === date);
+        const tasksObj = loadTasksFromStorage();
+        return tasksObj[date] || [];
     }
 
-    // Function to save tasks to localStorage.
-    function saveTasksToStorage(tasks) {
-        const tasksJSON = JSON.stringify(tasks);
-        localStorage.setItem('tasks', tasksJSON);
-        console.log(tasks);
+    // Function to save tasks to localStorage
+    function saveTasksToStorage(date, tasks) {
+        const tasksObj = loadTasksFromStorage();
+        tasksObj[date] = tasks;
+        localStorage.setItem('tasks', JSON.stringify(tasksObj));
+        //console.log(tasksObj);
+        //console.log(Object.keys(tasksObj).length);
     }
 
     const overlay = document.createElement('div');
@@ -64,6 +61,9 @@ function init () {
     // Event listener for the "Add Task" button
     addTaskButton.addEventListener('click', () => {
         showPopUp();
+        // Reset text input values
+        titleInput.value = '';
+        descriptionInput.value = '';
     });
 
     // Event listener for the "Close" button in the pop-up
@@ -86,50 +86,72 @@ function init () {
             return; // Stop further execution
         }
 
-        if (editMode) {
-            // Get existing tasks from localStorage
-            const tasks = loadTasksFromStorage();
+        // Get existing tasks from localStorage
+        const tasks = getTasksForDate(dateText);
 
-            // Find the task to edit by its ID
-            const editedTaskIndex = tasks.findIndex(task => task.id === editedTaskId);
+        if (editMode) {
+            // Find the task to edit by its title
+            const editedTaskIndex = tasks.findIndex(task => task.titleText === editedTaskTitle);
 
             if (editedTaskIndex !== -1) {
-                // Update the title and description of the edited task
-                tasks[editedTaskIndex].titleText = title;
-                tasks[editedTaskIndex].descText = description;
+                // Check for any other entries with the same new title
+                tasks.forEach((task) => {
+                    if (title !== tasks[editedTaskIndex].titleText && title === task.titleText) {
+                        alert('No duplicate entries allowed. Change your title.');
+                        isDuplicate = true;
+                    }
+                });
+
+                if (!isDuplicate) {
+                    // Update the title and description of the edited task
+                    tasks[editedTaskIndex].titleText = title;
+                    tasks[editedTaskIndex].descText = description;
+
+                    // Save the updated tasks array back to localStorage
+                    saveTasksToStorage(dateText, tasks);
+
+                    // Update the display for the edited task
+                    addTaskForDate(dateText);
+                }
+            }
+        } else {
+            // Check for any entries with the same title as the one entered
+            tasks.forEach((task) => {
+                if (title === task.titleText) {
+                    alert('No duplicate entries allowed. Change your title.');
+                    isDuplicate = true;
+                }
+            });
+
+            if (!isDuplicate) {
+                // Create a new task object
+                const newTask = { titleText: title, descText: description };
+
+                // Add the new task to the existing tasks array
+                tasks.push(newTask);
 
                 // Save the updated tasks array back to localStorage
-                saveTasksToStorage(tasks);
+                saveTasksToStorage(dateText, tasks);
 
-                // Update the display for the edited task
+                // adds task for the specified date
                 addTaskForDate(dateText);
             }
-            // Reset edit mode and editedTaskId
-            editMode = false;
-            editedTaskId = null;
-        } else {
-            // Get existing tasks from localStorage or initialize as an empty array
-            const tasks = loadTasksFromStorage();
-
-            // Create a new task object
-            const newTask = { id: generateUniqueId(), titleText: title, descText: description, date: dateText };
-
-            // Add the new task to the existing tasks array
-            tasks.push(newTask);
-
-            // Save the updated tasks array back to localStorage
-            saveTasksToStorage(tasks);
-
-            // adds task for the specified date
-            addTaskForDate(dateText);
         }
         
-        // Hide the pop-up
-        hidePopUp();
+        if (!isDuplicate) {
+            // Hide the pop-up
+            hidePopUp();
 
-        // Clear the inputs for the next task
-        titleInput.value = '';
-        descriptionInput.value = '';
+            // Clear the inputs for the next task
+            titleInput.value = '';
+            descriptionInput.value = '';
+            // Reset editMode and editedTaskId
+            editMode = false;
+            editedTaskTitle = null;         
+        }
+
+        // Reset isDuplicate
+        isDuplicate = false;
     }
 
     // Function to add task for a given date
@@ -206,7 +228,7 @@ function init () {
     function handleEditButtonClick(task) {
         // Set edit mode to true
         editMode = true;
-        editedTaskId = task.id;
+        editedTaskTitle = task.titleText;
 
         // Populate title and description inputs with task data
         titleInput.value = task.titleText;
@@ -218,28 +240,24 @@ function init () {
 
     // Function to handle the delete icon click event
     function handleDeleteButtonClick(task) {
-        console.log(task)
         const dateElement = document.getElementById('date');
         // Construct a unique key for localStorage based on the selected date
         const dateText = dateElement.textContent;
 
-        deletedTaskId = task.id;
-        let tasks = loadTasksFromStorage();
+        deletedTaskTitle = task.titleText;
+        let tasks = getTasksForDate(dateText);
 
         // Use filter to remove the task with the given id
-        tasks = tasks.filter(task => task.id !== deletedTaskId);
+        tasks = tasks.filter(taskFilter => taskFilter.titleText !== deletedTaskTitle);
 
-        saveTasksToStorage(tasks);
+        saveTasksToStorage(dateText, tasks);
         addTaskForDate(dateText);
-    }
-        deletedTaskId = tasks.id;
-        let tasks = loadTasksFromStorage();
 
-        // Use filter to remove the task with the given id
-        tasks = tasks.filter(task => task.id !== deletedTaskId);
-
-        saveTasksToStorage(tasks);
-        addTaskForDate(dateText);
+        const tasksObj = loadTasksFromStorage();
+        if (tasks.length == 0) { // Check if the tasks array is empty for the given day after deletion
+            delete tasksObj[dateText]; // Remove the corresponding date key from the tasks object
+            localStorage.setItem('tasks', JSON.stringify(tasksObj)); // Update the localStorage
+        }
     }
 
     // Function to add event listeners to each day element in the calendar.
@@ -262,3 +280,4 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
+};
