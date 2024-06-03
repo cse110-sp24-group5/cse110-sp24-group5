@@ -58,6 +58,8 @@ To use our WebApp you can use the following link: https://cse110-sp24-group5.git
 
 - **Navigation**: Users can seamlessly move through different months using intuitive buttons for the calendar and Dev Journal, ensuring easy access to past and future dates.
 
+- **Sentiment Analysis**: For a quick way to keep track of the moods of our users and help them in their self-care journey as SEs. We have a mood tracker where you can rate your mode based on a slider which is then converted into a corresponding emoji stored in the calendar for that day!
+
 
 ### 2. Calendar
 
