@@ -54,18 +54,35 @@
 <img src="https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&amp;logo=javascript" alt="JavaScript">
 <img src="https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&amp;logo=jsdoc" alt="JSDoc">
 <img src="https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&amp;logo=github-actions" alt="Super Linter"></p>
-<p>Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status.</p>
-<h2>Deployed Website</h2>
+<p>Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br></p>
 <p>Check out our deployed website <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html">here</a>.</p>
-<h2>Features</h2>
-<h3>Calendar</h3>
+<h2>Table of Contents</h2>
 <ul>
-<li><strong>Navigation</strong>: Move through different months seamlessly.</li>
-<li><strong>Task Viewing</strong>: Click on a day to view the task list for that specific date. Tasks are retrieved from localStorage.</li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#installation-and-setup">Installation and Setup</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#component-interaction">Component Interaction</a></li>
+<li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li><a href="#cicd-pipeline">CI/CD Pipeline</a></li>
+<li><a href="#linting">Linting</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#agile-concepts">Agile Concepts</a></li>
+<li><a href="#team-page">Team Page</a></li>
+</ul>
+<h2>Introduction</h2>
+<p>Our project aims to provide developers with a journal that can boost productivity throughout their development process and also help them keep track of their mental health...</p>
+<h2>Installation and Setup</h2>
+<h3>1. Using it locally</h3>
+<h3>2.</h3>
+<h2>Features</h2>
+<h3>1. Calendar</h3>
+<ul>
+<li><strong>Navigation</strong>: Move through different months seamlessly using arrow buttons.</li>
+<li><strong>Task Viewing</strong>: Click on a day to view the task list for that specific date. The number of tasks for a specific date can be viewed from the calendar page. Tasks are retrieved from localStorage.</li>
 <li><strong>Task Management</strong>: Add, edit, and remove tasks for any given day.</li>
 <li><strong>Saving Tasks</strong>: Click the save button to store tasks in localStorage.</li>
 </ul>
-<h3>Dev Journal</h3>
+<h3>2. Dev Journal</h3>
 <ul>
 <li><strong>Default View</strong>: Opens with the current date by default.</li>
 <li><strong>Date Picker</strong>: Use the date picker to switch between dates.</li>
@@ -78,8 +95,49 @@
 <li><strong>Role Selection</strong>: Select roles that you fulfilled on a given day.</li>
 <li><strong>Saving Data</strong>: All input data is saved to localStorage upon clicking the save button.</li>
 </ul>
-<h2>Team Page</h2>
-<p>Learn more about our team <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team">here</a>.</p>
+<h2>Component Interaction</h2>
+<h2>Keyboard Shortcuts</h2>
+<h2>CI/CD Pipeline</h2>
+<p>Our CI/CD pipeline ensures the quality and reliability of our code through the following stages:</p>
+<ol>
+<li><strong>Run Linters</strong>: Automatically checks for code style issues and potential bugs.</li>
+<li><strong>Generate JSDocs</strong>: Creates up-to-date documentation for our code.</li>
+<li><strong>Run Unit Tests</strong>: Verifies that individual components of our application work correctly.</li>
+<li><strong>Run End-to-End Tests</strong>: Simulates real user interactions to validate the entire workflow.</li>
+</ol>
+<h2>Linting</h2>
+<p>We used various linters including ESLint, StyleLint, and HTML Linting in our application.</p>
+<ol>
+<li><strong>ESLint</strong>: Helps detect syntax errors and code style issues in our JavaScript
+<ul>
+<li><code>npx eslint &quot;**/*.js&quot;</code> to run on all JS files</li>
+</ul>
+</li>
+<li><strong>StyleLint</strong>: Helps detect style issues in CSS
+<ul>
+<li><code>npx stylelint &quot;**/*.css&quot;</code> to run on all CSS files in the directory</li>
+</ul>
+</li>
+<li><strong>HTML Linting</strong>: Helps detect issues in our HTML
+<ul>
+<li><code>npx htmhint &quot;**/*.html&quot;</code> to run on all HTML files in the directory</li>
+</ul>
+</li>
+</ol>
+<h2>Testing</h2>
+<ol>
+<li><strong>Unit tests</strong>:
+<ul>
+<li>...</li>
+</ul>
+</li>
+<li><strong>E2E tests</strong>:
+<ul>
+<li>...</li>
+</ul>
+</li>
+</ol>
+<h2>Agile Concepts</h2>
 <h2>Video Links</h2>
 <ul>
 <li><strong>Team Video</strong>: Watch our team video <a href="https://www.youtube.com/watch?v=mqnLJw1I7lg">here</a>.</li>
@@ -91,14 +149,8 @@
 <li><strong>Miro Board</strong>: Explore our Miro board <a href="https://miro.com/app/board/uXjVKMiOIZM=/">here</a>.</li>
 <li><strong>Figma Mockup</strong>: View our Figma design <a href="https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&amp;t=WDiy1Dt2cr4rP5Ny-1">here</a>.</li>
 </ul>
-<h2>CI/CD Pipeline</h2>
-<p>Our CI/CD pipeline ensures the quality and reliability of our code through the following stages:</p>
-<ol>
-<li><strong>Run Linters</strong>: Automatically checks for code style issues and potential bugs.</li>
-<li><strong>Generate JSDocs</strong>: Creates up-to-date documentation for our code.</li>
-<li><strong>Run Unit Tests</strong>: Verifies that individual components of our application work correctly.</li>
-<li><strong>Run End-to-End Tests</strong>: Simulates real user interactions to validate the entire workflow.</li>
-</ol></article>
+<h2>Team Page</h2>
+<p>Learn more about our team <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team">here</a>.</p></article>
     </section>
 
 
@@ -111,7 +163,7 @@
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon Jun 03 2024 05:14:18 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon Jun 03 2024 05:38:19 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
