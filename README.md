@@ -17,6 +17,7 @@ Check out our deployed website [here](https://cse110-sp24-group5.github.io/cse11
 - [Keyboard Shortcuts](#keyboard-shortcuts)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Linting](#linting)
+- [JSDocs](#jsdocs)
 - [Testing](#testing)
 - [Agile Concepts](#agile-concepts)
 - [Application of the -ilities](#application-of-the-ilities)
@@ -126,10 +127,13 @@ We have implemented automated linting checks performed on every push or pull req
     * `npx htmhint "**/*.html"` to run on all HTML files in the directory
 4. **Fixing local linter issues**: Run all commands with `-fix` tag
 
+## JSDocs
+
+
 ## Testing
 1. **Codacy tests**:
     * ...
-      
+
 2. **Unit tests**: 
     * ...
       
