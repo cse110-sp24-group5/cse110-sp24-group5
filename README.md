@@ -39,13 +39,13 @@ To install and run the project locally, follow these steps:
 
 2. Navigate to the project directory:
 
-
         cd cse110-sp24-group5
 
 3. Install the required dependencies by running:
    
         npm install
-4. Once the installation is complete, you can start the development server with:
+   
+5. Once the installation is complete, you can start the development server with:
 
         npm start
 
@@ -134,7 +134,11 @@ We have implemented automated linting checks performed on every push or pull req
     * ...
       
 3. **E2E tests**: We created a variety of E2E tests for our developer journal and calendar features. Our comprehensive tests ensure that there are no issues or bugs in our application following any possible action a user could take.
-    * ...
+    * Run all E2E tests in the directory using: 
+        * `npm run e2eTests`
+     
+    * Run a specific E2E test file in the directory using:
+        * `npm run e2eTests -- <path to file>`
 
 <!-- not sure if Agile should be included or not (we can include links to documents if we decide to -->
 ## Agile Concepts
