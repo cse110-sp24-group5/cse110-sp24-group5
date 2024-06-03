@@ -2,7 +2,7 @@
 describe('Task list test suite', () => {
     // Start by visiting the calendar part of our webapp
     beforeAll(async () => {
-        //await page.goto('http://127.0.0.1:5501/source/html/calendar.html');
+        //await page.goto('http://127.0.0.1:5500/cse110-sp24-group5/source/html/calendar.html'); // test locally
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
     // Add new task functionality
@@ -54,7 +54,12 @@ describe('Task list test suite', () => {
     it('Locally saved new tasks', async () => {
         // count initial number of tasks
         const taskInitCount = await page.evaluate(() => {
-            return JSON.parse(localStorage.getItem('tasks')).length;
+            const tasksObj = JSON.parse(localStorage.getItem('tasks'));
+            let sum = 0;
+            for (const date in tasksObj) {
+                sum = sum + tasksObj[date].length;
+            }
+            return sum;
         });
         // Get the newly added task's title from the task list
         const displayedTaskTitleInit = await page.$('.task-container>#task');
@@ -72,7 +77,12 @@ describe('Task list test suite', () => {
         await firstOfTheMonth.click();
         // count final number of tasks
         const taskFinCount = await page.evaluate(() => {
-            return JSON.parse(localStorage.getItem('tasks')).length;
+            const tasksObj = JSON.parse(localStorage.getItem('tasks'));
+            let sum = 0;
+            for (const date in tasksObj) {
+                sum = sum + tasksObj[date].length;
+            }
+            return sum;
         });
         // Get the newly added task's title from the task list
         const displayedTaskTitleFin = await page.$('.task-container>#task');
@@ -128,7 +138,12 @@ describe('Task list test suite', () => {
     it('Locally saved edited tasks', async () => {
         // count initial number of tasks
         const taskInitCount = await page.evaluate(() => {
-            return JSON.parse(localStorage.getItem('tasks')).length;
+            const tasksObj = JSON.parse(localStorage.getItem('tasks'));
+            let sum = 0;
+            for (const date in tasksObj) {
+                sum = sum + tasksObj[date].length;
+            }
+            return sum;
         });
         // Get the newly added task's title from the task list
         const displayedTaskTitleInit = await page.$('.task-container>#task');
@@ -146,7 +161,12 @@ describe('Task list test suite', () => {
         await firstOfTheMonth.click();
         // count final number of tasks
         const taskFinCount = await page.evaluate(() => {
-            return JSON.parse(localStorage.getItem('tasks')).length;
+            const tasksObj = JSON.parse(localStorage.getItem('tasks'));
+            let sum = 0;
+            for (const date in tasksObj) {
+                sum = sum + tasksObj[date].length;
+            }
+            return sum;
         });
         // Get the newly added task's title from the task list
         const displayedTaskTitleFin = await page.$('.task-container>#task');
@@ -181,7 +201,12 @@ describe('Task list test suite', () => {
     it('Locally saved deleted tasks', async () => {
         // count initial number of tasks
         const taskInitCount = await page.evaluate(() => { // note: started replacing all `await page.$$eval('.task-list-ul li', (tasks) => tasks.length);` with direct localStorage checks as expected length for empty array was 1.
-            return JSON.parse(localStorage.getItem('tasks')).length;
+            const tasksObj = JSON.parse(localStorage.getItem('tasks'));
+            let sum = 0;
+            for (const date in tasksObj) {
+                sum = sum + tasksObj[date].length;
+            }
+            return sum;
         });
 
         await page.reload();
@@ -191,7 +216,12 @@ describe('Task list test suite', () => {
         await firstOfTheMonth.click();
         // count final number of tasks
         const taskFinCount = await page.evaluate(() => {
-            return JSON.parse(localStorage.getItem('tasks')).length;
+            const tasksObj = JSON.parse(localStorage.getItem('tasks'));
+            let sum = 0;
+            for (const date in tasksObj) {
+                sum = sum + tasksObj[date].length;
+            }
+            return sum;
         });
 
         expect(taskFinCount).toBe(taskInitCount);
@@ -224,7 +254,12 @@ describe('Task list test suite', () => {
 
         // verify that 50 tasks have been added
         const taskCount = await page.evaluate(() => {
-            return JSON.parse(localStorage.getItem('tasks')).length;
+            const tasksObj = JSON.parse(localStorage.getItem('tasks'));
+            let sum = 0;
+            for (const date in tasksObj) {
+                sum = sum + tasksObj[date].length;
+            }
+            return sum;
         });
         expect(taskCount).toBe(50);
 
