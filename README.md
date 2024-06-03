@@ -34,7 +34,7 @@ To install and run the project locally, follow these steps:
 
 1. Clone the repository to your local machine using the following command:
    
-        git clone
+        git clone https://github.com/cse110-sp24-group5/cse110-sp24-group5.git
 
 2. Navigate to the project directory:
 
