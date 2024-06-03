@@ -502,3 +502,5 @@ describe('Task list test suite', () => {
         expect(taskListParentAfterClose.length).toBe(1);
         console.log('Check "add new task" functionality on the first day of the current month');
     });
+
+});
