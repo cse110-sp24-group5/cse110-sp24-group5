@@ -218,21 +218,11 @@ function init () {
 
     // Function to handle the delete icon click event
     function handleDeleteButtonClick(task) {
-        console.log(task)
         const dateElement = document.getElementById('date');
         // Construct a unique key for localStorage based on the selected date
         const dateText = dateElement.textContent;
 
-        deletedTaskId = task.id;
-        let tasks = loadTasksFromStorage();
-
-        // Use filter to remove the task with the given id
-        tasks = tasks.filter(task => task.id !== deletedTaskId);
-
-        saveTasksToStorage(tasks);
-        addTaskForDate(dateText);
-    }
-        deletedTaskId = tasks.id;
+        deletedTaskId = task.id
         let tasks = loadTasksFromStorage();
 
         // Use filter to remove the task with the given id
@@ -262,3 +252,4 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
+};
