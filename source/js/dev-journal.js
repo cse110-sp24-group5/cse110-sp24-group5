@@ -1,4 +1,4 @@
-/* marked */
+/* dev-journal.js */
 
 /**
  * Format the date to be of the form YYYY-MM-DD
@@ -35,6 +35,9 @@ function setFields() {
     });
 }
 
+/**
+ * Upon call of the function, the preview of the Markdown will be shown (similar to GitHub functionality)
+ */
 function showPreview(){
     console.log("show preview")
     const input = document.querySelector('.editor');
@@ -82,6 +85,25 @@ function toggleCheckbox(checkboxId) {
 }
 
 /**
+ * Get item from local storage and parse in order to return an object containg the parsed data for all the dates.
+ * @returns {Object} Object containing journal objects (specified in the header for the saveData function) associated with dates for which the user has entered data
+ */
+function getFromLocalStorage() {
+    if (!localStorage) {
+        alert("Local storage is not supported on this browser. Data cannot be loaded.");
+    }
+
+    const jsonData = localStorage.getItem('dev-journal');
+    let data = JSON.parse(jsonData);
+
+    if (!data) {
+        data = {};
+    }
+
+    return data;
+}
+
+/**
  * Saves data to local storage in the following format
  * 
  * date1 : {    
@@ -101,15 +123,7 @@ function toggleCheckbox(checkboxId) {
 function saveData() {
     const currentDate = document.getElementById('datepicker').value;
 
-    if (!localStorage) {
-        alert("Local storage is not supported on this browser. Data cannot be loaded.");
-    }
-
-    let jsonData = localStorage.getItem('dev-journal');
-    jsonData = JSON.parse(jsonData);
-    if (!jsonData){
-        jsonData = {};
-    }
+    let jsonData = getFromLocalStorage();
 
     const markdownEditor = document.getElementById('markdown-editor').value;
     const roleFulfilled = {
@@ -146,16 +160,7 @@ function saveData() {
 function loadData() {
     const currentDate = document.getElementById('datepicker').value;
 
-    if (!localStorage) {
-        alert("Local storage is not supported on this browser. Data cannot be loaded.");
-    }
-
-    const jsonData = localStorage.getItem('dev-journal');
-    let data = JSON.parse(jsonData);
-
-    if (!data){
-        data = {};
-    }
+    let data = getFromLocalStorage();
 
     if (!(currentDate in data)) {
         // set to default - empty strings and unselected
@@ -198,29 +203,6 @@ function load(){
 
     const saveButton = document.querySelector('.save-button');
     saveButton.addEventListener('click', saveData);
-
-    // Terminal for 's', 'p', 'e', 'b' or 'l' key followed by Enter in terminal input
-    /*
-    const terminalInput = document.getElementById('terminal-input');
-    terminalInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            if (terminalInput.value === 's') { //Save
-                saveData();
-            } else if (terminalInput.value === 'p') { //Preview
-                showPreview();
-            } else if (terminalInput.value === 'e') { //Edit
-                showEditor();
-            } else if (terminalInput.value === 'b'){ //Bug
-                showBug(); 
-            }
-            else if (terminalInput.value === 'l'){ //Learnings
-                showLearnings();
-            }
-        terminalInput.value = ''; // Clear the input after action
-        terminalInput.style.display = 'none'; //Make the terminal invisible after pressing enter
-        }
-    });
-    */
 
     let terminalState = localStorage.getItem('terminalState');
         // checks if terminal was previously opened on another page and if so it toggles it on
