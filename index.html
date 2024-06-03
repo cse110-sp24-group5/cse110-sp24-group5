@@ -61,10 +61,9 @@
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#installation-and-setup">Installation and Setup</a></li>
 <li><a href="#features">Features</a></li>
-<li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
 <li><a href="#cicd-pipeline">CI/CD Pipeline</a></li>
 <li><a href="#linting">Linting</a></li>
-<li><a href="#jsdocs">JSDocs</a></li>
+<li><a href="#jsdoc">JSDoc</a></li>
 <li><a href="#testing">Testing</a></li>
 <li><a href="#agile-concepts">Agile Concepts</a></li>
 <li><a href="#application-of-the-ilities">Application of the -ilities</a></li>
@@ -161,12 +160,53 @@ encompassing the different roles a software engineer fulfils.</p>
 <p><strong>Saving Data</strong>: All input data, including journal entries and selected roles, is automatically saved to localStorage upon clicking the save button, ensuring data persistence and enabling users to pick up where they left off seamlessly.</p>
 </li>
 </ul>
-<h2>Keyboard Shortcuts</h2>
+<h3>4. Keyboard Shortcuts</h3>
+<p>To help developers quickly navigate through our features, we included keyboard shortcuts (all of which are case insensitive) that can used in the terminal for efficient usage of our application.</p>
+<ul>
+<li>
+<p><strong>Opening Terminal</strong>: <code>ctrl</code> + <code>\</code></p>
+</li>
+<li>
+<p><strong>Homepage Shortcuts</strong>:</p>
+<ul>
+<li>Go to developer journal: <code>cd dev-journal</code></li>
+<li>Go to calendar: <code>cd calendar</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Developer Journal Shortcuts</strong>:</p>
+<ul>
+<li>Go to dashboard: <code>cd..</code></li>
+<li>Preview markdown document: <code>md p</code></li>
+<li>Edit markdown document: <code>md e</code></li>
+<li>Write learnings: <code>l</code></li>
+<li>Write bugs: <code>b</code></li>
+<li>Choosing roles:
+<ul>
+<li>debugging: <code>bug</code></li>
+<li>documentation: <code>doc</code></li>
+<li>coding: <code>code</code></li>
+<li>communication: <code>com</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Calendar Shortcuts</strong>:</p>
+<ul>
+<li>Choosing a date: <code>DD</code></li>
+<li>Choosing a month and year: <code>MM/YYYY</code></li>
+<li>Deleting a task: <code>taskname d</code></li>
+<li>Editing a task: <code>taskname e</code></li>
+</ul>
+</li>
+</ul>
 <h2>CI/CD Pipeline</h2>
 <p>Our CI/CD pipeline ensures the quality and reliability of our code through the following stages:</p>
 <ol>
 <li><strong>Run Linters</strong>: Automatically checks for code style issues and potential bugs.</li>
-<li><strong>Generate JSDocs</strong>: Creates up-to-date documentation for our code.</li>
+<li><strong>Generate JSDoc</strong>: Creates up-to-date documentation for our code.</li>
+<li><strong>Run Codacy Tests</strong>:</li>
 <li><strong>Run Unit Tests</strong>: Verifies that individual components of our application work correctly.</li>
 <li><strong>Run End-to-End Tests</strong>: Simulates real user interactions to validate the entire workflow.</li>
 </ol>
@@ -174,41 +214,68 @@ encompassing the different roles a software engineer fulfils.</p>
 <p>Linting is a crucial practice that helps ensure code quality, consistency, and maintainability across the entire codebase. In this project, linting has been set up for HTML, CSS, and JavaScript to adhere to industry-standard best practices and coding conventions. HTML linting checks for proper markup structure, CSS linting maintains consistent stylesheet styles, and JavaScript linting catches syntax errors, potential bugs, and performance issues in the application's logic and functionality.</p>
 <p>We have implemented automated linting checks performed on every push or pull request to make sure potential issues are caught early in the development process, and make sure that our coding standard is met. When you push changes, on GitHub you will be able to see a tick or cross next to it based on whether it passes that check. You can click on the same to view details. Along with this you can also run the linter locally.</p>
 <ol>
-<li><strong>ESLint</strong>: Helps detect syntax errors and code style issues in our JavaScript
+<li>
+<p><strong>ESLint</strong>: Helps detect syntax errors and code style issues in our JavaScript</p>
 <ul>
 <li><code>npx eslint &quot;**/*.js&quot;</code> to run on all JS files</li>
 </ul>
 </li>
-<li><strong>StyleLint</strong>: Helps detect style issues in CSS
+<li>
+<p><strong>StyleLint</strong>: Helps detect style issues in CSS</p>
 <ul>
 <li><code>npx stylelint &quot;**/*.css&quot;</code> to run on all CSS files in the directory</li>
 </ul>
 </li>
-<li><strong>HTML Linting</strong>: Helps detect issues in our HTML
+<li>
+<p><strong>HTML Linting</strong>: Helps detect issues in our HTML</p>
 <ul>
 <li><code>npx htmhint &quot;**/*.html&quot;</code> to run on all HTML files in the directory</li>
 </ul>
 </li>
-<li><strong>Fixing local linter issues</strong>: Run all commands with <code>-fix</code> tag</li>
+<li>
+<p><strong>Fixing local linter issues</strong>: Run all commands with <code>-fix</code> tag</p>
+</li>
 </ol>
-<h2>JSDocs</h2>
+<h2>JSDoc</h2>
+<p>Automated and up-to-date documentation: By integrating JSDoc into our CI/CD pipeline, the documentation is automatically generated and updated whenever changes are pushed, ensuring that the documentation always reflects the latest codebase.</p>
+<p>Consistent formatting and structure: JSDoc provides a consistent and standardized format for documenting functions, classes, and other code elements, making it easier for developers to navigate and understand the codebase.</p>
+<p>Integration with development tools: Many IDEs and code editors have built-in support for JSDoc, allowing developers to easily view and access documentation while writing code.</p>
 <h2>Testing</h2>
 <ol>
 <li>
-<p><strong>Codacy tests</strong>:</p>
+<p><strong>Codacy Tests</strong>:</p>
 <ul>
 <li>...</li>
 </ul>
 </li>
 <li>
-<p><strong>Unit tests</strong>:</p>
+<p><strong>Unit Tests</strong>:</p>
 <ul>
-<li>...</li>
+<li>
+<p>Run all unit tests in the directory using:</p>
+<ul>
+<li><code>npm run unitTests</code></li>
 </ul>
 </li>
 <li>
-<p><strong>E2E tests</strong>: We created a variety of E2E tests for our developer journal and calendar features. Our comprehensive tests ensure that there are no issues or bugs in our application following any possible action a user could take.</p>
+<p>Run a specific E2E test file in the directory using:</p>
 <ul>
+<li><code>npm run unitTests -- &lt;path to file&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>E2E Tests</strong>: We created a variety of comprehensive E2E tests to ensure that there are no issues or bugs in our application following any possible action a user could take.</p>
+<ul>
+<li>
+<p>List of our testing suites:</p>
+<ul>
+<li><code>home-page.e2e.js</code> which tests our homepage</li>
+<li><code>dev-journal.e2e.js</code> which tests our developer journal feature</li>
+<li><code>taskListTestSuite.e2e.js</code> which tests our calendar and task-list feature</li>
+</ul>
+</li>
 <li>
 <p>Run all E2E tests in the directory using:</p>
 <ul>
@@ -224,39 +291,57 @@ encompassing the different roles a software engineer fulfils.</p>
 </ul>
 </li>
 </ol>
-<!-- not sure if Agile should be included or not (we can include links to documents if we decide to -->
 <h2>Agile Concepts</h2>
 <ol>
-<li>User stories</li>
-<li>Sprint</li>
-<li>Sprint Review</li>
-<li>Retrospective</li>
+<li>
+<p><strong>User Stories</strong>
+<img src="source/img/user-story-1.png" alt="user-story-1">
+<img src="source/img/user-story-2.png" alt="user-story-2">
+<img src="source/img/user-story-3.png" alt="user-story-3"></p>
+</li>
+<li>
+<p><strong>Sprint</strong>:</p>
+</li>
+<li>
+<p><strong>Sprint Review</strong>: A meeting done at the end of each sprint, held to discuss what was accomplished in our sprint and our individual contributions.</p>
+<ul>
+<li><a href="admin/meetings/042724.sprint-1-review.md">Sprint Review #1</a></li>
+<li><a href="admin/meetings/052324-2nd-Sprint-Meeting.md">Sprint Review #2</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Retrospective</strong>: A meeting held after the sprint review used to reflect our previous sprint and discuss the high level issues of what went right and wrong.</p>
+<ul>
+<li><a href="admin/meetings/042724-retrospective.md">Retrospective meeting #1</a></li>
+<li><a href="admin/meetings/052324-2nd-Retrospective.md">Retrospective meeting #2</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Burn Down Chart</strong>: In order to keep track of our progress throughout our development process, how much we have accomplished, and how much more we need to accomplish, we utilized GitHub Projects' project tracker.
+<img src="source/img/project-tracker-1.png" alt="project-tracker-1">
+<img src="source/img/project-tracker-2.png" alt="project-tracker-2"></p>
+</li>
 </ol>
 <h2>Application of the -ilities</h2>
 <ol>
 <li>
-<p>Functional Suitability</p>
+<p><strong>Functional Suitability</strong>:</p>
+<ul>
+<li>We designed comprehensive unit and end-to-end tests utilizing Jest to ensure that all bugs and issues in our application have been addressed. We discuss our testing methods more in depth <a href="#testing">here</a>.</li>
+</ul>
 </li>
 <li>
-<p>Performance Efficiency</p>
+<p><strong>Usability</strong>:</p>
+<ul>
+<li>Since our application is targetted toward developers, we have designed terminal command shortcuts which can be accesed using one's keyboard so that developers can easily access and move between features. <a href="#features">Click here</a> to learn about the commands that we have created.</li>
+<li>We have also created a progressive web app (PWA) so that developers can install our application and use it offline. <a href="#installation-and-setup">Click here</a> for more information about our PWA.</li>
+</ul>
 </li>
 <li>
-<p>Compatibility</p>
-</li>
-<li>
-<p>Usability</p>
-</li>
-<li>
-<p>Reliability</p>
-</li>
-<li>
-<p>Security</p>
-</li>
-<li>
-<p>Maintainability</p>
-</li>
-<li>
-<p>Portability</p>
+<p><strong>Maintainability</strong>:</p>
+<ul>
+<li>To ensure that our code is good-quality and made to last, we utilized Codeacy tests to ... <a href="#testing">Click here</a> to learn more about our Codeacy tests and what they accomplish.</li>
+</ul>
 </li>
 </ol>
 <h2>Resources</h2>
@@ -304,7 +389,7 @@ encompassing the different roles a software engineer fulfils.</p>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon Jun 03 2024 21:21:21 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon Jun 03 2024 21:37:35 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
