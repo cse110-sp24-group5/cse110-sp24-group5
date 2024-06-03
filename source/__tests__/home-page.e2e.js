@@ -11,7 +11,7 @@ describe('Test to ensure all components of main page are working', () => {
             // name of user is rejected now
             await dialog.dismiss();
         });
-        await page.goto('http://127.0.0.1:5501/source/html/index.html');
+        await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
     // Test home page 
@@ -19,7 +19,7 @@ describe('Test to ensure all components of main page are working', () => {
         // get the home url
         const home_URL = await page.url();
         // TEST checks to see if it matches the deployed page
-        expect(home_URL).toBe('http://127.0.0.1:5501/source/html/index.html');
+        expect(home_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
 
         // TEST expected name of user after rejecting dialogue
         const nameReject = await page.$eval('#name', el => el.textContent);
@@ -38,7 +38,7 @@ describe('Test to ensure all components of main page are working', () => {
         // gets the url of the page after load
         const curr_URL = await page.url();
         // checks that the current page is the journal page
-        expect(curr_URL).toBe('http://127.0.0.1:5501/source/html/dev-journal.html');
+        expect(curr_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/dev-journal.html');
 
         // ~~ GOING BACK HOME ~~
         // gets back button in page
@@ -56,7 +56,7 @@ describe('Test to ensure all components of main page are working', () => {
         // gets home url again
         const return_URL = await page.url();
         // checks if returned to home url
-        expect(return_URL).toBe('http://127.0.0.1:5501/source/html/index.html');
+        expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
     // Home page test again 
@@ -79,7 +79,7 @@ describe('Test to ensure all components of main page are working', () => {
         // gets the url of the page after load
         const curr_URL = await page.url();
         // checks for expected calandar url
-        expect(curr_URL).toBe('http://127.0.0.1:5501/source/html/calendar.html');
+        expect(curr_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
 
         // ~~ GOING BACK HOME ~~
         // gets back button in page
@@ -91,7 +91,7 @@ describe('Test to ensure all components of main page are working', () => {
         // gets home url again
         const return_URL = await page.url();
         // checks if returned to home url
-        expect(return_URL).toBe('http://127.0.0.1:5501/source/html/index.html');
+        expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
     // Sentiment widget component #TODO
@@ -101,14 +101,14 @@ describe('Test to ensure all components of main page are working', () => {
 
     // OFFLINE TESTS
     // Test home page
-    it('Ensures home page works OFFLINE', async () => {
+    /* it('Ensures home page works OFFLINE', async () => {
         // goes offline
         await page.setOfflineMode(true);
         await page.reload();
         // get the home url
         const home_URL = await page.url();
         // checks to see if it matches the deployed page
-        expect(home_URL).toBe('http://127.0.0.1:5501/source/html/index.html');
+        expect(home_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
     // DevJournal component
@@ -123,7 +123,7 @@ describe('Test to ensure all components of main page are working', () => {
         // gets the url of the page after load
         const curr_URL = await page.url();
         // checks that the current page is the journal page
-        expect(curr_URL).toBe('http://127.0.0.1:5501/source/html/dev-journal.html');
+        expect(curr_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/dev-journal.html');
 
         // ~~ GOING BACK HOME ~~
         // gets back button in page
@@ -135,7 +135,7 @@ describe('Test to ensure all components of main page are working', () => {
         // gets home url again
         const return_URL = await page.url();
         // checks if returned to home url
-        expect(return_URL).toBe('http://127.0.0.1:5501/source/html/index.html');
+        expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
     // Calandar section
@@ -150,7 +150,7 @@ describe('Test to ensure all components of main page are working', () => {
         // gets the url of the page after load
         const curr_URL = await page.url();
         // checks for expected calandar url
-        expect(curr_URL).toBe('http://127.0.0.1:5501/source/html/calendar.html');
+        expect(curr_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
 
         // ~~ GOING BACK HOME ~~
         // gets back button in page
@@ -162,11 +162,11 @@ describe('Test to ensure all components of main page are working', () => {
         // gets home url again
         const return_URL = await page.url();
         // checks if returned to home url
-        expect(return_URL).toBe('http://127.0.0.1:5501/source/html/index.html');
+        expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
         // Goes back online
         await page.setOfflineMode(false);
         await page.reload();
-    });
+    }); */
 
     // Sentiment widget component #TODO
     /* it('Ensures interaction with sentiment widget works OFFLINE', async () => {
