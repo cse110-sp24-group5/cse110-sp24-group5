@@ -23,11 +23,34 @@ Check out our deployed website [here](https://cse110-sp24-group5.github.io/cse11
 - [Team Page](#team-page)
 
 ## Introduction
-Our project aims to provide developers with a journal that can boost productivity throughout their development process and also help them keep track of their mental health... 
+In the fast-paced world of software development, productivity and mental well-being are crucial for success. Developers often find themselves juggling multiple tasks, deadlines, and responsibilities, which can lead to burnout and decreased efficiency. Our project aims to provide a comprehensive solution to address these challenges by offering a journal that not only boosts productivity throughout the development process but also helps developers keep track of their mental health.
+
+The journal serves as a centralized hub where developers can effectively manage their tasks, document their progress, and reflect on their daily experiences. By combining powerful features such as a calendar, task management, and a markdown-enabled development journal, our application streamlines the workflow and encourages mindful practices. With the calendar feature, developers can easily navigate through different months, view task lists, and manage their tasks seamlessly. The development journal component allows developers to document their activities, thoughts, and learnings using a user-friendly markdown editor, while also selecting the roles they fulfilled on a given day. By integrating mental health considerations, our journal encourages developers to prioritize their well-being through regular reflection and journaling.
 
 ## Installation and Setup
 ### 1. Using it locally
-### 2. 
+
+To install and run the project locally, follow these steps:
+
+1. Clone the repository to your local machine using the following command:
+   
+        git clone
+
+2. Navigate to the project directory:
+
+
+        cd cse110-sp24-group5
+
+3. Install the required dependencies by running:
+   
+        npm install
+4. Once the installation is complete, you can start the development server with:
+
+        npm start
+
+### 2. Using the WebApp
+
+To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html
 
 ## Features
 
