@@ -1,4 +1,4 @@
-const URL = 'http://127.0.0.1:5501/source/html/dev-journal.html';
+const URL = 'https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/dev-journal.html';
 describe('Dev Journal Page', () => {
 
     // First, visit the website
