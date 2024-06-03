@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDayClickEvents">addDayClickEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#clearPreviousDays">clearPreviousDays</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createBlankDay">createBlankDay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createCalendarDay">createCalendarDay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createCalendarDays">createCalendarDays</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createOverlay">createOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#formatDate">formatDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getMonthDetails">getMonthDetails</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hideOverlay">hideOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hideTaskListPopUp">hideTaskListPopUp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertBlankSpacesAtEnd">insertBlankSpacesAtEnd</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertBlankSpacesAtStart">insertBlankSpacesAtStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadData">loadData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#renderCalendar">renderCalendar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#saveData">saveData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setFields">setFields</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#settingRowNumber">settingRowNumber</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showEditor">showEditor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showOverlay">showOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showTaskListPopUp">showTaskListPopUp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateMonthYearText">updateMonthYearText</a></span></li>
 </nav>
 
 <div id="main">
@@ -54,113 +54,43 @@
 <img src="https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&amp;logo=javascript" alt="JavaScript">
 <img src="https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&amp;logo=jsdoc" alt="JSDoc">
 <img src="https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&amp;logo=github-actions" alt="Super Linter"></p>
-<p>Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br></p>
+<p>Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status.</p>
+<h2>Deployed Website</h2>
 <p>Check out our deployed website <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html">here</a>.</p>
-<h2>Table of Contents</h2>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#installation-and-setup">Installation and Setup</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
-<li><a href="#cicd-pipeline">CI/CD Pipeline</a></li>
-<li><a href="#linting">Linting</a></li>
-<li><a href="#testing">Testing</a></li>
-<li><a href="#agile-concepts">Agile Concepts</a></li>
-<li><a href="#application-of-the-ilities">Application of the -ilities</a></li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#team-members">Team Members</a></li>
-</ul>
-<h2>Introduction</h2>
-<p>In the fast-paced world of software development, productivity and mental well-being are crucial for success. Developers often find themselves juggling multiple tasks, deadlines, and responsibilities, which can lead to burnout and decreased efficiency. Our project aims to provide a comprehensive solution to address these challenges by offering a journal that not only boosts productivity throughout the development process but also helps developers keep track of their mental health.</p>
-<p>The journal serves as a centralized hub where developers can effectively manage their tasks, document their progress, and reflect on their daily experiences. By combining powerful features such as a calendar, task management, and a markdown-enabled development journal, our application streamlines the workflow and encourages mindful practices. With the calendar feature, developers can easily navigate through different months, view task lists, and manage their tasks seamlessly. The development journal component allows developers to document their activities, thoughts, and learnings using a user-friendly markdown editor, while also selecting the roles they fulfilled on a given day. By integrating mental health considerations, our journal encourages developers to prioritize their well-being through regular reflection and journaling.</p>
-<h2>Installation and Setup</h2>
-<h3>1. Using it locally</h3>
-<p>To install and run the project locally, follow these steps:</p>
-<ol>
-<li>
-<p>Clone the repository to your local machine using the following command:</p>
-<pre><code> git clone https://github.com/cse110-sp24-group5/cse110-sp24-group5.git
-</code></pre>
-</li>
-<li>
-<p>Navigate to the project directory:</p>
-<pre><code> cd cse110-sp24-group5
-</code></pre>
-</li>
-<li>
-<p>Install the required dependencies by running:</p>
-<pre><code> npm install
-</code></pre>
-</li>
-<li>
-<p>Once the installation is complete, you can start the development server with:</p>
-<pre><code> npm start
-</code></pre>
-</li>
-</ol>
-<h3>2. Using the WebApp</h3>
-<p>To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html</p>
-<h3>3. Using the Progressive Web App (PWA)</h3>
 <h2>Features</h2>
-<h3>1. Dashboard</h3>
+<h3>Calendar</h3>
 <ul>
-<li>
-<p><strong>Navigation</strong>: Users can seamlessly move through different months using intuitive buttons for the calendar and Dev Journal, ensuring easy access to past and future dates.</p>
-</li>
-<li>
-<p><strong>Sentiment Analysis</strong>: For a quick way to keep track of the moods of our users and help them in their self-care journey as software engineers. We have a mood tracker where you can rate your mode based on a slider which is then converted into a corresponding emoji stored in the calendar for that day!</p>
-</li>
-<li>
-<p><strong>Terminal Commands</strong>: In the top left corner, once clicked, a shortcut of all possible terminal commands are given so that users can easily navigate within features.</p>
-</li>
+<li><strong>Navigation</strong>: Move through different months seamlessly.</li>
+<li><strong>Task Viewing</strong>: Click on a day to view the task list for that specific date. Tasks are retrieved from localStorage.</li>
+<li><strong>Task Management</strong>: Add, edit, and remove tasks for any given day.</li>
+<li><strong>Saving Tasks</strong>: Click the save button to store tasks in localStorage.</li>
 </ul>
-<h3>2. Calendar</h3>
-<p>The calendar feature provides a comprehensive view of tasks and events, allowing developers to efficiently manage their schedules and stay organized.</p>
+<h3>Dev Journal</h3>
 <ul>
-<li>
-<p><strong>Task Viewing</strong>: By clicking on a specific day, users can view the task list associated with that date. The number of tasks for a given date is visually displayed on the calendar page, providing an at-a-glance overview of workload distribution. Tasks are retrieved from localStorage, ensuring data persistence across sessions.</p>
-</li>
-<li>
-<p><strong>Task Management</strong>: Users can add, edit, and remove tasks for any given day directly from the calendar interface. This streamlined workflow promotes efficient task organization and management.</p>
-</li>
-<li>
-<p><strong>Saving Tasks</strong>: To ensure data integrity, users can click the save button to store their tasks in localStorage, enabling seamless access to their task lists across multiple sessions or devices.</p>
-</li>
-</ul>
-<h3>3. Dev Journal</h3>
-<p>The Dev Journal feature provides a dedicated space for developers to document their daily activities, thoughts, and learnings, fostering personal growth and reflection.</p>
-<p><img src="source/img/developer-journal-demo.gif" alt="dev-journal-demo.gif"></p>
+<li><strong>Default View</strong>: Opens with the current date by default.</li>
+<li><strong>Date Picker</strong>: Use the date picker to switch between dates.</li>
+<li><strong>Markdown Editor</strong>: Write and preview your journal entries using a markdown editor.
 <ul>
-<li>
-<p><strong>Default View</strong>: Upon opening the Dev Journal, users are presented with the current date by default, ensuring a smooth and intuitive start to their journaling experience.</p>
-</li>
-<li>
-<p><strong>Date Picker</strong>: A user-friendly date picker allows users to easily switch between dates, enabling them to access and update journal entries for any specific day.</p>
-</li>
-<li>
-<p><strong>Markdown Editor</strong>: Leveraging the power of Markdown, the Dev Journal offers a rich and versatile editing experience. Users can write and preview their journal entries using a fully-featured markdown editor, supporting formatting, code snippets, and other advanced features.</p>
-</li>
-<li>
-<p><strong>Scrolling</strong>: If the content exceeds the viewable area, users can seamlessly scroll within both the preview and the editor panes, ensuring a comfortable and uninterrupted writing experience.</p>
-</li>
-<li>
-<p><strong>Toggle View</strong>: With the click of a button, users can toggle between the editor and the preview views, allowing for efficient switching between writing and reviewing modes.</p>
-</li>
-<li>
-<p><strong>Role Selection</strong>: To provide context and clarity, users can select the roles they fulfilled on a given day, such as working on code, documentation, debugging and communication.  This feature enhances the journaling experience by
-encompassing the different roles a software engineer fulfils.</p>
-</li>
-<li>
-<p><strong>Bug Tracker</strong>: To help Software Engineers keep track of unique Bugs they encounter and their solutions, we have a space to track bugs. This can also be a metaphor to bugs or problems they encounter in their lives as a Software Engineer and not just Bugs related to Code.</p>
-</li>
-<li>
-<p><strong>Learnings</strong>: To help our user keep track of thier daily learning we have dedicated a space to this.</p>
-</li>
-<li>
-<p><strong>Saving Data</strong>: All input data, including journal entries and selected roles, is automatically saved to localStorage upon clicking the save button, ensuring data persistence and enabling users to pick up where they left off seamlessly.</p>
-</li>
+<li><strong>Scrolling</strong>: If your content exceeds the viewable area, you can scroll within both the preview and the editor.</li>
+<li><strong>Toggle View</strong>: Switch between the editor and the preview using the provided buttons.</li>
 </ul>
-<h2>Keyboard Shortcuts</h2>
+</li>
+<li><strong>Role Selection</strong>: Select roles that you fulfilled on a given day.</li>
+<li><strong>Saving Data</strong>: All input data is saved to localStorage upon clicking the save button.</li>
+</ul>
+<h2>Team Page</h2>
+<p>Learn more about our team <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team">here</a>.</p>
+<h2>Video Links</h2>
+<ul>
+<li><strong>Team Video</strong>: Watch our team video <a href="https://www.youtube.com/watch?v=mqnLJw1I7lg">here</a>.</li>
+<li><strong>MVP/EC Video</strong>: Watch the MVP/EC demonstration video <a href="https://youtu.be/2HepYe5-YLw">here</a>.</li>
+<li><strong>Status Video 2</strong>: Watch the Status Video 2 demonstration video <a href="https://www.youtube.com/watch?v=myacnpHmjUQ">here</a>.</li>
+</ul>
+<h2>Design Resources</h2>
+<ul>
+<li><strong>Miro Board</strong>: Explore our Miro board <a href="https://miro.com/app/board/uXjVKMiOIZM=/">here</a>.</li>
+<li><strong>Figma Mockup</strong>: View our Figma design <a href="https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&amp;t=WDiy1Dt2cr4rP5Ny-1">here</a>.</li>
+</ul>
 <h2>CI/CD Pipeline</h2>
 <p>Our CI/CD pipeline ensures the quality and reliability of our code through the following stages:</p>
 <ol>
@@ -168,117 +98,7 @@ encompassing the different roles a software engineer fulfils.</p>
 <li><strong>Generate JSDocs</strong>: Creates up-to-date documentation for our code.</li>
 <li><strong>Run Unit Tests</strong>: Verifies that individual components of our application work correctly.</li>
 <li><strong>Run End-to-End Tests</strong>: Simulates real user interactions to validate the entire workflow.</li>
-</ol>
-<h2>Linting</h2>
-<p>Linting is a crucial practice that helps ensure code quality, consistency, and maintainability across the entire codebase. In this project, linting has been set up for HTML, CSS, and JavaScript to adhere to industry-standard best practices and coding conventions. HTML linting checks for proper markup structure, CSS linting maintains consistent stylesheet styles, and JavaScript linting catches syntax errors, potential bugs, and performance issues in the application's logic and functionality.</p>
-<p>We have implemented automated linting checks performed on every push or pull request to make sure potential issues are caught early in the development process, and make sure that our coding standard is met. When you push changes, on GitHub you will be able to see a tick or cross next to it based on whether it passes that check. You can click on the same to view details. Along with this you can also run the linter locally.</p>
-<ol>
-<li><strong>ESLint</strong>: Helps detect syntax errors and code style issues in our JavaScript
-<ul>
-<li><code>npx eslint &quot;**/*.js&quot;</code> to run on all JS files</li>
-</ul>
-</li>
-<li><strong>StyleLint</strong>: Helps detect style issues in CSS
-<ul>
-<li><code>npx stylelint &quot;**/*.css&quot;</code> to run on all CSS files in the directory</li>
-</ul>
-</li>
-<li><strong>HTML Linting</strong>: Helps detect issues in our HTML
-<ul>
-<li><code>npx htmhint &quot;**/*.html&quot;</code> to run on all HTML files in the directory</li>
-</ul>
-</li>
-<li><strong>Fixing local linter issues</strong>: Run all commands with <code>-fix</code> tag</li>
-</ol>
-<h2>Testing</h2>
-<ol>
-<li>
-<p><strong>Codacy tests</strong>:</p>
-<ul>
-<li>...</li>
-</ul>
-</li>
-<li>
-<p><strong>Unit tests</strong>:</p>
-<ul>
-<li>...</li>
-</ul>
-</li>
-<li>
-<p><strong>E2E tests</strong>: We created a variety of E2E tests for our developer journal and calendar features. Our comprehensive tests ensure that there are no issues or bugs in our application following any possible action a user could take.</p>
-<ul>
-<li>...</li>
-</ul>
-</li>
-</ol>
-<!-- not sure if Agile should be included or not (we can include links to documents if we decide to -->
-<h2>Agile Concepts</h2>
-<ol>
-<li>User stories</li>
-<li>Sprint</li>
-<li>Sprint Review</li>
-<li>Retrospective</li>
-</ol>
-<h2>Application of the -ilities</h2>
-<ol>
-<li>
-<p>Functional Suitability</p>
-</li>
-<li>
-<p>Performance Efficiency</p>
-</li>
-<li>
-<p>Compatibility</p>
-</li>
-<li>
-<p>Usability</p>
-</li>
-<li>
-<p>Reliability</p>
-</li>
-<li>
-<p>Security</p>
-</li>
-<li>
-<p>Maintainability</p>
-</li>
-<li>
-<p>Portability</p>
-</li>
-</ol>
-<h2>Resources</h2>
-<ol>
-<li>
-<p>Video links:</p>
-<ul>
-<li><strong>Team Video</strong>: Watch our team video <a href="https://www.youtube.com/watch?v=mqnLJw1I7lg">here</a>.</li>
-<li><strong>MVP/EC Video</strong>: Watch the MVP/EC demonstration video <a href="https://youtu.be/2HepYe5-YLw">here</a>.</li>
-<li><strong>Status Video 2</strong>: Watch the Status Video 2 demonstration video <a href="https://www.youtube.com/watch?v=myacnpHmjUQ">here</a>.</li>
-</ul>
-</li>
-<li>
-<p>Design resources:</p>
-<ul>
-<li><strong>Miro Board</strong>: Explore our Miro board <a href="https://miro.com/app/board/uXjVKMiOIZM=/">here</a>.</li>
-<li><strong>Figma Mockup</strong>: View our Figma design <a href="https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&amp;t=WDiy1Dt2cr4rP5Ny-1">here</a>.</li>
-</ul>
-</li>
-</ol>
-<h2>Team Members</h2>
-<ul>
-<li>Drishti Regmi</li>
-<li>Haley Nguyen</li>
-<li>Vishaal Gaddipati</li>
-<li>Nicholas Cheah</li>
-<li>Angel Ren</li>
-<li>Hugo D Souza</li>
-<li>Stephen Tong</li>
-<li>Maasilan Kumaraguru</li>
-<li>Xavier Navarro</li>
-<li>Arnav Modi (Team Lead)</li>
-<li>Mishka Jethwani (Team Lead)</li>
-</ul>
-<p>Learn more about our team <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team">here</a>.</p></article>
+</ol></article>
     </section>
 
 
@@ -291,7 +111,7 @@ encompassing the different roles a software engineer fulfils.</p>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon Jun 03 2024 07:19:35 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon Jun 03 2024 07:24:50 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
