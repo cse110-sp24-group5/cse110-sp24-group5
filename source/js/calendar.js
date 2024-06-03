@@ -31,7 +31,8 @@ function renderCalendar(date) {
     const closeTaskList = document.getElementById('close-task-list'); // Close button for the task list pop-up
  
  
-    let currentDate = new Date(); // Define today's current timestamp
+    let currentDate = new Date(); // Define to be the first day of the month initially
+    currentDate.setDate(1);
  
  
     // Render the calendar for the current date
@@ -152,13 +153,6 @@ function createCalendarDays(date, daysInMonth, daysContainer) {
  }
  
  
- /**
- * Create a calendar day element
- * @param {number} dayNumber - The day number.
- * @param {string} month - The month name.
- * @param {number} year - The year.
- * @param {HTMLElement} daysContainer - Element to contain the days.
- */
 /**
  * Creates a calendar day element and appends it to the days container.
  * @param {number} dayNumber - The day number.
@@ -172,7 +166,7 @@ function createCalendarDay(dayNumber, month, year, daysContainer, currentDate) {
     const daySpan = document.createElement('span'); // Create a span for the day number
     daySpan.textContent = dayNumber < 10 ? '0' + dayNumber : dayNumber; // Format single digit days with a leading zero
     day.appendChild(daySpan); // Append the span to the list item
-    day.setAttribute('tabindex', '0'); // Add tabindex attribute
+    day.setAttribute('tabindex', '0'); // Add tabindex attribute so that we can tab through calendar days
 
     day.addEventListener('click', () => showTaskListPopUp(`${month} ${dayNumber}, ${year}`)); // Show task list pop-up on day click
 
@@ -289,6 +283,6 @@ function createCalendarDay(dayNumber, month, year, daysContainer, currentDate) {
      } else if (blankDays.length == 0) {
          document.documentElement.style.setProperty('--number-of-rows', 4); /* fixes February bug with extra blank row */
      } else {
-         document.documentElement.style.setProperty('--number-of-rows', 5)
+         document.documentElement.style.setProperty('--number-of-rows', 5) /* default case for row number within a month */
      }
  }
