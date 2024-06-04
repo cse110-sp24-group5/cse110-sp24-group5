@@ -47,7 +47,7 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
       - [Unit Tests](#unit-tests)
       - [E2E Tests](#E2E-tests)
 - [Agile Concepts](#agile-concepts)
-- [Application of the -ilities](#application-of-the-ilities)
+- [Application of the -ilities](#application-of-the--ilities)
 - [Resources](#resources)
 
 ## Introduction
