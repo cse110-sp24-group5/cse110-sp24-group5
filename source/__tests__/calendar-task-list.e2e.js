@@ -14,6 +14,11 @@ describe('Task list test suite', () => {
         //await page.goto('http://127.0.0.1:5500/cse110-sp24-group5/source/html/calendar.html'); // test locally
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
+
+    afterAll(async () => {
+        await browser.close();
+    });
+
     // Add new task functionality
     it('Check "add new task" functionality on the first day of the current month', async () => {
         console.log('Check "add new task" functionality on the first day of the current month');

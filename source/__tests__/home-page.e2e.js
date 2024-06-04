@@ -22,6 +22,10 @@ describe('Test to ensure all components of main page are working', () => {
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
+    afterAll(async () => {
+        await browser.close();
+    });
+
     // Test home page 
     it('Home page without user input', async () => {
         // get the home url

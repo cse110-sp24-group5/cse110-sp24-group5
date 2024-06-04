@@ -14,6 +14,10 @@ describe('Dev Journal Page', () => {
         await page.goto(URL);
     });
 
+    afterAll(async () => {
+        await browser.close();
+    });
+
     /**
      * Test if the date on the page defaults to the current date
      */
