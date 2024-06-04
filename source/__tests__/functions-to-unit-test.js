@@ -6,3 +6,10 @@ export function getMonthDetails(date) { // from calendar.js
     const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay(); // Last day of the month (0-6, Sun-Sat)
     return { firstDayOfMonth, daysInMonth, lastDayOfMonth };
 }
+
+export function formatDate(dateObject) { // from dev-journal.js
+    const year = dateObject.getFullYear();
+    const month = String(dateObject.getMonth() + 1);
+    const day = String(dateObject.getDate());
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
