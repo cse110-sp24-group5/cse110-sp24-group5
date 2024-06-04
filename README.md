@@ -31,7 +31,7 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
 ## Table of Contents
 - [Introduction](#introduction)
 - [Installation and Setup](#installation-and-setup)
-    - [Using it locally](#1.using-it-locally)
+    - [Using it locally](#1-using-it-locally)
     - [Using the WebApp](#using-the-webapp)
     - [Using the Progressive Web App (PWA)](#using-the-progressive-web-app-(pwa))
 - [Features](#features)
