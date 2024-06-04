@@ -38,7 +38,6 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
 - [Agile Concepts](#agile-concepts)
 - [Application of the -ilities](#application-of-the-ilities)
 - [Resources](#resources)
-- [Team Members](#team-members)
 
 ## Introduction
 In the fast-paced world of software development, productivity and mental well-being are crucial for success. Developers often find themselves juggling multiple tasks, deadlines, and responsibilities, which can lead to burnout and decreased efficiency. Our project aims to provide a comprehensive solution to address these challenges by offering a journal that not only boosts productivity throughout the development process but also helps developers keep track of their mental health.
