@@ -124,6 +124,8 @@ The Dev Journal feature provides a dedicated space for developers to document th
 
 To help developers quickly navigate through our features, we included keyboard shortcuts (all of which are case insensitive) that can used in the terminal for efficient usage of our application. 
 
+![keyboard-shortcuts.gif](source/img/keyboard-shortcuts.gif)
+
 - **Opening Terminal**: `ctrl` + `\`
 
 - **Homepage Shortcuts**:
