@@ -144,6 +144,14 @@ img {
     margin-right: 0.25rem;
 }
 
+.tasks-count{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0.25rem;
+    margin-right: 0.25rem;
+}
+
 /* Color the blank days in the calendar to differentiate them */
 .blank-day {
     background: var(--blank-day-color);
