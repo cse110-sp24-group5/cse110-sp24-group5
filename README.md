@@ -56,7 +56,7 @@ In the fast-paced world of software development, productivity and mental well-be
 The journal serves as a centralized hub where developers can effectively manage their tasks, document their progress, and reflect on their daily experiences. By combining powerful features such as a calendar, task management, and a markdown-enabled development journal, our application streamlines the workflow and encourages mindful practices. With the calendar feature, developers can easily navigate through different months, view task lists, and manage their tasks seamlessly. The development journal component allows developers to document their activities, thoughts, and learnings using a user-friendly markdown editor, while also selecting the roles they fulfilled on a given day. By integrating mental health considerations, our journal encourages developers to prioritize their well-being through regular reflection and journaling.
 
 ## Installation and Setup
-### 1.Using it locally
+### 1. Using it locally
 
 To install and run the project locally, follow these steps:
 
