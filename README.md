@@ -11,7 +11,6 @@
 
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br>
 
-Check out our deployed website [here](https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html).
 
 ## Table of Contents
 - [Introduction](#introduction)
