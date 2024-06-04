@@ -105,7 +105,7 @@ The Dev Journal feature provides a dedicated space for developers to document th
 
 ### 4. Keyboard Shortcuts
 
-To help developers quickly navigate through our features, we included keyboard shortcuts (all of which are case insensitive) that can used in the terminal for efficient usage of our application.
+To help developers quickly navigate through our features, we included keyboard shortcuts (all of which are case insensitive) that can used in the terminal for efficient usage of our application. 
 
 - **Opening Terminal**: `ctrl` + `\`
 
@@ -165,17 +165,14 @@ Integration with development tools: Many IDEs and code editors have built-in sup
 
 ## Testing
 
-1. **Codacy Tests**:
-    * ...
-
-2. **Unit Tests**: 
+1. **Unit Tests**: 
     * Run all unit tests in the directory using:
         * `npm run unitTests`
           
     * Run a specific E2E test file in the directory using:
         * `npm run unitTests -- <path to file>`
    
-3. **E2E Tests**: We created a variety of comprehensive E2E tests to ensure that there are no issues or bugs in our application following any possible action a user could take.
+2. **E2E Tests**: We created a variety of comprehensive E2E tests to ensure that there are no issues or bugs in our application following any possible action a user could take.
     * List of our testing suites:
         * `home-page.e2e.js` which tests our homepage 
         * `dev-journal.e2e.js` which tests our developer journal feature
