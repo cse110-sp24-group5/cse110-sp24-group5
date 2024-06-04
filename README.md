@@ -33,7 +33,7 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
 - [Installation and Setup](#installation-and-setup)
     - [Using it locally](#1-using-it-locally)
     - [Using the WebApp](#2-using-the-webapp)
-    - [Using the Progressive Web App (PWA)](#3-using-the-progressive-web-app-(pwa))
+    - [Using the Progressive Web App (PWA)](#3-using-the-progressive-web-app)
 - [Features](#features)
     - [Dashboard](#1-dashboard)
     - [Calendar](#2-calendar)
@@ -80,7 +80,7 @@ To install and run the project locally, follow these steps:
 
 To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html oe click on out logo
 
-### 3. Using the Progressive Web App (PWA)
+### 3. Using the Progressive Web App
 
 ![Progressive Web App Demo](source/img/pwa.gif)
 
