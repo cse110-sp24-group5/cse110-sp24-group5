@@ -8,7 +8,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&logo=javascript)
 ![JSDoc](https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&logo=jsdoc)
 ![Super Linter](https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&logo=github-actions)
-![Codacy](https://img.shields.io/codacy/grade/YOUR_PROJECT_ID?style=for-the-badge&logo=codacy)
+![Codacy](https://img.shields.io/codacy/grade/)
 ![PWA](https://img.shields.io/badge/PWA-Ready-5E5C5C?style=for-the-badge&logo=pwa)
 
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br>
@@ -165,12 +165,19 @@ To help developers quickly navigate through our features, we included keyboard s
     * Editing a task: `taskname e`
 
 ## CI/CD Pipeline
-Our CI/CD pipeline ensures the quality and reliability of our code through the following stages:
-1. **Run Linters**: Automatically checks for code style issues and potential bugs. 
-2. **Generate JSDoc**: Creates up-to-date documentation for our code.
-3. **Run Codacy Tests**: 
-4. **Run Unit Tests**: Verifies that individual components of our application work correctly. 
-5. **Run End-to-End Tests**: Simulates real user interactions to validate the entire workflow.
+Our Continuous Integration/Continuous Deployment (CI/CD) pipeline is the backbone of our development process, ensuring that every code change maintains our project's quality and reliability. This automated workflow catches issues early, facilitates rapid iterations, and allows our team to focus on innovation rather than manual checks. It consists of the following.
+
+1. **Linters:** Linters automatically scan every line of code for style inconsistencies, potential bugs, and bad practices. We use ESLint for JavaScript to catch syntax errors and enforce best practices, StyleLint for CSS to maintain consistent styles and flag inefficiencies, and HTMLHint for HTML to ensure proper structure and accessibility. Running on every commit and pull request, these tools not only catch issues early but also foster a consistent, readable codebase that eases collaboration and reduces bugs.
+
+2. **JSDoc:** JSDoc transforms our inline documentation into a comprehensive, navigable manual. It parses our JavaScript files, extracting function signatures, class hierarchies, and module relationships to generate structured HTML docs. With features like type annotations, example usage, and architectural tags, JSDoc turns our codebase into a self-teaching tool. Running after linting in our CI/CD pipeline, it ensures our documentation always reflects our latest, standards-compliant code.
+
+3. **Codacy Analysis:** While linters focus on syntax, Codacy dives deep into our code's health. This tool provides a holistic analysis across all our languages—JavaScript, CSS, and HTML—assigning an overall quality score. It identifies complex methods needing refactoring, flags security vulnerabilities like unsafe function usage, and suggests performance improvements. By tracking these metrics over time and setting quality gates in our CI/CD, Codacy doesn't just maintain our code; it drives a culture of continuous improvement.
+
+4. **Unit Tests:**  Using Jest, we rigorously test everything from core utilities like our Markdown parser to individual class methods. Running after static analysis in our CI/CD, a failing unit test halts deployment, pinpointing exact issues.
+
+5. **End-to-End (E2E) Tests**: Our final and most comprehensive checks, E2E tests simulate real developer journeys through our application. Using Puppeteer to control a real Chrome browser, each test mirrors typical workflows. Beyond just UI interactions, we verify data integrity in storage and even run accessibility and performance checks. As the last gate in our CI/CD pipeline, these tests ensure that all our components work together.
+
+Each stage of our CI/CD pipeline serves a distinct purpose, from enforcing code style to simulating user experiences. Together, they form a robust system that not only catches issues early but continually guides our project toward higher quality, clearer architecture, and a superior user experience.
 
 ## Linting
 Linting is a crucial practice that helps ensure code quality, consistency, and maintainability across the entire codebase. In this project, linting has been set up for HTML, CSS, and JavaScript to adhere to industry-standard best practices and coding conventions. HTML linting checks for proper markup structure, CSS linting maintains consistent stylesheet styles, and JavaScript linting catches syntax errors, potential bugs, and performance issues in the application's logic and functionality.
@@ -186,7 +193,7 @@ We have implemented automated linting checks performed on every push or pull req
 3. **HTML Linting**: Helps detect issues in our HTML
     * `npx htmhint "**/*.html"` to run on all HTML files in the directory
       
-4. **Fixing local linter issues**: Run all commands with `-fix` tag
+4. **Fixing local linter issues**: Run all commands with `--fix` tag in order to fix the linter issues.
 
 ## JSDoc
 
@@ -202,7 +209,7 @@ Integration with development tools: Many IDEs and code editors have built-in sup
     * Run all unit tests in the directory using:
         * `npm run unitTests`
           
-    * Run a specific E2E test file in the directory using:
+    * Run a specific unit test file in the directory using:
         * `npm run unitTests -- <path to file>`
    
 2. **E2E Tests**: We created a variety of comprehensive E2E tests to ensure that there are no issues or bugs in our application following any possible action a user could take.
