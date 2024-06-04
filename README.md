@@ -40,7 +40,7 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
     - [Calendar](#2-calendar)
     - [Dev Journal](#3-dev-journal)
     - [Keyboard Shortcuts](#4-keyboard-shortcuts)
-- [CI/CD Pipeline](#5-cicd-pipeline)
+- [CI/CD Pipeline](#ci/cd-pipeline)
 - [Linting](#linting)
 - [JSDoc](#jsdoc)
 - [Testing](#testing)
