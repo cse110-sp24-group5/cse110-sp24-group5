@@ -211,7 +211,7 @@ Integration with development tools: Many IDEs and code editors have built-in sup
 ## Application of the -ilities
 
 1. **Functional Suitability**: 
-    * We designed comprehensive unit and end-to-end tests utilizing Jest to ensure that all bugs and issues in our application have been addressed. We discuss our testing methods more in depth [here](#testing).
+- Testing : We designed comprehensive unit and end-to-end tests utilizing Jest to ensure that all bugs and issues in our application have been addressed. We discuss our testing methods more in depth [here](#testing).
 
 
 2. **Usability:**
