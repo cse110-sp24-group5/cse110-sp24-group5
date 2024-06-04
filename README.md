@@ -140,7 +140,7 @@ To help developers quickly navigate through our features, we included keyboard s
 
 ![keyboard-shortcuts.gif](source/img/keyboard-shortcuts.gif)
 
-- **Opening Terminal**: `ctrl` + `\`
+- **Opening Terminal**: `ctrl` + `/`
 
 - **Homepage Shortcuts**:
     * Go to developer journal: `cd dev-journal`
