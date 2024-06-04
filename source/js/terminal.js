@@ -180,18 +180,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleEditShortcut(task) {
-      // Your logic to determine the task to be edited
       const dateElement = document.getElementById('date');
       const dateText = dateElement.textContent;
       const tasksForDate = getTasksForDate(dateText);
 
       if (tasksForDate.length > 0) {
-        handleEditButtonClick(task); // Edit the first task for demo purposes
+        handleEditButtonClick(task);
       }
     }
 
     function handleDeleteShortcut(task) {
-      // Your logic to determine the task to be deleted
       const dateElement = document.getElementById('date');
       const dateText = dateElement.textContent;
       const tasksForDate = getTasksForDate(dateText);
