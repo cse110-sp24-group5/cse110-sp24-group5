@@ -1,21 +1,9 @@
 const URL = 'https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/dev-journal.html';
 describe('Dev Journal Page', () => {
 
-    const puppeteer = require('puppeteer');
-
-    let browser;
-    let page;
-
     // First, visit the website
     beforeAll(async () => {
-        browser = await puppeteer.launch({ headless: false });
-        page = await browser.newPage();
-
         await page.goto(URL);
-    });
-
-    afterAll(async () => {
-        await browser.close();
     });
 
     /**

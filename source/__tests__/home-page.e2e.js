@@ -2,17 +2,9 @@
 describe('Test to ensure all components of main page are working', () => {
     // an example name to be used
     let exampleName = 'tester';
-
-    const puppeteer = require('puppeteer');
-
-    let browser;
-    let page;
     
     // loads the home page for testing
     beforeAll(async () => {
-        browser = await puppeteer.launch({ headless: false });
-        page = await browser.newPage();
-
         // answers the dialogue asking for name
         page.once('dialog', async dialog => {
             console.log(dialog.message());
@@ -20,10 +12,6 @@ describe('Test to ensure all components of main page are working', () => {
             await dialog.dismiss();
         });
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
-    });
-
-    afterAll(async () => {
-        await browser.close();
     });
 
     // Test home page 
