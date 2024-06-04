@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const terminalInput = document.getElementById('terminal-input');
   const terminalContent = document.getElementById('terminal-content');
   const terminalClose = document.getElementById('terminal-close');
-  const titleInput = document.getElementById('title-text'); // Title text input
-  const descriptionInput = document.getElementById('desc-text'); // Description text
-  const popUp = document.querySelector('.pop-up.parent');
+
   if (terminal && terminalInput && terminalContent && terminalClose) {
     function toggleTerminal() {
       terminal.classList.toggle('hidden');
