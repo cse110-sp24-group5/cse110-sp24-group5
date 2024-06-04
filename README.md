@@ -221,13 +221,13 @@ Integration with development tools: Many IDEs and code editors have built-in sup
 ## Resources
 
 1. Video links:
-    * **Team Video**: Watch our team video [here](https://www.youtube.com/watch?v=mqnLJw1I7lg).
-    * **MVP/EC Video**: Watch the MVP/EC demonstration video [here](https://youtu.be/2HepYe5-YLw).
-    * **Status Video 2**: Watch the Status Video 2 demonstration video [here](https://www.youtube.com/watch?v=myacnpHmjUQ).
+    * [**Team Video**](https://www.youtube.com/watch?v=mqnLJw1I7lg).
+    * [**MVP/EC Video**] [here](https://youtu.be/2HepYe5-YLw).
+    * [**Status Video 2**](https://www.youtube.com/watch?v=myacnpHmjUQ).
 
 2. Design resources:
-    * **Miro Board**: Explore our Miro board [here](https://miro.com/app/board/uXjVKMiOIZM=/).
-    * **Figma Mockup**: View our Figma design [here](https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&t=WDiy1Dt2cr4rP5Ny-1).
+    * [**Miro Board**](https://miro.com/app/board/uXjVKMiOIZM=/).
+    * [**Figma Mockup**](https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&t=WDiy1Dt2cr4rP5Ny-1).
 
 ## Team Members
 
@@ -243,4 +243,4 @@ Integration with development tools: Many IDEs and code editors have built-in sup
 - Arnav Modi (Team Lead)
 - Mishka Jethwani (Team Lead)
   
-Learn more about our team [here](https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team).
+Bisit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team) to learn more about our team members.
