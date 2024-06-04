@@ -31,11 +31,20 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
 - [Introduction](#introduction)
 - [Installation and Setup](#installation-and-setup)
     - [Using it locally](#using-it-locally)
+    - [Using the WebApp](#using-the-webapp)
+    - [Using the Progressive Web App (PWA)](#using-the-progressive-web-app-(pwa))
 - [Features](#features)
+    - [Dashboard](#dashboard)
+    - [Calendar](#calendar)
+    - [Dev Journal](#dev-journal)
+    - [Keyboard Shortcuts](#keyboard-shortcuts)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Linting](#linting)
 - [JSDoc](#jsdoc)
 - [Testing](#testing)
+    - [Codacy Tests](#codacy-tests)
+    - [Unit Tests](#unit-tests)
+    - [E2E Tests](#E2E-tests)
 - [Agile Concepts](#agile-concepts)
 - [Application of the -ilities](#application-of-the-ilities)
 - [Resources](#resources)
@@ -72,7 +81,7 @@ To use our WebApp you can use the following link: https://cse110-sp24-group5.git
 
 ### 3. Using the Progressive Web App (PWA)
 
-
+![Progressive Web App Demo](source/img/pwa.gif)
 
 ## Features
 
