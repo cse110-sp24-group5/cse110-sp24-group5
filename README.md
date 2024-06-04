@@ -1,6 +1,6 @@
 # CSE110 SP24 Group 5
 
-![Banner](./imgs/banner)
+![Banner](./source/img/banner)
 
 ![HTML](https://img.shields.io/badge/HTML-5E5C5C?style=for-the-badge&logo=html5)
 ![CSS](https://img.shields.io/badge/CSS-5E5C5C?style=for-the-badge&logo=css3)
