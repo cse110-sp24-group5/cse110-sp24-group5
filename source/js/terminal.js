@@ -117,19 +117,19 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   }
 
-    // Function to handle the edit button click event
-    function handleEditButtonClick(task) {
-        // Set edit mode to true
-        editMode = true;
-        editedTaskTitle = task.titleText;
+// Function to handle the edit button click event
+  function handleEditButtonClick(task) {
+    // Set edit mode to true
+    editMode = true;
+    editedTaskTitle = task.titleText;
 
-        // Populate title and description inputs with task data
-        titleInput.value = task.titleText;
-        descriptionInput.value = task.descText;
+    // Populate title and description inputs with task data
+    titleInput.value = task.titleText;
+    descriptionInput.value = task.descText;
 
-        // Show the pop-up
-        showPopUp();
-    }
+    // Show the pop-up
+    showPopUp();
+  }
 
     function addTaskForDate(dateText) {
       // Get the task list ul element
@@ -255,7 +255,9 @@ document.addEventListener('DOMContentLoaded', function () {
               if (lastChar == 'd') {
                 handleDeleteButtonClick(task);
               } else if (lastChar == 'e') {
+                console.log("yay")
                 handleEditButtonClick(task);
+                handleConfirmButtonClick();
               }
             }
           }
