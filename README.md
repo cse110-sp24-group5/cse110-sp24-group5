@@ -47,12 +47,6 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
       - [Unit Tests](#unit-tests)
       - [E2E Tests](#E2E-tests)
 - [Agile Concepts](#agile-concepts)
-    - [UserStories](#user-stories)
-    - [Sprint](#sprint)
-    - [Sprint Review](#sprint-review)
-    - [Retrospective](#retrospective)
-    - [Burn Down Chart](#burn-down-chart)
-    - [ADRs](#adrs)
 - [Application of the -ilities](#application-of-the-ilities)
 - [Resources](#resources)
 
@@ -240,23 +234,35 @@ Codacy is a pivotal tool in our CI/CD pipeline, offering comprehensive code qual
 ## Agile Concepts
 
 1. **User Stories**
+User stories are the core of our Agile process, capturing our users' needs in their own language. Each story follows the conditions of: "As a [user type], I want [feature] so that [benefit]." This keeps us laser-focused on delivering value, not just functionality.
 ![user-story-1](source/img/user-story-1.png)
 ![user-story-2](source/img/user-story-2.png)
 ![user-story-3](source/img/user-story-3.png)
+These stories guide our development, ensuring every feature directly addresses a developer's real-world needs, from task prioritization to mental health tracking.
+
    
-3. **Sprint**: 
+2. **Sprint**:
+Sprints dictate  our development  where we transform user stories into working software. Typically two weeks long, each sprint has a clear goal. This cadence helps us maintain focus, show progress regularly, and adapt quickly to feedback.
    
-4. **Sprint Review**: A meeting done at the end of each sprint, held to discuss what was accomplished in our sprint and our individual contributions.
+5. **Sprint Review**: A meeting done at the end of each sprint, held to discuss what was accomplished in our sprint and our individual contributions.
     * [Sprint Review #1](admin/meetings/042724.sprint-1-review.md)
     * [Sprint Review #2](admin/meetings/052324-2nd-Sprint-Meeting.md)
    
-5. **Retrospective**: A meeting held after the sprint review used to reflect our previous sprint and discuss the high level issues of what went right and wrong. 
+6. **Retrospective**: A meeting held after the sprint review used to reflect our previous sprint and discuss the high level issues of what went right and wrong. 
     * [Retrospective meeting #1](admin/meetings/042724-retrospective.md)
     * [Retrospective meeting #2](admin/meetings/052324-2nd-Retrospective.md)
 
-6. **Burn Down Chart**: In order to keep track of our progress throughout our development process, how much we have accomplished, and how much more we need to accomplish, we utilized GitHub Projects' project tracker.
+7. **Burn Down Chart**: In order to keep track of our progress throughout our development process, how much we have accomplished, and how much more we need to accomplish, we utilized GitHub Projects' project tracker.
 ![project-tracker-1](source/img/project-tracker-1.png)
 ![project-tracker-2](source/img/project-tracker-2.png)
+
+8. **Architectural Decision Records (ADRs)**
+In an Agile world where change is constant, our architecture must be both robust and flexible. ADRs are our architectural compass, documenting the what, why, and how of key design decisions.
+Each ADR captures:
+1. The context and problem statement
+2. Considered options with pros and cons
+3. The chosen direction 
+4. Consequences (positive and negative)
 
 ## Application of the -ilities
 
