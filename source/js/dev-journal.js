@@ -52,10 +52,6 @@ function setFields() {
     });
 }
 
-/**
- * Sets up the inner HTML of the preview to be the parsed version of markdown
- * and displays the preview <div>
- */
 function showPreview(){
     console.log("show preview")
     const input = document.querySelector('.editor');
@@ -80,6 +76,26 @@ function showEditor(){
     markdownPreview.style.display = 'none';
     const markdownEditor = document.getElementById('markdown-editor');
     markdownEditor.style.display = 'block';
+}
+
+/* Put the cursor in the bug editor */
+function showBug(){
+    // Focus on the bug editor
+    const bugTracker = document.getElementById('bug-tracker');
+    bugTracker.focus();
+}
+
+/* Put the cursor in the learnings editor */
+function showLearnings(){
+    // Focus on the learnings editor
+    const learningsTracker = document.getElementById('learnings');
+    learningsTracker.focus();
+}
+
+/* Mark the Checkbox of the Roles */
+function toggleCheckbox(checkboxId) {
+    const checkbox = document.getElementById(checkboxId);
+    checkbox.checked = !checkbox.checked;
 }
 
 /**
@@ -199,9 +215,35 @@ function load(){
 
     const saveButton = document.querySelector('.save-button');
     saveButton.addEventListener('click', saveData);
+
+    // Terminal for 's', 'p', 'e', 'b' or 'l' key followed by Enter in terminal input
+    /*
+    const terminalInput = document.getElementById('terminal-input');
+    terminalInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            if (terminalInput.value === 's') { //Save
+                saveData();
+            } else if (terminalInput.value === 'p') { //Preview
+                showPreview();
+            } else if (terminalInput.value === 'e') { //Edit
+                showEditor();
+            } else if (terminalInput.value === 'b'){ //Bug
+                showBug(); 
+            }
+            else if (terminalInput.value === 'l'){ //Learnings
+                showLearnings();
+            }
+        terminalInput.value = ''; // Clear the input after action
+        terminalInput.style.display = 'none'; //Make the terminal invisible after pressing enter
+        }
+    });
+    */
+
+    let terminalState = localStorage.getItem('terminalState');
+        // checks if terminal was previously opened on another page and if so it toggles it on
+        if(terminalState == 'open') {
+            toggleTerminal(true);
+        }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", load);
-

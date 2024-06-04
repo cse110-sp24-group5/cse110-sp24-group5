@@ -5,8 +5,22 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Panda Coding Express</title>
       <link rel="stylesheet" href="../css/dev-journal.css">
+      <link rel="stylesheet" href="../css/terminal.css">
    </head>
-   <body>
+   <!--Custom attribute to identify page-->
+   <body data-page="dev-journal">
+
+    <!-- Terminal HTML structure -->
+    <div id="terminal" class="hidden">
+        <div id="terminal-header">
+        <span>Terminal</span>
+        <button id="terminal-close">X</button>
+        </div>
+        <div id="terminal-body">
+        <pre id="terminal-content"></pre>
+        <input type="text" id="terminal-input" autocomplete="off">
+        </div>
+    </div>
 
     <!-- Go back element -->
     <div class="back-element">
@@ -97,7 +111,9 @@
         <button class="save-button">Save</button>
     </div> 
 
+    <script src="../js/terminal.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
    <script src="../js/dev-journal.js"></script>
    </body>
+    
 </html>

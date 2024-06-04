@@ -5,18 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panda Coding Express</title>
     <link rel="stylesheet" href="../css/home-page.css">
+    <link rel="stylesheet" href="../css/terminal.css">
     <!-- Implement the Montserrat font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!--Javascript library for implementing-->
     <script src = "https://d3js.org/d3.v7.min.js"></script>
     
+    <link rel="manifest" href="manifest.json" />
+
     <style>
         h2 {
             font-family: 'Montserrat';
         }
     </style>
 </head>
-<body>
+<!--Custom attribute to identify home page-->
+<body data-page="home">
+
+    <!-- Terminal HTML structure -->
+    <div id="terminal" class="hidden">
+        <div id="terminal-header">
+        <span>Terminal</span>
+        <button id="terminal-close">X</button>
+        </div>
+        <div id="terminal-body">
+        <pre id="terminal-content"></pre>
+        <input type="text" id="terminal-input" autocomplete="off">
+        </div>
+    </div>
+
+    <!-- Dropdown menu -->
+    <button class="info-btn" id="infoBtn">Terminal Commands</button>
+
+    <!-- Info box -->
+    <div class="info-box" id="infoBox">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <p> <strong>Get Terminal: Cntrl + /</strong> <br> </p>
+        <p> <strong>Shortcuts for Homepage:</strong> <br>
+            <li> Go to Dev Journal : cd dev-journal </li>
+            <li> Go to Calendar : cd calendar</li>
+        </p>
+        <p> <strong> Shortcuts for DevJournal: </strong> <br>
+            <li> Go to Dashboard : cd .. </li>
+            <li> Preview Markdown: md p </li>
+            <li> Edit Markdown: md e </li>
+            <li> Write Learnings: l </li>
+            <li> Write Bugs: b </li>
+            <li> Chossing Roles:- 
+                <ol> 
+                    <li>debugging - bug </li>
+                    <li>documentation -  doc </li>
+                    <li>coding - code </li>
+                    <li>communication - com </li>
+                </ol>  
+            </li>
+        </p>
+        <p> <strong>Shortcuts for Calendar:</strong> <br>
+            <li> Choosing a date: DD </li>
+            <li> Choosing month and year : MM/YYYY</li>
+            <li> Deleting task : taskname d </li>
+            <li> Editing task : taskname e </li>
+        </p>
+        <p> <i> Note: All shortcuts are case insensitive</i> </p>
+    </div>
+
     <!-- Section for greeting -->
     <section>
         <div class="container">
@@ -87,6 +139,7 @@
             </div>
         </section>
     </section>
+    <script src="../js/terminal.js"></script>
     <script src="../js/sentiment-widget.js"></script>
 </body>
 </html>

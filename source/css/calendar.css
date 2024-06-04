@@ -57,7 +57,12 @@ body {
 }
 
 /* remove the background button that appears on default for buttons so we can replace with images */
-button {
+.prev-month {
+    border: none;
+    background: transparent;
+}
+
+.next-month {
     border: none;
     background: transparent;
 }

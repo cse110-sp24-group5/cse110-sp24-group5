@@ -8,6 +8,7 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="../css/calendar.css">
     <link rel="stylesheet" href="../css/task-list.css">
+    <link rel="stylesheet" href="../css/terminal.css">
 
     <!-- Montserrat font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -15,12 +16,23 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
 
     <!--Scripts -->
+    <script src="../js/terminal.js"></script>
     <script src="../js/calendar.js"></script>
     <script src="../js/task-list.js"></script>
 
 </head>
-<body>
-    
+<body data-page="calendar">
+      <!-- Terminal HTML structure -->
+    <div id="terminal" class="hidden">
+        <div id="terminal-header">
+        <span>Terminal</span>
+        <button id="terminal-close">X</button>
+        </div>
+        <div id="terminal-body">
+        <pre id="terminal-content"></pre>
+        <input type="text" id="terminal-input" autocomplete="off">
+        </div>
+    </div>
     <!-- Go back element -->
     <div class="back-element">
         <a href="./index.html">
