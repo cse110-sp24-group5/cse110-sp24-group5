@@ -47,6 +47,12 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
       - [Unit Tests](#unit-tests)
       - [E2E Tests](#E2E-tests)
 - [Agile Concepts](#agile-concepts)
+      - [UserStories](#user-stories)
+      - [Sprint](#sprint)
+      - [Sprint Review](#sprint-review)
+      - [Retrospective](#retrospective)
+      - [Burn Down Chart](#burn-down-chart)
+      - [ADRs](#adrs)
 - [Application of the -ilities](#application-of-the-ilities)
 - [Resources](#resources)
 
