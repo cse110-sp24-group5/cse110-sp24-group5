@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', init);
 
-function init () {
+function init() {
     const popUp = document.querySelector('.pop-up.parent');
     const closePopUp = document.getElementById('close-pop-up');
     const addTaskButton = document.getElementById('add'); // Add task button
@@ -22,7 +22,7 @@ function init () {
         const tasksJSON = localStorage.getItem('tasks');
         return tasksJSON ? JSON.parse(tasksJSON) : [];
     }
-    
+
     function getTasksForDate(date) {
         const allTasks = loadTasksFromStorage();
         return allTasks.filter(task => task.date === date);
@@ -37,6 +37,7 @@ function init () {
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
+
     // Function to show the overlay
     function showOverlay() {
         overlay.classList.add('active');
@@ -46,7 +47,7 @@ function init () {
     function hideOverlay() {
         overlay.classList.remove('active');
     }
-    
+
     // Function to show the pop-up
     function showPopUp() {
         showOverlay();
@@ -81,10 +82,10 @@ function init () {
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
 
-    // Event listener for input changes to set isDirty flag
+    // Event listener for input changes to set isSaved flag
     [titleInput, descriptionInput].forEach(input => {
         input.addEventListener('input', () => {
-            isSaved = true;
+            isSaved = titleInput.value.trim() !== '' || descriptionInput.value.trim() !== '';
         });
     });
 
@@ -139,10 +140,10 @@ function init () {
             // adds task for the specified date
             addTaskForDate(dateText);
         }
-        
+
         // Hide the pop-up
         hidePopUp();
-        
+
         // Clear the inputs for the next task
         clearInputs();
         isSaved = false;
@@ -159,29 +160,29 @@ function init () {
 
         // Get the task list ul element
         const taskList = document.querySelector('.task-list-ul');
-    
+
         // Clear existing tasks in the task list
         taskList.innerHTML = '';
-    
+
         // Get tasks for the specified date
         const dailyTasks = getTasksForDate(dateText);
-    
+
         // Check if tasks exist for the date
         if (dailyTasks && dailyTasks.length > 0) {
             // Loop through the tasks and create HTML elements
             dailyTasks.forEach((task) => {
                 // Create list item for each task
                 const taskItem = document.createElement('li');
-    
+
                 // Create div for task content
                 const taskContent = document.createElement('div');
                 taskContent.classList.add('task-container');
-    
+
                 // Create h3 element for task title
                 const taskTitle = document.createElement('h3');
                 taskTitle.id = 'task';
                 taskTitle.textContent = task.titleText; // Set task title
-    
+
                 // Create edit button
                 const editButton = document.createElement('button');
                 editButton.id = 'edit'; // Set unique id for edit button
@@ -190,7 +191,7 @@ function init () {
                 const editIcon = document.createElement('img');
                 editIcon.src = '../img/edit_task.png';
                 editButton.appendChild(editIcon);
-    
+
                 // Create delete button
                 const deleteButton = document.createElement('button');
                 deleteButton.id = 'delete'; // Set unique id for delete button
@@ -199,20 +200,20 @@ function init () {
                 const deleteIcon = document.createElement('img');
                 deleteIcon.src = '../img/delete_task.png';
                 deleteButton.appendChild(deleteIcon);
-    
+
                 // Append title, edit button, and delete button to task content
                 taskContent.appendChild(taskTitle);
                 taskContent.appendChild(editButton);
                 taskContent.appendChild(deleteButton);
-    
+
                 // Create p element for task description
                 const taskDescription = document.createElement('p');
                 taskDescription.textContent = task.descText; // Set task description
-    
+
                 // Append task content and description to list item
                 taskItem.appendChild(taskContent);
                 taskItem.appendChild(taskDescription);
-    
+
                 // Append list item to task list
                 taskList.appendChild(taskItem);
             });
@@ -238,7 +239,7 @@ function init () {
     }
 
     function handleDeleteButtonClick(task) {
-        console.log(task)
+        console.log(task);
         const dateElement = document.getElementById('date');
         // Construct a unique key for localStorage based on the selected date
         const dateText = dateElement.textContent;
@@ -263,7 +264,7 @@ function init () {
         });
     });
 
-    function track_days(){
+    function track_days() {
         const days = document.querySelectorAll('.days li');
         days.forEach(day => {
             day.addEventListener('click', () => {
