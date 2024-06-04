@@ -79,7 +79,7 @@ function renderCalendar(date) {
  * @param {Date} date - The current date.
  * @returns {Object} - Object containing first day of the month, days in month, and last day of the month.
  */
- function getMonthDetails(date) {
+function getMonthDetails(date) {
     const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1).getDay(); // First day of the month (0-6, Sun-Sat)
     const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate(); // Total number of days in the month
     const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay(); // Last day of the month (0-6, Sun-Sat)
