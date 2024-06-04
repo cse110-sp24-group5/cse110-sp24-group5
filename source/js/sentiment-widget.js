@@ -16,7 +16,7 @@ function init(){
           window.addEventListener('load', function() {
             try {
               //Register './sw.js' as a service worker
-              const registration = navigator.serviceWorker.register("sw.js", {
+              const registration = navigator.serviceWorker.register("../../sw.js", {
                 scope: "./",
               });
       
