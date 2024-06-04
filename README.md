@@ -109,7 +109,6 @@ The calendar feature provides a comprehensive view of tasks and events, allowing
 - **Saving Tasks**: To ensure data integrity, users can click the save button to store their tasks in localStorage, enabling seamless access to their task lists across multiple sessions or devices.
 
 ### 3. Dev Journal
-
 The Dev Journal feature provides a dedicated space for developers to document their daily activities, thoughts, and learnings, fostering personal growth and reflection.
 
 ![dev-journal-demo.gif](source/img/developer-journal-demo.gif)
