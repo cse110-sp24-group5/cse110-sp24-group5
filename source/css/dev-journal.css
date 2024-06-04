@@ -2,6 +2,7 @@
 :root {
     --dashboard-color: #A3AED4;
 }
+
 /* Since Montserrat is not an embedded font, we need to provide the URL to it */
 @font-face {
     font-family: Montesserat;
@@ -132,6 +133,7 @@ body {
     margin: auto;
     color: var(--dashboard-color);
 }
+
 /* This is the layout for every single device over  and equal to 800 px */
 /* stylelint-disable-next-line media-feature-range-notation */
 @media screen and (min-width: 800px) {

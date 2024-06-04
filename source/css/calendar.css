@@ -204,8 +204,7 @@ img {
 
 
 
-@media screen and (max-width: 1000px) {
-
+@media screen and (width <= 1000px) {
     .back-element {
         position: absolute;
         top: 0;
@@ -237,12 +236,13 @@ img {
 
     .days {
         font-size: smaller;
+
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 12vh); /* before was 6 */
     }
 }  
 
-@media screen and (max-width: 1400px) and (orientation: landscape) {
+@media screen and (width <= 1400px) and (orientation: landscape) {
     .back-element {
         position: absolute;
         top: 10px;
@@ -270,9 +270,11 @@ img {
 
     .days {
         font-size: large;
+
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
     }
+
     .head-text {
         position: absolute; /* Absolute positioning */
         bottom: 0; /* Aligns to the bottom of the page */
@@ -286,7 +288,7 @@ img {
     }
 }
 
-@media screen and  (max-width: 1024px) and (orientation:landscape){
+@media screen and  (width <= 1024px) and (orientation:landscape){
     .head-text {
         position: absolute; /* Absolute positioning */
         bottom: 0; /* Aligns to the bottom of the page */
@@ -326,6 +328,7 @@ img {
 
     .days {
         font-size: small;
+
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
     }
