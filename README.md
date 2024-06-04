@@ -11,6 +11,21 @@
 
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br>
 
+## Team Members
+
+- Drishti Regmi
+- Haley Nguyen
+- Vishaal Gaddipati
+- Nicholas Cheah
+- Angel Ren
+- Hugo D Souza
+- Stephen Tong
+- Maasilan Kumaraguru
+- Xavier Navarro
+- Arnav Modi (Team Lead)
+- Mishka Jethwani (Team Lead)
+  
+Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team) to learn more about our team members.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -255,18 +270,3 @@ By addressing these '-ilities', we strive to deliver a high-quality software sol
     * [**Miro Board**](https://miro.com/app/board/uXjVKMiOIZM=/).
     * [**Figma Mockup**](https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&t=WDiy1Dt2cr4rP5Ny-1).
 
-## Team Members
-
-- Drishti Regmi
-- Haley Nguyen
-- Vishaal Gaddipati
-- Nicholas Cheah
-- Angel Ren
-- Hugo D Souza
-- Stephen Tong
-- Maasilan Kumaraguru
-- Xavier Navarro
-- Arnav Modi (Team Lead)
-- Mishka Jethwani (Team Lead)
-  
-Bisit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team) to learn more about our team members.
