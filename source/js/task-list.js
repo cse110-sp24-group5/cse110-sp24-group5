@@ -72,152 +72,89 @@ function init () {
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
 
-    // Function to handle the "Confirm" button click event
-    // function handleConfirmButtonClick() {
-    //     const dateElement = document.getElementById('date');
-    //     const title = titleInput.value.trim();
-    //     const description = descriptionInput.value.trim();
-    //     // Construct a unique key for localStorage based on the selected date
-    //     const dateText = dateElement.textContent;
-
-    //     // Check if a title is provided
-    //     if (!title) {
-    //         alert('Please provide a title.');
-    //         return; // Stop further execution
-    //     }
-
-    //     // Get existing tasks from localStorage
-    //     // const tasks = getTasksForDate(dateText);
-
-    //     //if (editMode) {
-    //         // Find the task to edit by its title
-    //         // const editedTaskIndex = tasks.findIndex(task => task.titleText === editedTaskTitle);
-
-    //         // if (editedTaskIndex !== -1) {
-    //         //     // Check for any other entries with the same new title
-    //         //     tasks.forEach((task) => {
-    //         //         if (title !== tasks[editedTaskIndex].titleText && title === task.titleText) {
-    //         //             alert('No duplicate entries allowed. Change your title.');
-    //         //             isDuplicate = true;
-    //         //         }
-    //         //     });
-
-    //             // if (!isDuplicate) {
-    //             //     // Update the title and description of the edited task
-    //             //     tasks[editedTaskIndex].titleText = title;
-    //             //     tasks[editedTaskIndex].descText = description;
-
-    //             //     // Save the updated tasks array back to localStorage
-    //             //     saveTasksToStorage(dateText, tasks);
-
-    //             //     // Update the display for the edited task
-    //             //     addTaskForDate(dateText);
-    //             // }
-    //         }
-    //     // } else {
-    //     //     // Check for any entries with the same title as the one entered
-    //     //     tasks.forEach((task) => {
-    //     //         if (title === task.titleText) {
-    //     //             alert('No duplicate entries allowed. Change your title.');
-    //     //             isDuplicate = true;
-    //     //         }
-    //     //     });
-
-    //     //     if (!isDuplicate) {
-    //     //         // Create a new task object
-    //     //         const newTask = { titleText: title, descText: description };
-
-    //     //         // Add the new task to the existing tasks array
-    //     //         tasks.push(newTask);
-
-    //     //         // Save the updated tasks array back to localStorage
-    //     //         saveTasksToStorage(dateText, tasks);
-
-    //     //         // adds task for the specified date
-    //     //         addTaskForDate(dateText);
-    //     //     }
-    //     // }
-        
-    //     // if (!isDuplicate) {
-    //     //     // Hide the pop-up
-    //     //     hidePopUp();
-
-    //     //     // Clear the inputs for the next task
-    //     //     titleInput.value = '';
-    //     //     descriptionInput.value = '';
-    //     //     // Reset editMode and editedTaskId
-    //     //     editMode = false;
-    //     //     editedTaskTitle = null;         
-    //     // }
-
-    //     // Reset isDuplicate
-    //     // isDuplicate = false;
-    // }
-
+    //Function to handle the "Confirm" button click event
     function handleConfirmButtonClick() {
         const dateElement = document.getElementById('date');
         const title = titleInput.value.trim();
         const description = descriptionInput.value.trim();
         // Construct a unique key for localStorage based on the selected date
         const dateText = dateElement.textContent;
-    
+
         // Check if a title is provided
         if (!title) {
             alert('Please provide a title.');
             return; // Stop further execution
         }
-    
-        // Get existing tasks from localStorage
-        let tasks = getTasksForDate(dateText);
-    
+
+        //Get existing tasks from localStorage
+        const tasks = getTasksForDate(dateText);
+
         if (editMode) {
-            // Find the task to edit by its title
+            //Find the task to edit by its title
             const editedTaskIndex = tasks.findIndex(task => task.titleText === editedTaskTitle);
-    
+
             if (editedTaskIndex !== -1) {
-                // Update the title and description of the edited task
-                tasks[editedTaskIndex].titleText = title;
-                tasks[editedTaskIndex].descText = description;
-    
-                // Save the updated tasks array back to localStorage
-                saveTasksToStorage(dateText, tasks);
-    
-                // Update the display for the edited task
-                addTaskForDate(dateText);
+                // Check for any other entries with the same new title
+                tasks.forEach((task) => {
+                    if (title !== tasks[editedTaskIndex].titleText && title === task.titleText) {
+                        alert('No duplicate entries allowed. Change your title.');
+                        isDuplicate = true;
+                    }
+                });
+
+                if (!isDuplicate) {
+                    // Update the title and description of the edited task
+                    tasks[editedTaskIndex].titleText = title;
+                    tasks[editedTaskIndex].descText = description;
+
+                    // Save the updated tasks array back to localStorage
+                    saveTasksToStorage(dateText, tasks);
+
+                    // Update the display for the edited task
+                    addTaskForDate(dateText);
+                }
             }
         } else {
-            // Check if there's a task with the same title
-            const existingTask = tasks.find(task => task.titleText === title);
-            if (existingTask) {
-                alert('No duplicate entries allowed. Change your title.');
-                return;
+            // Check for any entries with the same title as the one entered
+            tasks.forEach((task) => {
+                if (title === task.titleText) {
+                    alert('No duplicate entries allowed. Change your title.');
+                    isDuplicate = true;
+                }
+            });
+
+            if (!isDuplicate) {
+                // Create a new task object
+                const newTask = { titleText: title, descText: description };
+
+                // Add the new task to the existing tasks array
+                tasks.push(newTask);
+
+                // Save the updated tasks array back to localStorage
+                saveTasksToStorage(dateText, tasks);
+
+                // adds task for the specified date
+                addTaskForDate(dateText);
             }
-    
-            // Create a new task object
-            const newTask = { titleText: title, descText: description };
-    
-            // Add the new task to the existing tasks array
-            tasks.push(newTask);
-    
-            // Save the updated tasks array back to localStorage
-            saveTasksToStorage(dateText, tasks);
-    
-            // adds task for the specified date
-            addTaskForDate(dateText);
         }
-    
-        // Hide the pop-up
-        hidePopUp();
-    
-        // Clear the inputs for the next task
-        titleInput.value = '';
-        descriptionInput.value = '';
-    
-        // Reset editMode and editedTaskTitle
-        editMode = false;
-        editedTaskTitle = null;
+        
+        if (!isDuplicate) {
+            // Hide the pop-up
+            hidePopUp();
+
+            // Clear the inputs for the next task
+            titleInput.value = '';
+            descriptionInput.value = '';
+            // Reset editMode and editedTaskId
+            editMode = false;
+            editedTaskTitle = null;         
+        }
+
+       // Reset isDuplicate
+        isDuplicate = false;
     }
 
+    
     // Function to add task for a given date
     function addTaskForDate(dateText) {
 
