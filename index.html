@@ -49,56 +49,360 @@
 
     <section class="readme">
         <article><h1>CSE110 SP24 Group 5</h1>
+<h3>Click on our banner to see our WebApp!</h3>
+<p><a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html"><img src="source/img/banner.png" alt="banner.png"></a>)</p>
 <p><img src="https://img.shields.io/badge/HTML-5E5C5C?style=for-the-badge&amp;logo=html5" alt="HTML">
 <img src="https://img.shields.io/badge/CSS-5E5C5C?style=for-the-badge&amp;logo=css3" alt="CSS">
 <img src="https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&amp;logo=javascript" alt="JavaScript">
 <img src="https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&amp;logo=jsdoc" alt="JSDoc">
 <img src="https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&amp;logo=github-actions" alt="Super Linter"></p>
-<p>Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status.</p>
-<h2>Deployed Website</h2>
+<p>Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br></p>
 <p>Check out our deployed website <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html">here</a>.</p>
-<h2>Features</h2>
-<h3>Calendar</h3>
+<h2>Table of Contents</h2>
 <ul>
-<li><strong>Navigation</strong>: Move through different months seamlessly.</li>
-<li><strong>Task Viewing</strong>: Click on a day to view the task list for that specific date. Tasks are retrieved from localStorage.</li>
-<li><strong>Task Management</strong>: Add, edit, and remove tasks for any given day.</li>
-<li><strong>Saving Tasks</strong>: Click the save button to store tasks in localStorage.</li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#installation-and-setup">Installation and Setup</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#cicd-pipeline">CI/CD Pipeline</a></li>
+<li><a href="#linting">Linting</a></li>
+<li><a href="#jsdoc">JSDoc</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#agile-concepts">Agile Concepts</a></li>
+<li><a href="#application-of-the-ilities">Application of the -ilities</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#team-members">Team Members</a></li>
 </ul>
-<h3>Dev Journal</h3>
+<h2>Introduction</h2>
+<p>In the fast-paced world of software development, productivity and mental well-being are crucial for success. Developers often find themselves juggling multiple tasks, deadlines, and responsibilities, which can lead to burnout and decreased efficiency. Our project aims to provide a comprehensive solution to address these challenges by offering a journal that not only boosts productivity throughout the development process but also helps developers keep track of their mental health.</p>
+<p>The journal serves as a centralized hub where developers can effectively manage their tasks, document their progress, and reflect on their daily experiences. By combining powerful features such as a calendar, task management, and a markdown-enabled development journal, our application streamlines the workflow and encourages mindful practices. With the calendar feature, developers can easily navigate through different months, view task lists, and manage their tasks seamlessly. The development journal component allows developers to document their activities, thoughts, and learnings using a user-friendly markdown editor, while also selecting the roles they fulfilled on a given day. By integrating mental health considerations, our journal encourages developers to prioritize their well-being through regular reflection and journaling.</p>
+<h2>Installation and Setup</h2>
+<h3>1. Using it locally</h3>
+<p>To install and run the project locally, follow these steps:</p>
+<ol>
+<li>
+<p>Clone the repository to your local machine using the following command:</p>
+<pre><code> git clone https://github.com/cse110-sp24-group5/cse110-sp24-group5.git
+</code></pre>
+</li>
+<li>
+<p>Navigate to the project directory:</p>
+<pre><code> cd cse110-sp24-group5
+</code></pre>
+</li>
+<li>
+<p>Install the required dependencies by running:</p>
+<pre><code> npm install
+</code></pre>
+</li>
+<li>
+<p>Once the installation is complete, you can start the development server with:</p>
+<pre><code> npm start
+</code></pre>
+</li>
+</ol>
+<h3>2. Using the WebApp</h3>
+<p>To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html</p>
+<h3>3. Using the Progressive Web App (PWA)</h3>
+<h2>Features</h2>
+<h3>1. Dashboard</h3>
 <ul>
-<li><strong>Default View</strong>: Opens with the current date by default.</li>
-<li><strong>Date Picker</strong>: Use the date picker to switch between dates.</li>
-<li><strong>Markdown Editor</strong>: Write and preview your journal entries using a markdown editor.
+<li>
+<p><strong>Navigation</strong>: Users can seamlessly move through different months using intuitive buttons for the calendar and Dev Journal, ensuring easy access to past and future dates.</p>
+</li>
+<li>
+<p><strong>Sentiment Analysis</strong>: For a quick way to keep track of the moods of our users and help them in their self-care journey as software engineers. We have a mood tracker where you can rate your mode based on a slider which is then converted into a corresponding emoji stored in the calendar for that day!</p>
+</li>
+<li>
+<p><strong>Terminal Commands</strong>: In the top left corner, once clicked, a shortcut of all possible terminal commands are given so that users can easily navigate within features.</p>
+</li>
+</ul>
+<h3>2. Calendar</h3>
+<p>The calendar feature provides a comprehensive view of tasks and events, allowing developers to efficiently manage their schedules and stay organized.</p>
 <ul>
-<li><strong>Scrolling</strong>: If your content exceeds the viewable area, you can scroll within both the preview and the editor.</li>
-<li><strong>Toggle View</strong>: Switch between the editor and the preview using the provided buttons.</li>
+<li>
+<p><strong>Task Viewing</strong>: By clicking on a specific day, users can view the task list associated with that date. The number of tasks for a given date is visually displayed on the calendar page, providing an at-a-glance overview of workload distribution. Tasks are retrieved from localStorage, ensuring data persistence across sessions.</p>
+</li>
+<li>
+<p><strong>Task Management</strong>: Users can add, edit, and remove tasks for any given day directly from the calendar interface. This streamlined workflow promotes efficient task organization and management.</p>
+</li>
+<li>
+<p><strong>Saving Tasks</strong>: To ensure data integrity, users can click the save button to store their tasks in localStorage, enabling seamless access to their task lists across multiple sessions or devices.</p>
+</li>
+</ul>
+<h3>3. Dev Journal</h3>
+<p>The Dev Journal feature provides a dedicated space for developers to document their daily activities, thoughts, and learnings, fostering personal growth and reflection.</p>
+<p><img src="source/img/developer-journal-demo.gif" alt="dev-journal-demo.gif"></p>
+<ul>
+<li>
+<p><strong>Default View</strong>: Upon opening the Dev Journal, users are presented with the current date by default, ensuring a smooth and intuitive start to their journaling experience.</p>
+</li>
+<li>
+<p><strong>Date Picker</strong>: A user-friendly date picker allows users to easily switch between dates, enabling them to access and update journal entries for any specific day.</p>
+</li>
+<li>
+<p><strong>Markdown Editor</strong>: Leveraging the power of Markdown, the Dev Journal offers a rich and versatile editing experience. Users can write and preview their journal entries using a fully-featured markdown editor, supporting formatting, code snippets, and other advanced features.</p>
+</li>
+<li>
+<p><strong>Scrolling</strong>: If the content exceeds the viewable area, users can seamlessly scroll within both the preview and the editor panes, ensuring a comfortable and uninterrupted writing experience.</p>
+</li>
+<li>
+<p><strong>Toggle View</strong>: With the click of a button, users can toggle between the editor and the preview views, allowing for efficient switching between writing and reviewing modes.</p>
+</li>
+<li>
+<p><strong>Role Selection</strong>: To provide context and clarity, users can select the roles they fulfilled on a given day, such as working on code, documentation, debugging and communication.  This feature enhances the journaling experience by
+encompassing the different roles a software engineer fulfils.</p>
+</li>
+<li>
+<p><strong>Bug Tracker</strong>: To help Software Engineers keep track of unique Bugs they encounter and their solutions, we have a space to track bugs. This can also be a metaphor to bugs or problems they encounter in their lives as a Software Engineer and not just Bugs related to Code.</p>
+</li>
+<li>
+<p><strong>Learnings</strong>: To help our user keep track of thier daily learning we have dedicated a space to this.</p>
+</li>
+<li>
+<p><strong>Saving Data</strong>: All input data, including journal entries and selected roles, is automatically saved to localStorage upon clicking the save button, ensuring data persistence and enabling users to pick up where they left off seamlessly.</p>
+</li>
+</ul>
+<h3>4. Keyboard Shortcuts</h3>
+<p>To help developers quickly navigate through our features, we included keyboard shortcuts (all of which are case insensitive) that can used in the terminal for efficient usage of our application.</p>
+<ul>
+<li>
+<p><strong>Opening Terminal</strong>: <code>ctrl</code> + <code>\</code></p>
+</li>
+<li>
+<p><strong>Homepage Shortcuts</strong>:</p>
+<ul>
+<li>Go to developer journal: <code>cd dev-journal</code></li>
+<li>Go to calendar: <code>cd calendar</code></li>
 </ul>
 </li>
-<li><strong>Role Selection</strong>: Select roles that you fulfilled on a given day.</li>
-<li><strong>Saving Data</strong>: All input data is saved to localStorage upon clicking the save button.</li>
-</ul>
-<h2>Team Page</h2>
-<p>Learn more about our team <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team">here</a>.</p>
-<h2>Video Links</h2>
+<li>
+<p><strong>Developer Journal Shortcuts</strong>:</p>
 <ul>
-<li><strong>Team Video</strong>: Watch our team video <a href="https://www.youtube.com/watch?v=mqnLJw1I7lg">here</a>.</li>
-<li><strong>MVP/EC Video</strong>: Watch the MVP/EC demonstration video <a href="https://youtu.be/2HepYe5-YLw">here</a>.</li>
-<li><strong>Status Video 2</strong>: Watch the Status Video 2 demonstration video <a href="https://www.youtube.com/watch?v=myacnpHmjUQ">here</a>.</li>
-</ul>
-<h2>Design Resources</h2>
+<li>Go to dashboard: <code>cd..</code></li>
+<li>Preview markdown document: <code>md p</code></li>
+<li>Edit markdown document: <code>md e</code></li>
+<li>Write learnings: <code>l</code></li>
+<li>Write bugs: <code>b</code></li>
+<li>Choosing roles:
 <ul>
-<li><strong>Miro Board</strong>: Explore our Miro board <a href="https://miro.com/app/board/uXjVKMiOIZM=/">here</a>.</li>
-<li><strong>Figma Mockup</strong>: View our Figma design <a href="https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&amp;t=WDiy1Dt2cr4rP5Ny-1">here</a>.</li>
+<li>debugging: <code>bug</code></li>
+<li>documentation: <code>doc</code></li>
+<li>coding: <code>code</code></li>
+<li>communication: <code>com</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Calendar Shortcuts</strong>:</p>
+<ul>
+<li>Choosing a date: <code>DD</code></li>
+<li>Choosing a month and year: <code>MM/YYYY</code></li>
+<li>Deleting a task: <code>taskname d</code></li>
+<li>Editing a task: <code>taskname e</code></li>
+</ul>
+</li>
 </ul>
 <h2>CI/CD Pipeline</h2>
 <p>Our CI/CD pipeline ensures the quality and reliability of our code through the following stages:</p>
 <ol>
 <li><strong>Run Linters</strong>: Automatically checks for code style issues and potential bugs.</li>
-<li><strong>Generate JSDocs</strong>: Creates up-to-date documentation for our code.</li>
+<li><strong>Generate JSDoc</strong>: Creates up-to-date documentation for our code.</li>
+<li><strong>Run Codacy Tests</strong>:</li>
 <li><strong>Run Unit Tests</strong>: Verifies that individual components of our application work correctly.</li>
 <li><strong>Run End-to-End Tests</strong>: Simulates real user interactions to validate the entire workflow.</li>
-</ol></article>
+</ol>
+<h2>Linting</h2>
+<p>Linting is a crucial practice that helps ensure code quality, consistency, and maintainability across the entire codebase. In this project, linting has been set up for HTML, CSS, and JavaScript to adhere to industry-standard best practices and coding conventions. HTML linting checks for proper markup structure, CSS linting maintains consistent stylesheet styles, and JavaScript linting catches syntax errors, potential bugs, and performance issues in the application's logic and functionality.</p>
+<p>We have implemented automated linting checks performed on every push or pull request to make sure potential issues are caught early in the development process, and make sure that our coding standard is met. When you push changes, on GitHub you will be able to see a tick or cross next to it based on whether it passes that check. You can click on the same to view details. Along with this you can also run the linter locally.</p>
+<ol>
+<li>
+<p><strong>ESLint</strong>: Helps detect syntax errors and code style issues in our JavaScript</p>
+<ul>
+<li><code>npx eslint &quot;**/*.js&quot;</code> to run on all JS files</li>
+</ul>
+</li>
+<li>
+<p><strong>StyleLint</strong>: Helps detect style issues in CSS</p>
+<ul>
+<li><code>npx stylelint &quot;**/*.css&quot;</code> to run on all CSS files in the directory</li>
+</ul>
+</li>
+<li>
+<p><strong>HTML Linting</strong>: Helps detect issues in our HTML</p>
+<ul>
+<li><code>npx htmhint &quot;**/*.html&quot;</code> to run on all HTML files in the directory</li>
+</ul>
+</li>
+<li>
+<p><strong>Fixing local linter issues</strong>: Run all commands with <code>-fix</code> tag</p>
+</li>
+</ol>
+<h2>JSDoc</h2>
+<p>Automated and up-to-date documentation: By integrating JSDoc into our CI/CD pipeline, the documentation is automatically generated and updated whenever changes are pushed, ensuring that the documentation always reflects the latest codebase.</p>
+<p>Consistent formatting and structure: JSDoc provides a consistent and standardized format for documenting functions, classes, and other code elements, making it easier for developers to navigate and understand the codebase.</p>
+<p>Integration with development tools: Many IDEs and code editors have built-in support for JSDoc, allowing developers to easily view and access documentation while writing code.</p>
+<h2>Testing</h2>
+<ol>
+<li>
+<p><strong>Unit Tests</strong>:</p>
+<ul>
+<li>
+<p>Run all unit tests in the directory using:</p>
+<ul>
+<li><code>npm run unitTests</code></li>
+</ul>
+</li>
+<li>
+<p>Run a specific E2E test file in the directory using:</p>
+<ul>
+<li><code>npm run unitTests -- &lt;path to file&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>E2E Tests</strong>: We created a variety of comprehensive E2E tests to ensure that there are no issues or bugs in our application following any possible action a user could take.</p>
+<ul>
+<li>
+<p>List of our testing suites:</p>
+<ul>
+<li><code>home-page.e2e.js</code> which tests our homepage</li>
+<li><code>dev-journal.e2e.js</code> which tests our developer journal feature</li>
+<li><code>taskListTestSuite.e2e.js</code> which tests our calendar and task-list feature</li>
+</ul>
+</li>
+<li>
+<p>Run all E2E tests in the directory using:</p>
+<ul>
+<li><code>npm run e2eTests</code></li>
+</ul>
+</li>
+<li>
+<p>Run a specific E2E test file in the directory using:</p>
+<ul>
+<li><code>npm run e2eTests -- &lt;path to file&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2>Agile Concepts</h2>
+<ol>
+<li>
+<p><strong>User Stories</strong>
+<img src="source/img/user-story-1.png" alt="user-story-1">
+<img src="source/img/user-story-2.png" alt="user-story-2">
+<img src="source/img/user-story-3.png" alt="user-story-3"></p>
+</li>
+<li>
+<p><strong>Sprint</strong>:</p>
+</li>
+<li>
+<p><strong>Sprint Review</strong>: A meeting done at the end of each sprint, held to discuss what was accomplished in our sprint and our individual contributions.</p>
+<ul>
+<li><a href="admin/meetings/042724.sprint-1-review.md">Sprint Review #1</a></li>
+<li><a href="admin/meetings/052324-2nd-Sprint-Meeting.md">Sprint Review #2</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Retrospective</strong>: A meeting held after the sprint review used to reflect our previous sprint and discuss the high level issues of what went right and wrong.</p>
+<ul>
+<li><a href="admin/meetings/042724-retrospective.md">Retrospective meeting #1</a></li>
+<li><a href="admin/meetings/052324-2nd-Retrospective.md">Retrospective meeting #2</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Burn Down Chart</strong>: In order to keep track of our progress throughout our development process, how much we have accomplished, and how much more we need to accomplish, we utilized GitHub Projects' project tracker.
+<img src="source/img/project-tracker-1.png" alt="project-tracker-1">
+<img src="source/img/project-tracker-2.png" alt="project-tracker-2"></p>
+</li>
+</ol>
+<h2>Application of the -ilities</h2>
+<ol>
+<li><strong>Functional Suitability</strong>:</li>
+</ol>
+<ul>
+<li>Testing : We designed comprehensive unit and end-to-end tests utilizing Jest to ensure that all bugs and issues in our application have been addressed. We discuss our testing methods more in depth <a href="#testing">here</a>.</li>
+</ul>
+<ol start="2">
+<li><strong>Usability:</strong></li>
+</ol>
+<ul>
+<li>
+<p>Intuitive User Interface: Our application prioritizes an intuitive and user-friendly interface to enhance the overall usability for developers. The clean and minimalistic design, coupled with clear labeling and visual cues, ensures a smooth learning curve and seamless navigation.</p>
+</li>
+<li>
+<p>Responsive Design: To cater to a diverse range of devices and screen sizes, our application employs responsive design principles. This ensures that the layout and content adapt seamlessly, providing an optimal viewing and interaction experience across desktops, tablets, and mobile devices.</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>Maintainability:</strong></li>
+</ol>
+<ul>
+<li>
+<p>Modular Architecture: Our codebase follows a modular design approach, where functionality is divided into separate, self-contained components. This modularity promotes code reusability, simplifies debugging, and facilitates future enhancements or modifications without impacting the entire system.</p>
+</li>
+<li>
+<p>Adherence to Coding Standards: We strictly adhere to industry-standard coding practices and conventions, ensuring consistent formatting, naming conventions, and coding styles throughout the project. This commitment to coding standards enhances code readability and maintainability, making it easier for developers to understand and modify the codebase as needed.</p>
+</li>
+</ul>
+<ol start="4">
+<li><strong>Scalability:</strong></li>
+</ol>
+<ul>
+<li>
+<p>Efficient Data Storage: By leveraging efficient data storage mechanisms like localStorage, our application can handle growing amounts of user data without compromising performance. This approach ensures that the application scales gracefully as the user base and data requirements increase over time.</p>
+</li>
+<li>
+<p>Modular Design: The modular architecture of our application facilitates scalability by allowing individual components to be scaled independently based on resource demands. This flexibility enables the application to adapt to changing workloads and accommodate future growth without significant architectural changes.</p>
+</li>
+</ul>
+<ol start="5">
+<li><strong>Accessibility:</strong></li>
+</ol>
+<ul>
+<li>
+<p>Keyboard Navigation: To cater to users with disabilities or those who prefer keyboard-based interactions, our application supports extensive keyboard navigation capabilities. Users can seamlessly navigate through the application's features and functionalities using intuitive keyboard shortcuts, ensuring an inclusive and accessible experience.</p>
+</li>
+<li>
+<p>Markdown Editor Accessibility: The integration of a markdown editor in our Developer Journal feature enhances accessibility for users with diverse needs. Markdown's simplicity and plain-text nature make it easier to navigate and comprehend content using assistive technologies, such as screen readers or text-to-speech software.</p>
+</li>
+</ul>
+<p>By addressing these '-ilities', we strive to deliver a high-quality software solution that meets the needs of developers while ensuring a seamless, reliable, and accessible user experience. Our commitment to usability, maintainability, scalability, reliability, and accessibility is reflected throughout the application's design and implementation.</p>
+<h2>Resources</h2>
+<ol>
+<li>
+<p>Video links:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=mqnLJw1I7lg"><strong>Team Video</strong></a>.</li>
+<li><a href="https://youtu.be/2HepYe5-YLw"><strong>MVP/EC Video</strong></a>.</li>
+<li><a href="https://www.youtube.com/watch?v=myacnpHmjUQ"><strong>Status Video 2</strong></a>.</li>
+</ul>
+</li>
+<li>
+<p>Design resources:</p>
+<ul>
+<li><a href="https://miro.com/app/board/uXjVKMiOIZM=/"><strong>Miro Board</strong></a>.</li>
+<li><a href="https://www.figma.com/design/V6eBR6UbPtpxFRhxyXcO3T/team-5-figma-board?node-id=0%3A1&amp;t=WDiy1Dt2cr4rP5Ny-1"><strong>Figma Mockup</strong></a>.</li>
+</ul>
+</li>
+</ol>
+<h2>Team Members</h2>
+<ul>
+<li>Drishti Regmi</li>
+<li>Haley Nguyen</li>
+<li>Vishaal Gaddipati</li>
+<li>Nicholas Cheah</li>
+<li>Angel Ren</li>
+<li>Hugo D Souza</li>
+<li>Stephen Tong</li>
+<li>Maasilan Kumaraguru</li>
+<li>Xavier Navarro</li>
+<li>Arnav Modi (Team Lead)</li>
+<li>Mishka Jethwani (Team Lead)</li>
+</ul>
+<p>Bisit the <a href="https://cse110-sp24-group5.github.io/cse110-sp24-group5/admin/team">team page</a> to learn more about our team members.</p></article>
     </section>
 
 
@@ -111,7 +415,7 @@
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Jun 04 2024 16:19:07 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Jun 04 2024 16:19:41 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
