@@ -3,8 +3,16 @@ describe('Test to ensure all components of main page are working', () => {
     // an example name to be used
     let exampleName = 'tester';
 
+    const puppeteer = require('puppeteer');
+
+    let browser;
+    let page;
+    
     // loads the home page for testing
     beforeAll(async () => {
+        browser = await puppeteer.launch({ headless: false });
+        page = await browser.newPage();
+
         // answers the dialogue asking for name
         page.once('dialog', async dialog => {
             console.log(dialog.message());
@@ -95,9 +103,74 @@ describe('Test to ensure all components of main page are working', () => {
     });
 
     // Sentiment widget component #TODO
-    /* it('Ensures interaction with sentiment widget works', async () => {
-      
-    }); */
+    it('Ensures interaction with sentiment widget works', async () => {
+        console.log('Checking sentiment widget');
+
+        // gets access to the slider and icon
+        const slider = await page.$('#sentiment');
+        let currentFace = await page.$('#face-icon');
+
+        // Initial tests
+        // SO SO
+        // get the src attribute of the image
+        let imgSrc = await page.evaluate(el => el.src, currentFace);
+        // get local path of src
+        let localPath = new URL(imgSrc).pathname;
+        // tests initial image to be neutral and slider to be 50
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/soso_face.png');
+        // gets the value of the slider
+        let value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('50');
+
+        // Test with changing value of Slider
+        // ANGRY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 0, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('0');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/angry_face.png');
+
+        // SAD
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 25, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('25');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/sad_face.png');
+
+        // HAPPY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 75, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('75');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/happy_face.png');
+
+        // LAUGHING
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 100, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('100');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
+    });
 
     // OFFLINE TESTS
     // Test home page
@@ -170,7 +243,72 @@ describe('Test to ensure all components of main page are working', () => {
 
     // Sentiment widget component #TODO
     /* it('Ensures interaction with sentiment widget works OFFLINE', async () => {
+        console.log('Checking sentiment widget');
 
+        // gets access to the slider and icon
+        const slider = await page.$('#sentiment');
+        let currentFace = await page.$('#face-icon');
+
+        // Initial tests
+        // SO SO
+        // get the src attribute of the image
+        let imgSrc = await page.evaluate(el => el.src, currentFace);
+        // get local path of src
+        let localPath = new URL(imgSrc).pathname;
+        // tests initial image to be neutral and slider to be 50
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/soso_face.png');
+        // gets the value of the slider
+        let value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('50');
+
+        // Test with changing value of Slider
+        // ANGRY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 0, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('0');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/angry_face.png');
+
+        // SAD
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 25, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('25');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/sad_face.png');
+
+        // HAPPY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 75, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('75');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/happy_face.png');
+
+        // LAUGHING
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 100, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('100');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
     }); */
 });
 
