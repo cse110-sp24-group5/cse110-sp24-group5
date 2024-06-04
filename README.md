@@ -207,8 +207,8 @@ We have deployed our [JS Docs](https://gh-pages--stunning-trifle-07f221.netlify.
 ## Codacy
 Codacy is a pivotal tool in our CI/CD pipeline, offering comprehensive code quality analysis that goes beyond what our language-specific linters provide. It examines our entire codebase—JavaScript, CSS, and HTML—to identify complex issues such as overly complicated functions, inefficient CSS selectors, and accessibility gaps in our HTML. Critically, Codacy quantifies our project's health with an overall quality score, transforming code quality into a measurable metric. We've integrated codacy into our workflow so that we can see as it generates analysis. This approach not only catches deep-rooted issues but also fosters a culture of continuous improvement, as our team can track and celebrate our quality enhancements over time. With Codacy, we ensure that our codebase doesn't just function correctly but is also maintainable, efficient, and aligned with best practices.
 
-![Codacy-1](source/img/codacy-1)
-![Codacy-2](source/img/codacy-2)
+![Codacy-1](source/img/codacy-1.png)
+![Codacy-2](source/img/codacy-2.png)
 
 ## Testing
 
@@ -239,7 +239,6 @@ Codacy is a pivotal tool in our CI/CD pipeline, offering comprehensive code qual
 ![user-story-3](source/img/user-story-3.png)
    
 3. **Sprint**: 
-
    
 4. **Sprint Review**: A meeting done at the end of each sprint, held to discuss what was accomplished in our sprint and our individual contributions.
     * [Sprint Review #1](admin/meetings/042724.sprint-1-review.md)
