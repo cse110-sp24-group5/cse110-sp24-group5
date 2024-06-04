@@ -153,4 +153,3 @@ describe('Test to ensure all components of main page are working', () => {
 
     }); */
 });
-
