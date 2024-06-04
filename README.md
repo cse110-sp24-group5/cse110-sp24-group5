@@ -9,6 +9,7 @@
 ![JSDoc](https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&logo=jsdoc)
 ![Super Linter](https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&logo=github-actions)
 ![Codacy](https://img.shields.io/codacy/grade/YOUR_PROJECT_ID?style=for-the-badge&logo=codacy)
+![PWA](https://img.shields.io/badge/PWA-Ready-5E5C5C?style=for-the-badge&logo=pwa)
 
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br>
 
@@ -78,9 +79,12 @@ To install and run the project locally, follow these steps:
 
 ### 2. Using the WebApp
 
-To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html oe click on out logo
+To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html oe click on our logo
 
 ### 3. Using the Progressive Web App
+
+Our developer journal isn't just a web app; it's also a Progressive Web App (PWA), offering a native-like experience with offline access, fast loading times, and home screen integration. This means you can access your tasks, calendar, and journal entries anytime, anywhere, even without an internet connection.
+To use our PWA, simply visit our WebApp and click the "Install" or "Add to Home Screen" icon in your browser. Once installed, our app's icon will appear on your device's home screen, providing instant access to your productivity tools wherever your development work takes you.
 
 ![Progressive Web App Demo](source/img/pwa.gif)
 
