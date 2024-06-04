@@ -281,4 +281,9 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
+
+    // make functions available globally
+    window.handleEditButtonClick = handleEditButtonClick;
+    window.handleDeleteButtonClick = handleDeleteButtonClick;
+    window.getTasksForDate = getTasksForDate;
 };
