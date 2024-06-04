@@ -32,64 +32,10 @@ body {
 
 /* Makes it so that date element is in the top right corner */
 .date-element {
-    position: absolute;
-    top: 20px;
-    right: 5%; 
-    font-size: 0.6em;    
-}
-
-.back-element {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
-}
-
-.back-element a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.back-element img {
-    width: 10px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Add some space between image and text */
-}
-
-.back-element p {
-    font-family: sans-serif;
-    margin: auto;
-    color: var(--dashboard-color);
-}
-
-.h7{
-    font-size: 0.3em;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-/* background strip to group preview and editor button */
-.markdown-buttons{
-    background-color: rgb(252 236 255);
-    opacity: 0.5;
-    padding : 10px;
-    width: 150px;
-    align-items: center;
-    border-radius: 5%;
-    display: flex; /* makes the button align into a row */
-    justify-content: center; /* gets the buttons centered */
-    gap: 10px;
-}
-
-.preview-button, .editor-button{
-    font-size: x-small; 
-}
-
-.save-buttons {
-    display: flex;
-    justify-content: center;
+    position: absolute; 
+    top: 30px;
+    right: 2%; 
+    font-size: 0.1em;
 }
 
 /* adjusts the styling of the buttons */
@@ -171,13 +117,24 @@ body {
 
 .icon-checkbox1, .icon-checkbox3, .icon-checkbox4{
     display: flex;
-   flex-direction: column;
-   align-items: center; 
-   margin-left: 0%;
-
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
 }
 
-/* This is the layout for every single device over and equal to 800 px */
+.back-element img {
+    width: 10px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.back-element p {
+    font-family: sans-serif;
+    margin: auto;
+    color: var(--dashboard-color);
+}
+
+/* This is the layout for every single device over  and equal to 800 px */
 /* stylelint-disable-next-line media-feature-range-notation */
 @media screen and (min-width: 800px) {
     /* We want a grid to be able to have two panels of elements */
