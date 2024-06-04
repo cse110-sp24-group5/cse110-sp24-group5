@@ -259,16 +259,15 @@ Sprints dictate  our development  where we transform user stories into working s
 8. **Architectural Decision Records (ADRs)**
 In an Agile world where change is constant, our architecture must be both robust and flexible. ADRs are our architectural compass, documenting the what, why, and how of key design decisions.
 Each ADR captures:
-1. The context and problem statement
-2. Considered options with pros and cons
-3. The chosen direction 
-4. Consequences (positive and negative)
+    1. The context and problem statement
+    2. Considered options with pros and cons
+    3. The chosen direction
+    4. Consequences (positive and negative)
 
 ## Application of the -ilities
 
 1. **Functional Suitability**: 
 - Testing : We designed comprehensive unit and end-to-end tests utilizing Jest to ensure that all bugs and issues in our application have been addressed. We discuss our testing methods more in depth [here](#testing).
-
 
 2. **Usability:**
 
@@ -276,13 +275,11 @@ Each ADR captures:
   
 - Responsive Design: To cater to a diverse range of devices and screen sizes, our application employs responsive design principles. This ensures that the layout and content adapt seamlessly, providing an optimal viewing and interaction experience across desktops, tablets, and mobile devices.
 
-
 3. **Maintainability:**
 
 - Modular Architecture: Our codebase follows a modular design approach, where functionality is divided into separate, self-contained components. This modularity promotes code reusability, simplifies debugging, and facilitates future enhancements or modifications without impacting the entire system.
   
 - Adherence to Coding Standards: We strictly adhere to industry-standard coding practices and conventions, ensuring consistent formatting, naming conventions, and coding styles throughout the project. This commitment to coding standards enhances code readability and maintainability, making it easier for developers to understand and modify the codebase as needed.
-
 
 4. **Scalability:**
 
@@ -290,14 +287,11 @@ Each ADR captures:
   
 - Modular Design: The modular architecture of our application facilitates scalability by allowing individual components to be scaled independently based on resource demands. This flexibility enables the application to adapt to changing workloads and accommodate future growth without significant architectural changes.
 
-
 5. **Accessibility:**
 
 - Keyboard Navigation: To cater to users with disabilities or those who prefer keyboard-based interactions, our application supports extensive keyboard navigation capabilities. Users can seamlessly navigate through the application's features and functionalities using intuitive keyboard shortcuts, ensuring an inclusive and accessible experience.
   
 - Markdown Editor Accessibility: The integration of a markdown editor in our Developer Journal feature enhances accessibility for users with diverse needs. Markdown's simplicity and plain-text nature make it easier to navigate and comprehend content using assistive technologies, such as screen readers or text-to-speech software.
-
-
 
 By addressing these '-ilities', we strive to deliver a high-quality software solution that meets the needs of developers while ensuring a seamless, reliable, and accessible user experience. Our commitment to usability, maintainability, scalability, reliability, and accessibility is reflected throughout the application's design and implementation.
 ## Resources
