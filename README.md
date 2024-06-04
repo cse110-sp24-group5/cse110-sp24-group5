@@ -8,6 +8,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&logo=javascript)
 ![JSDoc](https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&logo=jsdoc)
 ![Super Linter](https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&logo=github-actions)
+![Codacy](https://img.shields.io/codacy/grade/YOUR_PROJECT_ID?style=for-the-badge&logo=codacy)
 
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br>
 
@@ -30,7 +31,7 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
 ## Table of Contents
 - [Introduction](#introduction)
 - [Installation and Setup](#installation-and-setup)
-    - [Using it locally](#using-it-locally)
+    - [Using it locally](#1.using-it-locally)
     - [Using the WebApp](#using-the-webapp)
     - [Using the Progressive Web App (PWA)](#using-the-progressive-web-app-(pwa))
 - [Features](#features)
@@ -55,7 +56,7 @@ In the fast-paced world of software development, productivity and mental well-be
 The journal serves as a centralized hub where developers can effectively manage their tasks, document their progress, and reflect on their daily experiences. By combining powerful features such as a calendar, task management, and a markdown-enabled development journal, our application streamlines the workflow and encourages mindful practices. With the calendar feature, developers can easily navigate through different months, view task lists, and manage their tasks seamlessly. The development journal component allows developers to document their activities, thoughts, and learnings using a user-friendly markdown editor, while also selecting the roles they fulfilled on a given day. By integrating mental health considerations, our journal encourages developers to prioritize their well-being through regular reflection and journaling.
 
 ## Installation and Setup
-### 1. Using it locally
+### 1.Using it locally
 
 To install and run the project locally, follow these steps:
 
@@ -75,7 +76,7 @@ To install and run the project locally, follow these steps:
 
         npm start
 
-### 2. Using the WebApp
+### 2.Using the WebApp
 
 To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html oe click on out logo
 
