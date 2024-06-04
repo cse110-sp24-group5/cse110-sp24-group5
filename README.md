@@ -1,6 +1,6 @@
 # CSE110 SP24 Group 5
 
-### Click on our banner to see our WebApp!
+### Click on our logo to see our WebApp!
 [![banner.png](source/img/banner.png)](https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html))
 
 ![HTML](https://img.shields.io/badge/HTML-5E5C5C?style=for-the-badge&logo=html5)
@@ -67,7 +67,7 @@ To install and run the project locally, follow these steps:
 
 ### 2. Using the WebApp
 
-To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html
+To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html oe click on out logo
 
 ### 3. Using the Progressive Web App (PWA)
 
