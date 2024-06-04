@@ -213,13 +213,37 @@ Integration with development tools: Many IDEs and code editors have built-in sup
 1. **Functional Suitability**: 
     * We designed comprehensive unit and end-to-end tests utilizing Jest to ensure that all bugs and issues in our application have been addressed. We discuss our testing methods more in depth [here](#testing).
 
-2. **Usability**:
-    * Since our application is targetted toward developers, we have designed terminal command shortcuts which can be accesed using one's keyboard so that developers can easily access and move between features. [Click here](#features) to learn about the commands that we have created.
-    * We have also created a progressive web app (PWA) so that developers can install our application and use it offline. [Click here](#installation-and-setup) for more information about our PWA.
-    
-3. **Maintainability**:
-    * To ensure that our code is good-quality and made to last, we utilized Codeacy tests to ... [Click here](#testing) to learn more about our Codeacy tests and what they accomplish. 
 
+2. **Usability:**
+
+- Intuitive User Interface: Our application prioritizes an intuitive and user-friendly interface to enhance the overall usability for developers. The clean and minimalistic design, coupled with clear labeling and visual cues, ensures a smooth learning curve and seamless navigation.
+  
+- Responsive Design: To cater to a diverse range of devices and screen sizes, our application employs responsive design principles. This ensures that the layout and content adapt seamlessly, providing an optimal viewing and interaction experience across desktops, tablets, and mobile devices.
+
+
+3. **Maintainability:**
+
+- Modular Architecture: Our codebase follows a modular design approach, where functionality is divided into separate, self-contained components. This modularity promotes code reusability, simplifies debugging, and facilitates future enhancements or modifications without impacting the entire system.
+  
+- Adherence to Coding Standards: We strictly adhere to industry-standard coding practices and conventions, ensuring consistent formatting, naming conventions, and coding styles throughout the project. This commitment to coding standards enhances code readability and maintainability, making it easier for developers to understand and modify the codebase as needed.
+
+
+4. **Scalability:**
+
+- Efficient Data Storage: By leveraging efficient data storage mechanisms like localStorage, our application can handle growing amounts of user data without compromising performance. This approach ensures that the application scales gracefully as the user base and data requirements increase over time.
+  
+- Modular Design: The modular architecture of our application facilitates scalability by allowing individual components to be scaled independently based on resource demands. This flexibility enables the application to adapt to changing workloads and accommodate future growth without significant architectural changes.
+
+
+5. **Accessibility:**
+
+- Keyboard Navigation: To cater to users with disabilities or those who prefer keyboard-based interactions, our application supports extensive keyboard navigation capabilities. Users can seamlessly navigate through the application's features and functionalities using intuitive keyboard shortcuts, ensuring an inclusive and accessible experience.
+  
+- Markdown Editor Accessibility: The integration of a markdown editor in our Developer Journal feature enhances accessibility for users with diverse needs. Markdown's simplicity and plain-text nature make it easier to navigate and comprehend content using assistive technologies, such as screen readers or text-to-speech software.
+
+
+
+By addressing these '-ilities', we strive to deliver a high-quality software solution that meets the needs of developers while ensuring a seamless, reliable, and accessible user experience. Our commitment to usability, maintainability, scalability, reliability, and accessibility is reflected throughout the application's design and implementation.
 ## Resources
 
 1. Video links:
