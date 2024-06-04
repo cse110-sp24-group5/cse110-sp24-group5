@@ -1,4 +1,5 @@
 // terminal.js
+
 document.addEventListener('DOMContentLoaded', function() {
   var infoBtn = document.getElementById('infoBtn');
   var infoBox = document.getElementById('infoBox');
@@ -29,27 +30,36 @@ document.addEventListener('DOMContentLoaded', function () {
   const descriptionInput = document.getElementById('desc-text'); // Description text
   const popUp = document.querySelector('.pop-up.parent');
   
+  /**
+   * Toggle the visibility of the terminal and focus the input if it is shown
+   */
   function toggleTerminal() {
     terminal.classList.toggle('hidden');
     if (!terminal.classList.contains('hidden')) {
       terminalInput.focus();
     }
   }
- // Function to show the pop-up
+ 
+ /**
+  * Function to show the pop-up
+  */
  function showPopUp() {
   showOverlay();
   popUp.classList.remove('hidden');
-}
+ }
 
-const overlay = document.createElement('div');
-    overlay.classList.add('overlay');
-    document.body.appendChild(overlay);
-    // Function to show the overlay
- // Function to show the overlay
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  document.body.appendChild(overlay);
+    
+ /**
+  * Function to show the overlay
+  */
  function showOverlay() {
   overlay.classList.add('active');
-}
-  document.addEventListener('keydown', function (event) {
+ }
+ 
+  document.addEventListener('keydown', function (event) { // Checking if input is ctrl + / to toggle terminal
     if (event.ctrlKey && event.key === '/') {
       event.preventDefault();
       toggleTerminal();
@@ -88,7 +98,10 @@ const overlay = document.createElement('div');
     }
   });
 
-  // Functions to handle commands for different pages
+  /**
+   * Functions to handle commands for different pages
+   * @param {string} command - The command entered in the terminal
+   */
   function handleHomeCommands(command) {
     // Add logic for home page commands
     terminalContent.textContent += `\nHome Page command executed: ${command}`;
@@ -106,6 +119,11 @@ const overlay = document.createElement('div');
       terminalContent.textContent += `\nCommand not recognized`;
     }
   }
+  
+  /**
+   * Handles the delete button click event
+   * @param {Object} task - The task object that is to be deleted
+   */
   function handleDeleteButtonClick(task) {
     const dateElement = document.getElementById('date');
     // Construct a unique key for localStorage based on the selected date
@@ -118,6 +136,10 @@ const overlay = document.createElement('div');
     addTaskForDate(dateText);
 }
 
+/**
+ * Handles the edit button click event
+ * @param {Object} task - The task object that is to be edited
+ */
 function handleEditButtonClick(task) {
   // Set edit mode to true
   editMode = true;
@@ -132,6 +154,10 @@ function handleEditButtonClick(task) {
 }
 
 
+/**
+ * Add tasks for the given date to the task list
+ * @param {string} dateText - The date for which to add tasks
+ */
 function addTaskForDate(dateText) {
   // Get the task list ul element
   const taskList = document.querySelector('.task-list-ul');
@@ -188,22 +214,38 @@ function addTaskForDate(dateText) {
       taskList.appendChild(noTasksMessage);
   }
 }
+
+/** Handle with the saving of the task into local storage
+ * @param {Array} tasks - save the task into the local storage
+ */
 function saveTasksToStorage(tasks) {
   const tasksJSON = JSON.stringify(tasks);
   localStorage.setItem('tasks', tasksJSON);
   console.log(tasks);
 }
 
+/**
+ * Gets the tasks for a specified date
+ * @param {string} date - Representation of a date
+ * @returns {Array} - Array of tasks for the specified date
+ */
 function getTasksForDate(date) {
   const allTasks = loadTasksFromStorage();
   return allTasks.filter(task => task.date === date);
 }
 
+/**
+ * Load task list from local storage
+ * @returns {Array} An array of tasks for the specified date
+ */
 function loadTasksFromStorage() {
   const tasksJSON = localStorage.getItem('tasks');
   return tasksJSON ? JSON.parse(tasksJSON) : [];
 }
 
+/** Handle the commands of the calendar
+ * @param {string} command - Commands of the user for the calendar
+ */
   function handleCalendarCommands(command) {
       // Add logic for calendar page commands
       terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
@@ -246,13 +288,11 @@ function loadTasksFromStorage() {
       //regex for the tasklist commands
       const regexTaskList = /.* [dea]$/;
 
-
-
-      if(regexCD.test(command)) {
+      if (regexCD.test(command)) {
         // "cd .." - back to home, case insensitive
         window.location.href = 'index.html';
       }
-      else if(regexTaskList.test(command)) {
+      else if (regexTaskList.test(command)) {
         //check if the last char is a d, e, or a
         const lastChar = command.charAt(command.length - 1);
         const taskName = command.substring(0, command.length - 2);
@@ -264,39 +304,16 @@ function loadTasksFromStorage() {
 
         //then loop through all of the tasks for that specific date
 
-        for(const task of tasksForDate) {
-          if(task.titleText == taskName) {
-            if(lastChar == 'd') {
+        for (const task of tasksForDate) {
+          if (task.titleText == taskName) {
+            if (lastChar == 'd') {
               handleDeleteButtonClick(task);
             }
-            else if(lastChar == 'e') {
+            else if (lastChar == 'e') {
               handleEditButtonClick(task);
             }
           }
-        }
-
-
-
-          /*if(task.date == dateText){
-            //get all the tasks associated with the date
-            const tasksForDate = getTasksForDate(dateText);
-            for(const currTaskOfDate of tasksForDate) {
-              console.log(currTaskOfDate);
-              if(task.titleText == taskName){
-                if(lastChar == 'd') {
-                  console.log(taskName);
-                  handleDeleteButtonClick(taskName);
-                }
-                else if(lastChar == 'a') {
-                  addTaskForDate(dateText);
-                }
-                else {
-                  handleEditButtonClick(task);
-                }
-              }
-            }
-          }*/
-        
+        }     
       }
       else {
         terminalContent.textContent += `\nCommand not recognized: ${command}`;
@@ -304,6 +321,10 @@ function loadTasksFromStorage() {
     }
   }
 
+  /**
+   * Handle commands submitted by the user to the terminal for the dev journal
+   * @param {string} command - Command submitted by user to the terminal for the dev journal
+   */
   function handleDevJournalCommands(command) {
       // Add logic for dev journal page commands
       terminalContent.textContent += `\nDev Journal Page command executed: ${command}`;
