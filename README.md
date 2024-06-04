@@ -8,7 +8,6 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-5E5C5C?style=for-the-badge&logo=javascript)
 ![JSDoc](https://img.shields.io/badge/JSDoc-5E5C5C?style=for-the-badge&logo=jsdoc)
 ![Super Linter](https://img.shields.io/badge/Super%20Linter-5E5C5C?style=for-the-badge&logo=github-actions)
-![Codacy](https://img.shields.io/codacy/grade/)
 ![PWA](https://img.shields.io/badge/PWA-Ready-5E5C5C?style=for-the-badge&logo=pwa)
 
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br>
