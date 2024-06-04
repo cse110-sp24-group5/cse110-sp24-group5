@@ -21,7 +21,6 @@ body {
     /* set viewport height to 100, without this line, the gradient won't be rendered properly */
     background: linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* renders the background color */
     font-family: Montesserat, Arial, Helvetica, sans-serif; /* set the font for the text */
-    font-size: 1.3em; /* font size of the text in the body */
     min-height: 100vh;
     max-width: 100%; 
     overflow: visible; 

@@ -72,7 +72,7 @@ function init () {
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
 
-    // Function to handle the "Confirm" button click event
+    //Function to handle the "Confirm" button click event
     function handleConfirmButtonClick() {
         const dateElement = document.getElementById('date');
         const title = titleInput.value.trim();
@@ -86,11 +86,11 @@ function init () {
             return; // Stop further execution
         }
 
-        // Get existing tasks from localStorage
+        //Get existing tasks from localStorage
         const tasks = getTasksForDate(dateText);
 
         if (editMode) {
-            // Find the task to edit by its title
+            //Find the task to edit by its title
             const editedTaskIndex = tasks.findIndex(task => task.titleText === editedTaskTitle);
 
             if (editedTaskIndex !== -1) {
@@ -150,10 +150,11 @@ function init () {
             editedTaskTitle = null;         
         }
 
-        // Reset isDuplicate
+       // Reset isDuplicate
         isDuplicate = false;
     }
 
+    
     // Function to add task for a given date
     function addTaskForDate(dateText) {
 
@@ -280,4 +281,9 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
+
+    // make functions available globally
+    window.handleEditButtonClick = handleEditButtonClick;
+    window.handleDeleteButtonClick = handleDeleteButtonClick;
+    window.getTasksForDate = getTasksForDate;
 };

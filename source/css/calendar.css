@@ -46,7 +46,12 @@ body {
 }
 
 /* remove the background button that appears on default for buttons so we can replace with images */
-button {
+.prev-month {
+    border: none;
+    background: transparent;
+}
+
+.next-month {
     border: none;
     background: transparent;
 }
@@ -185,6 +190,8 @@ img {
     margin: auto;
     color: var(--dashboard-color);
 }
+
+
 
 /* handle smaller screens sizing with fonts */
 /* stylelint-disable-next-line media-feature-range-notation */

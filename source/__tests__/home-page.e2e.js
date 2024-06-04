@@ -303,4 +303,3 @@ describe('Test to ensure all components of main page are working', () => {
         expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
     }); */
 });
-
