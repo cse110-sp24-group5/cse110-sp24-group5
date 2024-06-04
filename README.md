@@ -222,7 +222,7 @@ Integration with development tools: Many IDEs and code editors have built-in sup
 
 1. Video links:
     * [**Team Video**](https://www.youtube.com/watch?v=mqnLJw1I7lg).
-    * [**MVP/EC Video**] [here](https://youtu.be/2HepYe5-YLw).
+    * [**MVP/EC Video**](https://youtu.be/2HepYe5-YLw).
     * [**Status Video 2**](https://www.youtube.com/watch?v=myacnpHmjUQ).
 
 2. Design resources:
