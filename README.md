@@ -91,6 +91,8 @@ To use our PWA, simply visit our WebApp and click the "Install" or "Add to Home 
 
 ### 1. Dashboard
 
+![dashboard.gif](source/img/dashboard.gif)
+
 - **Navigation**: Users can seamlessly move through different months using intuitive buttons for the calendar and Dev Journal, ensuring easy access to past and future dates.
 
 - **Sentiment Analysis**: For a quick way to keep track of the moods of our users and help them in their self-care journey as software engineers. We have a mood tracker where you can rate your mode based on a slider which is then converted into a corresponding emoji stored in the calendar for that day!
