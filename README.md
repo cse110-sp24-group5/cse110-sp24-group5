@@ -76,7 +76,7 @@ To install and run the project locally, follow these steps:
 
         npm start
 
-### 2.Using the WebApp
+### 2. Using the WebApp
 
 To use our WebApp you can use the following link: https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html oe click on out logo
 
