@@ -1,23 +1,29 @@
 // Test the home page
 describe('Test to ensure all components of main page are working', () => {
+    // an example name to be used
+    let exampleName = 'tester';
+    
     // loads the home page for testing
     beforeAll(async () => {
-        // SKIPS PAST THE PROMPT TO GET THE LINTER WORKING
-        // STILL NEED OT TEST IF DIALOGUE WORKS PROPERLY
-        page.on('dialog', async dialog => {
+        // answers the dialogue asking for name
+        page.once('dialog', async dialog => {
             console.log(dialog.message());
+            // name of user is rejected now
             await dialog.dismiss();
         });
-
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
-    // Test home page
-    it('Ensures home page works', async () => {
+    // Test home page 
+    it('Home page without user input', async () => {
         // get the home url
         const home_URL = await page.url();
-        // checks to see if it matches the deployed page
+        // TEST checks to see if it matches the deployed page
         expect(home_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
+
+        // TEST expected name of user after rejecting dialogue
+        const nameReject = await page.$eval('#name', el => el.textContent);
+        expect(nameReject).toBe('!');
     });
 
     // DevJournal component
@@ -40,11 +46,25 @@ describe('Test to ensure all components of main page are working', () => {
         const back_Button = await page.$('img');
         // clicks on it and waits for navigation
         await back_Button.click();
+        // ADDS THE EXAMPLE NAME INTO HOME PAGE USING DIALOGUE
+        page.once('dialog', async dialog => {
+            console.log(dialog.message());
+            // name of user is accepted now
+            await dialog.accept(exampleName);
+        });
         await page.waitForNavigation();
         // gets home url again
         const return_URL = await page.url();
         // checks if returned to home url
         expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
+    });
+
+    // Home page test again 
+    it('Home page with user input', async () => {
+        // TEST expected name of user after answering dialogue
+        const nameAccept = await page.$eval('#name', el => el.textContent);
+        // case where user gave a name
+        expect(nameAccept).toBe(' ' + exampleName + '!');
     });
 
     // Calandar section
@@ -75,9 +95,74 @@ describe('Test to ensure all components of main page are working', () => {
     });
 
     // Sentiment widget component #TODO
-    /* it('Ensures interaction with sentiment widget works', async () => {
-      
-    }); */
+    it('Ensures interaction with sentiment widget works', async () => {
+        console.log('Checking sentiment widget');
+
+        // gets access to the slider and icon
+        const slider = await page.$('#sentiment');
+        let currentFace = await page.$('#face-icon');
+
+        // Initial tests
+        // SO SO
+        // get the src attribute of the image
+        let imgSrc = await page.evaluate(el => el.src, currentFace);
+        // get local path of src
+        let localPath = new URL(imgSrc).pathname;
+        // tests initial image to be neutral and slider to be 50
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/soso_face.png');
+        // gets the value of the slider
+        let value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('50');
+
+        // Test with changing value of Slider
+        // ANGRY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 0, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('0');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/angry_face.png');
+
+        // SAD
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 25, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('25');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/sad_face.png');
+
+        // HAPPY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 75, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('75');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/happy_face.png');
+
+        // LAUGHING
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 100, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('100');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
+    });
 
     // OFFLINE TESTS
     // Test home page
@@ -146,10 +231,75 @@ describe('Test to ensure all components of main page are working', () => {
         // Goes back online
         await page.setOfflineMode(false);
         await page.reload();
-    });
+    }); */
 
     // Sentiment widget component #TODO
-    it('Ensures interaction with sentiment widget works OFFLINE', async () => {
+    /* it('Ensures interaction with sentiment widget works OFFLINE', async () => {
+        console.log('Checking sentiment widget');
 
+        // gets access to the slider and icon
+        const slider = await page.$('#sentiment');
+        let currentFace = await page.$('#face-icon');
+
+        // Initial tests
+        // SO SO
+        // get the src attribute of the image
+        let imgSrc = await page.evaluate(el => el.src, currentFace);
+        // get local path of src
+        let localPath = new URL(imgSrc).pathname;
+        // tests initial image to be neutral and slider to be 50
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/soso_face.png');
+        // gets the value of the slider
+        let value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('50');
+
+        // Test with changing value of Slider
+        // ANGRY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 0, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('0');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/angry_face.png');
+
+        // SAD
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 25, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('25');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/sad_face.png');
+
+        // HAPPY
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 75, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('75');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/happy_face.png');
+
+        // LAUGHING
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 100, slider);
+        await page.waitForNetworkIdle();
+        // grabs the value of the slider and checks for expected
+        value = await slider.evaluate(el => el.value, slider);
+        expect(value).toBe('100');
+        // grabs the current face and checks if correct
+        imgSrc = await page.evaluate(el => el.src, currentFace);
+        localPath = new URL(imgSrc).pathname;
+        expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
     }); */
 });

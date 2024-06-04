@@ -148,7 +148,10 @@ it('Deleting All Text from Markdown Editor', async () => {
     await editorHandle.click();
 
     // Simulate selecting all text
-    await editorHandle.click({ clickCount: 3 }); 
+    // await editorHandle.click({ clickCount: 3 }); 
+    await page.keyboard.down('Control');
+    await page.keyboard.press('KeyA');
+    await page.keyboard.up('Control');
     await page.keyboard.press('Backspace'); // Delete all selected text
 
     const editorContentAfterDeletion = await page.$eval('#markdown-editor', el => el.value);
