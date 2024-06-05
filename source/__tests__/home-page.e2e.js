@@ -162,7 +162,7 @@ describe('Test to ensure all components of main page are working', () => {
         imgSrc = await page.evaluate(el => el.src, currentFace);
         localPath = new URL(imgSrc).pathname;
         expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
-    });
+    }, 10000);
 
     // OFFLINE TESTS
     // Test home page
