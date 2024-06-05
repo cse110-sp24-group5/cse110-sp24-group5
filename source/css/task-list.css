@@ -1,4 +1,3 @@
-
 body {
     height: 100vh;
     margin: 0;
@@ -46,7 +45,6 @@ p,
 
 .task-list.parent {
     position: fixed;
-    text-align: left;
     top: -5%;
     left: 50%;
     transform: translate(-50%, 50%);
@@ -115,20 +113,21 @@ p,
     color: var(--on-close);
 }
 
-
 #add {
-    background-color: #708EE8;
-    width: 50px;
-    height: 50px;
-    color: white;
-    font-size: 70px;
+    margin-left: auto; /* Push the close button to the right */
+    font-family: Inter, sans-serif;
+    font-style: normal;
     font-weight: bold;
+    font-size: 60px;
+    line-height: 58px;
     display: flex;
     align-items: center;
-    padding-right: 45px;   
+    width: 50px;
+    height: 50px;
+    background-color: var(--color2);
+    color: white;
+    padding-bottom: 8px;
 }
-
-
 
 #add:hover{
     background-color: var(--color1); 
@@ -147,19 +146,7 @@ p,
     color: white;
     */
 
-    /* font-style: normal;
-    font-weight: bold;
-    font-size: 60px;
-    line-height: 58px;
-    display: flex;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--color2);
-    color: white;
-    padding-bottom: 8px; */
-
-
+/* Task List middle subsection */
 
 .task-list-middle {
     overflow-y: auto;
@@ -199,7 +186,6 @@ p,
     justify-content: space-between; /* Space elements evenly */
     align-items: center; /* Center elements vertically */
     padding: 20px;
-    margin-left: 75%;
 }
 
 /* Pop-up section */
@@ -227,7 +213,6 @@ p,
     position: fixed;
     top:0;
     right:0;
-    padding-left: 
 }
 
 /* Pop-up top subsection */
@@ -317,7 +302,51 @@ p,
 
 /* Media query for smaller screens */
 /* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 799px) {
+    .task-list.child{
+        height: 120%;
+    }
 
+    #date{
+        font-size: x-large;
+    }
+
+    .task-list-middle {
+        overflow-y: auto;
+        border: 1px solid white;
+        max-height: 320px;
+        font-size:small;
+    }
+
+    #add{
+       size: 80%;
+       
+    }
+
+    .pop-up.parent{
+        width: 55%;
+        top: 30%
+
+    }
+
+    #task-title{
+        font-size: large;
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    #task-desc {
+        font-size: small;
+    }
+    
+
+    
+    #title-text, 
+    #desc-text{
+        width: 93%;
+    }
+
+}
 
 /* stylelint-disable-next-line media-feature-range-notation */
 @media (max-width: 480px) {
@@ -327,8 +356,7 @@ p,
         font-weight: lighter;
         font-size: x-large;
         color:#2d4484;
-        display:flex;
-        align-items: center;
+        align-items: center ;
     }
 
     h3{
@@ -339,28 +367,9 @@ p,
         font-size: small;
     }
 
-
-    #add {
-        background-color: #708EE8;
-        width: 50px;
-        height: 50px;
-        color: white;
-        font-size: 70px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        padding-right: 45px; 
-        border: black;  
-    }
-
-    #add:hover{
-        background-color: var(--color1); 
-        color: white;
-    }
-
     .pop-up.parent{
-        width: 50%;
-        top: 30%;
+        width: 55%;
+        top: 30%
     }
 
     #title-text, 
