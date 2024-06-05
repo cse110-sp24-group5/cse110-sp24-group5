@@ -2,7 +2,7 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
-function init () {
+function init() {
     const popUp = document.querySelector('.pop-up.parent'); // Pop-up element
     const closePopUp = document.getElementById('close-pop-up'); // Close pop-up button
     const addTaskButton = document.getElementById('add'); // Add task button
@@ -13,6 +13,7 @@ function init () {
     let editMode = false; // Variable to track whether the pop-up is in edit mode
     let editedTaskTitle; // Stores the title of the task being edited
     let deletedTaskTitle; // Stores the title of the task being deleted
+    let isSaved = false; // Flag to track if there are unsaved changes
 
     /**
      * Function to save tasks to localStorage
@@ -59,7 +60,6 @@ function init () {
         popUp.classList.remove('hidden');
     }
 
-
     function handleAddTaskButtonClick(){
         showPopUp();
         // Reset text input values
@@ -73,10 +73,28 @@ function init () {
     });
 
     // Event listener for the "Close" button in the pop-up
-    closePopUp.addEventListener('click', hidePopUp);
+    closePopUp.addEventListener('click', () => {
+        if (isSaved) {
+            const confirmClose = confirm("You have unsaved changes. Are you sure you want to close?");
+            if (confirmClose) {
+                hidePopUp();
+                clearInputs();
+                isSaved = false;
+            }
+        } else {
+            hidePopUp();
+        }
+    });
 
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
+
+    // Event listener for input changes to set isSaved flag
+    [titleInput, descriptionInput].forEach(input => {
+        input.addEventListener('input', () => {
+            isSaved = titleInput.value.trim() !== '' || descriptionInput.value.trim() !== '';
+        });
+    });
 
     /**
      * Function to handle the "Confirm" button click event
@@ -160,6 +178,13 @@ function init () {
 
        // Reset isDuplicate
         isDuplicate = false;
+        isSaved = false;
+    }
+
+    // Function to clear input fields
+    function clearInputs() {
+        titleInput.value = '';
+        descriptionInput.value = '';
     }
 
     /**
@@ -170,29 +195,29 @@ function init () {
 
         // Get the task list ul element
         const taskList = document.querySelector('.task-list-ul');
-    
+
         // Clear existing tasks in the task list
         taskList.innerHTML = '';
-    
+
         // Get tasks for the specified date
         const dailyTasks = getTasksForDate(dateText);
-    
+
         // Check if tasks exist for the date
         if (dailyTasks && dailyTasks.length > 0) {
             // Loop through the tasks and create HTML elements
             dailyTasks.forEach((task) => {
                 // Create list item for each task
                 const taskItem = document.createElement('li');
-    
+
                 // Create div for task content
                 const taskContent = document.createElement('div');
                 taskContent.classList.add('task-container');
-    
+
                 // Create h3 element for task title
                 const taskTitle = document.createElement('h3');
                 taskTitle.id = 'task';
                 taskTitle.textContent = task.titleText; // Set task title
-    
+
                 // Create edit button
                 const editButton = document.createElement('button');
                 editButton.id = 'edit'; // Set unique id for edit button
@@ -201,7 +226,7 @@ function init () {
                 const editIcon = document.createElement('img');
                 editIcon.src = '../img/edit_task.png';
                 editButton.appendChild(editIcon);
-    
+
                 // Create delete button
                 const deleteButton = document.createElement('button');
                 deleteButton.id = 'delete'; // Set unique id for delete button
@@ -210,20 +235,20 @@ function init () {
                 const deleteIcon = document.createElement('img');
                 deleteIcon.src = '../img/delete_task.png';
                 deleteButton.appendChild(deleteIcon);
-    
+
                 // Append title, edit button, and delete button to task content
                 taskContent.appendChild(taskTitle);
                 taskContent.appendChild(editButton);
                 taskContent.appendChild(deleteButton);
-    
+
                 // Create p element for task description
                 const taskDescription = document.createElement('p');
                 taskDescription.textContent = task.descText; // Set task description
-    
+
                 // Append task content and description to list item
                 taskItem.appendChild(taskContent);
                 taskItem.appendChild(taskDescription);
-    
+
                 // Append list item to task list
                 taskList.appendChild(taskItem);
             });
