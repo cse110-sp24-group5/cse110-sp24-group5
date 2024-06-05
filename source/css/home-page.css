@@ -1,25 +1,30 @@
 /* The background of the website */
 body {
-    background:linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* Background color */
+    background: linear-gradient(rgb(222 150 255 / 30%) 23.5%, rgb(54 194 247 / 30%)74.5%); /* Background color */
     min-height: 100vh; /* Makes the background color the entirety of the viewport */
-    max-width: min-content; /* Prevents excessive width to the body */
-    overflow: hidden; /* Hides everything that is outside of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Sspecifically targets the text in the user message box */
+
+/* specifically targets the text in the user message box */
 section h2 {
     color: black;
-    font-size: 3vh;
+    font-size: 150%;
     text-align: center;
+    margin-top: 1%;
 }  
+
 
 /* Specifically targets the text above the icon boxes */
 section section h2 {
     color: black;
     text-align: center;
-    font-size: 3vh;
+    font-size: 200%;
     margin-bottom: 10px;
 }
+
 
 /* The box containing the greeting and the faces */
 .container {
@@ -27,42 +32,101 @@ section section h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 30vh;
     border: 2px solid white; /* Border color and width of the greeting box */
-    margin-left: 6vw; /* Controls the size of the greeting box */
-    margin-right: 4vw; /* Controls the size of the greeting box */
-    margin-top: 6vh; /* Controls the size of the greeting box */
-    border-radius: 20px;
+    margin: 2% 6% 0%;
     border-radius: 3vw; /* Rounds the edges of the box */
     background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the container */
+    padding: 2%; /* adds some room between the emojis and text against the container */
+    height: auto;
+    width: auto;
 }
 
-/* How the faces are arranged */
-.faces {
-    display: flex;
-    justify-content: space-between;
+
+/* sentiment analysis widget */
+#sentiment-widget{
+    width: 80%;
+    padding: 2%;
 }
 
-/* The size of the emoji faces */
-.face {
-    font-size: 6vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
+
+/* Controls the sentiment slider */
+#sentiment {
+    margin-top: 40px;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to right, red, yellow, green);
+    outline: none;
+    opacity: 0.3;
+    transition: .2s;
+    transition: opacity .15s ease-in-out;
 }
+
+
+/* Changes opacity of slider when being hover over by user */
+#sentiment:hover {
+    background: linear-gradient(to right, red, yellow, green);
+    opacity: 0.7;
+}
+
+
+/* the image on the slider for the sentiment-analysis */
+#sentiment::-webkit-slider-thumb {
+    appearance: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+
+
+   /* background: url('../img/inverted-triangle.svg'); */
+    background: var(--emoji-image);
+    background-color: transparent;
+    opacity: 1;
+    background-size : contain;
+}
+
+
+#sentiment::-moz-range-thumb {
+    cursor: pointer;
+
+
+    /* background: url('../img/inverted-triangle.svg'); */
+    background: var(--emoji-image);
+    opacity : 1;
+    background-size : contain;
+}
+
+
+#face-icon {
+    padding-top: 10px;
+    width: 80px;
+    height: 80px;
+    transition: fill 0.3s;
+
+
+    /* placing icon in center */
+    margin: auto;
+    display: block;
+    align-self: center;
+}
+
 
 /* How the icon boxes are arranged */
 .box-container {
     display: flex;
-    justify-content: space-between; /* Align items with space between them */
+    justify-content: space-evenly; /* Align items with space between them */
     margin-top: 20px; /* Adjust margin as needed */
+    margin-bottom: 40px;
 }
+
 
 /* The boxes surrounding the DevJournal and Calander */
 .box {
     border: 2px solid white;
     border-radius: 6vw; /* Rounds the edges of the box */
     padding: 8vw; /* Allows the width of box to shift properly w/ screen size change */
-    margin: 1vw 4vw; /* 1vw to let the h2 texts lie closer to their respective boxes */
+    margin: 1vh 2vw; /* 1vh to let the h2 texts lie closer to their respective boxes */
     width: 25vw; /* General size of box */
     height: 15vh; /* General size of box */
     background-color: rgb(255 255 255 / 20%); /* Adds the glaze effect for the boxes */
@@ -71,18 +135,71 @@ section section h2 {
     display: flex;
 }
 
+
 /* The images of the calander and the DevJournal */
 .icon {
     height: 20vh;
-    width: 20vh;
+    width: 20vw;
     margin: auto;
     object-fit: contain;
 }
 
+
 /* Controls the size of the emojis */
 .emoji {
-    width: 8vw;
-    height: 8vw;
+    width: 10vw;
+    height: 10vw;
+}
+
+/* Info dropdown styles */
+.info-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.info-btn {
+    position: fixed;
+    top: 5px;
+    background-color: #96BFEF;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+
+}
+
+/* Container for the info box */
+.info-box {
+    position: fixed;
+    display: none;
+    top: 5px; /* Adjust as needed */
+
+    /* right: 20px; */
+
+ /* Adjust as needed */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+    border-radius: 4px;
+    padding: 16px;
+    width: 500px; 
+    z-index: 1;
+}
+
+/* Close button inside the info box */
+.close-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 12px;
+    float: right;
 }
 
 /* Media query for smaller screens */
@@ -95,43 +212,97 @@ section section h2 {
         align-items: center; /* Center items horizontally */
     }
 
+
     /* targets the text above the icon boxes */
     section section h2 {
-        margin-left: 16vw; /* Centers the text above the icon boxes */
+        margin: 0% auto; /* Centers the text above the icon boxes */
+        font-size: 200%; /* Adjust font size for smaller screens */
     }
+
 
     /* targets the sentiment analysis box */
     .container {
-        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
-        margin-bottom: 2vh; /* Add vertical margin between boxes */
-        margin-top: 7vh; /* Add vertical margin to center better for mobile */
-        box-sizing: border-box; 
-        max-width: 70%;
+        width: 70vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        box-sizing: border-box;
         padding: 40px;
-        margin-left: auto;
-
-        h2 {
-            font-size: 4vw; /* Adjust font size for smaller screens */
-        }
+        margin: auto;
+        margin-top: 40px;
     }
+   
+    /* targets the font in the sentiment analysis box */
+    .container h2 {
+        font-size: 100%;
+    }
+
+
+    .h2 {
+        font-size: 4vw; /* Adjust font size for smaller screens */
+    }
+
 
     /* targets the icon boxes */
     .box {
-        width: 80vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
-        height: 17vh;
-        margin: 2vh; /* Add vertical margin between boxes */
-        box-sizing: border-box; 
-        max-width: 70%;
-        padding: 20px;
-        margin-left: auto;
+        width: 70vw; /* Adjust width for smaller screens ALSO ensures centered properly on mobile */
+        height: max-content;
+        box-sizing: border-box;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+
+
+    /* targets the sentiment analysis emoji */
+    #face-icon {
+        height: 60px;
+        width: 60px;
     }
 
 
     /* targets the icons specifically to make them smaller in mobile case */
     .icon {
-        height: 10vh;
-        width: 10vh;
+        height: fit-content;
+        max-width:  fit-content;
         margin: auto;
-        object-fit: contain;
     }
+
+
+}
+
+
+/* re-define width and height for IOS and Android phones */
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 550px) {
+    #sentiment::-webkit-slider-thumb {
+        width: 25px;
+        height: 2rem;
+
+
+        /* background: url('../img/inverted-triangle-smaller.svg'); */
+        background-repeat: no-repeat;
+    }
+
+
+    #sentiment::-moz-range-thumb {
+        width: 25px;
+        height: 2rem;
+
+
+        /* background: url('../img/inverted-triangle-smaller.svg'); */
+        background-repeat: no-repeat;
+        margin-bottom: 0;
+    }
+
+    .info-btn{
+        display: none;
+    }
+
+
+    input[type="range"]::-ms-thumb {
+        width: 25px;
+        height: 2rem;
+
+
+        /* background: url('../img/inverted-triangle-smaller.svg'); */
+    }
+
+
 }

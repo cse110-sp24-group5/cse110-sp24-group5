@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Panda Coding Express</title>
     <link rel="stylesheet" href="../css/home-page.css">
     <link rel="stylesheet" href="../css/terminal.css">
     <!-- Implement the Montserrat font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!--Javascript library for implementing-->
+    <script src = "https://d3js.org/d3.v7.min.js"></script>
+    
+    <link rel="manifest" href="manifest.json" />
+
     <style>
         h2 {
             font-family: 'Montserrat';
@@ -15,8 +20,9 @@
     </style>
 </head>
 <!--Custom attribute to identify home page-->
-<body data-page="home">
+<noscript>Your browser does not support JavaScript!</noscript>
 
+<body data-page="home">
     <!-- Terminal HTML structure -->
     <div id="terminal" class="hidden">
         <div id="terminal-header">
@@ -29,23 +35,90 @@
         </div>
     </div>
 
+    <!-- Dropdown menu -->
+    <button class="info-btn" id="infoBtn">Terminal Commands</button>
+
+    <!-- Info box -->
+    <div class="info-box" id="infoBox">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <p> <strong>Get Terminal: Cntrl + /</strong> <br> </p>
+        <p> <strong>Shortcuts for Homepage:</strong> <br>
+            <li> Go to Dev Journal : cd dev-journal </li>
+            <li> Go to Calendar : cd calendar</li>
+        </p>
+        <p> <strong> Shortcuts for DevJournal: </strong> <br>
+            <li> Go to Dashboard : cd .. </li>
+            <li> Preview Markdown: md p </li>
+            <li> Edit Markdown: md e </li>
+            <li> Write Learnings: l </li>
+            <li> Write Bugs: b </li>
+            <li> Chossing Roles:- 
+                <ol> 
+                    <li>debugging - bug </li>
+                    <li>documentation -  doc </li>
+                    <li>coding - code </li>
+                    <li>communication - com </li>
+                </ol>  
+            </li>
+        </p>
+        <p> <strong>Shortcuts for Calendar:</strong> <br>
+            <li> Choosing a date: DD </li>
+            <li> Choosing month and year : MM/YYYY</li>
+            <li> Deleting task : taskname d </li>
+            <li> Editing task : taskname e </li>
+        </p>
+        <p> <i> Note: All shortcuts are case insensitive</i> </p>
+    </div>
+
     <!-- Section for greeting -->
     <section>
         <div class="container">
-            <h2>Greetings <name>NAME!</name> How are you feeling today?</h2>
-            <div class="faces">
-                <div class="face" id="happy">
-                    <img class="emoji" id="happy_image" src="../img/happy_face.png" alt="Happy Face"> 
-                </div>
-                <div class="face neutral" id="neutral">
-                    <img class="emoji" id="neutral_image" src="../img/soso_face.png" alt="Neutral Face"> 
-                </div>
-                <div class="face sad" id="sad">
-                    <img class="emoji" id="sad_image" src="../img/sad_face.png" alt="Sad Face"> 
-                </div>
+            <h2>Greetings<name id="name">!</name> How are you feeling today?</h2>
+               
+            <div id="sentiment-widget">
+                <img class="icon" id = "face-icon" src="../img/soso_face.png" alt="face">
+                <input type="range" name="sentiment" id="sentiment" value="50" min="0" max="100" step="1" />
             </div>
+
         </div>
     </section>
+    <script>
+        // creates dynamically changing slider icon based on user value
+        document.addEventListener('DOMContentLoaded', function() {
+            let sliderIcon = document.querySelector('#sentiment');
+            let emojiUrl;
+            let updateSlider = () => {
+                let currentValue = sliderIcon.value;
+                if (currentValue <= 20) {
+                    emojiUrl = "../img/angry_face_slide.png"; 
+                } else if (currentValue <= 40) {
+                    emojiUrl = "../img/sad_face_slide.png"; 
+                } else if(currentValue <= 60){
+                    emojiUrl = "../img/soso_face_slide.png"; 
+                } else if(currentValue <= 80){
+                    emojiUrl = "../img/happy_face_slide.png"; 
+                }else {
+                    emojiUrl = "../img/laughing_face_slide.png"; 
+                }
+                sliderIcon.style.setProperty('--emoji-image', `url(${emojiUrl})`);
+            };
+
+            // store the current icon into localStorage so that if the user refreshes the page the icon doesn't reset
+            sliderIcon.addEventListener('input', () => {
+                updateSlider();
+                localStorage.setItem('currentSliderValue', sliderIcon.value);
+            });
+
+            // will pull from localStorage the current icon value if user refreshes the page
+            let savedIcon = localStorage.getItem('currentSliderValue');
+            if (savedIcon !== null) { 
+                sliderIcon.value = savedIcon;
+            }
+            updateSlider();
+
+        });
+
+    </script>
     <!-- Section to access the other pages -->
     <section class="box-container">
         <!-- Section for Calendar -->
@@ -68,5 +141,6 @@
         </section>
     </section>
     <script src="../js/terminal.js"></script>
+    <script src="../js/sentiment-widget.js"></script>
 </body>
 </html>

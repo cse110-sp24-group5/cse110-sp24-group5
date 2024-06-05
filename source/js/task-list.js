@@ -29,7 +29,7 @@ function init() {
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
-
+    
     /**
      * Function to show the overlay
      */
@@ -43,7 +43,7 @@ function init() {
     function hideOverlay() {
         overlay.classList.remove('active');
     }
-
+    
     /**
      * Function to hide the pop-up
      */
@@ -60,7 +60,6 @@ function init() {
         popUp.classList.remove('hidden');
     }
 
-    
     function handleAddTaskButtonClick(){
         showPopUp();
         // Reset text input values
@@ -164,7 +163,7 @@ function init() {
                 addTaskForDate(dateText);
             }
         }
-
+        
         if (!isDuplicate) {
             // Hide the pop-up
             hidePopUp();
@@ -326,14 +325,6 @@ function init() {
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
 
-    // Warn the user if they attempt to leave the page with unsaved changes
-    window.addEventListener('beforeunload', (event) => {
-        if (isSaved) {
-            event.preventDefault();
-            event.returnValue = '';
-        }
-    });
-
     // make functions available globally
     window.handleEditButtonClick = handleEditButtonClick;
     window.handleDeleteButtonClick = handleDeleteButtonClick;
@@ -367,7 +358,7 @@ function loadTasksFromStorage() {
     const tasksJSON = localStorage.getItem('tasks');
     return tasksJSON ? JSON.parse(tasksJSON) : {};
 }
-
+    
 /**
  * Gets the tasks for a specified date
  * @param {string} date - Representation of a date
