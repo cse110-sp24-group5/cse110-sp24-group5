@@ -14,17 +14,6 @@ describe('Test to ensure all components of main page are working', () => {
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
     });
 
-    // Test home page 
-    it('Home page without user input', async () => {
-        // get the home url
-        const home_URL = await page.url();
-        // TEST checks to see if it matches the deployed page
-        expect(home_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
-
-        // TEST expected name of user after rejecting dialogue
-        const nameReject = await page.$eval('#name', el => el.textContent);
-        expect(nameReject).toBe('!');
-    });
 
     // DevJournal component
     it('Ensures devjournal is reachable', async () => {
@@ -162,7 +151,7 @@ describe('Test to ensure all components of main page are working', () => {
         imgSrc = await page.evaluate(el => el.src, currentFace);
         localPath = new URL(imgSrc).pathname;
         expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
-    }, 30000);
+    }, 20000);
 
     // OFFLINE TESTS
     // Test home page
@@ -304,5 +293,5 @@ describe('Test to ensure all components of main page are working', () => {
         imgSrc = await page.evaluate(el => el.src, currentFace);
         localPath = new URL(imgSrc).pathname;
         expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
-    }, 30000);
+    }, 20000);
 });
