@@ -202,9 +202,8 @@ img {
     color: var(--dashboard-color);
 }
 
-
-
-@media screen and (width <= 1000px) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 1000px) {
     .back-element {
         position: absolute;
         top: 0;
@@ -242,7 +241,8 @@ img {
     }
 }  
 
-@media screen and (width <= 1400px) and (orientation: landscape) {
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 1400px) and (orientation: landscape) {
     .back-element {
         position: absolute;
         top: 10px;
@@ -288,7 +288,8 @@ img {
     }
 }
 
-@media screen and  (width <= 1024px) and (orientation:landscape){
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and  (max-width: 1024px) and (orientation:landscape){
     .head-text {
         position: absolute; /* Absolute positioning */
         bottom: 0; /* Aligns to the bottom of the page */
