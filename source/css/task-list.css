@@ -117,17 +117,14 @@ p,
 
 
 #add {
-    font-style: normal;
+    font-style: italic;
+    font-size: xx-large;
     font-weight: bold;
-    font-size: 60px;
-    line-height: 58px;
-    display: flex;
     align-items: center;
+    background-color: #708EE8;
     width: 50px;
     height: 50px;
-    background-color: var(--color2);
     color: white;
-    padding-bottom: 8px;
 }
 
 #add:hover{
@@ -146,6 +143,19 @@ p,
     height: 50px;
     color: white;
     */
+
+    /* old css code
+     font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color2);
+    color: white;
+    padding-bottom: 8px;*/
 
 /* Task List middle subsection */
 
