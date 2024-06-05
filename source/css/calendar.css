@@ -264,10 +264,7 @@ img {
     .tasks-count{
         border: 0px;
         border-radius: 10%;
-        right: 2px;
         padding-left: 0.5em;
-        padding-right: 0.5em;
-        padding-top: -30em;
         bottom: 1.5rem;
         font-size: xx-small;
     }
