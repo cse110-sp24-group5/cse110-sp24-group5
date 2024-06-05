@@ -199,58 +199,26 @@ img {
 
 /* handle smaller screens sizing with fonts */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media only screen and (max-width: 768px) {
-    /* centers html container */
-    html {
-        display: table;
-        margin: auto;
-        height: 100%;
+@media screen and (max-width: 768px) {
+    .back-element {
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     
-    /* centers body container */
-    body {
-        background: var(--background-color); /* sets background color of whole page */
-        display: table-cell;
-        vertical-align: middle;
-        height: 100%;
-    }
+    .header {
+        line-height: 3rem;}
 
     /* Resizing font sizes for smaller devices */
     .calendar {
        margin: 0;
-       min-width: 99.5vw; /* scales the width of the calander as the screen size decreases */
+       min-width: 99vw; /* scales the width of the calander as the screen size decreases */
     }
+
 
     /* hides the lengthened weekdays names which are need for desktops */
     .weekdays {
         display: none;
-    }
-
-    .short-weekdays {
-        list-style-type: none; /* removes bullet points */
-
-        /* flexbox container for weekdays for easy resizing */ 
-        display: grid;
-        justify-content: center;
-
-        /* space between the rows */
-        grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
-        color: var(--weekday-color);
-        background: white;
-
-        /* font size and style */
-        font-family: Montserrat, sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: max(0.8rem, 1.75vw); /* reducing font size for weekday names to fit on mobile */
-        line-height: 1.5rem;
-
-        /* weekdays fill up the whole container and there is no gap between the month + year */
-        padding: 0;
-        margin: 0;
-        border-top: solid 0.1rem var(--border-color);
-        border-left: solid 0.1rem var(--border-color);
-        border-right: solid 0.1rem var(--border-color);
     }
     
     /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
@@ -260,12 +228,21 @@ img {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
     }
+    
+    .days {
+        font-size: smaller;
+        /* adjusted space between the rows */
+        grid-template-rows: repeat(var(--number-of-rows), 12vh); /* before was 6 */
+    }
 
     .tasks-count{
         border: 0px;
+        height: 1.5rem;
+        box-sizing: border-box; /* Include padding in width calculation */
         border-radius: 10%;
         padding-left: 0.5em;
-        bottom: 1.5rem;
+        padding-top: -px;
+        bottom: 3.5vh;
         font-size: xx-small;
     }
 }
