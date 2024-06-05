@@ -45,7 +45,7 @@ p,
 /* Task List section */
 
 .task-list.parent {
-    position: fixed;
+    text-align: left;
     top: -5%;
     left: 50%;
     transform: translate(-50%, 50%);
@@ -214,6 +214,7 @@ p,
     position: fixed;
     top:0;
     right:0;
+    padding-left: 
 }
 
 /* Pop-up top subsection */
@@ -303,51 +304,7 @@ p,
 
 /* Media query for smaller screens */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 799px) {
-    .task-list.child{
-        height: 120%;
-    }
 
-    #date{
-        font-size: x-large;
-    }
-
-    .task-list-middle {
-        overflow-y: auto;
-        border: 1px solid white;
-        max-height: 320px;
-        font-size:small;
-    }
-
-    #add{
-       size: 80%;
-       
-    }
-
-    .pop-up.parent{
-        width: 55%;
-        top: 30%
-
-    }
-
-    #task-title{
-        font-size: large;
-        font-style: normal;
-        font-weight: 700;
-    }
-
-    #task-desc {
-        font-size: small;
-    }
-    
-
-    
-    #title-text, 
-    #desc-text{
-        width: 93%;
-    }
-
-}
 
 /* stylelint-disable-next-line media-feature-range-notation */
 @media (max-width: 480px) {
@@ -357,7 +314,8 @@ p,
         font-weight: lighter;
         font-size: x-large;
         color:#2d4484;
-        align-items: center ;
+        display:flex;
+        align-items: center;
     }
 
     h3{
@@ -369,8 +327,8 @@ p,
     }
 
     .pop-up.parent{
-        width: 55%;
-        top: 30%
+        width: 50%;
+        top: 30%;
     }
 
     #title-text, 
@@ -412,3 +370,4 @@ p,
 .overlay.active {
     display: block;
 }
+
