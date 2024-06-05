@@ -160,6 +160,8 @@ section section h2 {
 }
 
 .info-btn {
+    position: fixed;
+    top: 5px;
     background-color: #96BFEF;
     color: white;
     padding: 10px 16px;
@@ -172,15 +174,20 @@ section section h2 {
 
 /* Container for the info box */
 .info-box {
+    position: fixed;
     display: none;
-    top: 50px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
+    top: 5px; /* Adjust as needed */
+
+    /* right: 20px; */
+
+ /* Adjust as needed */
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
     border-radius: 4px;
     padding: 16px;
     width: 500px; 
+    z-index: 1;
 }
 
 /* Close button inside the info box */

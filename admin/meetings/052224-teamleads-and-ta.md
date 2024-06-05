@@ -3,7 +3,7 @@
 
 **Type of Meeting**: TA Weekly Check In
 
- **Meeting Date and Location**: 05/15/24 Zoom
+ **Meeting Date and Location**: 05/22/24 Zoom
 
 **Meeting Purpose**: Weekly updates to the TA
 

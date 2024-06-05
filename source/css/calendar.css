@@ -14,20 +14,31 @@
 html {
     display: table;
     margin: auto;
-    height: 100%;
+}
+
+.head-text {
+    position: absolute; /* Absolute positioning */
+    bottom: 0; /* Aligns to the bottom of the page */
+    left: 50%; /* Positions the left side at the center */
+    transform: translateX(-50%); 
+    text-align: center; /* Centers text inside the element */
+    width: 100%;
+    font-family: Montserrat, sans-serif; 
+    z-index: -1000; 
+    font-size: large;
 }
 
 /* centers body container on screen */
 body {
     background: var(--background-color); /* sets background color of whole page */
-    display: table-cell;
     vertical-align: middle;
-    height: 100%;
 }
+
 
 /* gives calendar element margins so it more centered */
 .calendar {
     width: 75vw;
+    padding-top: 50px;
 }
 
 .header {
@@ -191,37 +202,29 @@ img {
     color: var(--dashboard-color);
 }
 
-
-
-/* handle smaller screens sizing with fonts */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media only screen and (max-width: 768px) {
-    /* centers html container */
-    html {
-        display: table;
-        margin: auto;
-        height: 100%;
+@media screen and (max-width: 1000px) {
+    .back-element {
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     
-    /* centers body container */
-    body {
-        background: var(--background-color); /* sets background color of whole page */
-        display: table-cell;
-        vertical-align: middle;
-        height: 100%;
-    }
+    .header {
+        line-height: 3rem;}
 
     /* Resizing font sizes for smaller devices */
     .calendar {
        margin: 0;
-       min-width: 99.5vw; /* scales the width of the calander as the screen size decreases */
+       min-width: 99vw; /* scales the width of the calander as the screen size decreases */
     }
+
 
     /* hides the lengthened weekdays names which are need for desktops */
     .weekdays {
         display: none;
     }
-
+    
     .short-weekdays {
         list-style-type: none; /* removes bullet points */
 
@@ -255,5 +258,106 @@ img {
         border: solid 0.1rem var(--border-color);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
+    }
+
+    .days {
+        font-size: smaller;
+
+        /* adjusted space between the rows */
+        grid-template-rows: repeat(var(--number-of-rows), 12vh); /* before was 6 */
+    }
+}  
+
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 1400px) and (orientation: landscape) {
+    .back-element {
+        position: absolute;
+        top: 10px;
+        left: -5px;
+        margin-bottom: 0;
+    }
+
+    .back-element img {
+        height:5px;
+        width:5px;
+    }
+
+    .back-element p {
+        font-size : small;
+    }
+
+    .header {
+        line-height: 2rem;
+    }
+
+    .calendar {
+        margin-top: 5px;
+        min-width: 95vw; /* scales the width of the calander as the screen size decreases */
+     }
+
+    .days {
+        font-size: large;
+
+        /* adjusted space between the rows */
+        grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
+    }
+
+    .head-text {
+        position: absolute; /* Absolute positioning */
+        bottom: 0; /* Aligns to the bottom of the page */
+        left: 50%; /* Positions the left side at the center */
+        transform: translateX(-50%); 
+        text-align: center; /* Centers text inside the element */
+        width: 100%;
+        font-family: Montserrat, sans-serif; 
+        z-index: -1000; 
+        font-size: xx-small;
+    }
+}
+
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and  (max-width: 1024px) and (orientation:landscape){
+    .head-text {
+        position: absolute; /* Absolute positioning */
+        bottom: 0; /* Aligns to the bottom of the page */
+        left: 50%; /* Positions the left side at the center */
+        transform: translateX(-50%); 
+        text-align: center; /* Centers text inside the element */
+        width: 100%;
+        font-family: Montserrat, sans-serif; 
+        z-index: -1000; 
+        font-size: xx-small;
+    }
+
+    .back-element {
+        position: absolute;
+        top: -10px;
+        left: -5px;
+        margin-bottom: 0;
+    }
+
+    .back-element img {
+        height:5px;
+        width:5px;
+    }
+
+    .back-element p {
+        font-size : x-small;
+    }
+
+    .header {
+        line-height: 2rem;
+    }
+
+    .calendar {
+        margin-top: 5px;
+        min-width: 95vw; /* scales the width of the calander as the screen size decreases */
+     }
+
+    .days {
+        font-size: small;
+
+        /* adjusted space between the rows */
+        grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
     }
 }

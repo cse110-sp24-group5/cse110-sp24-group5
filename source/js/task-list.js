@@ -60,12 +60,16 @@ function init () {
     }
 
 
-    // Event listener for the "Add Task" button
-    addTaskButton.addEventListener('click', () => {
+    function handleAddTaskButtonClick(){
         showPopUp();
         // Reset text input values
         titleInput.value = '';
         descriptionInput.value = '';
+    }
+
+    // Event listener for the "Add Task" button
+    addTaskButton.addEventListener('click', () => {
+        handleAddTaskButtonClick();
     });
 
     // Event listener for the "Close" button in the pop-up
@@ -90,11 +94,11 @@ function init () {
             return; // Stop further execution
         }
 
-        // Get existing tasks from localStorage
+        //Get existing tasks from localStorage
         const tasks = getTasksForDate(dateText);
 
         if (editMode) {
-            // Find the task to edit by its title
+            //Find the task to edit by its title
             const editedTaskIndex = tasks.findIndex(task => task.titleText === editedTaskTitle);
 
             if (editedTaskIndex !== -1) {
@@ -154,7 +158,7 @@ function init () {
             editedTaskTitle = null;         
         }
 
-        // Reset isDuplicate
+       // Reset isDuplicate
         isDuplicate = false;
     }
 
@@ -295,6 +299,12 @@ function init () {
     const nextMonthButton = document.querySelector('.next-month');
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
+
+    // make functions available globally
+    window.handleEditButtonClick = handleEditButtonClick;
+    window.handleDeleteButtonClick = handleDeleteButtonClick;
+    window.getTasksForDate = getTasksForDate;
+    window.handleAddTaskButtonClick = handleAddTaskButtonClick;
 };
 
 /**
