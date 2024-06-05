@@ -112,6 +112,12 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       } else {
+        
+        // Add task
+        if (command.trim() == 'a' || command.trim() == 'A'){
+          handleAddShortcut();
+        }
+
         // Regex for changing the directory (going back to the homepage)
         const regexCD = /cd \.\./i;
         // Regex for the tasklist commands
@@ -127,12 +133,13 @@ document.addEventListener('DOMContentLoaded', function () {
           const dateText = dateElement.textContent;
           // Get all the tasks for the specified date
           const tasksForDate = getTasksForDate(dateText);
+
           // Then loop through all of the tasks for that specific date
           for (const task of tasksForDate) {
             if (task.titleText == taskName) {
-              if (lastChar == 'd') {
+              if (lastChar == 'd' || lastChar == 'D') {
                 handleDeleteShortcut(task);
-              } else if (lastChar == 'e') {
+              } else if (lastChar == 'e' || lastChar == 'E') {
                 handleEditShortcut(task);
               }
             }
@@ -140,6 +147,30 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           terminalContent.textContent += `\nCommand not recognized: ${command}`;
         }
+      }
+
+      function handleEditShortcut(task) {
+        const dateElement = document.getElementById('date');
+        const dateText = dateElement.textContent;
+        const tasksForDate = getTasksForDate(dateText);
+  
+        if (tasksForDate.length > 0) {
+          handleEditButtonClick(task);
+        }
+      }
+  
+      function handleDeleteShortcut(task) {
+        const dateElement = document.getElementById('date');
+        const dateText = dateElement.textContent;
+        const tasksForDate = getTasksForDate(dateText);
+  
+        if (tasksForDate.length > 0) {
+          handleDeleteButtonClick(task);
+        }
+      }
+      
+      function handleAddShortcut(){
+        handleAddTaskButtonClick();
       }
     }
     function handleDevJournalCommands(command) {
@@ -179,24 +210,5 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    function handleEditShortcut(task) {
-      const dateElement = document.getElementById('date');
-      const dateText = dateElement.textContent;
-      const tasksForDate = getTasksForDate(dateText);
-
-      if (tasksForDate.length > 0) {
-        handleEditButtonClick(task);
-      }
-    }
-
-    function handleDeleteShortcut(task) {
-      const dateElement = document.getElementById('date');
-      const dateText = dateElement.textContent;
-      const tasksForDate = getTasksForDate(dateText);
-
-      if (tasksForDate.length > 0) {
-        handleDeleteButtonClick(task);
-      }
-    }
   }
 });

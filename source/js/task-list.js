@@ -58,12 +58,16 @@ function init () {
         popUp.classList.add('hidden');
     }
 
-    // Event listener for the "Add Task" button
-    addTaskButton.addEventListener('click', () => {
+    function handleAddTaskButtonClick(){
         showPopUp();
         // Reset text input values
         titleInput.value = '';
         descriptionInput.value = '';
+    }
+
+    // Event listener for the "Add Task" button
+    addTaskButton.addEventListener('click', () => {
+        handleAddTaskButtonClick();
     });
 
     // Event listener for the "Close" button in the pop-up
@@ -286,4 +290,5 @@ function init () {
     window.handleEditButtonClick = handleEditButtonClick;
     window.handleDeleteButtonClick = handleDeleteButtonClick;
     window.getTasksForDate = getTasksForDate;
+    window.handleAddTaskButtonClick = handleAddTaskButtonClick;
 };
