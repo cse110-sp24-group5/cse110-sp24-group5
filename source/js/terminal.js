@@ -114,10 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       } else {
         
-        // Add task
-        if (command.trim() == 'a' || command.trim() == 'A'){
-          handleAddShortcut();
-        }
 
         // Regex for changing the directory (going back to the homepage)
         const regexCD = /cd \.\./i;
@@ -145,32 +141,53 @@ document.addEventListener('DOMContentLoaded', function () {
               }
             }
           }
+        } else if (command.trim() == 'a' || command.trim() == 'A'){
+          // Add task
+          handleAddShortcut();
         } else {
           terminalContent.textContent += `\nCommand not recognized: ${command}`;
         }
       }
 
       function handleEditShortcut(task) {
+        const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
+        if (daySelectionHidden){
+          terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
+          return;
+        }
+
         const dateElement = document.getElementById('date');
         const dateText = dateElement.textContent;
         const tasksForDate = getTasksForDate(dateText);
-  
+   
         if (tasksForDate.length > 0) {
           handleEditButtonClick(task);
         }
       }
   
       function handleDeleteShortcut(task) {
+
+        const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
+        if (daySelectionHidden){
+          terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
+          return;
+        }
+
         const dateElement = document.getElementById('date');
         const dateText = dateElement.textContent;
-        const tasksForDate = getTasksForDate(dateText);
-  
+        const tasksForDate = getTasksForDate(dateText);  
+
         if (tasksForDate.length > 0) {
           handleDeleteButtonClick(task);
         }
       }
       
       function handleAddShortcut(){
+        const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
+        if (daySelectionHidden){
+          terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
+          return;
+        }
         handleAddTaskButtonClick();
       }
     }
