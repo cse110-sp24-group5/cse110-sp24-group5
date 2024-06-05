@@ -6,6 +6,7 @@
     --background-color: linear-gradient(180deg, rgb(95 192 255 / 30%) 23.5%, rgb(91 194 255 / 30%) 39.5%, rgb(219 147 255 / 30%) 100%);
     --blank-day-color: #F4F5FF;
     --pink-selected-day-color: #F2E5FB;
+    --task-count-display-color: #f4e9fb;
     --dashboard-color: #A3AED4;
     --number-of-rows: 5; /* Default value */
 }
@@ -145,11 +146,13 @@ img {
 }
 
 .tasks-count{
+    border: 1px solid var(--task-count-display-color);
+    border-radius: 20%;
+    background-color: var(--task-count-display-color);
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
     left: 0;
-    margin-bottom: 0.25rem;
-    margin-right: 0.25rem;
+    font-size: small;
 }
 
 /* Color the blank days in the calendar to differentiate them */
@@ -256,5 +259,16 @@ img {
         border: solid 0.1rem var(--border-color);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
+    }
+
+    .tasks-count{
+        border: 0px;
+        border-radius: 10%;
+        right: 2px;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        padding-top: -30em;
+        bottom: 1.5rem;
+        font-size: xx-small;
     }
 }
