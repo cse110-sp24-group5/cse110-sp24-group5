@@ -325,6 +325,15 @@ function init() {
     prevMonthButton.addEventListener('click', track_days);
     nextMonthButton.addEventListener('click', track_days);
 
+    // Warn the user if they attempt to leave the page with unsaved changes
+    window.addEventListener('beforeunload', (event) => {
+        console.log(isSaved)
+        if (isSaved) {
+            event.preventDefault();
+            event.returnValue = '';
+        }
+    });
+
     // make functions available globally
     window.handleEditButtonClick = handleEditButtonClick;
     window.handleDeleteButtonClick = handleDeleteButtonClick;
