@@ -128,9 +128,7 @@ p,
     padding-right: 45px;   
 }
 
-.task-list-bottom {
-    margin-left: 80%;
-}
+
 
 #add:hover{
     background-color: var(--color1); 
@@ -161,7 +159,7 @@ p,
     color: white;
     padding-bottom: 8px;*/
 
-/* Task List middle subsection */
+
 
 .task-list-middle {
     overflow-y: auto;
@@ -201,6 +199,7 @@ p,
     justify-content: space-between; /* Space elements evenly */
     align-items: center; /* Center elements vertically */
     padding: 20px;
+    margin-left: 75%;
 }
 
 /* Pop-up section */
