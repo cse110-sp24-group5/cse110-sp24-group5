@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sentiment-widget.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDayClickEvents">addDayClickEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#clearPreviousDays">clearPreviousDays</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#convertDateToWords">convertDateToWords</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createBlankDay">createBlankDay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createCalendarDay">createCalendarDay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createCalendarDays">createCalendarDays</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createOverlay">createOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#formatDate">formatDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getFromLocalStorage">getFromLocalStorage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getMonthDetails">getMonthDetails</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getTasksForDate">getTasksForDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hideOverlay">hideOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hideTaskListPopUp">hideTaskListPopUp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertBlankSpacesAtEnd">insertBlankSpacesAtEnd</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertBlankSpacesAtStart">insertBlankSpacesAtStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadData">loadData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadTasksFromStorage">loadTasksFromStorage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#recordSentiment">recordSentiment</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#renderCalendar">renderCalendar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#saveData">saveData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#saveSentimentForCurrSliderVal">saveSentimentForCurrSliderVal</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setFields">setFields</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#settingRowNumber">settingRowNumber</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showEditor">showEditor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showOverlay">showOverlay</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showPreview">showPreview</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showTaskListPopUp">showTaskListPopUp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateFaceIcon">updateFaceIcon</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateMonthYearText">updateMonthYearText</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">sentiment-widget.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// sentiment-widget.js
+
+const sentimentSlider = document.querySelector('#sentiment');
+const faceIcon = document.querySelector('#sentiment-widget img');
+const currentUserName = document.querySelector('#name');
+
+window.addEventListener('DOMContentLoaded', init);
+
+function init(){
+    initializeServiceWorker();
+
+    function initializeServiceWorker() {   
+        //Check if 'serviceWorker' is supported in the current browser
+        if('serviceWorker' in navigator) {
+      
+          // Listen for the 'load' event on the window object.
+          window.addEventListener('load', function() {
+            try {
+              //Register './sw.js' as a service worker
+              const registration = navigator.serviceWorker.register("../../sw.js", {
+                scope: "./",
+              });
+      
+              // Once the service worker has been successfully registered, console
+              //  log that it was successful.
+              if (registration.installing) {
+                console.log("Service worker installing");
+              } else if (registration.waiting) {
+                console.log("Service worker installed");
+              } else if (registration.active) {
+                console.log("Service worker active");
+              }
+            } catch (error) {
+      
+              console.error(`Registration failed with ${error}`);
+            }
+          });
+        }
+      }
+
+    // Add event listener to the slider
+    sentimentSlider.addEventListener('input', () => {
+        const mood = sentimentSlider.value;
+        localStorage.setItem('savedMood', mood);
+        updateFaceIcon(mood);
+        recordSentiment(mood); 
+    });
+
+    const savedMood = localStorage.getItem('savedMood');
+    if(savedMood) {
+        sentimentSlider.value = parseInt(savedMood);
+        updateFaceIcon(savedMood);
+    }
+
+    // Store sentiment slider's current value in localStorage
+    sentimentSlider.addEventListener('input', saveSentimentForCurrSliderVal);
+
+    let userName = localStorage.getItem("userName");
+    // if userName has not yet been entered
+    if(!userName) {
+        // prompt the user for their name and if they hit cancel then make userName an empty string
+        userName = prompt("Please enter your name:") || "";
+        // Save the name in local storage for future use
+        localStorage.setItem("userName", userName);
+    }
+    
+    // if and else statements for correct spacing between greeting and ! or greeting and the name depending on if name has been entered or not
+    if(userName) {
+        currentUserName.textContent = " " + userName + "!";
+    }
+    else {
+        currentUserName.textContent = userName + "!";
+    }
+}
+
+/**
+ * Save sentiment for current date
+ */
+function recordSentiment(value) {
+    let currentDate = new Date();  
+    let year = currentDate.getFullYear();
+    let month = currentDate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based index
+    let day = currentDate.getDate();
+    let timestamp = `${year}-${month &lt; 10 ? '0' + month : month}-${day &lt; 10 ? '0' + day : day}`; // Generate timestamp
+    const sentimentEntry = { timestamp, value };
+
+    // Store sentiment entry in local storage
+    const sentimentData = JSON.parse(localStorage.getItem('sentimentData')) || [];
+    sentimentData.push(sentimentEntry);
+    localStorage.setItem('sentimentData', JSON.stringify(sentimentData));
+}
+
+/**
+ * Function to update the face icon based on the slider value
+ */
+function updateFaceIcon(value) {
+    value = parseInt(value);
+    console.log("Slider value:", value); 
+    if (value &lt;= 20) {
+        faceIcon.src = "../img/angry_face.png"; // Directly set the src attribute
+    } else if (value &lt;= 40) {
+        faceIcon.src = "../img/sad_face.png";
+    } else if(value &lt;= 60){
+        faceIcon.src = "../img/soso_face.png"; 
+    } else if(value &lt;= 80){
+        faceIcon.src = "../img/happy_face.png"; 
+    } else {
+        faceIcon.src = "../img/laughing_face.png"; 
+    }
+}
+
+/**
+ * Save the sentiment for current slider value
+ */
+function saveSentimentForCurrSliderVal() {
+    let currentEmotionSrc = faceIcon.src;
+    let currentDate = new Date();  
+    let year = currentDate.getFullYear();
+    let month = currentDate.getMonth() + 1; // Adding 1 because getMonth() returns zero-based index
+    let day = currentDate.getDate();
+    let formattedDate = `${year}-${month &lt; 10 ? '0' + month : month}-${day &lt; 10 ? '0' + day : day}`;
+    localStorage.setItem(formattedDate, currentEmotionSrc);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Jun 05 2024 03:22:21 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
