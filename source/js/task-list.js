@@ -1,3 +1,5 @@
+// task-list.js
+
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
@@ -12,12 +14,6 @@ function init() {
     let editedTaskTitle; // Stores the title of the task being edited
     let deletedTaskTitle; // Stores the title of the task being deleted
     let isSaved = false; // Flag to track if there are unsaved changes
-
-    // Function to generate a unique ID for tasks
-    function generateUniqueId() {
-        // Generate a random number and convert it to a string
-        return Math.floor(Math.random() * 1000000).toString();
-    }
 
     /**
      * Function to save tasks to localStorage
@@ -64,6 +60,7 @@ function init() {
         popUp.classList.remove('hidden');
     }
 
+    
     function handleAddTaskButtonClick(){
         showPopUp();
         // Reset text input values
