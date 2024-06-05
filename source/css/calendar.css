@@ -225,6 +225,40 @@ img {
         display: none;
     }
     
+    .short-weekdays {
+        list-style-type: none; /* removes bullet points */
+
+        /* flexbox container for weekdays for easy resizing */ 
+        display: grid;
+        justify-content: center;
+
+        /* space between the rows */
+        grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
+        color: var(--weekday-color);
+        background: white;
+
+        /* font size and style */
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: max(0.8rem, 1.75vw); /* reducing font size for weekday names to fit on mobile */
+        line-height: 1.5rem;
+
+        /* weekdays fill up the whole container and there is no gap between the month + year */
+        padding: 0;
+        margin: 0;
+        border-top: solid 0.1rem var(--border-color);
+        border-left: solid 0.1rem var(--border-color);
+        border-right: solid 0.1rem var(--border-color);
+    }
+    
+    /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
+    .short-weekdays li {
+        text-align: center;
+        border: solid 0.1rem var(--border-color);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
     /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
     .short-weekdays li {
         text-align: center;
