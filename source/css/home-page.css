@@ -177,7 +177,10 @@ section section h2 {
     position: fixed;
     display: none;
     top: 5px; /* Adjust as needed */
-    /*right: 20px;*/ /* Adjust as needed */
+
+    /* right: 20px; */
+
+ /* Adjust as needed */
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);

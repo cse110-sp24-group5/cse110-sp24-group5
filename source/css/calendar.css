@@ -259,13 +259,6 @@ img {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
     }
-    /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
-    .short-weekdays li {
-        text-align: center;
-        border: solid 0.1rem var(--border-color);
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-    }
 
     .days {
         font-size: smaller;
