@@ -45,6 +45,7 @@ p,
 /* Task List section */
 
 .task-list.parent {
+    position: fixed;
     text-align: left;
     top: -5%;
     left: 50%;
@@ -114,8 +115,8 @@ p,
     color: var(--on-close);
 }
 
+
 #add {
-    margin-left: auto; /* Push the close button to the right */
     font-family: Inter, sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -129,7 +130,6 @@ p,
     color: white;
     padding-bottom: 8px;
 }
-
 #add:hover{
     background-color: var(--color1); 
     color: white;
