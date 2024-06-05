@@ -1,3 +1,5 @@
+// task-list.js
+
 window.addEventListener('DOMContentLoaded', init);
 
 function init () {
@@ -12,51 +14,51 @@ function init () {
     let editedTaskTitle; // Stores the title of the task being edited
     let deletedTaskTitle; // Stores the title of the task being deleted
 
-    // Function to retrieve tasks from localStorage or returns an empty array if no tasks are found
-    function loadTasksFromStorage() {
-        const tasksJSON = localStorage.getItem('tasks');
-        return tasksJSON ? JSON.parse(tasksJSON) : {};
-    }
-    
-    // Function to filter tasks based on the provided date
-    function getTasksForDate(date) {
-        const tasksObj = loadTasksFromStorage();
-        return tasksObj[date] || [];
-    }
-
-    // Function to save tasks to localStorage
+    /**
+     * Function to save tasks to localStorage
+     * @param {string} date - The date for which tasks are being saved
+     * @param {Array} tasks - The array of tasks to save
+     */
     function saveTasksToStorage(date, tasks) {
         const tasksObj = loadTasksFromStorage();
         tasksObj[date] = tasks;
         localStorage.setItem('tasks', JSON.stringify(tasksObj));
-        //console.log(tasksObj);
-        //console.log(Object.keys(tasksObj).length);
     }
 
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
-    // Function to show the overlay
+    
+    /**
+     * Function to show the overlay
+     */
     function showOverlay() {
         overlay.classList.add('active');
     }
 
-    // Function to hide the overlay
+    /**
+     * Function to hide the overlay
+     */
     function hideOverlay() {
         overlay.classList.remove('active');
     }
     
-    // Function to show the pop-up
+    /**
+     * Function to hide the pop-up
+     */
+    function hidePopUp() {
+        hideOverlay();
+        popUp.classList.add('hidden');
+    }
+
+    /** 
+     * Function to show the pop-up
+     */
     function showPopUp() {
         showOverlay();
         popUp.classList.remove('hidden');
     }
 
-    // Function to hide the pop-up
-    function hidePopUp() {
-        hideOverlay();
-        popUp.classList.add('hidden');
-    }
 
     function handleAddTaskButtonClick(){
         showPopUp();
@@ -76,7 +78,9 @@ function init () {
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
 
-    //Function to handle the "Confirm" button click event
+    /**
+     * Function to handle the "Confirm" button click event
+     */
     function handleConfirmButtonClick() {
         const dateElement = document.getElementById('date');
         const title = titleInput.value.trim();
@@ -158,8 +162,10 @@ function init () {
         isDuplicate = false;
     }
 
-    
-    // Function to add task for a given date
+    /**
+     * Function to add task for a given date
+     * @param {string} dateText - The date for which to add tasks
+     */
     function addTaskForDate(dateText) {
 
         // Get the task list ul element
@@ -229,7 +235,10 @@ function init () {
         }
     }
 
-    // Function to handle the edit button click event
+    /**
+     * Function to handle the edit button click event
+     * @param {Array} task - The task to be edited
+     */
     function handleEditButtonClick(task) {
         // Set edit mode to true
         editMode = true;
@@ -243,7 +252,10 @@ function init () {
         showPopUp();
     }
 
-    // Function to handle the delete icon click event
+    /**
+     * Function to handle the delete icon click event
+     * @param {Array} task - The task to be deleted
+     */
     function handleDeleteButtonClick(task) {
         const dateElement = document.getElementById('date');
         // Construct a unique key for localStorage based on the selected date
@@ -265,7 +277,9 @@ function init () {
         }
     }
 
-    // Function to add event listeners to each day element in the calendar.
+    /**
+     * Function to add event listeners to each day element in the calendar.
+     */
     function track_days() {
         const days = document.querySelectorAll('.days li');
         days.forEach(day => {
@@ -292,3 +306,40 @@ function init () {
     window.getTasksForDate = getTasksForDate;
     window.handleAddTaskButtonClick = handleAddTaskButtonClick;
 };
+
+/**
+ * Function to retrieve tasks from localStorage or returns an empty array if no tasks are found
+ * @returns {Object} - Object consisting of date keys with an array of that date's tasks as a value
+ * 
+ * return object format
+ * 
+ * {
+ *  date: [{
+ *      titleText: 
+ *      descText: 
+ *  }, ...]
+ *  date: [{
+ *      titleText: 
+ *      descText: 
+ *  }, ...]
+ *  date: [{
+ *      titleText: 
+ *      descText: 
+ *  }, ...]
+ *  ...
+ * }
+ */
+function loadTasksFromStorage() {
+    const tasksJSON = localStorage.getItem('tasks');
+    return tasksJSON ? JSON.parse(tasksJSON) : {};
+}
+    
+/**
+ * Gets the tasks for a specified date
+ * @param {string} date - Representation of a date
+ * @returns {Array} - Array of tasks for the specified date
+ */
+function getTasksForDate(date) {
+    const tasksObj = loadTasksFromStorage();
+    return tasksObj[date] || [];
+}

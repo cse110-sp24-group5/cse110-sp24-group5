@@ -36,7 +36,7 @@ describe('Dev Journal Page', () => {
         const newDate = '2024-01-01';
         const newDateStr = 'January 1, 2024'
         
-        // Evaluate function to set the datepicker value and dispatch change event
+        // Evaluate function to set the datepicker value and dispatch the change event
         await page.evaluate((element, date) => {
             element.value = date;
             // sending the change event on datepicker

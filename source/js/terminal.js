@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var infoBtn = document.getElementById('infoBtn');
   var infoBox = document.getElementById('infoBox');
   var closeBtn = document.getElementById('closeBtn');
+
   if (infoBtn && infoBox && closeBtn) {
     infoBtn.addEventListener('click', function () {
       infoBox.style.display = 'block';
