@@ -130,6 +130,7 @@ p,
     color: white;
     padding-bottom: 8px;
 }
+
 #add:hover{
     background-color: var(--color1); 
     color: white;
