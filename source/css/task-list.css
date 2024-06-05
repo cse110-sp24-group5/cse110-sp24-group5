@@ -117,14 +117,19 @@ p,
 
 
 #add {
-    font-style: italic;
-    font-size: xx-large;
-    font-weight: bold;
-    align-items: center;
     background-color: #708EE8;
     width: 50px;
     height: 50px;
     color: white;
+    font-size: 70px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-right: 45px;   
+}
+
+.task-list-bottom {
+    margin-left: 80%;
 }
 
 #add:hover{
@@ -144,8 +149,7 @@ p,
     color: white;
     */
 
-    /* old css code
-     font-style: normal;
+    /* font-style: normal;
     font-weight: bold;
     font-size: 60px;
     line-height: 58px;
