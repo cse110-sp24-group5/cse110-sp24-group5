@@ -339,6 +339,25 @@ p,
         font-size: small;
     }
 
+
+    #add {
+        background-color: #708EE8;
+        width: 50px;
+        height: 50px;
+        color: white;
+        font-size: 70px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        padding-right: 45px; 
+        border: black;  
+    }
+
+    #add:hover{
+        background-color: var(--color1); 
+        color: white;
+    }
+
     .pop-up.parent{
         width: 50%;
         top: 30%;
