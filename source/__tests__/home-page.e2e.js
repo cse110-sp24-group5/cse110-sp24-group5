@@ -162,11 +162,11 @@ describe('Test to ensure all components of main page are working', () => {
         imgSrc = await page.evaluate(el => el.src, currentFace);
         localPath = new URL(imgSrc).pathname;
         expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
-    }, 10000);
+    }, 20000);
 
     // OFFLINE TESTS
     // Test home page
-    /* it('Ensures home page works OFFLINE', async () => {
+    it('Ensures home page works OFFLINE', async () => {
         // goes offline
         await page.setOfflineMode(true);
         await page.reload();
@@ -231,10 +231,10 @@ describe('Test to ensure all components of main page are working', () => {
         // Goes back online
         await page.setOfflineMode(false);
         await page.reload();
-    }); */
+    });
 
     // Sentiment widget component #TODO
-    /* it('Ensures interaction with sentiment widget works OFFLINE', async () => {
+    it('Ensures interaction with sentiment widget works OFFLINE', async () => {
         console.log('Checking sentiment widget');
 
         // gets access to the slider and icon
@@ -243,6 +243,9 @@ describe('Test to ensure all components of main page are working', () => {
 
         // Initial tests
         // SO SO
+        // changes the value of the slider and waits for update
+        await page.evaluate((value, el) => { el.value = value; el.dispatchEvent(new Event('input')); }, 50, slider);
+        await page.waitForNetworkIdle();
         // get the src attribute of the image
         let imgSrc = await page.evaluate(el => el.src, currentFace);
         // get local path of src
@@ -301,5 +304,5 @@ describe('Test to ensure all components of main page are working', () => {
         imgSrc = await page.evaluate(el => el.src, currentFace);
         localPath = new URL(imgSrc).pathname;
         expect(localPath).toBe('/cse110-sp24-group5/source/img/laughing_face.png');
-    }); */
+    }, 20000);
 });
