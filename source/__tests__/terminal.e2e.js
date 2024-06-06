@@ -226,19 +226,107 @@ describe('Terminal test suite', () => {
     });
 
     it('should choose debugging role', async () => {
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'bug' and press Enter
+        await page.keyboard.type('bug\n');
 
+        // Verify that the debugging role is selected
+        let roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#debuggingCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(true);
+
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'bug' and press Enter
+        await page.keyboard.type('bug\n');
+
+        // Verify that the debugging role not is selected
+        roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#debuggingCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(false);
     });
 
     it('should choose documentation role', async () => {
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'doc' and press Enter
+        await page.keyboard.type('doc\n');
 
+        // Verify that the documentation role is selected
+        let roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#documentationCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(true);
+
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'doc' and press Enter
+        await page.keyboard.type('doc\n');
+
+        // Verify that the documentation role is not selected
+        roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#documentationCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(false);
     });
 
     it('should choose coding role', async () => {
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'code' and press Enter
+        await page.keyboard.type('code\n');
 
+        // Verify that the coding role is selected
+        let roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#codingCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(true);
+
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'code' and press Enter
+        await page.keyboard.type('code\n');
+
+        // Verify that the coding role is not selected
+        roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#codingCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(false);
     });
 
     it('should choose communication role', async () => {
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'com' and press Enter
+        await page.keyboard.type('com\n');
 
+        // Verify that the communication role is selected
+        let roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#discussionCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(true);
+
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'com' and press Enter
+        await page.keyboard.type('com\n');
+
+        // Verify that the communication role is selected
+        roleSelected = await page.evaluate(() => {
+            const selectedRole = document.querySelector('#discussionCheckbox');
+            return selectedRole.checked;
+        });
+        expect(roleSelected).toBe(false);
     });
 
     it('should cd back to home from dev journal', async () => {
