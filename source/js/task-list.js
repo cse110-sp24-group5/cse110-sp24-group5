@@ -88,6 +88,30 @@ function init() {
 
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
+    confirmButton.addEventListener('click', ()=> {
+        const dateElement = document.getElementById('date');
+        const day = document.querySelector('li');
+        const dateText = dateElement.textContent;
+        const totalUpdatedTaskNum = getTasksForDate(dateText);
+        const tasksCountForDate = document.querySelector('span');
+        if(totalUpdatedTaskNum.length >= 1) {
+            if(totalUpdatedTaskNum.length == 1) {
+                tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} task`;
+            }
+            else {
+                //Else, you have many tasks, so use "x tasks"
+                tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} tasks`; // Display the count with text
+                console.log(tasksCountForDate);
+                let displayTask = document.getElementById("tasks-count");
+                displayTask.innerHTML = '<p> tasksCountForDate.textContent</p>'; 
+
+            }
+                //add this new element and append to the day
+                    tasksCountForDate.classList.add('tasks-count');
+                    
+            }
+        });
+
 
     // Event listener for input changes to set isSaved flag
     [titleInput, descriptionInput].forEach(input => {
