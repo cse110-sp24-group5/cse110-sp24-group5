@@ -186,8 +186,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const dateText = dateElement.textContent;
         // Get all the tasks for the specified date
         const tasksForDate = getTasksForDate(dateText);
-        // Will execute given taskList command on the specified taskName
-        findTask(tasksForDate, taskName, lastChar);
+        // handles adding a task
+        if(command.trim() == 'a' || command.trim() == 'A'){
+          handleAddShortcut();
+        } else {
+          // Will execute given taskList command on the specified taskName
+          findTask(tasksForDate, taskName, lastChar);
+        }
     }
 
     /**
@@ -203,6 +208,8 @@ document.addEventListener('DOMContentLoaded', function () {
           handleDeleteShortcut(task);
         } else if (lastChar == 'e') {
           handleEditShortcut(task);
+        } else{
+          terminalContent.textContent += `\nCommand not recognized: ${command}`;
         }
       }
     }
@@ -231,6 +238,18 @@ document.addEventListener('DOMContentLoaded', function () {
       if (tasksForDate.length > 0) {
         handleDeleteButtonClick(task);
       }
+    }
+
+    /**
+      * Executes the add command for the specified task.
+    */
+    function handleAddShortcut(){
+      const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
+      if (daySelectionHidden){
+        terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
+        return;
+      }
+      handleAddTaskButtonClick();
     }
 
     /*
