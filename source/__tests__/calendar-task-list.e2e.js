@@ -4,6 +4,13 @@ describe('Task list test suite', () => {
 
     beforeAll(async () => {
 
+        //Change puppeteer viewport size from its default of 800x600 since our website currently doesn't support this viewport size
+        await page.setViewport({
+            width: 1024,
+            height: 768,
+            deviceScaleFactor: 1,
+        });
+
         //await page.goto('http://127.0.0.1:5500/cse110-sp24-group5/source/html/calendar.html'); // test locally
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
