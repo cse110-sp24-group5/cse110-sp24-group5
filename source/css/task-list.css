@@ -1,10 +1,10 @@
 body {
-    height: 100vh;
     margin: 0;
     display: flex;
     justify-content: center; /* Horizontally center */
     align-items: center; /* Vertically center */
     background-color: white;
+    vertical-align: middle;
 }
 
 /* Color variables */
@@ -45,9 +45,10 @@ p,
 
 .task-list.parent {
     position: fixed;
-    top: -5%;
+    top: 0%;
     left: 50%;
     transform: translate(-50%, 50%);
+    place-items: center;
 }
 
 
@@ -302,9 +303,15 @@ p,
 
 /* Media query for smaller screens */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 1000px) {
+
+    .task-list.parent{
+        width: 100%;
+        vertical-align: middle;
+    }
+
     .task-list.child{
-        height: 120%;
+        height: 40%;
     }
 
     #date{
@@ -340,7 +347,6 @@ p,
     }
     
 
-    
     #title-text, 
     #desc-text{
         width: 93%;
@@ -350,14 +356,6 @@ p,
 
 /* stylelint-disable-next-line media-feature-range-notation */
 @media (max-width: 480px) {
-    #date {
-        margin-left: auto;
-        font-style: italic;
-        font-weight: lighter;
-        font-size: x-large;
-        color:#2d4484;
-        align-items: center ;
-    }
 
     h3{
         font-size: medium;
@@ -367,25 +365,17 @@ p,
         font-size: small;
     }
 
-    .pop-up.parent{
-        width: 55%;
-        top: 30%
-    }
+}
 
-    #title-text, 
-    #desc-text{
-        width: 88%;
-    }
-
-    #task-title{
-        margin-top: -8%;
-        font-size:medium;
-    }
+@media (max-width: 390px) {
+    .task-list.parent{
+        top: -100px;
+     }
     
-    #close-pop-up{
-        margin-top: 0;
-        font-size:x-large;
-    }
+     .task-list.child{
+        height: 90%;
+     }
+
 }
 
 /* Overlay for blurring the background */
