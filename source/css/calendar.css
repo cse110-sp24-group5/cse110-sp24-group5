@@ -32,6 +32,9 @@ html {
 body {
     background: var(--background-color); /* sets background color of whole page */
     vertical-align: middle;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -270,6 +273,9 @@ img {
 
 /* stylelint-disable-next-line media-feature-range-notation */
 @media screen and (max-width: 1400px) and (orientation: landscape) {
+    body{
+        vertical-align: middle;
+    }
     .back-element {
         position: absolute;
         top: 10px;
