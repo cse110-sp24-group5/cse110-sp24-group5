@@ -1,4 +1,3 @@
-
 // A suite of tests that checks the functionality of the terminal feature
 describe('Terminal test suite', () => {
 
@@ -11,6 +10,13 @@ describe('Terminal test suite', () => {
             await dialog.dismiss();
         });
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
+    });
+
+    // clear local storage after tests
+    afterAll(async () => {
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     it('should display info box when info button is clicked', async () => {
@@ -92,7 +98,7 @@ describe('Terminal test suite', () => {
         await page.waitForSelector('#terminal');
         // Click on the terminal input to focus it
         await page.click('#terminal-input');
-        // Type a command 'cd 1' and press Enter
+        // Type a command '1' and press Enter
         await page.keyboard.type('1\n');
 
         // find and click on the add new task (+) button
@@ -107,6 +113,10 @@ describe('Terminal test suite', () => {
         // Confirm whether or not the hidden class is applied to the pop-up (it should be applied since the pop-up shouldn't be visible)
         const popUpParentAfterClose = await page.$$('section.pop-up.parent.hidden');
         expect(popUpParentAfterClose.length).toBe(1);
+        
+        // find and click on the close task list button (x)
+        const closeTaskList = await page.$('#close-task-list');
+        await closeTaskList.click();
     });
 
     it('should choose month and year', async () => {
@@ -133,27 +143,74 @@ describe('Terminal test suite', () => {
         expect(monthYearHeaderText).toBe('May 2024');
     });
 
-    it('should delete task', async () => {
-
-    });
-
     it('should edit task', async () => {
+        // Terminal still open so no need for reopening
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type the command '06/2024' and press Enter to switch back to June
+        await page.keyboard.type('06/2024\n');
 
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command '2' and press Enter to go to day 2
+        await page.keyboard.type('2\n');
+
+        // find and click on the add new task (+) button
+        const addNewTaskButton = await page.$('#add');
+        await addNewTaskButton.click();
+
+        // click on task title text box to focus it
+        await page.click('#title-text');
+        // type a task title
+        await page.keyboard.type('eat');
+        
+        // click confirm button to add new task
+        await page.click('#confirm');
+
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type the command 'eat e' and press Enter
+        await page.keyboard.type('eat e\n');
+
+        // click on task title text box to focus it
+        await page.click('#title-text');
+        // type a task title
+        await page.keyboard.type(' breakfast');
+        // testing that the task title was properly edited
+        const updatedTaskTitle = await page.$eval('#title-text', el => el.value);
+        expect(updatedTaskTitle).toBe('eat breakfast');
+
+        // click confirm button to add new task
+        await page.click('#confirm');
+    });
+    
+    it('should delete task', async () => {
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type the command 'eat breakfast d' and press Enter
+        await page.keyboard.type('eat breakfast d\n');
+        
+        // find the text that says there are no tasks for that date
+        const noTaskText = await page.$eval('.task-list-ul li', el => el.innerHTML);
+        // testing that that text actually says there are no tasks
+        expect(noTaskText).toBe('No tasks for this date.');
+
+        // find and click on the close task list button (x)
+        const closeTaskList = await page.$('#close-task-list');
+        await closeTaskList.click();
     });
 
     it('should cd back to home from calendar', async () => {
-        /// Terminal still open so no need for reopening
+        // Terminal still open so no need for reopening
         // Navigate back to the home page by typing 'cd ..' and pressing Enter
         await page.click('#terminal-input');
         await page.keyboard.type('cd ..\n');
-
         // answers the dialogue asking for name
         page.once('dialog', async dialog => {
             console.log(dialog.message());
             // name of user is rejected now
             await dialog.dismiss();
         });
-
         // Wait for home page to load
         await page.waitForNavigation();
         // gets home url
