@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else if (parseInt(command) >= 1 && parseInt(command) <= 31) {
         dayFormat(command);
       } else {
-        handleOtherCommands();
+        handleOtherCommands(command);
       }
 
     /**
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Handles commands related to cd in the terminal.
      */
-    function handleOtherCommands(){
+    function handleOtherCommands(command){
         const regexCD = /cd \.\./i;
         const regexTaskList = /.* [dea]$/;
 
