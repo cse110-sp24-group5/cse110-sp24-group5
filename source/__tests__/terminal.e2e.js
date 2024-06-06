@@ -83,11 +83,54 @@ describe('Terminal test suite', () => {
     });
 
     it('should choose date', async () => {
+        // Simulate pressing Ctrl+/ to toggle the terminal visibility
+        await page.keyboard.down('Control');
+        await page.keyboard.press('/');
+        await page.keyboard.up('Control');
 
+        // Wait for the terminal element to appear
+        await page.waitForSelector('#terminal');
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'cd 1' and press Enter
+        await page.keyboard.type('1\n');
+
+        // find and click on the add new task (+) button
+        const addNewTaskButton = await page.$('#add');
+        await addNewTaskButton.click();
+        // Confirm whether or not the hidden class is applied to pop-up (it shouldn't be applied since the pop-up should be visible)
+        const popUpParentBeforeClose = await page.$$('section.pop-up.parent.hidden');
+        expect(popUpParentBeforeClose.length).toBe(0);
+        // find and click on the close add pop-up button (x)
+        const closePopUpButton = await page.$('#close-pop-up');
+        await closePopUpButton.click();
+        // Confirm whether or not the hidden class is applied to the pop-up (it should be applied since the pop-up shouldn't be visible)
+        const popUpParentAfterClose = await page.$$('section.pop-up.parent.hidden');
+        expect(popUpParentAfterClose.length).toBe(1);
     });
 
     it('should choose month and year', async () => {
+        // Terminal still open so no need for reopening
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
 
+        // Type the command '05/2024' and press Enter
+        await page.keyboard.type('05/2024\n');
+
+        // Wait for the month-year header to update
+        await page.waitForFunction(() => {
+            const header = document.querySelector('.month-year');
+            return header.textContent.trim() === 'May 2024';
+        });
+
+        // Get the updated month-year header text
+        const monthYearHeaderText = await page.evaluate(() => {
+            const header = document.querySelector('.month-year');
+            return header.textContent.trim();
+        });
+
+        // Assert that the header text is 'May 2024'
+        expect(monthYearHeaderText).toBe('May 2024');
     });
 
     it('should delete task', async () => {
@@ -99,14 +142,7 @@ describe('Terminal test suite', () => {
     });
 
     it('should cd back to home from calendar', async () => {
-        // Simulate pressing Ctrl+/ to toggle the terminal visibility
-        await page.keyboard.down('Control');
-        await page.keyboard.press('/');
-        await page.keyboard.up('Control');
-
-        // Wait for the terminal element to appear
-        await page.waitForSelector('#terminal');
-        
+        /// Terminal still open so no need for reopening
         // Navigate back to the home page by typing 'cd ..' and pressing Enter
         await page.click('#terminal-input');
         await page.keyboard.type('cd ..\n');
