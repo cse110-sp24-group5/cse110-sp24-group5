@@ -401,10 +401,16 @@ p,
     display: none; /* Initially hidden */
 }
 
-/* Ensure the pop-up and task-list are above the overlay */
-.pop-up, .task-list {
+/* Ensure the task-list is above the initial overlay */
+.task-list {
     position: fixed;
     z-index: 2;
+}
+
+/* Ensure the pop-up is always above the overlay */
+.pop-up {
+    position: fixed;
+    z-index: 3;
 }
 
 /* Show overlay when active */
