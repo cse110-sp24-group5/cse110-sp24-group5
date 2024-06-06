@@ -193,7 +193,9 @@ function createCalendarDay(dayNumber, month, year, daysContainer, currentDate) {
 
                 // Toggle the 'selected' class to show/hide the pink overlay
                 const dayNumber = event.currentTarget.querySelector('span'); // Get the day number span
-                dayNumber.classList.add('selected'); // Add 'selected' class to the clicked day number span
+                if (dayNumber !== null) {
+                    dayNumber.classList.add('selected'); // Add 'selected' class to the clicked day number span
+                }
             }
         });
     });
