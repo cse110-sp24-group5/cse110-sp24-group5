@@ -50,14 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var closeBtn = document.getElementById('closeBtn');
 
   if (infoBtn &amp;&amp; infoBox &amp;&amp; closeBtn) {
-    // Event listener to show infoBox
     infoBtn.addEventListener('click', function () {
       infoBox.style.display = 'block';
     });
 
     closeBtn.addEventListener('click', function () {
-    // Event listener to close infoBox
-
       infoBox.style.display = 'none';
     });
 
@@ -76,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const terminalClose = document.getElementById('terminal-close');
   /**
   * Visibility of the terminal is handled here.
-  */
+  */ 
   if (terminal &amp;&amp; terminalInput &amp;&amp; terminalContent &amp;&amp; terminalClose) {
     function toggleTerminal() {
       terminal.classList.toggle('hidden');
@@ -84,7 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
         terminalInput.focus();
       }
     }
-
+    /*
+    * Brings up the terminal on Cntrl + /
+    */
     document.addEventListener('keydown', function (event) {
       if (event.ctrlKey &amp;&amp; event.key === '/') {
         event.preventDefault();
@@ -98,7 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
     terminalClose.addEventListener('click', function () {
       terminal.classList.add('hidden');
     });
-
+    /*
+    * Executes commands based on the current page
+    */
     terminalInput.addEventListener('keydown', function (event) {
       if (event.key === 'Enter') {
         const command = terminalInput.value;
@@ -123,7 +124,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Functions to handle commands for different pages
+    /**
+     * Handles commands specific to the home page.
+     * @param {string} command - The command entered by the user.
+     */
     function handleHomeCommands(command) {
       // Add logic for home page commands
       terminalContent.textContent += `\nHome Page command executed: ${command}`;
@@ -138,12 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
         terminalContent.textContent += `\nCommand not recognized`;
       }
     }
-     /**
+
+    /**
      * Handles all possible calendar commands.
      * @param {string} command - The command entered by the user.
      */
-
-    // Will handle all possible calendar commands
     function handleCalendarCommands(command) {
       terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
       
@@ -160,8 +163,11 @@ document.addEventListener('DOMContentLoaded', function () {
         handleOtherCommands();
       }
 
-      // Given MM/YYYY format, exceutes neccessary commands
-      function monthYearFormat(input) {
+    /**
+     * Executes necessary commands for the given MM/YYYY format.
+     * @param {string} command - The command entered by the user.
+     */
+    function monthYearFormat(input) {
         const [, month, year] = input.match(dateRegex).map(Number);
         const newDate = new Date(year, month - 1); 
         if (!isNaN(newDate.getTime())) {
@@ -188,10 +194,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
-      /**
-       * Handles commands related to cd in the terminal.
-       */
-      function handleOtherCommands(){
+    /**
+     * Handles commands related to cd in the terminal.
+     */
+    function handleOtherCommands(){
         const regexCD = /cd \.\./i;
         const regexTaskList = /.* [dea]$/;
 
@@ -210,8 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * Handles commands related to adding, deleting and editing a task
      * @param {string} command - The command entered by the user.
      */
-
-      function goToTaskList(command) {
+    function goToTaskList(command) {
         // Check if the last char is a d, e, or a
         const lastChar = command.charAt(command.length - 1);
         const taskName = command.substring(0, command.length - 2);
@@ -223,12 +228,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // Will execute given taskList command on the specified taskName
         findTask(tasksForDate, taskName, lastChar);
       }
-    /**
-     * Finds a specific task given the date and executes the delete or edit command.
-     * @param {Array} tasksForDate - The array of tasks for the specified date.
-     * @param {string} taskName - The name of the task to find.
-     * @param {string} lastChar - The last character of the command indicating the action (delete or edit).
-     */
+
+      /**
+       * Finds a specific task given the date and executes the delete or edit command.
+       * @param {Array} tasksForDate - The array of tasks for the specified date.
+       * @param {string} taskName - The name of the task to find.
+       * @param {string} lastChar - The last character of the command indicating the action (delete or edit).
+       */
       function findTask(tasksForDate, taskName, lastChar){
         const allTasks = tasksForDate.find(task => task.titleText == taskName);
         if(allTasks){
@@ -239,11 +245,10 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       }
-
-    /**
-     * Executes the edit command for the specified task.
-     * @param {Object} task - The task to be edited.
-     */
+  /**
+   * Executes the edit command for the specified task.
+   * @param {Object} task - The task to be edited.
+   */
       function handleEditShortcut(task) {
         const dateElement = document.getElementById('date');
         const dateText = dateElement.textContent;
@@ -253,7 +258,6 @@ document.addEventListener('DOMContentLoaded', function () {
           handleEditButtonClick(task);
         }
       }
-
     /**
      * Executes the delete command for the specified task.
      * @param {Object} task - The task to be edited.
@@ -268,7 +272,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     }
-
   /*
    * Executes the corresponding markdown command and the commands for the bug and learnings boxes.
    * @param {string} command - The command entered by the user.
@@ -308,7 +311,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Checks to see if map contains the value
+    /**
+     * Checks if a given value exists in the values of a Map.
+     * @param {Map} map - The Map to search through.
+     * @param {RegExp} value - The value to search for in the Map.
+     * @returns {boolean} - Returns true if the value is found, otherwise false.
+     */
     function hasValue(map, value) {
       for (let val of map.values()) {
         // handles the case of regular expression
@@ -325,10 +333,10 @@ document.addEventListener('DOMContentLoaded', function () {
       return false;
     }
 
-    /**
-     * Handles commands specific to the dev journal page.
-     * @param {string} command - The command entered by the user.
-     */
+  /**
+   * Handles commands specific to the dev journal page.
+   * @param {string} command - The command entered by the user.
+   */
     function handleDevJournalCommands(command) {
       terminalContent.textContent += `\nDev Journal Page command executed: ${command}`;
       
@@ -368,6 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
         terminalContent.textContent += `\nCommand not recognized`;
       }
     }
+
   }
 });</code></pre>
         </article>
@@ -381,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Thu Jun 06 2024 19:06:01 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Thu Jun 06 2024 19:17:16 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
