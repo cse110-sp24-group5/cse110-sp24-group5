@@ -149,11 +149,54 @@ describe('Terminal test suite', () => {
     });
 
     it('should preview the markdown', async () => {
+        // Simulate pressing Ctrl+/ to toggle the terminal visibility
+        await page.keyboard.down('Control');
+        await page.keyboard.press('/');
+        await page.keyboard.up('Control');
 
+        // Wait for the terminal element to appear
+        await page.waitForSelector('#terminal');
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'md p' and press Enter
+        await page.keyboard.type('md p\n');
+
+        // Verify that the markdown preview is displayed
+        const markdownPreviewVisible = await page.evaluate(() => {
+            const previewElement = document.querySelector('#markdown-preview');
+            return previewElement && getComputedStyle(previewElement).display !== 'none';
+        });
+        expect(markdownPreviewVisible).toBe(true);
+
+        // Verify that the markdown editor is not displayed
+        const markdownEditorVisible = await page.evaluate(() => {
+            const editorElement = document.querySelector('#markdown-editor');
+            return editorElement && getComputedStyle(editorElement).display !== 'none';
+        });
+        expect(markdownEditorVisible).toBe(false);
     });
 
     it('should edit the markdown', async () => {
+        // Wait for the terminal element to appear
+        await page.waitForSelector('#terminal');
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'md e' and press Enter
+        await page.keyboard.type('md e\n');
 
+        // Verify that the markdown editor is displayed
+        const markdownEditorVisible = await page.evaluate(() => {
+            const editorElement = document.querySelector('#markdown-editor');
+            return editorElement && getComputedStyle(editorElement).display !== 'none';
+        });
+        expect(markdownEditorVisible).toBe(true);
+
+        // Verify that the markdown preview is not displayed
+        const markdownPreviewVisible = await page.evaluate(() => {
+            const previewElement = document.querySelector('#markdown-preview');
+            return previewElement && getComputedStyle(previewElement).display !== 'none';
+        });
+        expect(markdownPreviewVisible).toBe(false);
     });
 
     it('should write learnings', async () => {
@@ -181,10 +224,6 @@ describe('Terminal test suite', () => {
     });
 
     it('should cd back to home from dev journal', async () => {
-        // Simulate pressing Ctrl+/ to toggle the terminal visibility
-        await page.keyboard.down('Control');
-        await page.keyboard.press('/');
-        await page.keyboard.up('Control');
 
         // Wait for the terminal element to appear
         await page.waitForSelector('#terminal');
