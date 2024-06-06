@@ -177,8 +177,6 @@ describe('Terminal test suite', () => {
     });
 
     it('should edit the markdown', async () => {
-        // Wait for the terminal element to appear
-        await page.waitForSelector('#terminal');
         // Click on the terminal input to focus it
         await page.click('#terminal-input');
         // Type a command 'md e' and press Enter
@@ -199,12 +197,32 @@ describe('Terminal test suite', () => {
         expect(markdownPreviewVisible).toBe(false);
     });
 
-    it('should write learnings', async () => {
+    it('should select learnings textbox', async () => {
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'l' and press Enter
+        await page.keyboard.type('l\n');
 
+        // Verify that the learnings textbox is focused
+        const learningFocused = await page.evaluate(() => {
+            const learningTextbox = document.getElementById('learnings');
+            return document.activeElement === learningTextbox;
+        });
+        expect(learningFocused).toBe(true);
     });
 
-    it('should write bugs', async () => {
+    it('should select bugs textbox', async () => {
+        // Click on the terminal input to focus it
+        await page.click('#terminal-input');
+        // Type a command 'l' and press Enter
+        await page.keyboard.type('b\n');
 
+        // Verify that the learnings textbox is focused
+        const bugFocused = await page.evaluate(() => {
+            const bugTextbox = document.getElementById('bug-tracker');
+            return document.activeElement === bugTextbox;
+        });
+        expect(bugFocused).toBe(true);
     });
 
     it('should choose debugging role', async () => {
