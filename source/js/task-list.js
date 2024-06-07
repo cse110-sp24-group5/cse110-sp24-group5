@@ -201,9 +201,11 @@ function init() {
         }
     });
 
-    // Make handler functions' scope global
+    // make functions available globally
     window.handleEditButtonClick = handleEditButtonClick;
     window.handleDeleteButtonClick = handleDeleteButtonClick;
+    window.getTasksForDate = getTasksForDate;
+    window.handleAddTaskButtonClick = handleAddTaskButtonClick;
 };
 
 /**
