@@ -94,22 +94,31 @@ function init() {
         const dateText = dateElement.textContent;
         const totalUpdatedTaskNum = getTasksForDate(dateText);
         const tasksCountForDate = document.querySelector('span');
+        const daysContainer = document.querySelector('.days');
+        console.log(daysContainer);
         if(totalUpdatedTaskNum.length >= 1) {
             if(totalUpdatedTaskNum.length == 1) {
                 tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} task`;
+                /*let displayTask = document.getElementById("tasks-count");
+                displayTask.innerHTML = '<p> tasksCountForDate.textContent</p>'; */
+                tasksCountForDate.classList.add('tasks-count');
+                day.appendChild(tasksCountForDate);
+                daysContainer.appendChild(day);
             }
             else {
                 //Else, you have many tasks, so use "x tasks"
                 tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} tasks`; // Display the count with text
-                console.log(tasksCountForDate);
-                let displayTask = document.getElementById("tasks-count");
-                displayTask.innerHTML = '<p> tasksCountForDate.textContent</p>'; 
+                /*let displayTask = document.getElementById("tasks-count");*/
+                /*displayTask.innerHTML = '<p> tasksCountForDate.textContent</p>'; */
+                tasksCountForDate.classList.add('tasks-count');
+                day.appendChild(tasksCountForDate);
+                daysContainer.appendChild(day);
 
             }
             
                 //add this new element and append to the day
-                    tasksCountForDate.classList.add('tasks-count');
-                    
+                   /* tasksCountForDate.classList.add('tasks-count');
+                    day.appendChild(tasksCountForDate);*/
             }
         });
 
