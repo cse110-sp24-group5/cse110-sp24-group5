@@ -404,3 +404,44 @@ p,
         right:0;
     }
 }
+
+/* Media query to account for turning mobile phones horizontally */
+@media screen and (max-height: 450px){
+    /* Centers task-list in the center of horizontal screen */
+    .task-list.parent {
+        top: -5%;
+    }
+    /* Add button will not be pushed off of the screen */
+    .task-list.child {
+        display: flex;
+        flex-direction: column;
+    }
+    .task-list-middle {
+        height: 5rem;
+    }
+    /* Center pop-up within the task-list*/
+    .pop-up {
+        top: -200%;
+    }
+    .pop-up.child {
+        height: 230px;
+        top: -140%;
+    }
+    .pop-up-top {
+        height: 20px;
+    }
+    .pop-up-middle {
+        height: 135px;
+    }
+    /* Changes text-size to account for smaller pop-up and task-list*/
+    #close-pop-up {
+        font-size: x-large;
+    }
+    #task-title {
+        font-size: medium;
+    }
+    #confirm {
+        font-size: 0.75rem;
+    }
+
+}
