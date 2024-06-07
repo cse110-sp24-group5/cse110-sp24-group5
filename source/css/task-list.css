@@ -135,18 +135,6 @@ p,
     color: white;
 }
 
-    /*
-    original code
-    font-style: italic;
-    font-size: xx-large;
-    font-weight: bold;
-    align-items: center;
-    background-color: #708EE8
-    width: 50px;
-    height: 50px;
-    color: white;
-    */
-
 /* Task List middle subsection */
 
 .task-list-middle {
@@ -280,7 +268,6 @@ p,
 }
 
 /* Pop-up bottom subsection */
-
 .pop-up-bottom {
     display: flex;
     justify-content: space-between;
@@ -299,83 +286,6 @@ p,
 #confirm:hover{
     background-color: rgb(235 209 252);
     color: white;
-}
-
-/* Media query for smaller screens */
-/* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 1000px) {
-
-    .task-list.parent{
-        width: 100%;
-        vertical-align: middle;
-    }
-
-    .task-list.child{
-        height: 40%;
-    }
-
-    #date{
-        font-size: x-large;
-    }
-
-    .task-list-middle {
-        overflow-y: auto;
-        border: 1px solid white;
-        max-height: 320px;
-        font-size:small;
-    }
-
-    #add{
-       size: 80%;
-       
-    }
-
-    .pop-up.parent{
-        width: 55%;
-        top: 30%
-
-    }
-
-    #task-title{
-        font-size: large;
-        font-style: normal;
-        font-weight: 700;
-    }
-
-    #task-desc {
-        font-size: small;
-    }
-    
-
-    #title-text, 
-    #desc-text{
-        width: 93%;
-    }
-
-}
-
-/* stylelint-disable-next-line media-feature-range-notation */
-@media (max-width: 480px) {
-
-    h3{
-        font-size: medium;
-    }
-
-    p{
-        font-size: small;
-    }
-
-}
-
-@media (max-width: 390px) {
-    .task-list.parent{
-        top: -100px;
-     }
-    
-     .task-list.child{
-        height: 90%;
-     }
-
 }
 
 /* Overlay for blurring the background */
@@ -402,3 +312,95 @@ p,
     display: block;
 }
 
+/* Media query for smaller screens */
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 700px) {
+    .task-list.parent{
+        top: -5%;
+        width: 95%;
+        vertical-align: middle;
+    }
+
+    .task-list.child{
+        height: 40%;
+    }
+
+    #date{
+        font-size: x-large;
+    }
+
+    .task-list-middle {
+        overflow-y: auto;
+        border: 1px solid white;
+        max-height: 320px;
+        font-size:small;
+    }
+
+    #add{
+       size: 100%;
+    }
+
+    .pop-up.parent{
+        width: 80%;
+    }
+
+    #task-title{
+        font-size: large;
+    }
+
+    #task-desc {
+        font-size: small;
+    }
+
+    #title-text, 
+    #desc-text{
+        width: 93%;
+    }
+}
+
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and  (max-width: 1024px) and (orientation:landscape){
+    .task-list.parent{
+        top: 10%;
+    }
+
+    .task-list {
+        max-width: 550px; /* Set maximum width */
+        min-height: 200px;
+    }
+
+    .pop-up.parent{
+        width: 50%;
+        min-height: 50px;
+    }
+
+    .pop-up {
+        top:-11%;
+        right:0;
+    }
+
+    #title-text {
+        height: 25px;
+    }
+
+    #desc-text {
+        height: 40px;
+    }
+}
+
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 800px) and (orientation: landscape) {
+    .task-list.parent{
+        margin-top: -5%;
+    }
+
+    .task-list {
+        max-width: 500px; /* Set maximum width */
+        min-height: 250px;
+    }
+    
+    .pop-up {
+        top:-11%;
+        right:0;
+    }
+}
