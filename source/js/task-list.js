@@ -90,26 +90,31 @@ function init() {
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
 
-    closeButton.addEventListener('click', ()=> {
+    closeButton.addEventListener('click', () => {
         const dateElement = document.getElementById('date');
-        const day = document.querySelector('li');
         const dateText = dateElement.textContent;
         const totalUpdatedTaskNum = getTasksForDate(dateText);
         const tasksCountForDate = document.querySelector('span');
-        const daysContainer = document.querySelector('.days');
-        console.log(daysContainer);
+     
         if(totalUpdatedTaskNum.length >= 1) {
+
             if(totalUpdatedTaskNum.length == 1) {
                 tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} task`;
                 tasksCountForDate.classList.add('tasks-count');
+                
             }
             else {
                 tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} tasks`; // Display the count with text
                 tasksCountForDate.classList.add('tasks-count');
+                
             }
-            }
-            location.reload();
-        });
+        }
+
+        location.reload();
+
+      
+        
+    });
 
 
     // Event listener for input changes to set isSaved flag
@@ -315,7 +320,7 @@ function init() {
         // Use filter to remove the task with the given id
         tasks = tasks.filter(taskFilter => taskFilter.titleText !== deletedTaskTitle);
 
-        saveTasksToStorage(tasks);
+        saveTasksToStorage(dateText, tasks);
         addTaskForDate(dateText);
 
         const tasksObj = loadTasksFromStorage();
