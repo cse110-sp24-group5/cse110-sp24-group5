@@ -212,11 +212,6 @@ img {
     margin: auto;
     color: var(--dashboard-color);
 }
-<<<<<<< HEAD
-
-/* stylelint-disable-next-line media-feature-range-notation */
-=======
->>>>>>> 2245a53120821f75d5cb25566ea972826f9c7ba5
 @media screen and (max-width: 1000px) {
     .back-element {
         position: absolute;
@@ -239,10 +234,7 @@ img {
         display: none;
     }
     
-<<<<<<< HEAD
-=======
     /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
->>>>>>> 2245a53120821f75d5cb25566ea972826f9c7ba5
     .short-weekdays {
         list-style-type: none; /* removes bullet points */
 
@@ -277,23 +269,6 @@ img {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
     }
-<<<<<<< HEAD
-
-    .days {
-        font-size: smaller;
-
-        /* adjusted space between the rows */
-        grid-template-rows: repeat(var(--number-of-rows), 12vh); /* before was 6 */
-    }
-}  
-
-/* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 1400px) and (orientation: landscape) {
-    .back-element {
-        position: absolute;
-        top: 10px;
-        left: -5px;
-=======
     .days {
         font-size: smaller;
         /* adjusted space between the rows */
@@ -407,26 +382,16 @@ img {
         position: fixed;
         top: 15px;
         left: 10px;
->>>>>>> 2245a53120821f75d5cb25566ea972826f9c7ba5
         margin-bottom: 0;
     }
 
     .back-element img {
-<<<<<<< HEAD
-        height:5px;
-        width:5px;
-    }
-
-    .back-element p {
-        font-size : small;
-=======
         height:3px;
         width:3px;
     }
 
     .back-element p {
         font-size : xx-small;
->>>>>>> 2245a53120821f75d5cb25566ea972826f9c7ba5
     }
 
     .header {
@@ -438,24 +403,6 @@ img {
         min-width: 95vw; /* scales the width of the calander as the screen size decreases */
      }
 
-<<<<<<< HEAD
-    .days {
-        font-size: large;
-
-        /* adjusted space between the rows */
-        grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
-    }
-
-    .head-text {
-        position: absolute; /* Absolute positioning */
-        bottom: 0; /* Aligns to the bottom of the page */
-        left: 50%; /* Positions the left side at the center */
-        transform: translateX(-50%); 
-        text-align: center; /* Centers text inside the element */
-        width: 100%;
-        font-family: Montserrat, sans-serif; 
-        z-index: -1000; 
-=======
     .tasks-count{
         background-color: none;
         border: 0px;
@@ -466,34 +413,14 @@ img {
         padding-right: 6em;
         padding-bottom:0;
         bottom: 2.5vh;
->>>>>>> 2245a53120821f75d5cb25566ea972826f9c7ba5
         font-size: xx-small;
     }
 }
 
-<<<<<<< HEAD
-/* stylelint-disable-next-line media-feature-range-notation */
-@media screen and  (max-width: 1024px) and (orientation:landscape){
-    .head-text {
-        position: absolute; /* Absolute positioning */
-        bottom: 0; /* Aligns to the bottom of the page */
-        left: 50%; /* Positions the left side at the center */
-        transform: translateX(-50%); 
-        text-align: center; /* Centers text inside the element */
-        width: 100%;
-        font-family: Montserrat, sans-serif; 
-        z-index: -1000; 
-        font-size: xx-small;
-    }
-
-    .back-element {
-        position: absolute;
-=======
 @media screen and  (max-width: 1025px) and (orientation:landscape){
 
     .back-element {
         position: fixed;
->>>>>>> 2245a53120821f75d5cb25566ea972826f9c7ba5
         top: -10px;
         left: -5px;
         margin-bottom: 0;
@@ -516,16 +443,6 @@ img {
         margin-top: 5px;
         min-width: 95vw; /* scales the width of the calander as the screen size decreases */
      }
-<<<<<<< HEAD
-
-    .days {
-        font-size: small;
-
-        /* adjusted space between the rows */
-        grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
-    }
-}
-=======
      
      .days {
         font-size: small;
@@ -561,4 +478,3 @@ img {
         grid-template-rows: repeat(var(--number-of-rows), 10vh); /* before was 6 */
     }
 }
->>>>>>> 2245a53120821f75d5cb25566ea972826f9c7ba5

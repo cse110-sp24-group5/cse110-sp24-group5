@@ -106,6 +106,7 @@ function init() {
                 displayTask.innerHTML = '<p> tasksCountForDate.textContent</p>'; 
 
             }
+            
                 //add this new element and append to the day
                     tasksCountForDate.classList.add('tasks-count');
                     
