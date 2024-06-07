@@ -315,7 +315,8 @@ function init() {
         let tasks = getTasksForDate(dateText);
 
         // Use filter to remove the task with the given id
-        tasks = tasks.filter(task => task.id !== deletedTaskId);
+        tasks = tasks.filter(taskFilter => taskFilter.titleText !== deletedTaskTitle);
+
         saveTasksToStorage(tasks);
         addTaskForDate(dateText);
 
