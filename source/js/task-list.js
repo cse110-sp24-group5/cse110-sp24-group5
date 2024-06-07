@@ -23,6 +23,8 @@ function init() {
         showPopUp(popUp, overlay);
         // Reset text input values
         clearInputs(titleInput, descriptionInput);
+        // Set focus on task title text input
+        titleInput.focus();
     }
 
     // Event listener for the "Add Task" button
@@ -157,6 +159,9 @@ function init() {
 
         // Show the pop-up
         showPopUp(popUp, overlay);
+
+        // Set focus on task title text input
+        titleInput.focus();
     }
 
     /**
