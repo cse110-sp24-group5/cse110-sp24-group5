@@ -59,6 +59,8 @@ p,
     background-color: var(--color5);
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / var(--shadow-opacity, 0.2));
+    position: fixed;
+    z-index: 2;
 }
 
 /* Task List top subsection */
@@ -202,6 +204,7 @@ p,
     position: fixed;
     top:0;
     right:0;
+    z-index: 3;
 }
 
 /* Pop-up top subsection */
@@ -299,12 +302,6 @@ p,
     backdrop-filter: blur(5px);
     z-index: 1;
     display: none; /* Initially hidden */
-}
-
-/* Ensure the pop-up and task-list are above the overlay */
-.pop-up, .task-list {
-    position: fixed;
-    z-index: 2;
 }
 
 /* Show overlay when active */

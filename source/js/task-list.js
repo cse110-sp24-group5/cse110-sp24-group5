@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
     const popUp = document.querySelector('.pop-up.parent'); // Pop-up element
+    const overlay = document.querySelector('.overlay'); // Overlay element
     const closePopUp = document.getElementById('close-pop-up'); // Close pop-up button
     const addTaskButton = document.getElementById('add'); // Add task button
     const confirmButton = document.getElementById('confirm'); // Confirm button
@@ -14,57 +15,16 @@ function init() {
     let editedTaskTitle; // Stores the title of the task being edited
     let deletedTaskTitle; // Stores the title of the task being deleted
     let isSaved = false; // Flag to track if there are unsaved changes
-
-    /**
-     * Function to save tasks to localStorage
-     * @param {string} date - The date for which tasks are being saved
-     * @param {Array} tasks - The array of tasks to save
-     */
-    function saveTasksToStorage(date, tasks) {
-        const tasksObj = loadTasksFromStorage();
-        tasksObj[date] = tasks;
-        localStorage.setItem('tasks', JSON.stringify(tasksObj));
-    }
-
-    const overlay = document.createElement('div');
-    overlay.classList.add('overlay');
-    document.body.appendChild(overlay);
     
     /**
-     * Function to show the overlay
+     * Handles clicking the add task button by blurring the screen via showPopUp and clearing previous input from the pop-up!
      */
-    function showOverlay() {
-        overlay.classList.add('active');
-    }
-
-    /**
-     * Function to hide the overlay
-     */
-    function hideOverlay() {
-        overlay.classList.remove('active');
-    }
-    
-    /**
-     * Function to hide the pop-up
-     */
-    function hidePopUp() {
-        hideOverlay();
-        popUp.classList.add('hidden');
-    }
-
-    /** 
-     * Function to show the pop-up
-     */
-    function showPopUp() {
-        showOverlay();
-        popUp.classList.remove('hidden');
-    }
-
     function handleAddTaskButtonClick(){
-        showPopUp();
+        showPopUp(popUp, overlay);
         // Reset text input values
-        titleInput.value = '';
-        descriptionInput.value = '';
+        clearInputs(titleInput, descriptionInput);
+        // Set focus on task title text input
+        titleInput.focus();
     }
 
     // Event listener for the "Add Task" button
@@ -77,17 +37,14 @@ function init() {
         if (isSaved) {
             const confirmClose = confirm("You have unsaved changes. Are you sure you want to close?");
             if (confirmClose) {
-                hidePopUp();
-                clearInputs();
+                hidePopUp(popUp, overlay);
+                clearInputs(titleInput, descriptionInput);       
                 isSaved = false;
             }
         } else {
-            hidePopUp();
+            hidePopUp(popUp, overlay);
         }
     });
-
-    // Event listener for the "Confirm" button in the pop-up
-    confirmButton.addEventListener('click', handleConfirmButtonClick);
 
     // Event listener for input changes to set isSaved flag
     [titleInput, descriptionInput].forEach(input => {
@@ -103,13 +60,16 @@ function init() {
         const dateElement = document.getElementById('date');
         const title = titleInput.value.trim();
         const description = descriptionInput.value.trim();
+
         // Construct a unique key for localStorage based on the selected date
         const dateText = dateElement.textContent;
 
         // Check if a title is provided
         if (!title) {
             alert('Please provide a title.');
-            return; // Stop further execution
+
+            // Stop further execution
+            return;
         }
 
         //Get existing tasks from localStorage
@@ -166,11 +126,11 @@ function init() {
         
         if (!isDuplicate) {
             // Hide the pop-up
-            hidePopUp();
-
+            hidePopUp(popUp, overlay);
+            
             // Clear the inputs for the next task
-            titleInput.value = '';
-            descriptionInput.value = '';
+            clearInputs(titleInput, descriptionInput);
+            
             // Reset editMode and editedTaskId
             editMode = false;
             editedTaskTitle = null;         
@@ -181,84 +141,8 @@ function init() {
         isSaved = false;
     }
 
-    // Function to clear input fields
-    function clearInputs() {
-        titleInput.value = '';
-        descriptionInput.value = '';
-    }
-
-    /**
-     * Function to add task for a given date
-     * @param {string} dateText - The date for which to add tasks
-     */
-    function addTaskForDate(dateText) {
-
-        // Get the task list ul element
-        const taskList = document.querySelector('.task-list-ul');
-
-        // Clear existing tasks in the task list
-        taskList.innerHTML = '';
-
-        // Get tasks for the specified date
-        const dailyTasks = getTasksForDate(dateText);
-
-        // Check if tasks exist for the date
-        if (dailyTasks && dailyTasks.length > 0) {
-            // Loop through the tasks and create HTML elements
-            dailyTasks.forEach((task) => {
-                // Create list item for each task
-                const taskItem = document.createElement('li');
-
-                // Create div for task content
-                const taskContent = document.createElement('div');
-                taskContent.classList.add('task-container');
-
-                // Create h3 element for task title
-                const taskTitle = document.createElement('h3');
-                taskTitle.id = 'task';
-                taskTitle.textContent = task.titleText; // Set task title
-
-                // Create edit button
-                const editButton = document.createElement('button');
-                editButton.id = 'edit'; // Set unique id for edit button
-                editButton.type = 'submit';
-                editButton.addEventListener('click', () => handleEditButtonClick(task));
-                const editIcon = document.createElement('img');
-                editIcon.src = '../img/edit_task.png';
-                editButton.appendChild(editIcon);
-
-                // Create delete button
-                const deleteButton = document.createElement('button');
-                deleteButton.id = 'delete'; // Set unique id for delete button
-                deleteButton.type = 'submit';
-                deleteButton.addEventListener('click', () => handleDeleteButtonClick(task));
-                const deleteIcon = document.createElement('img');
-                deleteIcon.src = '../img/delete_task.png';
-                deleteButton.appendChild(deleteIcon);
-
-                // Append title, edit button, and delete button to task content
-                taskContent.appendChild(taskTitle);
-                taskContent.appendChild(editButton);
-                taskContent.appendChild(deleteButton);
-
-                // Create p element for task description
-                const taskDescription = document.createElement('p');
-                taskDescription.textContent = task.descText; // Set task description
-
-                // Append task content and description to list item
-                taskItem.appendChild(taskContent);
-                taskItem.appendChild(taskDescription);
-
-                // Append list item to task list
-                taskList.appendChild(taskItem);
-            });
-        } else {
-            // If no tasks exist for the date, display a message
-            const noTasksMessage = document.createElement('li');
-            noTasksMessage.textContent = 'No tasks for this date.';
-            taskList.appendChild(noTasksMessage);
-        }
-    }
+    // Event listener for the "Confirm" button in the pop-up
+    confirmButton.addEventListener('click', handleConfirmButtonClick);
 
     /**
      * Function to handle the edit button click event
@@ -274,7 +158,10 @@ function init() {
         descriptionInput.value = task.descText;
 
         // Show the pop-up
-        showPopUp();
+        showPopUp(popUp, overlay);
+
+        // Set focus on task title text input
+        titleInput.focus();
     }
 
     /**
@@ -302,28 +189,13 @@ function init() {
         }
     }
 
-    /**
-     * Function to add event listeners to each day element in the calendar.
-     */
-    function track_days() {
-        const days = document.querySelectorAll('.days li');
-        days.forEach(day => {
-            day.addEventListener('click', () => {
-                const dateElement = document.getElementById('date');
-                // Construct a unique key for localStorage based on the selected date
-                const dateText = dateElement.textContent;
-                addTaskForDate(dateText);
-            });
-        });
-    }
-
-    track_days();
+    trackDays();
 
     // Ensures that unique keys are constructed for localStorage across different months
     const prevMonthButton = document.querySelector('.prev-month');
     const nextMonthButton = document.querySelector('.next-month');
-    prevMonthButton.addEventListener('click', track_days);
-    nextMonthButton.addEventListener('click', track_days);
+    prevMonthButton.addEventListener('click', trackDays);
+    nextMonthButton.addEventListener('click', trackDays);
 
     // Warn the user if they attempt to leave the page with unsaved changes
     window.addEventListener('beforeunload', (event) => {
@@ -340,6 +212,21 @@ function init() {
     window.getTasksForDate = getTasksForDate;
     window.handleAddTaskButtonClick = handleAddTaskButtonClick;
 };
+
+/**
+ * Function to add event listeners to each day element in the calendar.
+ */
+function trackDays() {
+    const days = document.querySelectorAll('.days li');
+    days.forEach(day => {
+        day.addEventListener('click', () => {
+            const dateElement = document.getElementById('date');
+            // Construct a unique key for localStorage based on the selected date
+            const dateText = dateElement.textContent;
+            addTaskForDate(dateText);
+        });
+    });
+}
 
 /**
  * Function to retrieve tasks from localStorage or returns an empty array if no tasks are found
@@ -376,4 +263,138 @@ function loadTasksFromStorage() {
 function getTasksForDate(date) {
     const tasksObj = loadTasksFromStorage();
     return tasksObj[date] || [];
+}
+
+/**
+ * Function to save tasks to localStorage
+ * @param {string} date - The date for which tasks are being saved
+ * @param {Array} tasks - The array of tasks to save
+ */
+ function saveTasksToStorage(date, tasks) {
+    const tasksObj = loadTasksFromStorage();
+    tasksObj[date] = tasks;
+    localStorage.setItem('tasks', JSON.stringify(tasksObj));
+}
+
+/**
+ * Function to clear input fields
+ * @param {HTMLElement} titleInput - HTMLElement representing the pop-up title textarea
+ * @param {HTMLElement} descriptionInput - HTMLElement representing the pop-up description textarea
+ */
+function clearInputs(titleInput, descriptionInput) {
+        titleInput.value = '';
+        descriptionInput.value = '';
+}
+
+/**
+     * Function to populate task-list with tasks for a given date
+     * @param {string} dateText - The date for which to populate tasks for
+     */
+function addTaskForDate(dateText) {
+
+    // Get the task list ul element
+    const taskList = document.querySelector('.task-list-ul');
+
+    // Clear existing tasks in the task list
+    taskList.innerHTML = '';
+
+    // Get tasks for the specified date
+    const dailyTasks = getTasksForDate(dateText);
+
+    // Check if tasks exist for the date
+    if (dailyTasks && dailyTasks.length > 0) {
+        // Loop through the tasks and create HTML elements
+        dailyTasks.forEach((task) => {
+            // Create list item for each task
+            const taskItem = document.createElement('li');
+
+            // Create div for task content
+            const taskContent = document.createElement('div');
+            taskContent.classList.add('task-container');
+
+            // Create h3 element for task title
+            const taskTitle = document.createElement('h3');
+            taskTitle.id = 'task';
+            taskTitle.textContent = task.titleText; // Set task title
+
+            // Create edit button
+            const editButton = document.createElement('button');
+            editButton.id = 'edit'; // Set unique id for edit button
+            editButton.type = 'submit';
+            editButton.addEventListener('click', () => handleEditButtonClick(task));
+            const editIcon = document.createElement('img');
+            editIcon.src = '../img/edit_task.png';
+            //editIcon.alt = 'edit button';
+            editButton.appendChild(editIcon);
+
+            // Create delete button
+            const deleteButton = document.createElement('button');
+            deleteButton.id = 'delete'; // Set unique id for delete button
+            deleteButton.type = 'submit';
+            deleteButton.addEventListener('click', () => handleDeleteButtonClick(task));
+            const deleteIcon = document.createElement('img');
+            deleteIcon.src = '../img/delete_task.png';
+            //deleteIcon.alt = 'delete button';
+            deleteButton.appendChild(deleteIcon);
+
+            // Append title, edit button, and delete button to task content
+            taskContent.appendChild(taskTitle);
+            taskContent.appendChild(editButton);
+            taskContent.appendChild(deleteButton);
+
+            // Create p element for task description
+            const taskDescription = document.createElement('p');
+            taskDescription.textContent = task.descText; // Set task description
+
+            // Append task content and description to list item
+            taskItem.appendChild(taskContent);
+            taskItem.appendChild(taskDescription);
+
+            // Append list item to task list
+            taskList.appendChild(taskItem);
+        });
+    } else {
+        // If no tasks exist for the date, display a message
+        const noTasksMessage = document.createElement('li');
+        noTasksMessage.textContent = 'No tasks for this date.';
+        taskList.appendChild(noTasksMessage);
+    }
+}
+
+/**
+ * Function to show the overlay
+ * @param {HTMLElement} overlay - HTMLElement referencing the overylay that blurs the screen
+ */
+ function showPopUpOverlay(overlay) {
+    overlay.style.zIndex = '2'; //set the z index to be on the same level as the task-list so that the task-list is blurred and inaccessible when editing/adding a task
+}
+
+/**
+ * Function to hide the overlay
+ * @param {HTMLElement} overlay - HTMLElment referencing the overlay that blurs the screen
+ */
+ function hidePopUpOverlay(overlay) {
+    overlay.style.zIndex = '1'; //set the z index to be on the same level as the calendar so that the calendar is blurred and inaccessible when viewing the task-list
+}
+
+/**
+ * Function to show the pop-up
+ * @param {HTMLElement} popUp - HTMLElement referencing the pop-up window
+ * @param {HTMLElement} overlay - HTMLElment referencing the overlay that blurs the screen
+ */
+function showPopUp(popUp, overlay) {
+    showPopUpOverlay(overlay);
+    popUp.classList.remove('hidden');
+}
+
+/**
+ * Function to hide the pop-up
+ * @param {HTMLElement} popUp - HTMLElement referencing the pop-up window
+ * @param {HTMLElement} overlay - HTMLElment referencing the overlay that blurs the screen
+ */
+function hidePopUp(popUp, overlay) {
+    hidePopUpOverlay(overlay);
+    popUp.classList.add('hidden');
+    const closeTaskList = document.getElementById('close-task-list'); // Close button for the task list pop-up
+    closeTaskList.focus(); // Set focus on close task-list button
 }
