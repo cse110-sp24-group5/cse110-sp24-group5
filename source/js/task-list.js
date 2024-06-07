@@ -89,6 +89,7 @@ function init() {
 
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
+
     closeButton.addEventListener('click', ()=> {
         const dateElement = document.getElementById('date');
         const day = document.querySelector('li');
@@ -106,8 +107,8 @@ function init() {
                 tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} tasks`; // Display the count with text
                 tasksCountForDate.classList.add('tasks-count');
             }
-            location.reload()
             }
+            location.reload();
         });
 
 
