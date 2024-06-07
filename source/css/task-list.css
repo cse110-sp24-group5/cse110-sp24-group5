@@ -323,6 +323,8 @@ p,
 
     .task-list.child{
         height: 40%;
+        display: flex;
+        flex-direction: column;
     }
 
     #date{
@@ -363,26 +365,26 @@ p,
     .task-list.parent{
         top: 10%;
     }
-
     .task-list {
         max-width: 550px; /* Set maximum width */
         min-height: 200px;
     }
-
+    /* Add button will not be pushed off of the screen */
+    .task-list.child {
+        display: flex;
+        flex-direction: column;
+    }
     .pop-up.parent{
         width: 50%;
         min-height: 50px;
     }
-
     .pop-up {
         top:-11%;
         right:0;
     }
-
     #title-text {
         height: 25px;
     }
-
     #desc-text {
         height: 40px;
     }
@@ -393,12 +395,15 @@ p,
     .task-list.parent{
         margin-top: -5%;
     }
-
+    /* Add button will not be pushed off of the screen */
+    .task-list.child {
+        display: flex;
+        flex-direction: column;
+    }
     .task-list {
         max-width: 500px; /* Set maximum width */
         min-height: 250px;
     }
-    
     .pop-up {
         top:-11%;
         right:0;
