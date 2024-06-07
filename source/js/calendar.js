@@ -221,6 +221,8 @@ function createCalendarDay(dayNumber, month, year, daysContainer, currentDate) {
     dateElement.textContent = date; // Set the date element text content
     const taskList = document.querySelector('.task-list.parent'); // Find the task list container
     taskList.classList.remove('hidden'); // Show the task list pop-up
+    const closeTaskList = document.getElementById('close-task-list'); // Close button for the task list pop-up
+    closeTaskList.focus(); // Set focus on close task-list button
  }
  
  /**

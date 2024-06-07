@@ -395,4 +395,6 @@ function showPopUp(popUp, overlay) {
 function hidePopUp(popUp, overlay) {
     hidePopUpOverlay(overlay);
     popUp.classList.add('hidden');
+    const closeTaskList = document.getElementById('close-task-list'); // Close button for the task list pop-up
+    closeTaskList.focus(); // Set focus on close task-list button
 }
