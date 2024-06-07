@@ -9,6 +9,7 @@ function init() {
     const confirmButton = document.getElementById('confirm'); // Confirm button
     const titleInput = document.getElementById('title-text'); // Title text input
     const descriptionInput = document.getElementById('desc-text'); // Description text input
+    const closeButton = document.getElementById('close-task-list');
     let isDuplicate = false; // Variable to track whether there exists a duplicate entry
     let editMode = false; // Variable to track whether the pop-up is in edit mode
     let editedTaskTitle; // Stores the title of the task being edited
@@ -88,7 +89,7 @@ function init() {
 
     // Event listener for the "Confirm" button in the pop-up
     confirmButton.addEventListener('click', handleConfirmButtonClick);
-    confirmButton.addEventListener('click', ()=> {
+    closeButton.addEventListener('click', ()=> {
         const dateElement = document.getElementById('date');
         const day = document.querySelector('li');
         const dateText = dateElement.textContent;
@@ -99,26 +100,13 @@ function init() {
         if(totalUpdatedTaskNum.length >= 1) {
             if(totalUpdatedTaskNum.length == 1) {
                 tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} task`;
-                /*let displayTask = document.getElementById("tasks-count");
-                displayTask.innerHTML = '<p> tasksCountForDate.textContent</p>'; */
                 tasksCountForDate.classList.add('tasks-count');
-                day.appendChild(tasksCountForDate);
-                daysContainer.appendChild(day);
             }
             else {
-                //Else, you have many tasks, so use "x tasks"
                 tasksCountForDate.textContent = `${totalUpdatedTaskNum.length} tasks`; // Display the count with text
-                /*let displayTask = document.getElementById("tasks-count");*/
-                /*displayTask.innerHTML = '<p> tasksCountForDate.textContent</p>'; */
                 tasksCountForDate.classList.add('tasks-count');
-                day.appendChild(tasksCountForDate);
-                daysContainer.appendChild(day);
-
             }
-            
-                //add this new element and append to the day
-                   /* tasksCountForDate.classList.add('tasks-count');
-                    day.appendChild(tasksCountForDate);*/
+            location.reload()
             }
         });
 
