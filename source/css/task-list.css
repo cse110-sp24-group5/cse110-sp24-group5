@@ -348,8 +348,43 @@ p,
     }
 }
 
+/*use this to adjust for computer screen of width of 1024px*/
+@media screen and (min-width: 1020px) and (max-width: 1024px) and (orientation:landscape){
+    .task-list.parent{
+        top: 10%;
+    }
+    .task-list {
+        max-width: 550px; /* Set maximum width */
+        min-height: 350px;
+    }
+
+    .task-list.parent {
+        margin-top: -5%;/*adjust the position of task-list*/
+    }
+    /* Add button will not be pushed off of the screen */
+    .task-list.child {
+     
+        display: flex;
+        flex-direction: column;
+    }
+    .pop-up.parent{
+        width: 50%;
+        min-height: 50px;
+    }
+    .pop-up {
+        top: -11%;
+        right:0;
+    }
+    #title-text {
+        height: 25px;
+    }
+    #desc-text {
+        height: 40px;
+    }
+}
+
 /* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (min-width: 701px) and (max-width: 1024px) and (orientation:landscape){
+@media screen and (min-width: 701px) and (max-width: 1020px) and (orientation:landscape){
     .task-list.parent{
         top: 10%;
     }
@@ -417,11 +452,11 @@ p,
         top: -200%;
     }
     .pop-up.child {
-        height: 230px;
+        height: 215px;
         top: -140%;
     }
     .pop-up-top {
-        height: 20px;
+        height: 5px;
     }
     .pop-up-middle {
         height: 135px;
@@ -433,6 +468,14 @@ p,
     #task-title {
         font-size: medium;
     }
+
+    #task-desc{
+        max-height: 20px;
+    }
+    #desc-text {
+        max-height: 40px;
+    }
+
     #confirm {
         font-size: 0.75rem;
     }
