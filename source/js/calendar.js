@@ -213,7 +213,9 @@ function createCalendarDay(dayNumber, month, year, daysContainer, currentDate) {
 
                 // Toggle the 'selected' class to show/hide the pink overlay
                 const dayNumber = event.currentTarget.querySelector('span'); // Get the day number span
-                dayNumber.classList.add('selected'); // Add 'selected' class to the clicked day number span
+                if (dayNumber !== null) {
+                    dayNumber.classList.add('selected'); // Add 'selected' class to the clicked day number span
+                }
             }
         });
     });
@@ -239,6 +241,8 @@ function createCalendarDay(dayNumber, month, year, daysContainer, currentDate) {
     dateElement.textContent = date; // Set the date element text content
     const taskList = document.querySelector('.task-list.parent'); // Find the task list container
     taskList.classList.remove('hidden'); // Show the task list pop-up
+    const closeTaskList = document.getElementById('close-task-list'); // Close button for the task list pop-up
+    closeTaskList.focus(); // Set focus on close task-list button
  }
  
  /**

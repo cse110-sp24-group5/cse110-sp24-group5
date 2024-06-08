@@ -33,6 +33,9 @@ html {
 body {
     background: var(--background-color); /* sets background color of whole page */
     vertical-align: middle;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -288,7 +291,9 @@ img {
 }
 /* handle smaller screens sizing with fonts */
 /* stylelint-disable-next-line media-feature-range-notation */
+
 @media screen and (max-width: 766px) {
+
     .back-element {
         position: absolute;
         top: 0rem;

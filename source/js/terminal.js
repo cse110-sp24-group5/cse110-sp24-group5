@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var infoBtn = document.getElementById('infoBtn');
   var infoBox = document.getElementById('infoBox');
   var closeBtn = document.getElementById('closeBtn');
-
+  
   if (infoBtn && infoBox && closeBtn) {
     infoBtn.addEventListener('click', function () {
       infoBox.style.display = 'block';
@@ -24,13 +24,27 @@ document.addEventListener('DOMContentLoaded', function () {
   const terminalContent = document.getElementById('terminal-content');
   const terminalClose = document.getElementById('terminal-close');
 
+
   if (terminal && terminalInput && terminalContent && terminalClose) {
-    function toggleTerminal() {
+    function toggleTerminal(forceState) {
       terminal.classList.toggle('hidden');
-      if (!terminal.classList.contains('hidden')) {
+      if (!terminal.classList.contains('hidden') || forceState === true) {
         terminalInput.focus();
+        // sets terminalState to open in localStorage so it saves across all pages
+        localStorage.setItem('terminalState', 'open');
+    
+      }
+      else {
+        // removes terminalState since it was toggled off so it will be toggled off across all pages
+        localStorage.removeItem('terminalState');
       }
     }
+
+  let terminalState = localStorage.getItem('terminalState');
+  // checks if terminal was perviously opened on another page and if so it toggled it on
+  if(terminalState == 'open') {
+    toggleTerminal(true);
+  }
 
     document.addEventListener('keydown', function (event) {
       if (event.ctrlKey && event.key === '/') {
@@ -39,10 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       if (!terminal.classList.contains('hidden') && event.key === 'q') {
         terminal.classList.add('hidden');
+        // toggles terminal off is q is pressed
+        localStorage.removeItem('terminalState');
       }
     });
     terminalClose.addEventListener('click', function () {
       terminal.classList.add('hidden');
+      // toggles terminal off if x is clicked
+      localStorage.removeItem('terminalState');
     });
     terminalInput.addEventListener('keydown', function (event) {
       if (event.key === 'Enter') {

@@ -4,6 +4,13 @@ describe('Task list test suite', () => {
 
     beforeAll(async () => {
 
+        //Change puppeteer viewport size from its default of 800x600 since our website currently doesn't support this viewport size
+        await page.setViewport({
+            width: 1024,
+            height: 768,
+            deviceScaleFactor: 1,
+        });
+
         //await page.goto('http://127.0.0.1:5500/cse110-sp24-group5/source/html/calendar.html'); // test locally
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
@@ -347,98 +354,98 @@ describe('Task list test suite', () => {
     }, 100000);
 
     // Tasks are independent of each other (eg. they don't match if the days are in the same position in the calendar)
-    /*it('Check tasks are independent and vary based on date and position in calendar', async() => {
-        console.log('Check that tasks are independent on the 1st of May and the 5th of June');
+    it('Check tasks are independent and vary based on date and position in calendar', async() => {
+        console.log('Check that tasks are independent on the first saturday of the current month and the first saturday of the next month');
         // find and click on first Saturday of the current month 
         await page.evaluate(() => { // note: const fourthOfMay = await page.$('.days:not(.blank-day):nth-child(4)'); had unexpected behavior
             // Select the 7th element of the calendar month
-            const firstSatOfMay = document.querySelectorAll('.days li')[6];
-            firstSatOfMay.click();
+            const firstSatOfCurrentMonth = document.querySelectorAll('.days li')[6];
+            firstSatOfCurrentMonth.click();
         });
         let date = await page.$eval('#date', element => element.textContent);
-        expect(date).toBe('May 4, 2024');
+        expect(date).toBe('June 1, 2024'); // Change expected value to be the date for the first saturday of the current month
         // find and click on add task button 
-        const addMayTask = await page.$('#add');
-        await addMayTask.click();
-        // find, click on, and type 'Title for 4th of May'
-        const mayTitleText = await page.$('#title-text');
-        await mayTitleText.click();
-        await page.keyboard.type('Title for 4th of May');
-        // find, click on, and type 'Task for 4th of May' into the task description text entry box
-        const mayDescText = await page.$('#desc-text');
-        await mayDescText.click();
-        await page.keyboard.type('Task for 4th of May');
+        const addCurrentMonthTask = await page.$('#add');
+        await addCurrentMonthTask.click();
+        // find, click on, and type 'Title for first Saturday of Current Month'
+        const currentMonthTitleText = await page.$('#title-text');
+        await currentMonthTitleText.click();
+        await page.keyboard.type('Title for first Saturday of Current Month');
+        // find, click on, and type 'Task for first Saturday of Current Month' into the task description text entry box
+        const currentMonthDescText = await page.$('#desc-text');
+        await currentMonthDescText.click();
+        await page.keyboard.type('Task for first Saturday of Current Month');
         // find and click on the confirm button
-        const mayConfirm = await page.$('#confirm');
-        await mayConfirm.click();
-        // get task title from 4th of May
-        const mayTitleDisplay = await page.$('.task-container>#task');
-        const mayTitleDisplayVal = await mayTitleDisplay.getProperty('innerText');
-        const mayTitleDisplayText = await mayTitleDisplayVal.jsonValue();
-        // get the May's task's description from the task list
-        const mayDisplayTaskDesc = await page.$('.task-container+p');
-        const mayDisplayVal = await mayDisplayTaskDesc.getProperty('innerText');
-        const mayDisplayDescText = await mayDisplayVal.jsonValue();
+        const currentMonthConfirm = await page.$('#confirm');
+        await currentMonthConfirm.click();
+        // get task title from first Saturday of Current Month
+        const currentMonthTitleDisplay = await page.$('.task-container>#task');
+        const currentMonthTitleDisplayVal = await currentMonthTitleDisplay.getProperty('innerText');
+        const currentMonthTitleDisplayText = await currentMonthTitleDisplayVal.jsonValue();
+        // get the first Saturday of Current Month's task's description from the task list
+        const currentMonthDisplayTaskDesc = await page.$('.task-container+p');
+        const currentMonthDisplayVal = await currentMonthDisplayTaskDesc.getProperty('innerText');
+        const currentMonthDisplayDescText = await currentMonthDisplayVal.jsonValue();
         // close the task-list pop-up
         const closeTaskList = await page.$('#close-task-list');
         await closeTaskList.click();
 
-        // move to prev month (April)
+        // move to previous month
         const prevMonth = await page.$('.prev-month');
         await prevMonth.click();
-        // find and click on first Saturday of April
+        // find and click on first Saturday of the previous month
         await page.evaluate(() => {
             // Select the 7th element of the calendar month
-            const firstSatOfApr = document.querySelectorAll('.days li')[6];
-            firstSatOfApr.click();
+            const firstSatOfPrevMonth = document.querySelectorAll('.days li')[6];
+            firstSatOfPrevMonth.click();
         });
         date = await page.$eval('#date', element => element.textContent);
-        expect(date).toBe('April 6, 2024');
+        expect(date).toBe('May 4, 2024'); // Change expected value to be the date for the first saturday of the previous month
         await closeTaskList.click();
     
-        // move to next month (June)
+        // move to next month
         const nextMonth = await page.$('.next-month');
         await nextMonth.click();
         await nextMonth.click();
-        // find and click on the first Saturday of June
+        // find and click on the first Saturday of next month
         await page.evaluate(() => {
             // Select the 7th element of the calendar month
             const firstSatOfJun = document.querySelectorAll('.days li')[6];
             firstSatOfJun.click();
         });
         date = await page.$eval('#date', element => element.textContent);
-        expect(date).toBe('June 1, 2024');
+        expect(date).toBe('July 6, 2024'); // Change expected value to be the date for the first saturday of the next month
         // find and click on add task button 
-        const addJuneTask = await page.$('#add');
-        await addJuneTask.click();
-        // find, click on, and type 'Title for 1st of June'
-        const juneTitleText = await page.$('#title-text');
-        await juneTitleText.click();
-        await page.keyboard.type('Title for 1st of June');
-        // find, click on, and type 'Task for 1st of June' into the task description text entry box
-        const juneDescText = await page.$('#desc-text');
-        await juneDescText.click();
-        await page.keyboard.type('Task for 1st of June');
+        const addNextMonthTask = await page.$('#add');
+        await addNextMonthTask.click();
+        // find, click on, and type 'Title for first Saturday of Next Month'
+        const nextMonthTitleText = await page.$('#title-text');
+        await nextMonthTitleText.click();
+        await page.keyboard.type('Title for first Saturday of Next Month');
+        // find, click on, and type 'Task for first Saturday of Next Month' into the task description text entry box
+        const nextMonthDescText = await page.$('#desc-text');
+        await nextMonthDescText.click();
+        await page.keyboard.type('Task for first Saturday of Next Month');
         // find and click on the confirm button
-        const juneConfirm = await page.$('#confirm');
-        await juneConfirm.click();
-        // get task title and task description from 1st of June
-        const juneTitleDisplay = await page.$('.task-container>#task');
-        const juneTitleDisplayVal = await juneTitleDisplay.getProperty('innerText');
-        const juneTitleDisplayText = await juneTitleDisplayVal.jsonValue();
-        // get June's added task's description from the task list
-        const juneDisplayTaskDesc = await page.$('.task-container+p');
-        const juneDisplayVal = await juneDisplayTaskDesc.getProperty('innerText');
-        const juneDisplayDescText = await juneDisplayVal.jsonValue();
+        const nextMonthConfirm = await page.$('#confirm');
+        await nextMonthConfirm.click();
+        // get task title and task description from first Saturday of Next Month
+        const nextMonthTitleDisplay = await page.$('.task-container>#task');
+        const nextMonthTitleDisplayVal = await nextMonthTitleDisplay.getProperty('innerText');
+        const nextMonthTitleDisplayText = await nextMonthTitleDisplayVal.jsonValue();
+        // get first Saturday of Next Month's added task's description from the task list
+        const nextMonthDisplayTaskDesc = await page.$('.task-container+p');
+        const nextMonthDisplayVal = await nextMonthDisplayTaskDesc.getProperty('innerText');
+        const nextMonthDisplayDescText = await nextMonthDisplayVal.jsonValue();
         
-        // expect May and June task titles to be different
-        expect(mayTitleDisplayText).toBe('Title for 4th of May');
-        expect(juneTitleDisplayText).toBe('Title for 1st of June');
-        // expect May and June task descriptions to be different
-        expect(mayDisplayDescText).toBe('Task for 4th of May');
-        expect(juneDisplayDescText).toBe('Task for 1st of June');
+        // expect Current Month and Next Month task titles to be different
+        expect(currentMonthTitleDisplayText).toBe('Title for first Saturday of Current Month');
+        expect(nextMonthTitleDisplayText).toBe('Title for first Saturday of Next Month');
+        // expect Current Month and Next Month task descriptions to be different
+        expect(currentMonthDisplayDescText).toBe('Task for first Saturday of Current Month');
+        expect(nextMonthDisplayDescText).toBe('Task for first Saturday of Next Month');
         await closeTaskList.click();
-    }, 10000);*/
+    }, 10000);
 
     // Close add pop-up functionality
     it('Check "close add pop-up" functionality on the first day of the current month', async () => { // note: current month is now June after the independent task test
