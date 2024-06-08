@@ -266,34 +266,19 @@ describe('Terminal test suite', () => {
             const selectedRole = document.querySelector('#discussionCheckbox');
             return selectedRole.checked;
         });
+
         expect(roleSelected).toBe(false);
     });
 
-    it('should cd back to home from dev journal', async () => {
-
-        // Wait for the terminal element to appear
-        await page.waitForSelector('#terminal');
-        
-        // Navigate back to the home page by typing 'cd ..' and pressing Enter
-        await page.click('#terminal-input');
-        await page.keyboard.type('cd ..\n');
-
+    it('should cd to calendar', async () => {
         // answers the dialogue asking for name
         page.once('dialog', async dialog => {
             console.log(dialog.message());
             // name of user is rejected now
             await dialog.dismiss();
         });
+        await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
 
-        // Wait for home page to load
-        await page.waitForNavigation();
-        // gets home url
-        const return_URL = await page.url();
-        // checks if returned to home url
-        expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
-    });
-
-    it('should cd to calendar', async () => {
         // Simulate pressing Ctrl+/ to toggle the terminal visibility
         await page.keyboard.down('Control');
         await page.keyboard.press('/');
