@@ -347,7 +347,7 @@ p,
     }
 }
 
-/*for mobile shorter than 400px wide*/
+/* for mobile shorter than 400px wide */
 @media screen and (max-width: 400px) {
     .task-list.parent{
         top: -9%;
@@ -362,8 +362,9 @@ p,
     .task-list.parent {
         top: -15%;
     }
+
     .task-list {
-        max-width: 550px; /* Set maximum width*/
+        max-width: 550px; /* Set maximum width */
         min-height: 250px;
     }
 
@@ -372,27 +373,34 @@ p,
         display: flex;
         flex-direction: column;
     }
+
     .task-list-middle {
         height: 5rem;
     }
-    /* Center pop-up within the task-list*/
+
+    /* Center pop-up within the task-list */
     .pop-up {
         top: -200%;
     }
+
     .pop-up.child {
         height: 215px;
         top: -140%;
     }
+
     .pop-up-top {
         height: 5px;
     }
+
     .pop-up-middle {
         height: 135px;
     }
-    /* Changes text-size to account for smaller pop-up and task-list*/
+
+    /* Changes text-size to account for smaller pop-up and task-list */
     #close-pop-up {
         font-size: x-large;
     }
+
     #task-title {
         font-size: medium;
     }
@@ -400,6 +408,7 @@ p,
     #task-desc{
         max-height: 20px;
     }
+
     #desc-text {
         max-height: 40px;
     }
@@ -410,7 +419,7 @@ p,
 
 }
 
-/*/*use this to adjust for computer screen of width of 1024px
+/* /*use this to adjust for computer screen of width of 1024px
 @media screen and (min-width: 1020px) and (max-width: 1024px) and (orientation:landscape){
     .task-list.parent{
         top: 10%;
