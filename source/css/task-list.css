@@ -348,8 +348,9 @@ p,
 }
 
 /* for mobile shorter than 400px wide */
+/* stylelint-disable media-feature-range-notation */
 @media screen and (max-width: 400px) {
-    .task-list.parent{
+    .task-list.parent {
         top: -9%;
         width: 95%;
         vertical-align: middle;
