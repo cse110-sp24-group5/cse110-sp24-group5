@@ -118,23 +118,14 @@ p,
 
 #add {
     margin-left: auto; /* Push the close button to the right */
-    font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 60px;
-    line-height: 58px;
-    display: flex;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--color2);
-    color: white;
-    padding-bottom: 8px;
+    background: transparent;
+    border: none;
+   
 }
 
-#add:hover{
-    background-color: var(--color1); 
-    color: white;
+#add img{
+    height: 3rem;
+    width: 3rem;
 }
 
 /* Task List middle subsection */
@@ -309,17 +300,21 @@ p,
     display: block;
 }
 
+
+
 /* Media query for smaller screens */
 /* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1024px) {
     .task-list.parent{
-        top: -5%;
+        top: 0%;
         width: 95%;
         vertical-align: middle;
     }
 
     .task-list.child{
         height: 40%;
+        display: flex;
+        flex-direction: column;
     }
 
     #date{
@@ -333,9 +328,6 @@ p,
         font-size:small;
     }
 
-    #add{
-       size: 100%;
-    }
 
     .pop-up.parent{
         width: 80%;
@@ -355,49 +347,140 @@ p,
     }
 }
 
-/* stylelint-disable-next-line media-feature-range-notation */
-@media screen and  (max-width: 1024px) and (orientation:landscape){
-    .task-list.parent{
-        top: 10%;
+/* for mobile shorter than 400px wide */
+/* stylelint-disable media-feature-range-notation */
+@media screen and (max-width: 400px) {
+    .task-list.parent {
+        top: -9%;
+        width: 95%;
+        vertical-align: middle;
+    }
+}
+
+/* Media query to account for turning mobile phones horizontally */
+@media screen and (max-height: 450px){
+    /* Centers task-list in the center of horizontal screen */
+    .task-list.parent {
+        top: -15%;
     }
 
     .task-list {
         max-width: 550px; /* Set maximum width */
-        min-height: 200px;
+        min-height: 250px;
     }
 
+    /* Add button will not be pushed off of the screen */
+    .task-list.child {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .task-list-middle {
+        height: 5rem;
+    }
+
+    /* Center pop-up within the task-list */
+    .pop-up {
+        top: -200%;
+    }
+
+    .pop-up.child {
+        height: 215px;
+        top: -140%;
+    }
+
+    .pop-up-top {
+        height: 5px;
+    }
+
+    .pop-up-middle {
+        height: 135px;
+    }
+
+    /* Changes text-size to account for smaller pop-up and task-list */
+    #close-pop-up {
+        font-size: x-large;
+    }
+
+    #task-title {
+        font-size: medium;
+    }
+
+    #task-desc{
+        max-height: 20px;
+    }
+
+    #desc-text {
+        max-height: 40px;
+    }
+
+    #confirm {
+        font-size: 0.75rem;
+    }
+
+}
+
+/* /*use this to adjust for computer screen of width of 1024px
+@media screen and (min-width: 1020px) and (max-width: 1024px) and (orientation:landscape){
+    .task-list.parent{
+        top: 10%;
+    }
+    .task-list {
+        max-width: 550px; /* Set maximum width 
+        min-height: 350px;
+    }
+
+    .task-list.parent {
+        margin-top: -5%;/*adjust the position of task-list
+    }
+    /* Add button will not be pushed off of the screen 
+    .task-list.child {
+     
+        display: flex;
+        flex-direction: column;
+    }
     .pop-up.parent{
         width: 50%;
         min-height: 50px;
     }
-
     .pop-up {
-        top:-11%;
+        top: -11%;
         right:0;
     }
-
     #title-text {
         height: 25px;
     }
-
     #desc-text {
         height: 40px;
     }
 }
 
-/* stylelint-disable-next-line media-feature-range-notation */
-@media screen and (max-width: 800px) and (orientation: landscape) {
+/* stylelint-disable-next-line media-feature-range-notation 
+@media screen and (min-width: 701px) and (max-width: 1020px) and (orientation:landscape){
     .task-list.parent{
-        margin-top: -5%;
+        top: 10%;
     }
-
     .task-list {
-        max-width: 500px; /* Set maximum width */
-        min-height: 250px;
+        max-width: 550px; /* Set maximum width 
     }
-    
+    /* Add button will not be pushed off of the screen 
+    .task-list.child {
+        display: flex;
+        flex-direction: column;
+    }
+    .pop-up.parent{
+        width: 50%;
+        min-height: 50px;
+    }
     .pop-up {
-        top:-11%;
+        top: -11%;
         right:0;
     }
+    #title-text {
+        height: 25px;
+    }
+    #desc-text {
+        height: 40px;
+    }
 }
+*/
