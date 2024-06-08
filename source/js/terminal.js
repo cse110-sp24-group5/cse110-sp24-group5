@@ -34,12 +34,26 @@ document.addEventListener('DOMContentLoaded', function () {
   * Visibility of the terminal is handled here.
   */ 
   if (terminal && terminalInput && terminalContent && terminalClose) {
-    function toggleTerminal() {
+    function toggleTerminal(forceState) {
       terminal.classList.toggle('hidden');
-      if (!terminal.classList.contains('hidden')) {
+      if (!terminal.classList.contains('hidden') || forceState === true) {
         terminalInput.focus();
+        // sets terminalState to open in localStorage so it saves across all pages
+        localStorage.setItem('terminalState', 'open');
+
+      }
+      else {
+        // removes terminalState since it was toggled off so it will be toggled off across all pages
+        localStorage.removeItem('terminalState');
       }
     }
+    
+    let terminalState = localStorage.getItem('terminalState');
+  // checks if terminal was perviously opened on another page and if so it toggled it on
+  if(terminalState == 'open') {
+    toggleTerminal(true);
+  }
+    
     /*
     * Brings up the terminal on Cntrl + /
     */
@@ -50,11 +64,15 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       if (!terminal.classList.contains('hidden') && event.key === 'q') {
         terminal.classList.add('hidden');
+        // toggles terminal off is q is pressed
+        localStorage.removeItem('terminalState');
       }
     });
 
     terminalClose.addEventListener('click', function () {
       terminal.classList.add('hidden');
+      // toggles terminal off if x is clicked
+      localStorage.removeItem('terminalState');
     });
     /*
     * Executes commands based on the current page
