@@ -251,9 +251,7 @@ function trackDays() {
 /**
  * Function to retrieve tasks from localStorage or returns an empty array if no tasks are found
  * @returns {Object} - Object consisting of date keys with an array of that date's tasks as a value
- * 
- * return object format
- * 
+ *  
  * {
  *  date: [{
  *      titleText: 
