@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     */
     function handleOtherCommands(command){
         const regexCD = /cd \.\./i;
-        const regexTaskList = /.* [dea]$/;
+        const regexTaskList = /.*[dea]$/;
         // Checks whether user wants to go back to homepage or edit taskList
         if (regexCD.test(command)) {
           window.location.href = 'index.html';
