@@ -1,3 +1,7 @@
+/**
+ * Adds event listeners once the DOM content is loaded.
+ * Handles commands for the terminal.
+ */
 document.addEventListener('DOMContentLoaded', function () {
   // Ensure infoBtn, infoBox, and closeBtn exist before adding event listeners
   var infoBtn = document.getElementById('infoBtn');
@@ -8,9 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
     infoBtn.addEventListener('click', function () {
       infoBox.style.display = 'block';
     });
+
     closeBtn.addEventListener('click', function () {
       infoBox.style.display = 'none';
     });
+
     // Close the info box if the user clicks outside of it
     window.onclick = function (event) {
       if (event.target != infoBox && event.target != infoBtn && event.target != closeBtn) {
@@ -18,12 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
   }
+
   // Ensure terminal elements exist before adding event listeners
   const terminal = document.getElementById('terminal');
   const terminalInput = document.getElementById('terminal-input');
   const terminalContent = document.getElementById('terminal-content');
   const terminalClose = document.getElementById('terminal-close');
-
+  /**
+  * Visibility of the terminal is handled here.
+  */ 
   if (terminal && terminalInput && terminalContent && terminalClose) {
     function toggleTerminal() {
       terminal.classList.toggle('hidden');
@@ -31,7 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
         terminalInput.focus();
       }
     }
-
+    /*
+    * Brings up the terminal on Cntrl + /
+    */
     document.addEventListener('keydown', function (event) {
       if (event.ctrlKey && event.key === '/') {
         event.preventDefault();
@@ -41,9 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
         terminal.classList.add('hidden');
       }
     });
+
     terminalClose.addEventListener('click', function () {
       terminal.classList.add('hidden');
     });
+    /*
+    * Executes commands based on the current page
+    */
     terminalInput.addEventListener('keydown', function (event) {
       if (event.key === 'Enter') {
         const command = terminalInput.value;
@@ -67,7 +82,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     });
-    // Functions to handle commands for different pages
+
+    /**
+     * Handles commands specific to the home page.
+     * @param {string} command - The command entered by the user.
+     */
     function handleHomeCommands(command) {
       // Add logic for home page commands
       terminalContent.textContent += `\nHome Page command executed: ${command}`;
@@ -83,150 +102,259 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
+    /**
+     * Handles all possible calendar commands.
+     * @param {string} command - The command entered by the user.
+     */
     function handleCalendarCommands(command) {
-      // Add logic for calendar page commands
       terminalContent.textContent += `\nCalendar Page command executed: ${command}`;
-      // Terminal for day number followed by Enter key
-      let currentDate = new Date(); // Define today's current timestamp
-      // Check if the input is in the format MM/YYYY
-      const input = command.trim(); // Trim input to remove any extra spaces
+      const input = command.trim(); 
       const dateRegex = /^(\d{2})\/(\d{4})$/;
-      if (dateRegex.test(input)) {
-        const [, month, year] = input.match(dateRegex).map(Number);
-        const newDate = new Date(year, month - 1); // Create a new date object for the specified month and year
-        // Validate the new date
-        if (!isNaN(newDate.getTime())) {
-          currentDate = newDate; // Update currentDate to the new date
-          renderCalendar(currentDate); // Render the calendar for the new month and year
-        }
-      } else if (parseInt(command) >= 1 && parseInt(command) <= 31) { // Otherwise, the date is just an integer so we can use 1-31 to select the day
-        // Check if the input is a single day number (e.g., 1-31)
-        const dayNumber = parseInt(command); // Getting the integer value from the terminal input
-        if (dayNumber >= 1 && dayNumber <= 31) {
-          const dayElements = document.querySelectorAll('.days li span'); // Select all day elements (spans inside list items) in the calendar
-          // Get the total number of days in the current month
-          // new Date(year, month + 1, 0) gets the last day of the current month
-          const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
-          // Check if there are day elements and if the day number is within the range of days in the month
-          if (dayElements.length > 0 && dayNumber <= daysInMonth) {
-            dayElements[dayNumber - 1].click(); // Simulate a click on the day element (subtract 1 due to zero indexing)
-          }
-        }
-      } else {
-        
 
-        // Regex for changing the directory (going back to the homepage)
+      // Checks whether terminal input is in MM/YYYY or DD format or something else
+      if (dateRegex.test(input)) {
+        monthYearFormat(input, dateRegex);
+      } else if (parseInt(command) >= 1 && parseInt(command) <= 31) {
+        dayFormat(command);
+      } else {
+        handleOtherCommands(command);
+      }
+    }
+
+    /**
+     * Executes necessary commands for the given MM/YYYY format.
+     * @param {string} input - The trimmed command entered by the user.
+     * @param {RegExp} dateRegex - A regular expression for the date
+     */
+    function monthYearFormat(input, dateRegex) {
+      let currentDate = new Date();
+      const [, month, year] = input.match(dateRegex).map(Number);
+      const newDate = new Date(year, month - 1); 
+        if (!isNaN(newDate.getTime())) {
+          // Update currentDate to the new date
+          currentDate = newDate; 
+          // Render the calendar for the new month and year
+          renderCalendar(currentDate); 
+        }
+    }
+
+    /**
+     * Executes necessary commands for the given DD format.
+     * @param {string} command - The command entered by the user.
+     */
+    function dayFormat(command) {
+      let currentDate = new Date();
+      const dayNumber = parseInt(command);
+      if (dayNumber >= 1 && dayNumber <= 31) {
+        const dayElements = document.querySelectorAll('.days li span'); 
+        // new Date(year, month + 1, 0) gets the last day of the current month
+        const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+        if (dayElements.length > 0 && dayNumber <= daysInMonth) {
+          // Simulate a click on the day element (subtract 1 due to zero indexing)
+          dayElements[dayNumber - 1].click(); 
+        }
+      }
+    }
+
+    /**
+     * Handles commands related to cd in the terminal.
+    */
+    function handleOtherCommands(command){
         const regexCD = /cd \.\./i;
-        // Regex for the tasklist commands
-        const regexTaskList = /.* [dea]$/;
+        const regexTaskList = /.*[dea]$/;
+        // Checks whether user wants to go back to homepage or edit taskList
         if (regexCD.test(command)) {
-          // "cd .." - back to home, case insensitive
           window.location.href = 'index.html';
         } else if (regexTaskList.test(command)) {
-          // Check if the last char is a d, e, or a
-          const lastChar = command.charAt(command.length - 1);
-          const taskName = command.substring(0, command.length - 2);
-          const dateElement = document.getElementById('date');
-          const dateText = dateElement.textContent;
-          // Get all the tasks for the specified date
-          const tasksForDate = getTasksForDate(dateText);
-
-          // Then loop through all of the tasks for that specific date
-          for (const task of tasksForDate) {
-            if (task.titleText == taskName) {
-              if (lastChar == 'd' || lastChar == 'D') {
-                handleDeleteShortcut(task);
-              } else if (lastChar == 'e' || lastChar == 'E') {
-                handleEditShortcut(task);
-              }
-            }
-          }
-        } else if (command.trim() == 'a' || command.trim() == 'A'){
-          // Add task
-          handleAddShortcut();
+          goToTaskList(command);
         } else {
           terminalContent.textContent += `\nCommand not recognized: ${command}`;
         }
-      }
+    }
 
-      function handleEditShortcut(task) {
-        const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
-        if (daySelectionHidden){
-          terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
-          return;
-        }
-
+    /**
+     * Handles navigation to the task list based on the given command.
+     * Handles commands related to adding, deleting and editing a task
+     * @param {string} command - The command entered by the user.
+    */
+    function goToTaskList(command) {
+        // Check if the last char is a d, e, or a
+        const lastChar = command.charAt(command.length - 1);
+        const taskName = command.substring(0, command.length - 2);
+        // Get specified date
         const dateElement = document.getElementById('date');
         const dateText = dateElement.textContent;
+        // Get all the tasks for the specified date
         const tasksForDate = getTasksForDate(dateText);
-   
-        if (tasksForDate.length > 0) {
-          handleEditButtonClick(task);
+        // handles adding a task
+        if(command.trim() == 'a' || command.trim() == 'A'){
+          handleAddShortcut();
+        } else {
+          // Will execute given taskList command on the specified taskName
+          findTask(tasksForDate, taskName, lastChar);
         }
-      }
-  
-      function handleDeleteShortcut(task) {
+    }
 
-        const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
-        if (daySelectionHidden){
-          terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
-          return;
+    /**
+      * Finds a specific task given the date and executes the delete or edit command.
+      * @param {Array} tasksForDate - The array of tasks for the specified date.
+      * @param {string} taskName - The name of the task to find.
+      * @param {string} lastChar - The last character of the command indicating the action (delete or edit).
+      */
+    function findTask(tasksForDate, taskName, lastChar){
+      const task = tasksForDate.find(task => task.titleText == taskName);
+      if(task){
+        if (lastChar == 'd') {
+          handleDeleteShortcut(task);
+        } else if (lastChar == 'e') {
+          handleEditShortcut(task);
+        } else{
+          terminalContent.textContent += `\nCommand not recognized: ${command}`;
         }
-
-        const dateElement = document.getElementById('date');
-        const dateText = dateElement.textContent;
-        const tasksForDate = getTasksForDate(dateText);  
-
-        if (tasksForDate.length > 0) {
-          handleDeleteButtonClick(task);
-        }
-      }
-      
-      function handleAddShortcut(){
-        const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
-        if (daySelectionHidden){
-          terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
-          return;
-        }
-        handleAddTaskButtonClick();
       }
     }
-    function handleDevJournalCommands(command) {
-      // Add logic for dev journal page commands
-      terminalContent.textContent += `\nDev Journal Page command executed: ${command}`;
-      // Defining all regular expressions here
-      const regexCD = /cd \.\./i;
-      const regexBug = /bug/i;
-      const regexDisc = /com/i;
-      const regexCode = /code/i;
-      const regexDoc = /doc/i;
-      const regexClear = /clear/i;
-      if (regexCD.test(command)) {
-        window.location.href = 'index.html';
-      } else if (regexBug.test(command)) {
-        toggleCheckbox('debuggingCheckbox');
-      } else if (regexDisc.test(command)) {
-        toggleCheckbox('discussionCheckbox');
-      } else if (regexCode.test(command)) {
-        toggleCheckbox('codingCheckbox');
-      } else if (regexDoc.test(command)) {
-        toggleCheckbox('documentationCheckbox');
-      } else if (regexClear.test(command)) {
-        terminalContent.textContent = '';
-      } else if (command === 'md p' || command === 'MD P') {
+
+    /**
+    * Executes the edit command for the specified task.
+    * @param {Object} task - The task to be edited.
+    */
+    function handleEditShortcut(task) {
+      const dateElement = document.getElementById('date');
+      const dateText = dateElement.textContent;
+      const tasksForDate = getTasksForDate(dateText);
+      if (tasksForDate.length > 0) {
+        handleEditButtonClick(task);
+      }
+    }
+
+    /**
+      * Executes the delete command for the specified task.
+      * @param {Object} task - The task to be edited.
+    */
+    function handleDeleteShortcut(task) {
+      const dateElement = document.getElementById('date');
+      const dateText = dateElement.textContent;
+      const tasksForDate = getTasksForDate(dateText);
+      if (tasksForDate.length > 0) {
+        handleDeleteButtonClick(task);
+      }
+    }
+
+    /**
+      * Executes the add command for the specified task.
+    */
+    function handleAddShortcut(){
+      const daySelectionHidden = document.querySelector('.task-list.parent.hidden');
+      if (daySelectionHidden){
+        terminalContent.textContent += `\nSelect a day to add/edit/delete!`;
+        return;
+      }
+      handleAddTaskButtonClick();
+    }
+
+    /*
+      * Executes the corresponding markdown command and the commands for the bug and learnings boxes.
+      * @param {string} command - The command entered by the user.
+      * @param {Map} commandList - The map containing markdown commands and their corresponding functions.
+    */
+    function markdownExecute(command, commandList) {
+      if (command === commandList.get('showPreview')) {
         showPreview();
-      } else if (command === 'md e' || command === 'MD E') {
+      } else if (command === commandList.get('showEditor')) {
         showEditor();
-      } else if (command === 's' || command === 'S') {
+      } else if (command === commandList.get('saveData')) {
         saveData();
-      } else if (command === 'b' || command === 'B') {
+      } else if (command === commandList.get('showBug')) {
         showBug();
-      } else if (command === 'l' || command === 'L') {
+      } else if (command === commandList.get('showLearnings')) {
         showLearnings();
-      } else {
+      } 
+    }
+
+    /**
+      * Handles commands specific to the roles box.
+      * @param {string} command - The command entered by the user.
+    */
+    function devJournalExecute(command, commandList) {
+      if (commandList.get('regexCD').test(command)) {
+        window.location.href = 'index.html';
+      } else if (commandList.get('regexBug').test(command)) {
+        toggleCheckbox('debuggingCheckbox');
+      } else if (commandList.get('regexDisc').test(command)) {
+        toggleCheckbox('discussionCheckbox');
+      } else if (commandList.get('regexCode').test(command)) {
+        toggleCheckbox('codingCheckbox');
+      } else if (commandList.get('regexDoc').test(command)) {
+        toggleCheckbox('documentationCheckbox');
+      } else if (commandList.get('regexClear').test(command)) {
+        terminalContent.textContent = '';
+      }
+    }
+
+    /**
+     * Checks if a given value exists in the values of a Map.
+     * @param {Map} map - The Map to search through.
+     * @param {RegExp} value - The value to search for in the Map.
+     * @returns {boolean} - Returns true if the value is found, otherwise false.
+     */
+    function hasValue(map, value) {
+      for (let val of map.values()) {
+        // handles the case of regular expression
+        if (val instanceof RegExp) {
+          if (val.test(value)) {
+            return true;
+          }
+        } 
+        // handles the case of strings
+        else if (val === value) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    /**
+      * Handles commands specific to the dev journal page.
+      * @param {string} command - The command entered by the user.
+    */
+    function handleDevJournalCommands(command) {
+      terminalContent.textContent += `\nDev Journal Page command executed: ${command}`;
+      
+      // Defining all regular expressions for the devjournal here
+      const devJournalCommands = new Map ([
+        ['regexCD', /cd \.\./i],
+        ['regexBug', /bug/i],
+        ['regexDisc', /com/i],
+        ['regexCode', /code/i],
+        ['regexDoc', /doc/i],
+        ['regexClear', /clear/i]
+      ]);
+
+      // Defining all regular commmands for markdown here
+      const markdownCommands = new Map ([
+        ['showPreview', 'md p'],
+        ['showEditor', 'md e'],
+        ['saveData', 's'],
+        ['showBug', 'b'],
+        ['showLearnings','l'],
+      ]);
+      
+      const lowerCaseCommand = command.toLowerCase();
+      // the command is for markdown
+      if (hasValue(markdownCommands, lowerCaseCommand)) {
+        markdownExecute(lowerCaseCommand, markdownCommands);
+        terminalContent.textContent += `\nenter mdcmd ${command}`;
+        
+      }
+      // The command is for devJournal
+      if (hasValue(devJournalCommands, command)) {
+        devJournalExecute(command, devJournalCommands);
+        terminalContent.textContent += `\nenter dvcmd ${command}`;
+      }
+      // The command does not exist
+      if (!hasValue(devJournalCommands,lowerCaseCommand) && !hasValue(markdownCommands, lowerCaseCommand)) {
         terminalContent.textContent += `\nCommand not recognized`;
       }
     }
-
   }
 });
