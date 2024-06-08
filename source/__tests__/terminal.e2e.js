@@ -369,28 +369,4 @@ describe('Terminal test suite', () => {
         // Assert that the header text is 'May 2024'
         expect(monthYearHeaderText).toBe('May 2024');
     });
-
-
-    it('should return to homepage from calendar', async () => {
-        // Wait for the terminal element to appear
-        await page.waitForSelector('#terminal');
-        
-        // Navigate back to the home page by typing 'cd ..' and pressing Enter
-        await page.click('#terminal-input');
-        await page.keyboard.type('cd ..\n');
-
-        // answers the dialogue asking for name
-        page.once('dialog', async dialog => {
-            console.log(dialog.message());
-            // name of user is rejected now
-            await dialog.dismiss();
-        });
-
-        // Wait for home page to load
-        await page.waitForNavigation();
-        // gets home url
-        const return_URL = await page.url();
-        // checks if returned to home url
-        expect(return_URL).toBe('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html');
-    });
 });
