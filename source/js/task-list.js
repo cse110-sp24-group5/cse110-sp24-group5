@@ -230,19 +230,17 @@ function trackDays() {
     const days = document.querySelectorAll('.days li');
     days.forEach((day) => {
         day.addEventListener('click', () => {
-            const dateElement = document.getElementById('date');
+            const clickedDateText = getDateTextFromDate(day);
             // Construct a unique key for localStorage based on the selected date
-            const dateText = dateElement.textContent;
-            addTaskForDate(dateText);
-            showTaskList(taskList);
+            addTaskForDate(clickedDateText);
+            showTaskList(clickedDateText, taskList);
         });
         day.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
-                const dateElement = document.getElementById('date');
+                const clickedDateText = getDateTextFromDate(day);
                 // Construct a unique key for localStorage based on the selected date
-                const dateText = dateElement.textContent;
-                addTaskForDate(dateText);
-                showTaskList(taskList);
+                addTaskForDate(clickedDateText);
+                showTaskList(clickedDateText, taskList);
             }
         });
     });
@@ -308,9 +306,9 @@ function clearInputs(titleInput, descriptionInput) {
 
 /**
      * Function to populate task-list with tasks for a given date
-     * @param {string} dateText - The date for which to populate tasks for
+     * @param {string} clickedDateText - The date for which to populate tasks for
      */
-function addTaskForDate(dateText) {
+function addTaskForDate(clickedDateText) {
 
     // Get the task list ul element
     const taskList = document.querySelector('.task-list-ul');
@@ -319,7 +317,7 @@ function addTaskForDate(dateText) {
     taskList.innerHTML = '';
 
     // Get tasks for the specified date
-    const dailyTasks = getTasksForDate(dateText);
+    const dailyTasks = getTasksForDate(clickedDateText);
 
     // Check if tasks exist for the date
     if (dailyTasks && dailyTasks.length > 0) {
@@ -417,16 +415,19 @@ function hidePopUp(popUp) {
  
 /**
 * Show the task list pop-up
-* @param {HTMLElement} taskList - HTMLElment referencing the task-list window
+* @param {HTMLElement} taskList - HTMLElement referencing the task-list window
+* @param {string} clickedDateText - Date of the clicked day in string format
 */
-function showTaskList(taskList) {
+function showTaskList(clickedDateText, taskList) {
     showTaskListOverlay(); // Show the overlay
     taskList.classList.remove('hidden'); // Show the task list pop-up
+    const dateElement = document.getElementById('date');
+    dateElement.textContent = clickedDateText;
 }
  
 /**
 * Hide the task list pop-up
-* @param {HTMLElement} taskList - HTMLElment referencing the task-list window
+* @param {HTMLElement} taskList - HTMLElement referencing the task-list window
 */
 function hideTaskList(taskList) {
     hideTaskListOverlay(); // Hide the overlay
@@ -457,4 +458,19 @@ function createOverlay() {
    const overlayDiv = document.createElement('div'); // Create a div element for the overlay
    overlayDiv.classList.add('overlay'); // Add class to style the overlay
    return overlayDiv;
+}
+
+/**
+* Gets the 
+* @param {Element} day - triggered day element in the calendar days array
+* @returns {string} - The string representation of the date of the clicked day
+*/
+function getDateTextFromDate(day) {
+    const monthYearText = document.querySelector('.month-year').textContent; // Current month and year header text
+    let dayText = day.textContent.trim(); // Day clicked text
+    if (dayText.startsWith('0')) {
+        dayText = dayText.substring(1); // Remove the leading zero if single digit
+    }
+    const monthDayYearText = `${monthYearText.split(' ')[0]} ${dayText}, ${monthYearText.split(' ')[1]}`; // Extract month and year separately and rearrange them
+    return monthDayYearText;
 }
