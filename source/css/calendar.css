@@ -8,6 +8,7 @@
     --background-color: linear-gradient(180deg, rgb(95 192 255 / 30%) 23.5%, rgb(91 194 255 / 30%) 39.5%, rgb(219 147 255 / 30%) 100%);
     --blank-day-color: #F4F5FF;
     --pink-selected-day-color: #F2E5FB;
+    --task-count-display-color: #f4e9fb;
     --dashboard-color: #A3AED4;
     --number-of-rows: 5; /* Default value */
 }
@@ -165,6 +166,16 @@ img {
     margin-right: 0.25rem;
 }
 
+.tasks-count{
+    border: 1px solid var(--task-count-display-color);
+    border-radius: 20%;
+    background-color: var(--task-count-display-color);
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    font-size: small;
+}
+
 /* Color the blank days in the calendar to differentiate them */
 .blank-day {
     background: var(--blank-day-color);
@@ -230,6 +241,7 @@ img {
         display: none;
     }
     
+    /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
     .short-weekdays {
         list-style-type: none; /* removes bullet points */
 
@@ -269,29 +281,129 @@ img {
         font-size: smaller;
 
         /* adjusted space between the rows */
-        grid-template-rows: repeat(var(--number-of-rows), 12vh); /* before was 6 */
-    }
-}  
-
-@media screen and (min-width: 1025px) and (max-width: 1400px) and (orientation: landscape) {
-    body{
-        vertical-align: middle;
+        grid-template-rows: repeat(var(--number-of-rows), 10vh); /* before was 6 */
     }
 
+    .tasks-count{
+        border: 0 solid var(--task-count-display-color);
+        height: 1.5rem;
+        box-sizing: border-box; /* Include padding in width calculation */
+        border-radius: 10%;
+        padding-left: 0.5em;
+        padding-top: -px;
+        bottom: 3vh;
+        font-size: xx-small;
+    }
+}
+
+/* handle smaller screens sizing with fonts */
+@media screen and (max-width: 766px) {
     .back-element {
         position: absolute;
-        top: 10px;
-        left: -5px;
+        top: 0;
+        left: -10px;
+    }
+    
+    .back-element p {
+       font-size: x-small;
+    }
+
+    .header {
+        line-height: 3rem;}
+
+    /* Resizing font sizes for smaller devices */
+    .calendar {
+       margin: 0;
+       min-width: 99vw; /* scales the width of the calander as the screen size decreases */
+    }
+
+
+    /* hides the lengthened weekdays names which are need for desktops */
+    .weekdays {
+        display: none;
+    }
+    
+    /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
+    .short-weekdays {
+        list-style-type: none; /* removes bullet points */
+
+        /* flexbox container for weekdays for easy resizing */ 
+        display: grid;
+        justify-content: center;
+
+        /* space between the rows */
+        grid-template-columns: [first] calc(100% / 7) [second] calc(100% / 7) [third] calc(100% / 7) [fourth] calc(100% / 7) [fifth] calc(100% / 7) [sixth] calc(100% / 7) [seventh] calc(100% / 7);
+        color: var(--weekday-color);
+        background: white;
+
+        /* font size and style */
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: max(0.8rem, 1.75vw); /* reducing font size for weekday names to fit on mobile */
+        line-height: 1.5rem;
+
+        /* weekdays fill up the whole container and there is no gap between the month + year */
+        padding: 0;
+        margin: 0;
+        border-top: solid 0.1rem var(--border-color);
+        border-left: solid 0.1rem var(--border-color);
+        border-right: solid 0.1rem var(--border-color);
+    }
+    
+    /* styling for the abbreviated weekdays (Ex: Sunday becomes Sun for smaller screens) */
+    .short-weekdays li {
+        text-align: center;
+        border: solid 0.1rem var(--border-color);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .days {
+        font-size: smaller;
+
+        /* adjusted space between the rows */
+        grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
+    }
+
+    .tasks-count{
+        border: 0 solid var(--task-count-display-color);
+        height: 1rem;
+        border-radius: 10%;
+        padding-left: 0.5em;
+        padding-bottom: 2.5em;
+        bottom: 3vh;
+        font-size: xx-small;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .tasks-count{
+        border: 0 solid var(--task-count-display-color);
+        height: 1.5rem;
+        border-radius: 10%;
+        padding-left: 0.5em;
+        padding-bottom: 2.5em;
+        bottom: 3.2vh;
+        font-size: 6px;
+    }
+}
+
+@media screen and (max-width: 1400px) and (orientation: landscape) {
+    .back-element {
+        position: fixed;
+        top: 15px;
+        left: 10px;
         margin-bottom: 0;
     }
 
     .back-element img {
-        height:5px;
-        width:5px;
+        height:3px;
+        width:3px;
     }
 
     .back-element p {
-        font-size : small;
+        font-size : xx-small;
     }
 
     .header {
@@ -303,41 +415,23 @@ img {
         min-width: 95vw; /* scales the width of the calander as the screen size decreases */
      }
 
-    .days {
-        font-size: large;
-
-        /* adjusted space between the rows */
-        grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
-    }
-
-    .head-text {
-        position: absolute; /* Absolute positioning */
-        bottom: 0; /* Aligns to the bottom of the page */
-        left: 50%; /* Positions the left side at the center */
-        transform: translateX(-50%); 
-        text-align: center; /* Centers text inside the element */
-        width: 100%;
-        font-family: Montserrat, sans-serif; 
-        z-index: -1000; 
+    .tasks-count{
+        background-color: none;
+        border: 0;
+        height: 1.5rem;
+        left: 0;
+        border-radius: 10%;
+        padding-left: 0.5em;
+        padding-right: 6em;
+        padding-bottom:0;
+        bottom: 2.5vh;
         font-size: xx-small;
     }
 }
 
-@media screen and (min-width: 1001px) and (max-width: 1024px) and (orientation:landscape){ 
-    .head-text {
-        position: absolute; /* Absolute positioning */
-        bottom: 0; /* Aligns to the bottom of the page */
-        left: 50%; /* Positions the left side at the center */
-        transform: translateX(-50%); 
-        text-align: center; /* Centers text inside the element */
-        width: 100%;
-        font-family: Montserrat, sans-serif; 
-        z-index: -1000; 
-        font-size: xx-small;
-    }
-
+@media screen and  (max-width: 1025px) and (orientation:landscape){
     .back-element {
-        position: absolute;
+        position: fixed;
         top: -10px;
         left: -5px;
         margin-bottom: 0;
@@ -360,8 +454,8 @@ img {
         margin-top: 5px;
         min-width: 95vw; /* scales the width of the calander as the screen size decreases */
      }
-
-    .days {
+     
+     .days {
         font-size: small;
 
         /* adjusted space between the rows */
@@ -421,5 +515,33 @@ img {
 @media screen and (max-height: 460px) {
     .calendar {
         padding: 8%;
+    }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    .back-element {
+        position: fixed;
+        top:-20px;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .tasks-count{
+        border: 0 solid var(--task-count-display-color);
+        border: 0;
+        left: 1.2rem;
+        border-radius: 14%;
+        padding-left: 0.5em;
+        padding-right: 0;
+        padding-bottom: 2.5em;
+        bottom: 1.3vh;
+        font-size: xx-small;
+    }
+
+    .days {
+        font-size: small;
+
+        /* adjusted space between the rows */
+        grid-template-rows: repeat(var(--number-of-rows), 10vh); /* before was 6 */
     }
 }
