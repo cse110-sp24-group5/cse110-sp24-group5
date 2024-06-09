@@ -27,7 +27,7 @@ html {
     text-align: center; /* Centers text inside the element */
     width: 100%;
     font-family: Montserrat, sans-serif; 
-    z-index: 1000; /* Adjust z-index if needed */
+    z-index: -1000; /* Adjust z-index if needed */
     font-size: large;
 }
 
