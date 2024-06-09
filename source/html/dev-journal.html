@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <title>Panda Coding Express</title>
+      <link rel="stylesheet" href="../css/dev-journal.css">
+      <link rel="stylesheet" href="../css/terminal.css">
+   </head>
+   <!--Custom attribute to identify page-->
+   <body data-page="dev-journal">
+
+    <!-- Terminal HTML structure -->
+    <div id="terminal" class="hidden">
+        <div id="terminal-header">
+        <span>Terminal</span>
+        <button id="terminal-close">X</button>
+        </div>
+        <div id="terminal-body">
+        <pre id="terminal-content"></pre>
+        <input type="text" id="terminal-input" autocomplete="off">
+        </div>
+    </div>
+
+    <!-- Go back element -->
+    <div class="back-element">
+        <a href="./index.html" data-navigate="true">
+            <img src="../img/previous-month.png" alt="back arrow">
+            <p>Dashboard</p>
+        </a>
+    </div>
+
+    <h1 id="title"> TITLE </h1>
+
+
+   <!-- Datepicker element -->
+  <header class = "header-contents">
+    <div class = "date-element">
+        <div>
+            Select date:
+            <input type="date" id="datepicker" name="datepicker">
+        </div>
+    </div>
+</header>
+
+ 
+
+
+   <!--Left panel with markdown editor, preview, and buttons-->
+
+   <div class ="grid-container">
+        <div class="left-panel">
+            <div class="markdown-buttons">
+                <button class="editor-button">Editor</button>
+                <button class="preview-button">Preview</button>
+            </div>
+            <div class="markdown-container">
+                <textarea id="markdown-editor" class="editor" placeholder="Markdown"></textarea>
+                <div id="markdown-preview" class="preview"></div>
+            </div>
+
+        </div>
+
+        <div class="right-panel">
+            <div id = "icon-checkboxes">
+                
+                <p>Role Fulfilled:</p>
+                <!--Changed from png to svg, ensuring high-resolution after zooming in-->
+                <div class="icons">
+                <div class="icon-checkbox1">
+                    <input type="checkbox" id="documentationCheckbox">
+                    <label for="documentationCheckbox">
+                        <img src="../img/documentation.svg" alt="documentation"> 
+                    </label> 
+                    <div class="checkbox-label">Document</div>
+                </div>
+                <div class="icon-checkbox2">
+                    <input type="checkbox" id="codingCheckbox">
+                    <label for="codingCheckbox">
+                        <img src="../img/coding.svg" alt="coding">
+                    </label> <br>
+                    <div class="checkbox-label">Code</div>
+                </div>
+                <div class="icon-checkbox3">
+                    <input type="checkbox" id="discussionCheckbox">
+                    <label for="discussionCheckbox">
+                        <img src="../img/discussion.svg" alt="discussion">
+                    </label>
+                    <div class="checkbox-label">Communicate</div>
+                </div>
+                <div class="icon-checkbox4">
+                    <input type="checkbox" id="debuggingCheckbox">
+                    <label for="debuggingCheckbox">
+                        <img src="../img/debugging.svg" alt="debugging">
+                    </label> 
+                    <div class="checkbox-label">Debug</div>
+                </div>
+                </div>
+            </div>
+            <div class="bug-tracker-container">
+                <p>Bug Tracker:</p>
+                <textarea id="bug-tracker" name="bug-tracker" placeholder="Track any Bugs that you faced today and their solutions here!"></textarea>
+            </div>
+            <div class="learnings-container">
+                <p>Learnings:</p>
+                <textarea id="learnings" name="learnings" placeholder="Reflect on your learnings here!"></textarea>
+            </div>
+        </div>   
+    </div>
+    <div class = "save-buttons">
+        <button class="save-button">Save</button>
+    </div> 
+
+    <script src="../js/terminal.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   <script src="../js/dev-journal.js"></script>
+   </body>
+    
+</html>

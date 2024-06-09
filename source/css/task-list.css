@@ -1,0 +1,486 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    background-color: white;
+    vertical-align: middle;
+}
+
+/* Color variables */
+
+:root {
+    --color1: #9ac7ff;
+    --color2: #6E8BEB;
+    --color3: rgb(176 93 176);
+    --color4: #D5EDFC;
+    --color5: #f4ebfa;
+    --edit:#c9cdff;
+    --delete: #efd9f6;
+    --pre-close: #E59F9F;
+    --on-close: #fa5353;
+}
+
+/* Font for all text in task-list/pop-up */
+#date,
+#close-task-list,
+#task,
+p,
+#add,
+#close-pop-up,
+#task-title,
+#title-text,
+#desc-text,
+#task-desc,
+#confirm {
+    font-family: Montserrat, sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Task List section */
+
+.task-list.parent {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    place-items: center;
+}
+
+
+.task-list {
+    width: 100%; /* Adjust width as needed */
+    max-width: 600px; /* Set maximum width */
+    min-height: 440px;
+    background-color: var(--color5);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / var(--shadow-opacity, 0.2));
+    position: fixed;
+    z-index: 2;
+}
+
+/* Task List top subsection */
+
+.task-list-top {
+    display: flex;
+    justify-content: space-between; /* Space elements evenly */
+    align-items: center; /* Center elements vertically */
+    padding: 0 20px /* padding format: top right bottom left */
+}
+
+#date {
+    margin-left: auto; /* Push the date button to the middle */
+    font-style: italic;
+    font-weight: 100;
+    font-size: xx-large;
+    color:#4a4444;
+}
+
+/* Buttons */
+
+#edit{
+    background-color: transparent;
+    border: transparent;
+    border-radius: 10px;
+}
+
+#edit:hover{
+    background-color: var(--edit);
+    
+}
+
+#delete{
+    background-color: transparent;
+    border: transparent;
+    border-radius: 10px;
+}
+
+#delete:hover{
+    background-color:var(--delete);
+    
+}
+
+#close-task-list {
+    margin-left: auto; /* Push the close button to the right */
+    font-size: xx-large;
+    color: var(--pre-close);
+    background-color: transparent;
+    border: transparent;
+}
+
+#close-task-list:hover{
+    color: var(--on-close);
+}
+
+#add {
+    margin-left: auto; /* Push the close button to the right */
+    background: transparent;
+    border: none;
+   
+}
+
+#add img{
+    height: 3rem;
+    width: 3rem;
+}
+
+/* Task List middle subsection */
+
+.task-list-middle {
+    overflow-y: auto;
+    border: 1px solid white;
+    max-height: 250px;
+}
+
+.task-list-ul li {
+    padding-right: 20px;
+}
+
+.task-list-ul p {
+    margin: 0;
+    padding: 10px 0 20px 20px;
+    border-bottom: 1px solid white;
+    border-width: 50%;
+    font-size: smaller;
+}
+
+.task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center vertically */
+    padding: 10px 0 0 20px;
+}
+
+#task {
+    margin: 0;
+    flex: 0.9;
+    font-weight: bold;
+}
+
+/* Task List bottom subsection */
+
+.task-list-bottom {
+    display: flex;
+    justify-content: space-between; /* Space elements evenly */
+    align-items: center; /* Center elements vertically */
+    padding: 20px;
+}
+
+/* Pop-up section */
+
+/* Place Pop-up section with the Task-list section */
+.pop-up.parent {
+    position: fixed;
+    align-items: center;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 80%);
+
+     /* display: none;  Initially hide section-2,uncomment the code in js development */
+    border: 0 solid var(--color3); /* Fix redundant top border in pop-up section */
+    font-weight: bolder;
+    justify-content: center;
+}
+
+.pop-up {
+    width: 100%; /* Adjust width as needed */
+    max-width: 450px; /* Set maximum width */
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #3F66D2;
+    position: fixed;
+    top:0;
+    right:0;
+    z-index: 3;
+}
+
+/* Pop-up top subsection */
+
+.pop-up-top {
+    display: flex;
+    align-items: start;
+    padding: 10px 20px 0;
+}
+
+#close-pop-up {
+    margin-left: auto; /* Push the close button to the right */
+    font-size: xx-large;
+    color: #E59F9F;
+    background-color: transparent;
+    border: transparent;
+}
+
+#close-pop-up:hover{
+    color: #fa5353;
+}
+
+/* Pop-up middle subsection */
+
+.pop-up-middle {
+    padding: 0 0 0 20px;
+}
+
+#task-title{
+    font-family: Arial, sans-serif;
+    font-size: large;
+    font-style: normal;
+    font-weight: bold;
+}
+
+#task-title,
+#task-desc {
+    margin: 0;
+    padding: 10px 0;
+    color: #3F66D2;
+}
+
+#task-desc {
+    opacity: 0.5;
+    font-style: italic;
+    font-weight: lighter;
+    font-size: small;
+}
+
+#title-text {
+    border-radius: 10px;
+    background-color: var(--color4);
+    border: none;
+    width: 95%;
+    height: 30px;
+}
+
+#desc-text {
+    border-radius: 5px;
+    background-color: var(--color4);
+    border: none;
+    resize: none;
+    width: 95%;
+}
+
+/* Pop-up bottom subsection */
+.pop-up-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#confirm {
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #DFBDE4;
+    background-color: #F2E5FB;
+    font-weight: bolder;
+}
+
+#confirm:hover{
+    background-color: rgb(235 209 252);
+    color: white;
+}
+
+/* Overlay for blurring the background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 10%);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    display: none; /* Initially hidden */
+}
+
+/* Show overlay when active */
+.overlay.active {
+    display: block;
+}
+
+
+
+/* Media query for smaller screens */
+/* stylelint-disable-next-line media-feature-range-notation */
+@media screen and (max-width: 1024px) {
+    .task-list.parent{
+        top: 0%;
+        width: 95%;
+        vertical-align: middle;
+    }
+
+    .task-list.child{
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #date{
+        font-size: x-large;
+    }
+
+    .task-list-middle {
+        overflow-y: auto;
+        border: 1px solid white;
+        max-height: 320px;
+        font-size:small;
+    }
+
+
+    .pop-up.parent{
+        width: 80%;
+    }
+
+    #task-title{
+        font-size: large;
+    }
+
+    #task-desc {
+        font-size: small;
+    }
+
+    #title-text, 
+    #desc-text{
+        width: 93%;
+    }
+}
+
+/* for mobile shorter than 400px wide */
+/* stylelint-disable media-feature-range-notation */
+@media screen and (max-width: 400px) {
+    .task-list.parent {
+        top: -9%;
+        width: 95%;
+        vertical-align: middle;
+    }
+}
+
+/* Media query to account for turning mobile phones horizontally */
+@media screen and (max-height: 450px){
+    /* Centers task-list in the center of horizontal screen */
+    .task-list.parent {
+        top: -15%;
+    }
+
+    .task-list {
+        max-width: 550px; /* Set maximum width */
+        min-height: 250px;
+    }
+
+    /* Add button will not be pushed off of the screen */
+    .task-list.child {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .task-list-middle {
+        height: 5rem;
+    }
+
+    /* Center pop-up within the task-list */
+    .pop-up {
+        top: -200%;
+    }
+
+    .pop-up.child {
+        height: 215px;
+        top: -140%;
+    }
+
+    .pop-up-top {
+        height: 5px;
+    }
+
+    .pop-up-middle {
+        height: 135px;
+    }
+
+    /* Changes text-size to account for smaller pop-up and task-list */
+    #close-pop-up {
+        font-size: x-large;
+    }
+
+    #task-title {
+        font-size: medium;
+    }
+
+    #task-desc{
+        max-height: 20px;
+    }
+
+    #desc-text {
+        max-height: 40px;
+    }
+
+    #confirm {
+        font-size: 0.75rem;
+    }
+
+}
+
+/* /*use this to adjust for computer screen of width of 1024px
+@media screen and (min-width: 1020px) and (max-width: 1024px) and (orientation:landscape){
+    .task-list.parent{
+        top: 10%;
+    }
+    .task-list {
+        max-width: 550px; /* Set maximum width 
+        min-height: 350px;
+    }
+
+    .task-list.parent {
+        margin-top: -5%;/*adjust the position of task-list
+    }
+    /* Add button will not be pushed off of the screen 
+    .task-list.child {
+     
+        display: flex;
+        flex-direction: column;
+    }
+    .pop-up.parent{
+        width: 50%;
+        min-height: 50px;
+    }
+    .pop-up {
+        top: -11%;
+        right:0;
+    }
+    #title-text {
+        height: 25px;
+    }
+    #desc-text {
+        height: 40px;
+    }
+}
+
+/* stylelint-disable-next-line media-feature-range-notation 
+@media screen and (min-width: 701px) and (max-width: 1020px) and (orientation:landscape){
+    .task-list.parent{
+        top: 10%;
+    }
+    .task-list {
+        max-width: 550px; /* Set maximum width 
+    }
+    /* Add button will not be pushed off of the screen 
+    .task-list.child {
+        display: flex;
+        flex-direction: column;
+    }
+    .pop-up.parent{
+        width: 50%;
+        min-height: 50px;
+    }
+    .pop-up {
+        top: -11%;
+        right:0;
+    }
+    #title-text {
+        height: 25px;
+    }
+    #desc-text {
+        height: 40px;
+    }
+}
+*/
