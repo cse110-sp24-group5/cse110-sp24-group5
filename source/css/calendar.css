@@ -377,14 +377,14 @@ img {
     }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 400px) {
     .tasks-count{
         border: 0 solid var(--task-count-display-color);
         height: 1.5rem;
         border-radius: 10%;
         padding-left: 0.5em;
         padding-bottom: 2.5em;
-        bottom: 3.2vh;
+        bottom: 3vh;
         font-size: 6px;
     }
 }
