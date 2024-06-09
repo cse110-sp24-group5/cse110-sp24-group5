@@ -20,14 +20,14 @@ html {
 }
 
 .head-text {
-    position: absolute; /* Absolute positioning */
-    bottom: 0; /* Aligns to the bottom of the page */
-    left: 50%; /* Positions the left side at the center */
+    position: absolute; 
+    top: 0; /* Aligns to the top of the page */
+    left: 50%; 
     transform: translateX(-50%); 
     text-align: center; /* Centers text inside the element */
     width: 100%;
     font-family: Montserrat, sans-serif; 
-    z-index: -1000; 
+    z-index: 1000; /* Adjust z-index if needed */
     font-size: large;
 }
 
@@ -411,7 +411,6 @@ img {
     }
 
     .calendar {
-        margin-top: 5px;
         min-width: 95vw; /* scales the width of the calander as the screen size decreases */
      }
 
@@ -451,7 +450,6 @@ img {
     }
 
     .calendar {
-        margin-top: 5px;
         min-width: 95vw; /* scales the width of the calander as the screen size decreases */
      }
      
@@ -467,10 +465,10 @@ img {
 @media screen and (min-width: 1001px) and (max-width: 1024px){
     .head-text {
         position: absolute; /* Absolute positioning */
-        bottom: 0; /* Aligns to the bottom of the page */
-        left: 50%; /* Positions the left side at the center */
+        top: 0; /* Aligns to the bottom of the page */
+        left: 50%; 
         transform: translateX(-50%); 
-        text-align: center; /* Centers text inside the element */
+        text-align: center; 
         width: 100%;
         font-family: Montserrat, sans-serif; 
         z-index: -1000; 
@@ -500,7 +498,6 @@ img {
     .calendar {
         margin-top: 5px;
         min-width: 95vw; /* scales the width of the calander as the screen size decreases */
-        padding-top: 150px;
      }
 
     .days {
