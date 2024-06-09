@@ -163,6 +163,7 @@ To help developers quickly navigate through our features, we included keyboard s
 - **Calendar Shortcuts**:
     * Choosing a date: `DD`
     * Choosing a month and year: `MM/YYYY`
+    * Adding a task: `a`
     * Deleting a task: `taskname d`
     * Editing a task: `taskname e`
 
