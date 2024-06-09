@@ -50,6 +50,7 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
       - [E2E Tests](#E2E-tests)
 - [Agile Concepts](#agile-concepts)
 - [Application of the -ilities](#application-of-the--ilities)
+- [Next Steps](#nest-steps)
 - [Resources](#resources)
 
 ## Introduction
@@ -105,6 +106,8 @@ To use our PWA, simply visit our WebApp and click the "Install" or "Add to Home 
 ### 2. Calendar
 
 The calendar feature provides a comprehensive view of tasks and events, allowing developers to efficiently manage their schedules and stay organized.
+
+![calendar-demo.gif](source/img/calendar-demo.gif)
 
 - **Task Viewing**: By clicking on a specific day, users can view the task list associated with that date. The number of tasks for a given date is visually displayed on the calendar page, providing an at-a-glance overview of workload distribution. Tasks are retrieved from localStorage, ensuring data persistence across sessions.
 
@@ -298,6 +301,13 @@ Each ADR captures:
 - Markdown Editor Accessibility: The integration of a markdown editor in our Developer Journal feature enhances accessibility for users with diverse needs. Markdown's simplicity and plain-text nature make it easier to navigate and comprehend content using assistive technologies, such as screen readers or text-to-speech software.
 
 By addressing these '-ilities', we strive to deliver a high-quality software solution that meets the needs of developers while ensuring a seamless, reliable, and accessible user experience. Our commitment to usability, maintainability, scalability, reliability, and accessibility is reflected throughout the application's design and implementation.
+
+## Next Steps
+
+1. **Adding more keyboard shortcuts**: Currently, we offer a couple of keyboard shortcuts to assist with user accessibility. We hope to implement a larger variety of shortcuts however, moving forward, so that our application can be fully utilized without the use of a mouse or trackpad. 
+3. **Daily and weekly calendar view**: Currently, we only offer a monthly calendar view. Moving forward, we hope to create a daily and weekly calendar view so that users have more opportunities to better organize and plan their tasks.
+4. **Summary of the task-list on the homepage**: Currently, we only have clickable icons on the homepage which are used to access different features within our web development journal. Moving forward, we hope to add a task-list summary to the homepage so that upon opening our application, users are given a better idea of what they need to address or complete for the current day. 
+
 ## Resources
 
 1. Video links:
