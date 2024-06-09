@@ -276,14 +276,16 @@ img {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
     }
+
     .days {
         font-size: smaller;
+
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 10vh); /* before was 6 */
     }
 
     .tasks-count{
-        border: 0px solid var(--task-count-display-color);
+        border: 0 solid var(--task-count-display-color);
         height: 1.5rem;
         box-sizing: border-box; /* Include padding in width calculation */
         border-radius: 10%;
@@ -293,20 +295,19 @@ img {
         font-size: xx-small;
     }
 }
+
 /* handle smaller screens sizing with fonts */
-/* stylelint-disable-next-line media-feature-range-notation */
-
 @media screen and (max-width: 766px) {
-
     .back-element {
         position: absolute;
-        top: 0rem;
+        top: 0;
         left: -10px;
     }
     
     .back-element p {
        font-size: x-small;
     }
+
     .header {
         line-height: 3rem;}
 
@@ -357,14 +358,16 @@ img {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
     }
+
     .days {
         font-size: smaller;
+
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
     }
 
     .tasks-count{
-        border: 0px solid var(--task-count-display-color);
+        border: 0 solid var(--task-count-display-color);
         height: 1rem;
         border-radius: 10%;
         padding-left: 0.5em;
@@ -376,7 +379,7 @@ img {
 
 @media screen and (max-width: 300px) {
     .tasks-count{
-        border: 0px solid var(--task-count-display-color);
+        border: 0 solid var(--task-count-display-color);
         height: 1.5rem;
         border-radius: 10%;
         padding-left: 0.5em;
@@ -414,9 +417,9 @@ img {
 
     .tasks-count{
         background-color: none;
-        border: 0px;
+        border: 0;
         height: 1.5rem;
-        left: 0rem;
+        left: 0;
         border-radius: 10%;
         padding-left: 0.5em;
         padding-right: 6em;
@@ -427,7 +430,6 @@ img {
 }
 
 @media screen and  (max-width: 1025px) and (orientation:landscape){
-
     .back-element {
         position: fixed;
         top: -10px;
@@ -455,6 +457,7 @@ img {
      
      .days {
         font-size: small;
+
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
     }
@@ -516,21 +519,20 @@ img {
 }
 
 @media screen and (max-width: 1000px) and (orientation: landscape) {
-
     .back-element {
         position: fixed;
         top:-20px;
-        left: 0px;
+        left: 0;
         margin-bottom: 0;
     }
 
     .tasks-count{
-        border: 0px solid var(--task-count-display-color);
-        border: 0px;
+        border: 0 solid var(--task-count-display-color);
+        border: 0;
         left: 1.2rem;
         border-radius: 14%;
         padding-left: 0.5em;
-        padding-right: 0em;
+        padding-right: 0;
         padding-bottom: 2.5em;
         bottom: 1.3vh;
         font-size: xx-small;
@@ -538,6 +540,7 @@ img {
 
     .days {
         font-size: small;
+
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 10vh); /* before was 6 */
     }
