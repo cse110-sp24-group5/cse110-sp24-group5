@@ -11,7 +11,7 @@ describe('Task list test suite', () => {
             deviceScaleFactor: 1,
         });
 
-        //await page.goto('http://127.0.0.1:5500/cse110-sp24-group5/source/html/calendar.html'); // test locally
+        //await page.goto('http://127.0.0.1:5501/source/html/calendar.html'); // test locally
         await page.goto('https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/calendar.html');
     });
 

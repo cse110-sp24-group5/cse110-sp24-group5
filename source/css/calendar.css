@@ -1,3 +1,5 @@
+/* stylelint-disable media-feature-range-notation */
+
 /* has colors taken from figma */
 :root {
     --border-color: #C1D6FF;
@@ -215,7 +217,8 @@ img {
     margin: auto;
     color: var(--dashboard-color);
 }
-@media screen and (max-width: 1000px) {
+
+@media screen and (max-width: 1000px) { 
     .back-element {
         position: absolute;
         top: 0;
@@ -229,6 +232,7 @@ img {
     .calendar {
        margin: 0;
        min-width: 99vw; /* scales the width of the calander as the screen size decreases */
+       padding-top: 60px;
     }
 
 
@@ -453,6 +457,61 @@ img {
         font-size: small;
         /* adjusted space between the rows */
         grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
+    }
+}
+
+/* Styling for screens between the widths of 1001px and 1024px */
+@media screen and (min-width: 1001px) and (max-width: 1024px){
+    .head-text {
+        position: absolute; /* Absolute positioning */
+        bottom: 0; /* Aligns to the bottom of the page */
+        left: 50%; /* Positions the left side at the center */
+        transform: translateX(-50%); 
+        text-align: center; /* Centers text inside the element */
+        width: 100%;
+        font-family: Montserrat, sans-serif; 
+        z-index: -1000; 
+        font-size: xx-small;
+    }
+
+    .back-element {
+        position: absolute;
+        top: -10px;
+        left: -5px;
+        margin-bottom: 0;
+    }
+
+    .back-element img {
+        height:5px;
+        width:5px;
+    }
+
+    .back-element p {
+        font-size : x-small;
+    }
+
+    .header {
+        line-height: 2rem;
+    }
+
+    .calendar {
+        margin-top: 5px;
+        min-width: 95vw; /* scales the width of the calander as the screen size decreases */
+        padding-top: 150px;
+     }
+
+    .days {
+        font-size: small;
+
+        /* adjusted space between the rows */
+        grid-template-rows: repeat(var(--number-of-rows), 11vh); /* before was 6 */
+    }
+}
+
+/* Puts calendar in the middle of the screen for mobile phones oriented horizontally */
+@media screen and (max-height: 460px) {
+    .calendar {
+        padding: 8%;
     }
 }
 

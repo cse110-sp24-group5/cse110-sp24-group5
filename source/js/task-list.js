@@ -3,25 +3,29 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
+    const taskList = document.querySelector('.task-list.parent'); // Find the task list container
+    const closeTaskList = document.getElementById('close-task-list'); // Close button for the task list pop-up
     const popUp = document.querySelector('.pop-up.parent'); // Pop-up element
-    const overlay = document.querySelector('.overlay'); // Overlay element
     const closePopUp = document.getElementById('close-pop-up'); // Close pop-up button
     const addTaskButton = document.getElementById('add'); // Add task button
     const confirmButton = document.getElementById('confirm'); // Confirm button
     const titleInput = document.getElementById('title-text'); // Title text input
     const descriptionInput = document.getElementById('desc-text'); // Description text input
-    const closeButton = document.getElementById('close-task-list');
+
     let isDuplicate = false; // Variable to track whether there exists a duplicate entry
     let editMode = false; // Variable to track whether the pop-up is in edit mode
     let editedTaskTitle; // Stores the title of the task being edited
     let deletedTaskTitle; // Stores the title of the task being deleted
     let isSaved = false; // Flag to track if there are unsaved changes
-    
+
+    const overlay = createOverlay(); // Create overlay for the task list pop-up
+    document.body.appendChild(overlay); // Append the overlay to the body
+
     /**
      * Handles clicking the add task button by blurring the screen via showPopUp and clearing previous input from the pop-up!
      */
     function handleAddTaskButtonClick(){
-        showPopUp(popUp, overlay);
+        showPopUp(popUp);
         // Reset text input values
         clearInputs(titleInput, descriptionInput);
         // Set focus on task title text input
@@ -38,20 +42,19 @@ function init() {
         if (isSaved) {
             const confirmClose = confirm("You have unsaved changes. Are you sure you want to close?");
             if (confirmClose) {
-                hidePopUp(popUp, overlay);
+                hidePopUp(popUp);
                 clearInputs(titleInput, descriptionInput);       
                 isSaved = false;
             }
         } else {
-            hidePopUp(popUp, overlay);
+            hidePopUp(popUp);
         }
     });
 
-
-    // Event listener for the "Confirm" button in the pop-up
-    confirmButton.addEventListener('click', handleConfirmButtonClick);
-
-    closeButton.addEventListener('click', () => {
+    /**
+     * function to handle when task list is closed
+     */
+    function handleCloseTaskList() {      
         const dateElement = document.getElementById('date');
         const dateText = dateElement.textContent;
         const totalUpdatedTaskNum = getTasksForDate(dateText);
@@ -71,11 +74,16 @@ function init() {
             }
         }
 
-        location.reload();
+        hideTaskList(taskList); // Close the task list pop-up when the close button is clicked
 
-      
-        
-    });
+        const dateObject = new Date(dateText);
+        console.log(dateObject);
+        renderCalendar(dateObject);  
+        trackDays(dateObject);      
+    }
+
+    // Event listener for the "Close" button in the task-list
+    closeTaskList.addEventListener('click', handleCloseTaskList);
 
     // Event listener for input changes to set isSaved flag
     [titleInput, descriptionInput].forEach(input => {
@@ -157,7 +165,7 @@ function init() {
         
         if (!isDuplicate) {
             // Hide the pop-up
-            hidePopUp(popUp, overlay);
+            hidePopUp(popUp);
             
             // Clear the inputs for the next task
             clearInputs(titleInput, descriptionInput);
@@ -189,7 +197,7 @@ function init() {
         descriptionInput.value = task.descText;
 
         // Show the pop-up
-        showPopUp(popUp, overlay);
+        showPopUp(popUp);
 
         // Set focus on task title text input
         titleInput.focus();
@@ -248,13 +256,22 @@ function init() {
  * Function to add event listeners to each day element in the calendar.
  */
 function trackDays() {
+    const taskList = document.querySelector('.task-list.parent'); // Find the task list container
     const days = document.querySelectorAll('.days li');
-    days.forEach(day => {
+    days.forEach((day) => {
         day.addEventListener('click', () => {
-            const dateElement = document.getElementById('date');
+            const clickedDateText = getDateTextFromDate(day);
             // Construct a unique key for localStorage based on the selected date
-            const dateText = dateElement.textContent;
-            addTaskForDate(dateText);
+            addTaskForDate(clickedDateText);
+            showTaskList(clickedDateText, taskList);
+        });
+        day.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const clickedDateText = getDateTextFromDate(day);
+                // Construct a unique key for localStorage based on the selected date
+                addTaskForDate(clickedDateText);
+                showTaskList(clickedDateText, taskList);
+            }
         });
     });
 }
@@ -305,6 +322,7 @@ function getTasksForDate(date) {
     const tasksObj = loadTasksFromStorage();
     tasksObj[date] = tasks;
     localStorage.setItem('tasks', JSON.stringify(tasksObj));
+    console.log(tasksObj);
 }
 
 /**
@@ -319,9 +337,9 @@ function clearInputs(titleInput, descriptionInput) {
 
 /**
      * Function to populate task-list with tasks for a given date
-     * @param {string} dateText - The date for which to populate tasks for
+     * @param {string} clickedDateText - The date for which to populate tasks for
      */
-function addTaskForDate(dateText) {
+function addTaskForDate(clickedDateText) {
 
     // Get the task list ul element
     const taskList = document.querySelector('.task-list-ul');
@@ -330,7 +348,7 @@ function addTaskForDate(dateText) {
     taskList.innerHTML = '';
 
     // Get tasks for the specified date
-    const dailyTasks = getTasksForDate(dateText);
+    const dailyTasks = getTasksForDate(clickedDateText);
 
     // Check if tasks exist for the date
     if (dailyTasks && dailyTasks.length > 0) {
@@ -394,38 +412,96 @@ function addTaskForDate(dateText) {
 
 /**
  * Function to show the overlay
- * @param {HTMLElement} overlay - HTMLElement referencing the overylay that blurs the screen
  */
- function showPopUpOverlay(overlay) {
+ function showPopUpOverlay() {
+    const overlay = document.querySelector('.overlay'); // Find the overlay element
     overlay.style.zIndex = '2'; //set the z index to be on the same level as the task-list so that the task-list is blurred and inaccessible when editing/adding a task
 }
 
 /**
  * Function to hide the overlay
- * @param {HTMLElement} overlay - HTMLElment referencing the overlay that blurs the screen
  */
- function hidePopUpOverlay(overlay) {
+ function hidePopUpOverlay() {
+    const overlay = document.querySelector('.overlay'); // Find the overlay element
     overlay.style.zIndex = '1'; //set the z index to be on the same level as the calendar so that the calendar is blurred and inaccessible when viewing the task-list
 }
 
 /**
  * Function to show the pop-up
  * @param {HTMLElement} popUp - HTMLElement referencing the pop-up window
- * @param {HTMLElement} overlay - HTMLElment referencing the overlay that blurs the screen
  */
-function showPopUp(popUp, overlay) {
-    showPopUpOverlay(overlay);
+function showPopUp(popUp) {
+    showPopUpOverlay();
     popUp.classList.remove('hidden');
 }
 
 /**
  * Function to hide the pop-up
  * @param {HTMLElement} popUp - HTMLElement referencing the pop-up window
- * @param {HTMLElement} overlay - HTMLElment referencing the overlay that blurs the screen
  */
-function hidePopUp(popUp, overlay) {
-    hidePopUpOverlay(overlay);
+function hidePopUp(popUp) {
+    hidePopUpOverlay();
     popUp.classList.add('hidden');
-    const closeTaskList = document.getElementById('close-task-list'); // Close button for the task list pop-up
-    closeTaskList.focus(); // Set focus on close task-list button
+}
+ 
+/**
+* Show the task list pop-up
+* @param {HTMLElement} taskList - HTMLElement referencing the task-list window
+* @param {string} clickedDateText - Date of the clicked day in string format
+*/
+function showTaskList(clickedDateText, taskList) {
+    showTaskListOverlay(); // Show the overlay
+    taskList.classList.remove('hidden'); // Show the task list pop-up
+    const dateElement = document.getElementById('date');
+    dateElement.textContent = clickedDateText;
+}
+ 
+/**
+* Hide the task list pop-up
+* @param {HTMLElement} taskList - HTMLElement referencing the task-list window
+*/
+function hideTaskList(taskList) {
+    hideTaskListOverlay(); // Hide the overlay
+    taskList.classList.add('hidden'); // Hide the task list pop-up
+}
+ 
+/**
+* Show the overlay
+*/
+function showTaskListOverlay() {
+    const overlay = document.querySelector('.overlay'); // Find the overlay element
+    overlay.classList.add('active'); // Add 'active' class to show the overlay
+}
+ 
+/**
+* Hide the overlay
+*/
+function hideTaskListOverlay() {
+    const overlay = document.querySelector('.overlay'); // Find the overlay element
+    overlay.classList.remove('active'); // Remove 'active' class to hide the overlay
+}
+
+/**
+* Create the overlay element
+* @returns {HTMLElement} - The overlay element.
+*/
+function createOverlay() {
+   const overlayDiv = document.createElement('div'); // Create a div element for the overlay
+   overlayDiv.classList.add('overlay'); // Add class to style the overlay
+   return overlayDiv;
+}
+
+/**
+* Gets the 
+* @param {Element} day - triggered day element in the calendar days array
+* @returns {string} - The string representation of the date of the clicked day
+*/
+function getDateTextFromDate(day) {
+    const monthYearText = document.querySelector('.month-year').textContent; // Current month and year header text
+    let selectedDay = document.querySelector('.selected').textContent.trim(); // Day clicked text
+    if (selectedDay.startsWith('0')) {
+        selectedDay = selectedDay.substring(1); // Remove the leading zero if single digit
+    }
+    const monthDayYearText = `${monthYearText.split(' ')[0]} ${selectedDay}, ${monthYearText.split(' ')[1]}`; // Extract month and year separately and rearrange them
+    return monthDayYearText;
 }
