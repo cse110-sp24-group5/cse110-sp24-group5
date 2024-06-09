@@ -50,7 +50,7 @@ Visit the [team page](https://cse110-sp24-group5.github.io/cse110-sp24-group5/ad
       - [E2E Tests](#E2E-tests)
 - [Agile Concepts](#agile-concepts)
 - [Application of the -ilities](#application-of-the--ilities)
-- [Next Steps](#nest-steps)
+- [Next Steps](#next-steps)
 - [Resources](#resources)
 
 ## Introduction
