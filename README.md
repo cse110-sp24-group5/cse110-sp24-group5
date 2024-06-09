@@ -1,7 +1,9 @@
 # CSE110 SP24 Group 5
 
+
 ### Click on our logo to see our WebApp!
 [![banner.png](source/img/banner.png)](https://cse110-sp24-group5.github.io/cse110-sp24-group5/source/html/index.html)
+
 
 ![HTML](https://img.shields.io/badge/HTML-5E5C5C?style=for-the-badge&logo=html5)
 ![CSS](https://img.shields.io/badge/CSS-5E5C5C?style=for-the-badge&logo=css3)
