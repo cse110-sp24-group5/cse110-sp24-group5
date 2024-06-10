@@ -254,10 +254,12 @@ Sprints dictate  our development  where we transform user stories into working s
 5. **Sprint Review**: A meeting done at the end of each sprint, held to discuss what was accomplished in our sprint and our individual contributions.
     * [Sprint Review #1](admin/meetings/042724.sprint-1-review.md)
     * [Sprint Review #2](admin/meetings/052324-2nd-Sprint-Meeting.md)
+    * [Sprint Review #3](admin/meetings/060624-3rd-Sprint-Meeting.md)
    
 6. **Retrospective**: A meeting held after the sprint review used to reflect our previous sprint and discuss the high level issues of what went right and wrong. 
     * [Retrospective meeting #1](admin/meetings/042724-retrospective.md)
     * [Retrospective meeting #2](admin/meetings/052324-2nd-Retrospective.md)
+    * [Restrospective meeting #3](admin/meetings/060624-3rd-Retrospective.md)
 
 7. **Burn Down Chart**: In order to keep track of our progress throughout our development process, how much we have accomplished, and how much more we need to accomplish, we utilized GitHub Projects' project tracker.
 ![project-tracker-1](source/img/project-tracker-1.png)
