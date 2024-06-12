@@ -75,9 +75,7 @@ To install and run the project locally, follow these steps:
    
         npm install
    
-5. Once the installation is complete, you can start the development server with:
-
-        npm start
+5. Once the installation is complete, you can start the development server
 
 ### 2. Using the WebApp
 
