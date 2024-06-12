@@ -14,6 +14,8 @@
 
 Welcome to the repository for CSE110 SP24 Group 5's project! This document will guide you through the various features of our application, provide links to essential resources, and outline our project’s current status. <br>
 
+Youtube video demo: https://www.youtube.com/watch?v=Pl39_WWM2oQ&ab_channel=HaleyNguyen 
+
 ## Team Members
 
 - Drishti Regmi
